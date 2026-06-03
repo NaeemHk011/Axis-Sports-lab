@@ -34,9 +34,9 @@ const MembershipCheckout2DaysWeek = () => (
 
             <div className="mt-6 w-full overflow-hidden rounded-xl">
               <iframe
-                src="https://link.eyecanathletics.com/widget/form/uTl4ICE6Prf2Z9FWuMRt"
-                style={{ width: "100%", height: "2884px", border: "none", borderRadius: "3px" }}
-                id="inline-uTl4ICE6Prf2Z9FWuMRt"
+                src="https://link.webtechs.dev/widget/form/zKpIr1VtgtuYWF0qivHO"
+                style={{ width: "100%", height: "1680px", border: "none", borderRadius: "3px" }}
+                id="inline-zKpIr1VtgtuYWF0qivHO"
                 data-layout="{'id':'INLINE'}"
                 data-trigger-type="alwaysShow"
                 data-trigger-value=""
@@ -44,11 +44,11 @@ const MembershipCheckout2DaysWeek = () => (
                 data-activation-value=""
                 data-deactivation-type="neverDeactivate"
                 data-deactivation-value=""
-                data-form-name="Membership Subscription Form - (2 Days / Week)"
-                data-height="2884"
-                data-layout-iframe-id="inline-uTl4ICE6Prf2Z9FWuMRt"
-                data-form-id="uTl4ICE6Prf2Z9FWuMRt"
-                title="Membership Subscription Form - (2 Days / Week)"
+                data-form-name="Membership Subscription Form  - (2 Days / Week)"
+                data-height="1680"
+                data-layout-iframe-id="inline-zKpIr1VtgtuYWF0qivHO"
+                data-form-id="zKpIr1VtgtuYWF0qivHO"
+                title="Membership Subscription Form  - (2 Days / Week)"
               />
             </div>
           </div>

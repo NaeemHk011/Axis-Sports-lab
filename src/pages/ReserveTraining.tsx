@@ -24,10 +24,10 @@ const ReserveTraining = () => (
 
             <div className="mt-6 w-full rounded-xl overflow-hidden" style={{ background: "#0a0a0a" }}>
               <iframe
-                src="https://link.eyecanathletics.com/widget/group/XLZ2jWVK1IM8NU2l6WnR"
-                style={{ width: "100%", height: "1500px", border: "none", display: "block", background: "#0a0a0a" }}
+                src="https://link.webtechs.dev/widget/group/hlhLeM5na422btQnB3B5"
+                style={{ width: "100%", height: "1200px", border: "none" }}
                 scrolling="yes"
-                id="XLZ2jWVK1IM8NU2l6WnR_1778688330308"
+                id="hlhLeM5na422btQnB3B5_1780503100353"
                 title="Basketball Skills Training Class"
               />
             </div>

@@ -59,9 +59,9 @@ const Ebook = () => {
               }}
             >
               <iframe
-                src="https://link.eyecanathletics.com/widget/form/kcPvY3kisI2seMBFnQ9u"
-                style={{ width: "100%", height: "480px", border: "none", display: "block" }}
-                id="inline-kcPvY3kisI2seMBFnQ9u"
+                src="https://link.webtechs.dev/widget/form/l7kCZoH6ydgd3P94w9IP"
+                style={{ width: "100%", height: "432px", border: "none", display: "block", borderRadius: "3px" }}
+                id="inline-l7kCZoH6ydgd3P94w9IP"
                 data-layout="{'id':'INLINE'}"
                 data-trigger-type="alwaysShow"
                 data-trigger-value=""
@@ -69,11 +69,11 @@ const Ebook = () => {
                 data-activation-value=""
                 data-deactivation-type="neverDeactivate"
                 data-deactivation-value=""
-                data-form-name="Ebook Form"
+                data-form-name="Ebook Form "
                 data-height="432"
-                data-layout-iframe-id="inline-kcPvY3kisI2seMBFnQ9u"
-                data-form-id="kcPvY3kisI2seMBFnQ9u"
-                title="Ebook Form"
+                data-layout-iframe-id="inline-l7kCZoH6ydgd3P94w9IP"
+                data-form-id="l7kCZoH6ydgd3P94w9IP"
+                title="Ebook Form "
               />
               {/* Black strips covering GHL white padding on all 4 sides */}
               <div style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 10 }}>

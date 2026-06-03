@@ -26,10 +26,10 @@ const ClubTryouts = () => (
 
             <div className="mt-6 w-full overflow-hidden rounded-xl" style={{ background: "#0a0a0a" }}>
               <iframe
-                src="https://link.eyecanathletics.com/widget/booking/nK9DSDrmvj5Eh58M69UX"
-                style={{ width: "100%", height: "1500px", border: "none", display: "block", background: "#0a0a0a" }}
+                src="https://link.webtechs.dev/widget/booking/WTuKw0hZOdzmx6k2Md6E"
+                style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "800px" }}
                 scrolling="yes"
-                id="7WK0DkBTi6fXeZqVsV42_1778692368692"
+                id="WTuKw0hZOdzmx6k2Md6E_1780506587092"
                 title="Club Team Tryouts"
               />
             </div>

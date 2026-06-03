@@ -26,10 +26,10 @@ const CampScheduler = () => (
 
             <div className="mt-6 w-full overflow-hidden rounded-xl" style={{ background: "#0a0a0a" }}>
               <iframe
-                src="https://link.eyecanathletics.com/widget/group/1tIektlMygztI1gNjjAZ"
-                style={{ width: "100%", height: "1500px", border: "none", display: "block", background: "#0a0a0a" }}
+                src="https://link.webtechs.dev/widget/group/eTfFR5PPgbbpj2eKRyUQ"
+                style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "800px" }}
                 scrolling="yes"
-                id="1tIektlMygztI1gNjjAZ_1778691810843"
+                id="eTfFR5PPgbbpj2eKRyUQ_1780505804743"
                 title="Basketball Skills Camps"
               />
             </div>
