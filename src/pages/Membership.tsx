@@ -176,7 +176,7 @@ const UnlimitedCard = ({ level, price, img, onAddToCart }: { level: string; pric
 );
 
 /* ─── Membership card — 2 Days/Week ─────────────────────────────── */
-const TwoDayCard = ({ level, price, img, slug }: { level: string; price: string; img: string; slug: string }) => (
+const TwoDayCard = ({ level, price, img }: { level: string; price: string; img: string; slug: string }) => (
   <Reveal>
     <div className="relative overflow-hidden rounded-2xl aspect-[4/3] group cursor-pointer shadow-xl">
       <img src={img} alt={level} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"/>
@@ -186,7 +186,7 @@ const TwoDayCard = ({ level, price, img, slug }: { level: string; price: string;
         <h3 className="font-display text-xl uppercase text-white leading-tight">{level}</h3>
         <div className="mt-3 flex items-center justify-between">
           <span className="font-display text-3xl text-white">{price}<span className="text-sm text-white/60 ml-1">/mo</span></span>
-          <CheckoutBtn href={checkoutUrl(slug)} label="Join Now"/>
+          <Link to="/membership-checkout-2days-week" className="btn-red text-xs px-4 py-2">Join Now</Link>
         </div>
       </div>
     </div>
@@ -475,7 +475,7 @@ const Membership = () => {
                 <div className="px-6 py-5 text-xs text-white/30 italic">Starting at</div>
                 <div className="px-6 py-5 text-center">
                   <p className="font-display text-2xl text-white mb-2">$185<span className="text-sm text-white/50">/mo</span></p>
-                  <CheckoutBtn href={checkoutUrl("beginners-2days")} label="Join Now"/>
+                  <Link to="/membership-checkout-2days-week" className="btn-red text-xs px-4 py-2">Join Now</Link>
                 </div>
                 <div className="px-6 py-5 text-center"
                   style={{ background: "rgba(141,187,28,0.05)", borderLeft: "1px solid rgba(141,187,28,0.10)" }}>
