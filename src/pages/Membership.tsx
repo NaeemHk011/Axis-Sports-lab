@@ -1,64 +1,136 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Instagram, Facebook, Twitter, X } from "lucide-react";
+import {
+  ArrowRight, Instagram, Facebook, Twitter, X,
+  Shield, Eye, Video, Fingerprint, Network,
+  Bell, ChevronDown, CheckCircle,
+} from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 
+/* ─── data ──────────────────────────────────────────────────────── */
 const unlimitedMonthly = [
-  { level: "Beginners Skill Level", price: "$385", img: "/pictures/gc-shooting.jpg" },
-  { level: "Intermediate Skill Level", price: "$375", img: "/pictures/gc-skills.jpg" },
-  { level: "Advanced Skill Level", price: "$285", img: "/pictures/gc-camps.jpg" },
+  { level: "Beginners Skill Level",    price: "$385", img: "/pictures/gc-shooting.jpg", slug: "beginners-unlimited"    },
+  { level: "Intermediate Skill Level", price: "$375", img: "/pictures/gc-skills.jpg",   slug: "intermediate-unlimited" },
+  { level: "Advanced Skill Level",     price: "$285", img: "/pictures/gc-camps.jpg",    slug: "advanced-unlimited"     },
 ];
 
 const twoDayWeekly = [
-  { level: "Beginners Skill Level", price: "$185", img: "/pictures/teams-girls.jpg" },
-  { level: "Intermediate Skill Level", price: "$185", img: "/pictures/teams-boys.jpg" },
-  { level: "Advanced Skill Level", price: "$185", img: "/pictures/camps-main.jpg" },
+  { level: "Beginners Skill Level",    price: "$185", img: "/pictures/teams-girls.jpg", slug: "beginners-2days"    },
+  { level: "Intermediate Skill Level", price: "$185", img: "/pictures/teams-boys.jpg",  slug: "intermediate-2days" },
+  { level: "Advanced Skill Level",     price: "$185", img: "/pictures/camps-main.jpg",  slug: "advanced-2days"     },
 ];
 
 const performanceMonthly = [
-  { level: "Intermediate & High School", price: "$150", img: "/pictures/gc-athlete.jpg" },
-  { level: "Elementary", price: "$150", img: "/pictures/athlete-running.jpg" },
+  { level: "Intermediate & High School", price: "$150", img: "/pictures/gc-athlete.jpg"     },
+  { level: "Elementary",                 price: "$150", img: "/pictures/athlete-running.jpg" },
 ];
 
-/* ── Membership Subscription Modal ── */
+const checkoutUrl = (slug: string) => `https://axissportslab.com/checkout?plan=${slug}`;
+
+/* ─── Checkout button with Stripe tooltip ───────────────────────── */
+const CheckoutBtn = ({ href, label }: { href: string; label: string }) => (
+  <div className="relative group/tip">
+    <a href={href} className="btn-red text-xs px-4 py-2 inline-block">
+      {label}
+    </a>
+    <div className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2.5
+                    opacity-0 group-hover/tip:opacity-100 transition-opacity duration-150 z-20">
+      <div className="relative whitespace-nowrap rounded-lg px-3 py-1.5 text-[10px] font-semibold"
+        style={{ background: "#111", border: "1px solid rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.65)" }}>
+        🔒 Secure checkout powered by Stripe
+        <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px h-2 w-2 rotate-45"
+          style={{ background: "#111", borderRight: "1px solid rgba(255,255,255,0.12)", borderBottom: "1px solid rgba(255,255,255,0.12)" }}/>
+      </div>
+    </div>
+  </div>
+);
+
+/* ─── Notify Me Modal ────────────────────────────────────────────── */
+const NotifyModal = ({ plan, onClose }: { plan: string; onClose: () => void }) => {
+  const [email, setEmail] = useState("");
+  const [done,  setDone]  = useState(false);
+  return (
+    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4"
+      style={{ background: "rgba(0,0,0,0.92)" }} onClick={onClose}>
+      <div className="relative w-full max-w-sm rounded-2xl p-7"
+        style={{ background: "#0d0d0d", border: "1px solid rgba(141,187,28,0.30)" }}
+        onClick={e => e.stopPropagation()}>
+
+        <button onClick={onClose}
+          className="absolute top-4 right-4 grid h-7 w-7 place-items-center rounded-full text-white/60 hover:text-white transition-colors"
+          style={{ background: "rgba(255,255,255,0.06)" }}>
+          <X className="h-3.5 w-3.5"/>
+        </button>
+
+        {!done ? (
+          <>
+            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full"
+              style={{ background: "rgba(141,187,28,0.12)", border: "1px solid rgba(141,187,28,0.25)" }}>
+              <Bell className="h-5 w-5" style={{ color: "#8dbb1c" }}/>
+            </div>
+            <h3 className="font-display text-xl uppercase text-white mb-1">Notify Me</h3>
+            <p className="text-sm mb-5 leading-relaxed" style={{ color: "rgba(255,255,255,0.50)" }}>
+              Be the first to know when{" "}
+              <strong className="text-white">{plan}</strong> becomes available.
+            </p>
+            <input
+              type="email" value={email} onChange={e => setEmail(e.target.value)}
+              placeholder="your@email.com"
+              className="w-full rounded-xl border px-4 py-3 text-sm mb-3"
+              style={{ background: "rgba(255,255,255,0.05)", borderColor: "rgba(255,255,255,0.10)", color: "#fff", outline: "none" }}
+              onFocus={e => (e.target.style.borderColor = "rgba(141,187,28,0.55)")}
+              onBlur={e  => (e.target.style.borderColor = "rgba(255,255,255,0.10)")}
+            />
+            <button
+              onClick={() => email && setDone(true)}
+              disabled={!email}
+              className="w-full rounded-xl py-3 font-display text-base uppercase tracking-wider transition-all"
+              style={{
+                background: email ? "#8dbb1c" : "rgba(255,255,255,0.06)",
+                color:      email ? "#0a0a0a" : "rgba(255,255,255,0.22)",
+                cursor:     email ? "pointer"  : "not-allowed",
+              }}>
+              Notify Me When Available
+            </button>
+          </>
+        ) : (
+          <div className="text-center py-4">
+            <CheckCircle className="h-10 w-10 mx-auto mb-3" style={{ color: "#8dbb1c" }}/>
+            <h3 className="font-display text-xl uppercase text-white mb-2">You're on the list!</h3>
+            <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.50)" }}>
+              We'll email{" "}
+              <span style={{ color: "#8dbb1c" }}>{email}</span>{" "}
+              as soon as this package launches.
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+/* ─── Membership Subscription Modal ─────────────────────────────── */
 const MembershipModal = ({ onClose }: { onClose: () => void }) => (
-  <div
-    className="fixed inset-0 z-[200] flex items-center justify-center p-4"
-    style={{ background: "rgba(0,0,0,0.96)" }}
-    onClick={onClose}
-  >
-    <div
-      className="relative w-full max-w-2xl"
+  <div className="fixed inset-0 z-[200] flex items-center justify-center p-4"
+    style={{ background: "rgba(0,0,0,0.96)" }} onClick={onClose}>
+    <div className="relative w-full max-w-2xl"
       style={{ maxHeight: "90vh", display: "flex", flexDirection: "column" }}
-      onClick={(e) => e.stopPropagation()}
-    >
-      {/* Modal header */}
-      <div
-        className="flex items-center justify-between px-5 py-4 shrink-0"
-        style={{
-          background: "#0a0a0a",
-          border: "1px solid rgba(141,187,28,0.3)",
-          borderBottom: "none",
-          borderRadius: "1rem 1rem 0 0",
-        }}
-      >
+      onClick={e => e.stopPropagation()}>
+      <div className="flex items-center justify-between px-5 py-4 shrink-0"
+        style={{ background: "#0a0a0a", border: "1px solid rgba(141,187,28,0.3)", borderBottom: "none", borderRadius: "1rem 1rem 0 0" }}>
         <h3 className="font-display text-xl uppercase text-white">Membership Subscription</h3>
-        <button
-          onClick={onClose}
+        <button onClick={onClose}
           className="grid h-8 w-8 place-items-center rounded-full text-white/60 hover:text-white transition-colors"
-          style={{ background: "rgba(255,255,255,0.06)" }}
-        >
-          <X className="h-4 w-4" />
+          style={{ background: "rgba(255,255,255,0.06)" }}>
+          <X className="h-4 w-4"/>
         </button>
       </div>
-      {/* Modal body wrapper — strips fixed here, scroll inside */}
       <div style={{ position: "relative", border: "1px solid rgba(141,187,28,0.3)", borderTop: "none", borderRadius: "0 0 1rem 1rem", overflow: "hidden" }}>
-        {/* Scrollable area */}
         <div className="overflow-y-auto" style={{ background: "#0a0a0a", maxHeight: "calc(90vh - 60px)" }}>
           <iframe
             src="https://link.webtechs.dev/widget/form/glFK27QcYnexZFOH0nhv"
-            style={{ width: "100%", height: "1565px", border: "none", display: "block", borderRadius: "0px" }}
+            style={{ width: "100%", height: "1565px", border: "none", display: "block" }}
             id="inline-glFK27QcYnexZFOH0nhv"
             data-layout="{'id':'INLINE'}"
             data-trigger-type="alwaysShow"
@@ -71,67 +143,67 @@ const MembershipModal = ({ onClose }: { onClose: () => void }) => (
             data-height="1565"
             data-layout-iframe-id="inline-glFK27QcYnexZFOH0nhv"
             data-form-id="glFK27QcYnexZFOH0nhv"
-            title="Membership Subscription Form "
+            title="Membership Subscription Form"
           />
         </div>
-        {/* Strips — stay fixed over the viewport, don't scroll */}
         <div style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 10 }}>
-          <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "10px", background: "#0a0a0a" }} />
-          <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "10px", background: "#0a0a0a" }} />
-          <div style={{ position: "absolute", top: 0, bottom: 0, left: 0, width: "20px", background: "#0a0a0a" }} />
-          <div style={{ position: "absolute", top: 0, bottom: 0, right: 0, width: "20px", background: "#0a0a0a" }} />
+          <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "10px", background: "#0a0a0a" }}/>
+          <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "10px", background: "#0a0a0a" }}/>
+          <div style={{ position: "absolute", top: 0, bottom: 0, left: 0, width: "20px", background: "#0a0a0a" }}/>
+          <div style={{ position: "absolute", top: 0, bottom: 0, right: 0, width: "20px", background: "#0a0a0a" }}/>
         </div>
       </div>
     </div>
   </div>
 );
 
-/* ── Section 1: Unlimited Monthly Card ── */
+/* ─── Membership card — Unlimited ───────────────────────────────── */
 const UnlimitedCard = ({ level, price, img, onAddToCart }: { level: string; price: string; img: string; onAddToCart: () => void }) => (
   <Reveal>
     <div className="relative overflow-hidden rounded-2xl aspect-[4/3] group cursor-pointer shadow-xl">
-      <img src={img} alt={level} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
+      <img src={img} alt={level} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"/>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"/>
       <div className="absolute inset-0 flex flex-col justify-end p-5">
         <p className="text-xs font-semibold uppercase tracking-widest text-primary-glow mb-1">Monthly Package</p>
         <h3 className="font-display text-xl uppercase text-white leading-tight">{level}</h3>
         <div className="mt-3 flex items-center justify-between">
           <span className="font-display text-3xl text-white">{price}<span className="text-sm text-white/60 ml-1">/mo</span></span>
-          <button onClick={onAddToCart} className="btn-red text-xs px-4 py-2">
-            Add To Cart
-          </button>
+          <button onClick={onAddToCart} className="btn-red text-xs px-4 py-2">Add To Cart</button>
         </div>
       </div>
     </div>
   </Reveal>
 );
 
-/* ── Section 2: 2 Days/Week Card ── */
-const TwoDayCard = ({ level, price, img }: { level: string; price: string; img: string }) => (
+/* ─── Membership card — 2 Days/Week ─────────────────────────────── */
+const TwoDayCard = ({ level, price, img, slug }: { level: string; price: string; img: string; slug: string }) => (
   <Reveal>
     <div className="relative overflow-hidden rounded-2xl aspect-[4/3] group cursor-pointer shadow-xl">
-      <img src={img} alt={level} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
+      <img src={img} alt={level} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"/>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"/>
       <div className="absolute inset-0 flex flex-col justify-end p-5">
         <p className="text-xs font-semibold uppercase tracking-widest text-primary-glow mb-1">2 Days / Week</p>
         <h3 className="font-display text-xl uppercase text-white leading-tight">{level}</h3>
         <div className="mt-3 flex items-center justify-between">
           <span className="font-display text-3xl text-white">{price}<span className="text-sm text-white/60 ml-1">/mo</span></span>
-          <Link to="/membership-checkout-2days-week" className="btn-red text-xs px-4 py-2">
-            Join Now
-          </Link>
+          <CheckoutBtn href={checkoutUrl(slug)} label="Join Now"/>
         </div>
       </div>
     </div>
   </Reveal>
 );
 
+/* ═══════════════════════════════════════════════════════════════════
+   PAGE COMPONENT
+   ═══════════════════════════════════════════════════════════════════ */
 const Membership = () => {
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpen,    setModalOpen]    = useState(false);
+  const [notifyTarget, setNotifyTarget] = useState<string | null>(null);
 
   return (
     <>
-      {modalOpen && <MembershipModal onClose={() => setModalOpen(false)} />}
+      {modalOpen    && <MembershipModal onClose={() => setModalOpen(false)}/>}
+      {notifyTarget && <NotifyModal plan={notifyTarget} onClose={() => setNotifyTarget(null)}/>}
 
       <PageHero
         title="Membership"
@@ -140,92 +212,297 @@ const Membership = () => {
         bgPosition="center top"
       />
 
-      {/* Section 1: Unlimited Monthly */}
-      <section className="section bg-background">
-        <div className="container-x">
-          <Reveal>
-            <h2 className="font-display text-3xl uppercase text-white text-center mb-10">
-              Unlimited Monthly <span className="text-primary-glow">Skills Training</span> Packages
-            </h2>
-          </Reveal>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {unlimitedMonthly.map((p) => (
-              <UnlimitedCard key={p.level} {...p} onAddToCart={() => setModalOpen(true)} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Section 2: 2 Days / Week */}
+      {/* ── Value Proposition ── */}
       <section className="section bg-[hsl(var(--surface))]">
         <div className="container-x">
           <Reveal>
-            <h2 className="font-display text-3xl uppercase text-white text-center mb-10">
-              Monthly Skills Training Packages{" "}
-              <span className="text-primary-glow">(2 Days / Week)</span>
-            </h2>
+            <div className="text-center mb-14">
+              <p className="eyebrow mb-4">— More Than Training</p>
+              <h2 className="font-display text-4xl md:text-5xl uppercase text-white leading-tight mb-6">
+                WE DON'T JUST TRAIN.<br/>
+                <span className="text-primary-glow">WE BUILD YOUR DIGITAL INFRASTRUCTURE.</span>
+              </h2>
+              <p className="mx-auto max-w-3xl text-white/65 text-base leading-relaxed">
+                Every Axis Sports Lab membership is a complete ecosystem delivering five critical outcomes. Every Axis athlete receives a professional, centralized Athlete Profile designed to showcase your skills, achievements, highlights, growth, and athletic lifestyle to the world. We deliver the definitive blueprint for recruitment and athletic dominance.
+              </p>
+            </div>
+
+            {/* 5 Outcomes */}
+            <div className="flex flex-wrap justify-center gap-3 mb-16">
+              {[
+                { icon: Shield,      label: "Training"                 },
+                { icon: Eye,         label: "Exposure"                 },
+                { icon: Video,       label: "Media"                    },
+                { icon: Fingerprint, label: "Digital Identity"         },
+                { icon: Network,     label: "Recruiting Infrastructure" },
+              ].map((o, i) => (
+                <div key={o.label}
+                  className="flex items-center gap-2.5 rounded-full px-5 py-2.5"
+                  style={{ background: "rgba(141,187,28,0.10)", border: "1px solid rgba(141,187,28,0.35)", color: "#d4ff70" }}>
+                  <span className="text-[10px] font-bold opacity-50">{String(i + 1).padStart(2, "0")}</span>
+                  <o.icon className="h-3.5 w-3.5" style={{ color: "#8dbb1c" }}/>
+                  <span className="text-xs font-bold uppercase tracking-widest">{o.label}</span>
+                </div>
+              ))}
+            </div>
           </Reveal>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {twoDayWeekly.map((p) => (
-              <TwoDayCard key={p.level + "2"} {...p} />
-            ))}
-          </div>
+
+          {/* Elite Athlete Profile Dashboard Mockup */}
+          <Reveal>
+            <div className="mx-auto max-w-2xl rounded-2xl overflow-hidden"
+              style={{ border: "1px solid rgba(141,187,28,0.30)", background: "#0d0d0d", boxShadow: "0 40px 80px -20px rgba(0,0,0,0.6), 0 0 40px rgba(141,187,28,0.08)" }}>
+              <div className="flex items-center gap-2 px-5 py-3"
+                style={{ borderBottom: "1px solid rgba(255,255,255,0.06)", background: "#111" }}>
+                <span className="h-3 w-3 rounded-full" style={{ background: "rgba(255,80,80,0.6)"     }}/>
+                <span className="h-3 w-3 rounded-full" style={{ background: "rgba(255,190,0,0.6)"    }}/>
+                <span className="h-3 w-3 rounded-full" style={{ background: "rgba(141,187,28,0.7)"   }}/>
+                <span className="ml-4 text-[10px] font-mono" style={{ color: "rgba(255,255,255,0.25)" }}>
+                  axissportslab.com/athlete/profile
+                </span>
+              </div>
+              <div className="p-7">
+                <div className="flex items-center gap-5 mb-8">
+                  <div className="h-16 w-16 shrink-0 rounded-full flex items-center justify-center font-display text-3xl text-white"
+                    style={{ background: "linear-gradient(135deg, #465d0e, #8dbb1c)" }}>A</div>
+                  <div className="flex-1 text-left">
+                    <h4 className="font-display text-xl text-white uppercase leading-none">Athlete Name</h4>
+                    <p className="text-sm mt-1" style={{ color: "#8dbb1c" }}>Point Guard · Class of 2026</p>
+                    <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.35)" }}>Axis Sports Lab · Katy, TX</p>
+                  </div>
+                  <span className="shrink-0 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider"
+                    style={{ background: "rgba(141,187,28,0.18)", border: "1px solid rgba(141,187,28,0.4)", color: "#d4ff70" }}>
+                    ELITE MEMBER
+                  </span>
+                </div>
+                <div className="grid grid-cols-3 gap-3 mb-5">
+                  {[{ label:"Vertical", val:'+6"' },{ label:"40-Yard", val:"4.4s" },{ label:"Skill Level", val:"Elite" }].map(s => (
+                    <div key={s.label} className="rounded-xl py-4 text-center"
+                      style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                      <p className="font-display text-2xl text-white">{s.val}</p>
+                      <p className="text-[9px] uppercase tracking-widest mt-1" style={{ color: "rgba(255,255,255,0.38)" }}>{s.label}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex gap-2 flex-wrap">
+                  {["Highlights","Stats","Media","Recruiting","Timeline"].map((tab, i) => (
+                    <span key={tab} className="rounded-lg px-4 py-1.5 text-[10px] font-semibold uppercase tracking-wider"
+                      style={{
+                        background: i === 0 ? "rgba(141,187,28,0.18)" : "rgba(255,255,255,0.04)",
+                        color:      i === 0 ? "#d4ff70"               : "rgba(255,255,255,0.35)",
+                        border: `1px solid ${i === 0 ? "rgba(141,187,28,0.4)" : "rgba(255,255,255,0.06)"}`,
+                      }}>
+                      {tab}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <p className="mt-4 text-center text-xs" style={{ color: "rgba(255,255,255,0.30)" }}>
+              — Elite Athlete Profile Dashboard (Mockup) —
+            </p>
+          </Reveal>
         </div>
       </section>
 
-      {/* Section 3: Unlimited Performance Training */}
-      <section className="section bg-background">
-        <div className="container-x">
-          <Reveal>
-            <h2 className="font-display text-3xl uppercase text-white text-center mb-10">
-              Unlimited Performance Training{" "}
-              <span className="text-primary-glow">Monthly Packages</span>
-            </h2>
-          </Reveal>
-          <div className="grid gap-6 sm:grid-cols-2 max-w-2xl mx-auto">
-            {performanceMonthly.map((p) => (
-              <Reveal key={p.level}>
-                <div className="relative overflow-hidden rounded-2xl aspect-[4/3] group shadow-xl">
-                  <img src={p.img} alt={p.level} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
-                  <div className="absolute inset-0 flex flex-col justify-end p-5">
-                    <p className="text-xs font-semibold uppercase tracking-widest text-primary-glow mb-1">Monthly Package</p>
-                    <h3 className="font-display text-xl uppercase text-white leading-tight">{p.level}</h3>
-                    <div className="mt-3 flex items-center justify-between">
-                      <span className="font-display text-3xl text-white">{p.price}<span className="text-sm text-white/60 ml-1">/mo</span></span>
-                      <button disabled className="text-xs px-4 py-2 rounded-lg font-bold uppercase tracking-wider cursor-not-allowed"
-                        style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.2)", color: "rgba(255,255,255,0.5)" }}>
+      {/* ════════════════════════════════════════════════════════════
+          TIER SECTIONS — wrapped so sticky bar appears at bottom
+         ════════════════════════════════════════════════════════════ */}
+      <div className="relative">
+
+        {/* Section 1: Unlimited Monthly */}
+        <section className="section bg-background">
+          <div className="container-x">
+            <Reveal>
+              <h2 className="font-display text-3xl uppercase text-white text-center mb-10">
+                Unlimited Monthly <span className="text-primary-glow">Skills Training</span> Packages
+              </h2>
+            </Reveal>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {unlimitedMonthly.map(p => (
+                <UnlimitedCard key={p.level} {...p} onAddToCart={() => setModalOpen(true)}/>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Section 2: 2 Days / Week */}
+        <section className="section bg-[hsl(var(--surface))]">
+          <div className="container-x">
+            <Reveal>
+              <h2 className="font-display text-3xl uppercase text-white text-center mb-10">
+                Monthly Skills Training Packages{" "}
+                <span className="text-primary-glow">(2 Days / Week)</span>
+              </h2>
+            </Reveal>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {twoDayWeekly.map(p => (
+                <TwoDayCard key={p.level + "2"} {...p}/>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Section 3: Performance Training (Coming Soon) */}
+        <section className="section bg-background">
+          <div className="container-x">
+            <Reveal>
+              <h2 className="font-display text-3xl uppercase text-white text-center mb-10">
+                Unlimited Performance Training{" "}
+                <span className="text-primary-glow">Monthly Packages</span>
+              </h2>
+            </Reveal>
+            <div className="grid gap-6 sm:grid-cols-2 max-w-2xl mx-auto">
+              {performanceMonthly.map(p => (
+                <Reveal key={p.level}>
+                  <div className="relative overflow-hidden rounded-2xl aspect-[4/3] group shadow-xl">
+                    <img src={p.img} alt={p.level}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"/>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"/>
+                    <div className="absolute inset-0 flex flex-col justify-end p-5">
+                      {/* Coming Soon badge */}
+                      <span className="mb-2 self-start rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider"
+                        style={{ background: "rgba(255,255,255,0.10)", border: "1px solid rgba(255,255,255,0.20)", color: "rgba(255,255,255,0.60)" }}>
                         Coming Soon
-                      </button>
+                      </span>
+                      <p className="text-xs font-semibold uppercase tracking-widest text-primary-glow mb-1">Monthly Package</p>
+                      <h3 className="font-display text-xl uppercase text-white leading-tight">{p.level}</h3>
+                      <div className="mt-3 flex items-center justify-between">
+                        <span className="font-display text-3xl text-white">
+                          {p.price}<span className="text-sm text-white/60 ml-1">/mo</span>
+                        </span>
+                        <button
+                          onClick={() => setNotifyTarget(p.level)}
+                          className="flex items-center gap-1.5 rounded-lg px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all"
+                          style={{ background: "rgba(141,187,28,0.12)", border: "1px solid rgba(141,187,28,0.35)", color: "#d4ff70" }}
+                          onMouseEnter={e => (e.currentTarget.style.background = "rgba(141,187,28,0.22)")}
+                          onMouseLeave={e => (e.currentTarget.style.background = "rgba(141,187,28,0.12)")}>
+                          <Bell className="h-3 w-3"/> Notify Me
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              ))}
+            </div>
           </div>
+        </section>
+
+        {/* ── Sticky Compare Plans Bar ── */}
+        <div className="sticky bottom-0 z-40 py-3"
+          style={{ background: "rgba(8,8,8,0.92)", backdropFilter: "blur(16px)", borderTop: "1px solid rgba(141,187,28,0.18)" }}>
+          <div className="container-x flex items-center justify-between gap-4">
+            <p className="text-sm hidden sm:block" style={{ color: "rgba(255,255,255,0.50)" }}>
+              Not sure which plan is right for you?
+            </p>
+            <button
+              onClick={() => document.getElementById("compare-plans")?.scrollIntoView({ behavior: "smooth" })}
+              className="flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold uppercase tracking-wider transition-all ml-auto"
+              style={{ background: "#8dbb1c", color: "#0a0a0a", boxShadow: "0 0 18px rgba(141,187,28,0.25)" }}
+              onMouseEnter={e => (e.currentTarget.style.filter = "brightness(1.1)")}
+              onMouseLeave={e => (e.currentTarget.style.filter = "brightness(1)")}>
+              Compare Plans <ChevronDown className="h-4 w-4"/>
+            </button>
+          </div>
+        </div>
+
+      </div>{/* end tier wrapper */}
+
+      {/* ── Comparison Table ── */}
+      <section id="compare-plans" className="section bg-[hsl(var(--surface))]">
+        <div className="container-x max-w-3xl">
+          <Reveal>
+            <p className="eyebrow mb-3 text-center">— Side by Side</p>
+            <h2 className="font-display text-3xl uppercase text-white text-center mb-10">
+              Compare <span className="text-primary-glow">Plans</span>
+            </h2>
+          </Reveal>
+
+          <Reveal>
+            <div className="rounded-2xl overflow-hidden"
+              style={{ border: "1px solid rgba(255,255,255,0.08)" }}>
+
+              {/* Table header */}
+              <div className="grid grid-cols-3 text-xs font-bold uppercase tracking-widest"
+                style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+                <div className="px-6 py-4 text-left" style={{ color: "rgba(255,255,255,0.40)", background: "rgba(255,255,255,0.02)" }}>
+                  Feature
+                </div>
+                <div className="px-6 py-4 text-center" style={{ color: "rgba(255,255,255,0.70)", background: "rgba(255,255,255,0.03)" }}>
+                  2 Days / Week
+                </div>
+                <div className="px-6 py-4 text-center"
+                  style={{ color: "#8dbb1c", background: "rgba(141,187,28,0.07)", borderLeft: "1px solid rgba(141,187,28,0.15)" }}>
+                  Unlimited
+                </div>
+              </div>
+
+              {/* Rows */}
+              {[
+                { feature: "Sessions per week",  two: "2",  unlimited: "Unlimited" },
+                { feature: "Athlete Profile",    two: "✓",  unlimited: "✓"         },
+                { feature: "Video Highlights",   two: "—",  unlimited: "✓"         },
+                { feature: "Recruiting Support", two: "—",  unlimited: "✓"         },
+                { feature: "Priority Booking",   two: "—",  unlimited: "✓"         },
+              ].map((row, i) => (
+                <div key={row.feature}
+                  className="grid grid-cols-3"
+                  style={{ borderBottom: i < 4 ? "1px solid rgba(255,255,255,0.05)" : "none" }}>
+                  <div className="px-6 py-4 text-sm"
+                    style={{ color: "rgba(255,255,255,0.65)", background: i % 2 === 0 ? "rgba(255,255,255,0.01)" : "transparent" }}>
+                    {row.feature}
+                  </div>
+                  <div className="px-6 py-4 text-center text-sm font-semibold"
+                    style={{
+                      color:      row.two === "✓" ? "#8dbb1c"                : row.two === "—" ? "rgba(255,255,255,0.20)" : "rgba(255,255,255,0.80)",
+                      background: i % 2 === 0 ? "rgba(255,255,255,0.01)" : "transparent",
+                    }}>
+                    {row.two}
+                  </div>
+                  <div className="px-6 py-4 text-center text-sm font-semibold"
+                    style={{
+                      color:      row.unlimited === "✓" ? "#8dbb1c" : row.unlimited === "—" ? "rgba(255,255,255,0.20)" : "#d4ff70",
+                      background: `rgba(141,187,28,${i % 2 === 0 ? "0.05" : "0.03"})`,
+                      borderLeft: "1px solid rgba(141,187,28,0.10)",
+                    }}>
+                    {row.unlimited}
+                  </div>
+                </div>
+              ))}
+
+              {/* CTA row */}
+              <div className="grid grid-cols-3"
+                style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+                <div className="px-6 py-5 text-xs text-white/30 italic">Starting at</div>
+                <div className="px-6 py-5 text-center">
+                  <p className="font-display text-2xl text-white mb-2">$185<span className="text-sm text-white/50">/mo</span></p>
+                  <CheckoutBtn href={checkoutUrl("beginners-2days")} label="Join Now"/>
+                </div>
+                <div className="px-6 py-5 text-center"
+                  style={{ background: "rgba(141,187,28,0.05)", borderLeft: "1px solid rgba(141,187,28,0.10)" }}>
+                  <p className="font-display text-2xl mb-2" style={{ color: "#d4ff70" }}>$285<span className="text-sm" style={{ color: "rgba(141,187,28,0.60)" }}>/mo</span></p>
+                  <button onClick={() => setModalOpen(true)} className="btn-red text-xs px-4 py-2">Add To Cart</button>
+                </div>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* Social Media Follow */}
+      {/* ── Social Media Follow ── */}
       <section className="section bg-[hsl(var(--surface))]">
         <div className="container-x text-center">
           <Reveal>
             <h2 className="font-display text-3xl uppercase text-white mb-8">Follow Us on Social Media</h2>
             <div className="flex justify-center flex-wrap gap-8">
               {[
-                { Icon: Instagram, label: "@axissportslab", href: "https://www.instagram.com/axissportslab/" },
-                { Icon: Facebook, label: "Axis Sports Lab", href: "https://www.facebook.com/AxisSportsLab" },
-                { Icon: Twitter, label: "@axissportslab", href: "https://x.com/AxisSportsLab" },
+                { Icon: Instagram, label: "@axissportslab", href: "https://www.instagram.com/axissportslab/"     },
+                { Icon: Facebook,  label: "Axis Sports Lab", href: "https://www.facebook.com/AxisSportsLab"      },
+                { Icon: Twitter,   label: "@axissportslab", href: "https://x.com/AxisSportsLab"                  },
               ].map(({ Icon, label, href }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex flex-col items-center gap-3 group"
-                >
+                <a key={label} href={href} target="_blank" rel="noreferrer"
+                  className="flex flex-col items-center gap-3 group">
                   <div className="grid h-14 w-14 place-items-center rounded-full border border-white/15 bg-[hsl(var(--surface-2))] text-white/70 transition-all duration-300 group-hover:border-primary group-hover:text-primary-glow group-hover:bg-primary/10">
-                    <Icon className="h-6 w-6" />
+                    <Icon className="h-6 w-6"/>
                   </div>
                   <span className="text-sm text-white/60 group-hover:text-white transition-colors">{label}</span>
                 </a>
@@ -235,20 +512,20 @@ const Membership = () => {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* ── CTA ── */}
       <section
         className="relative py-24 overflow-hidden"
         style={{ backgroundImage: "url(/pictures/teams-hero.jpg)", backgroundSize: "cover", backgroundPosition: "center top" }}
       >
-        <div className="absolute inset-0 bg-black/75" />
+        <div className="absolute inset-0 bg-black/75"/>
         <div className="relative z-10 container-x text-center">
           <Reveal>
             <h2 className="font-display text-4xl md:text-5xl uppercase text-white leading-tight">
-              Time to take your athletics and<br />cognitive skills to the next level
+              Time to take your athletics and<br/>cognitive skills to the next level
             </h2>
             <p className="mt-4 text-white/70">Click below to schedule your Evaluation Workout</p>
             <Link to="/evaluation-workout" className="btn-red mt-8 inline-flex text-sm font-bold">
-              Book Now <ArrowRight className="h-4 w-4" />
+              Book Now <ArrowRight className="h-4 w-4"/>
             </Link>
           </Reveal>
         </div>

@@ -31,11 +31,11 @@ const Newsletter = () => (
               data-activation-value=""
               data-deactivation-type="neverDeactivate"
               data-deactivation-value=""
-              data-form-name="Eyecan Athletics Newsletter-sign-up"
+              data-form-name="Axis Sports Lab Newsletter Sign Up"
               data-height="549"
               data-layout-iframe-id="inline-acWncB1xrwrdjERuqG1L"
               data-form-id="acWncB1xrwrdjERuqG1L"
-              title="Eyecan Athletics Newsletter-sign-up"
+              title="Axis Sports Lab Newsletter Sign Up"
             />
           </div>
         </Reveal>

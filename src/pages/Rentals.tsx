@@ -1,9 +1,30 @@
-﻿import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle, Phone } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 
-const Rentals = () => (
+const BOOKING_ID = "F4895vpjQD9F4S0gQdYi_1781211446123";
+
+const Rentals = () => {
+  const [iframeHeight, setIframeHeight] = useState(650);
+
+  useEffect(() => {
+    const onMessage = (e: MessageEvent) => {
+      try {
+        const d = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
+        if (d && typeof d.height === "number" && d.height > 200) {
+          setIframeHeight(d.height);
+        }
+      } catch {
+        // ignore non-JSON or unrelated messages
+      }
+    };
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, []);
+
+  return (
     <>
       <PageHero
         title="Rental with AXIS SPORTS LAB"
@@ -24,15 +45,15 @@ const Rentals = () => (
         </div>
       </section>
 
-      {/* Two Options */}
+      {/* ── Main Two-Column Booking Section ── */}
       <section className="pb-24 bg-background">
         <div className="container-x grid gap-10 lg:grid-cols-2 lg:items-start">
 
-          {/* Option 1 - Info */}
+          {/* ── LEFT: Info / Amenities ── */}
           <Reveal>
             <div className="card-elite h-full">
               <div className="flex items-center gap-3 mb-6">
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary text-white font-display text-xl">1</span>
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary text-black font-display text-xl">1</span>
                 <h3 className="font-display text-2xl uppercase text-white">Book Your Rental Here!</h3>
               </div>
 
@@ -40,9 +61,9 @@ const Rentals = () => (
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-widest text-primary-glow mb-2">Available Court Types</p>
                   <ul className="space-y-2 text-white/70 text-sm">
-                    {["Basketball (full court, half court)", "Volleyball", "Tennis"].map((t) => (
+                    {["Basketball (full court, half court)","Volleyball","Tennis"].map(t => (
                       <li key={t} className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-primary-glow shrink-0" /> {t}
+                        <CheckCircle className="h-4 w-4 text-primary-glow shrink-0"/> {t}
                       </li>
                     ))}
                   </ul>
@@ -51,9 +72,9 @@ const Rentals = () => (
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-widest text-primary-glow mb-2">Amenities Offered</p>
                   <ul className="space-y-2 text-white/70 text-sm">
-                    {["Locker rooms & restrooms", "Seating & bleachers", "Scoreboard & shot clock", "Air-conditioned facility"].map((t) => (
+                    {["Locker rooms & restrooms","Seating & bleachers","Scoreboard & shot clock","Air-conditioned facility"].map(t => (
                       <li key={t} className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-primary-glow shrink-0" /> {t}
+                        <CheckCircle className="h-4 w-4 text-primary-glow shrink-0"/> {t}
                       </li>
                     ))}
                   </ul>
@@ -61,45 +82,49 @@ const Rentals = () => (
 
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-widest text-primary-glow mb-2">Discounts Available</p>
-                  <p className="text-white/70 text-sm">Special rates for recurring bookings, nonprofits, and school groups. Ask us about bulk hour packages.</p>
+                  <p className="text-white/70 text-sm">
+                    Special rates for recurring bookings, nonprofits, and school groups.
+                    Ask us about bulk hour packages.
+                  </p>
                 </div>
 
                 <div className="rounded-xl border border-white/5 bg-background/60 p-4">
-                  <p className="text-white/80 text-sm font-semibold">You'll receive an instant email confirmation upon booking!</p>
+                  <p className="text-white/80 text-sm font-semibold">
+                    You'll receive an instant email confirmation upon booking!
+                  </p>
                   <p className="mt-1 text-white/50 text-xs">Not Finding What You Need?</p>
-                  <a href="tel:+13465508150" className="mt-2 flex items-center gap-2 text-primary-glow text-sm font-semibold hover:underline">
-                    <Phone className="h-4 w-4" /> (346) 550-8150
+                  <a href="tel:+13465508150"
+                     className="mt-2 flex items-center gap-2 text-primary-glow text-sm font-semibold hover:underline">
+                    <Phone className="h-4 w-4"/> (346) 550-8150
                   </a>
                 </div>
               </div>
             </div>
           </Reveal>
 
-          {/* Option 2 - Rental Request Iframe Form */}
+          {/* ── RIGHT: GHL Booking Calendar ── */}
           <Reveal delay={0.1}>
             <div className="card-elite">
               <div className="flex items-center gap-3 mb-2">
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary text-white font-display text-xl">2</span>
-                <h3 className="font-display text-2xl uppercase text-white">Submit Your Rental Request Now!</h3>
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary text-black font-display text-xl">2</span>
+                <h3 className="font-display text-2xl uppercase text-white">Select a Date & Time</h3>
               </div>
-              <p className="text-white/55 text-sm mb-6">Fill out the form below and we'll confirm your booking.</p>
+              <p className="text-white/50 text-sm mb-6">
+                Pick an available slot below — a confirmation email will be sent instantly after booking.
+              </p>
 
               <iframe
-                src="https://link.webtechs.dev/widget/form/arVOB44WiiNK8TcPVBz1"
-                style={{ width: "100%", height: "576px", border: "none", borderRadius: "25px" }}
-                id="inline-arVOB44WiiNK8TcPVBz1"
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="Rental Request"
-                data-height="576"
-                data-layout-iframe-id="inline-arVOB44WiiNK8TcPVBz1"
-                data-form-id="arVOB44WiiNK8TcPVBz1"
-                title="Rental Request"
+                src="https://link.webtechs.dev/widget/booking/F4895vpjQD9F4S0gQdYi"
+                id={BOOKING_ID}
+                title="Axis Sports Lab Court Rental Booking"
+                style={{
+                  width: "100%",
+                  border: "none",
+                  display: "block",
+                  borderRadius: "12px",
+                  height: `${iframeHeight}px`,
+                  transition: "height 0.3s ease",
+                }}
               />
             </div>
           </Reveal>
@@ -108,33 +133,31 @@ const Rentals = () => (
 
       {/* Photo strip */}
       <section className="relative h-64 overflow-hidden">
-        <img
-          src="/pictures/athlete-feet.jpg"
-          alt="Court rental"
-          className="h-full w-full object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-black/50" />
+        <img src="/pictures/athlete-feet.jpg" alt="Court rental"
+          className="h-full w-full object-cover object-center"/>
+        <div className="absolute inset-0 bg-black/50"/>
       </section>
 
       {/* CTA */}
       <section
         className="relative py-24 overflow-hidden"
-        style={{ backgroundImage: "url(/pictures/gc-athlete.jpg)", backgroundSize: "cover", backgroundPosition: "center" }}
+        style={{ backgroundImage:"url(/pictures/gc-athlete.jpg)", backgroundSize:"cover", backgroundPosition:"center" }}
       >
-        <div className="absolute inset-0 bg-black/75" />
+        <div className="absolute inset-0 bg-black/75"/>
         <div className="relative z-10 container-x text-center">
           <Reveal>
             <h2 className="font-display text-4xl md:text-5xl uppercase text-white leading-tight">
-              Time to take your athletics and<br />cognitive skills to the next level
+              Time to take your athletics and<br/>cognitive skills to the next level
             </h2>
             <p className="mt-4 text-white/70">Click below to schedule your Evaluation Workout</p>
             <Link to="/evaluation-workout" className="btn-red mt-8 inline-flex text-sm font-bold">
-              Book Now <ArrowRight className="h-4 w-4" />
+              Book Now <ArrowRight className="h-4 w-4"/>
             </Link>
           </Reveal>
         </div>
       </section>
     </>
-);
+  );
+};
 
 export default Rentals;

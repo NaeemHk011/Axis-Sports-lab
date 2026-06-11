@@ -9,12 +9,11 @@ import ThemeToggle from "./ThemeToggle";
 const links = [
   { to: "/about", label: "About" },
   { to: "/training", label: "Training" },
+  { to: "/youth-league", label: "3V3 League" },
   { to: "/camps", label: "Camps" },
-  { to: "/teams", label: "Teams" },
-  { to: "/contact", label: "Contact" },
+  { to: "/membership", label: "Memberships" },
   { to: "/rentals", label: "Rentals" },
-  { to: "/membership", label: "Membership" },
-  { to: "/ebook", label: "Ebook" },
+  { to: "/contact", label: "Contact" },
 ];
 
 const Navbar = () => {
@@ -45,7 +44,7 @@ const Navbar = () => {
   return (
     <>
       <header
-        className="sticky inset-x-0 top-0 z-50 py-4 md:py-5 transition-all duration-300"
+        className="sticky inset-x-0 top-0 z-50 py-3 transition-all duration-300"
         style={{
           background: navBg,
           borderBottom: "1px solid #8dbb1c",
@@ -63,13 +62,13 @@ const Navbar = () => {
             animation: "navbar-shine 2.5s ease-in-out infinite",
           }} />
         </div>
-        <div className="container-x flex items-center justify-between gap-6">
+        <div className="container-x flex items-center justify-between gap-3">
           <Link to="/" className="flex items-center gap-3 transition-transform duration-300 hover:scale-105" aria-label="Axis Sports Lab home">
-            <Logo className="h-5 w-auto md:h-7 lg:h-9" />
+            <Logo className="h-5 w-auto md:h-6 lg:h-7" />
 
           </Link>
 
-          <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
+          <nav className="hidden items-center gap-3 xl:gap-5 lg:flex" aria-label="Primary">
             {links.map((l) => (
               <NavLink
                 key={l.to}
@@ -78,7 +77,7 @@ const Navbar = () => {
                   color: isActive ? linkHover : linkColor,
                 })}
                 className={({ isActive }) =>
-                  `link-underline text-sm font-medium uppercase tracking-wider transition-colors duration-200 ${isActive ? "active" : ""}`
+                  `link-underline text-[11px] xl:text-xs font-medium uppercase tracking-wide transition-colors duration-200 ${isActive ? "active" : ""}`
                 }
                 onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = linkHover; }}
                 onMouseLeave={(e) => {
@@ -91,16 +90,16 @@ const Navbar = () => {
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <ThemeToggle />
             <Link
-              to="/reserve-training"
-              className="btn-red hidden text-sm sm:inline-flex font-bold tracking-wide"
+              to="/evaluation-workout"
+              className="btn-red hidden text-xs xl:inline-flex font-bold tracking-wide"
               style={{ boxShadow: "0 0 20px rgba(141,187,28,0.4)" }}
               onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 0 30px rgba(141,187,28,0.65)"; }}
               onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 0 20px rgba(141,187,28,0.4)"; }}
             >
-              Reserve Training
+              Book A Free Evaluation
             </Link>
             <button
               onClick={() => setOpen((s) => !s)}
@@ -139,8 +138,8 @@ const Navbar = () => {
                   </Link>
                 </motion.div>
               ))}
-              <Link to="/reserve-training" className="btn-red mt-8 self-start">
-                Reserve Training
+              <Link to="/evaluation-workout" className="btn-red mt-8 self-start">
+                Book A Free Evaluation
               </Link>
             </div>
           </motion.div>

@@ -27,10 +27,10 @@ import CountUp from "@/components/CountUp";
 import Reveal from "@/components/Reveal";
 import img01 from "../assets/01.jpg";
 import img02 from "../assets/02.jpg";
-import img03 from "../assets/03.jpg";
-import img04 from "../assets/04.jpg";
+import img03 from "../assets/03.png";
+import img04 from "../assets/04.png";
 import img05 from "../assets/05.jpg";
-import img06 from "../assets/06.jpg";
+import img06 from "../assets/06.png";
 
 /* ─── DATA ───────────────────────────────────────────────── */
 const services = [
@@ -340,21 +340,21 @@ const Home = () => {
               <div className="overflow-hidden">
                 <motion.div variants={item} className="hero-h1-lg font-display uppercase"
                   style={{ lineHeight: 0.90, letterSpacing: "-0.01em" }}>
-                  <span style={{ color: "#ffffff" }}>YOUR </span>
-                  <span className="text-gradient-red">GAME.</span>
+                  <span style={{ color: "#ffffff" }}>THE </span>
+                  <span className="text-gradient-red">DIGITAL</span>
                 </motion.div>
               </div>
               <div className="overflow-hidden">
                 <motion.div variants={item} className="hero-h1-xl font-display uppercase"
                   style={{ lineHeight: 0.88, letterSpacing: "-0.01em", color: "#ffffff" }}>
-                  BECOME
+                  INFRASTRUCTURE
                 </motion.div>
               </div>
               <div className="overflow-hidden">
                 <motion.div variants={item} className="hero-h1-lg font-display uppercase"
                   style={{ lineHeight: 0.90, letterSpacing: "-0.01em" }}>
-                  <span style={{ color: "transparent", WebkitTextStroke: "2px rgba(255,255,255,0.88)" }}>ELITE</span>
-                  <span className="text-gradient-red">.</span>
+                  <span style={{ color: "transparent", WebkitTextStroke: "2px rgba(255,255,255,0.88)" }}>FOR ELITE</span>
+                  <span className="text-gradient-red"> ATHLETES.</span>
                 </motion.div>
               </div>
 
@@ -372,18 +372,18 @@ const Home = () => {
               <motion.p variants={item}
                 className="text-sm md:text-sm leading-snug md:leading-relaxed max-w-[400px]"
                 style={{ color: "rgba(255,255,255,0.62)", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                Elite <strong style={{ color: "#ffffff" }}>360° athlete development</strong>   mind, body &amp; spirit   for athletes who refuse to settle.
+                Axis Sports Lab integrates advanced <strong style={{ color: "#ffffff" }}>sports science, biomechanics, and data tracking</strong> to optimize human performance. We don't just run drills; we build engineered athletes from the mind, body, and spirit up.
               </motion.p>
 
               {/* CTA buttons */}
               <motion.div variants={item} className="mt-3 sm:mt-4 lg:mt-7 flex flex-wrap items-center gap-3">
                 <Link to="/evaluation-workout" className="btn-pill btn-pill-primary" style={{ fontSize: "0.9rem", paddingLeft: "1.4rem", paddingRight: "1rem" }}>
-                  Book A Free Workout
+                  Claim Free Assessment
                   <span className="btn-pill-icon"><ArrowRight className="h-4 w-4" /></span>
                 </Link>
-                <Link to="/consultation" className="btn-pill btn-pill-ghost" style={{ fontSize: "0.9rem" }}>
-                  Speak With Axis Sports Lab
-                </Link>
+                <button onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })} className="btn-pill btn-pill-ghost" style={{ fontSize: "0.9rem" }}>
+                  Explore the Tech
+                </button>
               </motion.div>
 
             </motion.div>
@@ -436,7 +436,7 @@ const Home = () => {
       {/* ═══════════════════════════════════════════════════════
           SERVICES   Asymmetric Bento Grid
          ═══════════════════════════════════════════════════════ */}
-      <section className="section" aria-label="Services">
+      <section id="services" className="section" aria-label="Services">
         <div className="container-x">
           <Reveal className="max-w-xl">
             <p className="eyebrow mb-4"><span className="h-px w-8 bg-primary-glow" /> What We Offer</p>
@@ -484,7 +484,7 @@ const Home = () => {
                   <div className="relative z-10 p-6">
                     <h3 className="font-display text-4xl uppercase text-white">Shooting Classes</h3>
                     <p className="mt-3 text-sm leading-relaxed text-white/75 max-w-sm" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                      Master your shot with progressive drills. From form to game-speed release   mechanics, catch-and-shoot, off-dribble, and contested shots.
+                      Biomechanical Shooting Optimization. Master your shot utilizing progressive micro-drills, catch-and-shoot mechanics, and game-speed release analysis to ensure maximum form retention.
                     </p>
                     <div className="mt-5 flex items-center justify-between">
                       <Link to="/training" className="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
@@ -528,7 +528,7 @@ const Home = () => {
                   <div className="relative z-10 p-6">
                     <h3 className="font-display text-4xl uppercase text-white">Skills Training</h3>
                     <p className="mt-3 text-sm leading-relaxed text-white/75" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                      Complete guard and forward development. Dribbling, footwork, finishing, and decision-making under pressure.
+                      Neuromuscular Skill Acquisition. Complete guard and forward development. Enhancing processing speed, spatial awareness, footwork efficiency, and decision-making under high environmental pressure.
                     </p>
                     <Link to="/training" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                       Learn More <ArrowRight className="h-4 w-4" />
@@ -566,7 +566,7 @@ const Home = () => {
                   <div className="relative z-10 p-6">
                     <h3 className="font-display text-4xl uppercase text-white">Athlete Training</h3>
                     <p className="mt-3 text-sm leading-relaxed text-white/75" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                      Full-body athletic development   strength, speed, agility, and conditioning. Vertical jump and core explosiveness.
+                      Kinetic Performance & Plyometrics. Full-body athletic data optimization focusing on rate of force development (RFD), vertical velocity, deceleration mechanics, and injury-prevention infrastructure.
                     </p>
                     <div className="mt-4 flex items-center justify-between">
                       <Link to="/training" className="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
@@ -607,7 +607,7 @@ const Home = () => {
                   <div className="relative z-10 p-6">
                     <h3 className="font-display text-4xl uppercase text-white">Elite Camps</h3>
                     <p className="mt-3 text-sm leading-relaxed text-white/75 max-w-sm" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                      Intensive multi-day basketball camps for youth athletes serious about their game. High-level coaching, real reps, elite competition, certificates of completion.
+                      High-Intensity Lab Diagnostics. Multi-day athletic crucibles combining real-time competitive evaluation, high-velocity repetitions, and comprehensive data feedback metrics.
                     </p>
                     <div className="mt-5 flex items-center justify-between">
                       <Link to="/camps" className="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>

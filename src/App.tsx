@@ -30,6 +30,7 @@ const MembershipCheckout2DaysWeek = lazy(() => import("./pages/MembershipCheckou
 const Ebook = lazy(() => import("./pages/Ebook"));
 const Consultation = lazy(() => import("./pages/Consultation"));
 const SkillsTrainingBooking = lazy(() => import("./pages/SkillsTrainingBooking"));
+const LeagueRegistration = lazy(() => import("./pages/LeagueRegistration"));
 
 const queryClient = new QueryClient();
 
@@ -57,6 +58,7 @@ const AnimatedRoutes = () => {
         <Route path="/ebook" element={<PageTransition><Ebook /></PageTransition>} />
         <Route path="/consultation" element={<PageTransition><Consultation /></PageTransition>} />
         <Route path="/skills-training-booking" element={<PageTransition><SkillsTrainingBooking /></PageTransition>} />
+        <Route path="/youth-league" element={<PageTransition><LeagueRegistration /></PageTransition>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>

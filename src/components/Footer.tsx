@@ -11,8 +11,8 @@ const Footer = () => {
         <div className="mb-16 flex flex-col items-center gap-6 rounded-2xl border border-white/5 bg-gradient-to-br from-[hsl(var(--surface-2))] to-[hsl(var(--surface))] p-8 text-center md:flex-row md:justify-between md:text-left"
           style={{ borderTop: "2px solid hsl(77 74% 42% / 0.4)" }}>
           <div>
-            <h3 className="font-display text-3xl uppercase text-white">Join our mailing list</h3>
-            <p className="mt-1 text-sm text-muted-foreground">News, promos, special offers & more. We promise no spam.</p>
+            <h3 className="font-display text-3xl uppercase text-white">Download the Axis Athlete Blueprint</h3>
+            <p className="mt-1 text-sm text-muted-foreground">The Tech Guide to Vertical & Skill Optimization. Exclusive training insights for elite athletes.</p>
           </div>
           <Link to="/newsletter" className="btn-red btn-red-glow px-6 py-3 text-sm font-bold">Subscribe</Link>
         </div>
@@ -37,12 +37,12 @@ const Footer = () => {
               {[
                 ["About Us", "/about"],
                 ["Training", "/training"],
+                ["3V3 League", "/youth-league"],
                 ["Camps", "/camps"],
-                ["Teams", "/teams"],
-                ["Membership", "/membership"],
+                ["Memberships", "/membership"],
                 ["Rentals", "/rentals"],
                 ["Contact", "/contact"],
-                ["Ebook", "/ebook"],
+                ["Athlete Blueprint", "/ebook"],
               ].map(([l, h]) => (
                 <li key={h}>
                   <Link to={h} className="hover:text-primary-glow transition-colors duration-200">{l}</Link>
@@ -63,7 +63,7 @@ const Footer = () => {
                 ["Skills Training", "/training"],
                 ["Athlete Development", "/training"],
                 ["Basketball Camps", "/camps"],
-                ["Team Training", "/teams"],
+                ["3V3 Open League", "/youth-league"],
                 ["Membership Plans", "/membership"],
                 ["Free Evaluation", "/evaluation-workout"],
               ].map(([l, h]) => (
@@ -83,7 +83,7 @@ const Footer = () => {
             <ul className="space-y-4 text-sm text-white/65">
               <li className="flex gap-3 items-start">
                 <MapPin className="h-4 w-4 shrink-0 text-primary-glow mt-0.5" />
-                <span>510 S Mason Rd Unit 16,<br />Katy, TX 77450</span>
+                <span>510 S Mason Rd Unit 16A,<br />Katy, TX 77450</span>
               </li>
               <li className="flex gap-3 items-center">
                 <Phone className="h-4 w-4 shrink-0 text-primary-glow" />
