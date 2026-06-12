@@ -72,8 +72,10 @@ const Training = () => {
             background: "linear-gradient(100deg, rgba(6,6,10,0.92) 0%, rgba(6,6,10,0.75) 40%, rgba(6,6,10,0.40) 65%, rgba(6,6,10,0.12) 85%, transparent 100%)"
           }} />
           {/* Bottom fade to page bg */}
-          <div className="absolute bottom-0 inset-x-0 h-48 pointer-events-none"
-            style={{ background: `linear-gradient(to top, ${isDark ? "#0A0A0A" : "#f8f8f8"} 0%, transparent 100%)` }} />
+          {isDark && (
+            <div className="absolute bottom-0 inset-x-0 h-48 pointer-events-none"
+              style={{ background: "linear-gradient(to top, #0A0A0A 0%, transparent 100%)" }} />
+          )}
         </div>
 
         {/* Red glow orbs */}
@@ -150,7 +152,7 @@ const Training = () => {
                 Book A Single Class
                 <span className="btn-pill-icon"><ArrowRight className="h-4 w-4" /></span>
               </Link>
-              <Link to="/membership" className="btn-pill btn-pill-ghost" style={{ fontSize: "0.9rem" }}>
+              <Link to="/membership" className="btn-pill btn-pill-ghost" style={{ fontSize: "0.9rem", color: "#ffffff" }}>
                 Buy Monthly Membership
               </Link>
             </motion.div>
@@ -266,7 +268,7 @@ const Training = () => {
                 Book A Single Class
                 <span className="btn-pill-icon"><ArrowRight className="h-4 w-4" /></span>
               </Link>
-              <Link to="/membership" className="btn-pill btn-pill-ghost">
+              <Link to="/membership" className="btn-pill btn-pill-ghost" style={{ color: "#ffffff" }}>
                 Buy Monthly Membership
               </Link>
             </div>

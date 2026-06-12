@@ -7,7 +7,7 @@ import Particles from "@/components/Particles";
 
 const sliderImages = [
   "/pictures/camps-main.jpg",
-  "/pictures/teams-explore.jpg",
+  "/pictures/about-featured.png",
   "/pictures/teams-hero.jpg",
   "/pictures/athlete-running.jpg",
   "/pictures/gc-shooting.jpg",
@@ -217,7 +217,7 @@ const About = () => {
          ═══════════════════════════════════════════════════════ */}
       <section className="relative overflow-hidden h-[260px] sm:h-[360px] lg:h-[440px]" aria-label="Featured">
         <img
-          src={sliderImages[1]}
+          src="/pictures/about-featured.png"
           alt="Axis Sports Lab coaching session"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
@@ -227,8 +227,8 @@ const About = () => {
           <div className="container-x">
             <Reveal>
               <p className="eyebrow mb-4"><span className="h-px w-8 bg-primary-glow" /> The Axis Sports Lab Difference</p>
-              <h2 className="font-display uppercase text-white"
-                style={{ fontSize: "clamp(2rem, 5vw, 72px)", lineHeight: 0.92, maxWidth: "580px" }}>
+              <h2 className="font-display uppercase"
+                style={{ fontSize: "clamp(2rem, 5vw, 72px)", lineHeight: 0.92, maxWidth: "580px", color: "#ffffff" }}>
                 We don't just train athletes.<br />
                 <span className="text-gradient-red">We build champions.</span>
               </h2>

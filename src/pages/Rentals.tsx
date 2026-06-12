@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle, Phone } from "lucide-react";
+import { useTheme } from "next-themes";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 
 const BOOKING_ID = "F4895vpjQD9F4S0gQdYi_1781211446123";
 
 const Rentals = () => {
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme !== "light";
   const [iframeHeight, setIframeHeight] = useState(650);
 
   useEffect(() => {
@@ -37,7 +40,7 @@ const Rentals = () => {
       <section className="section bg-background">
         <div className="container-x text-center max-w-3xl mx-auto">
           <Reveal>
-            <h2 className="font-display text-3xl md:text-4xl uppercase text-white leading-tight">
+            <h2 className="font-display text-3xl md:text-4xl uppercase leading-tight" style={{ color: isDark ? "#ffffff" : "#111111" }}>
               Two Hassle-Free Ways to Book Your{" "}
               <span className="text-primary-glow">Court / Facility</span> Rental Today!
             </h2>
@@ -54,13 +57,13 @@ const Rentals = () => {
             <div className="card-elite h-full">
               <div className="flex items-center gap-3 mb-6">
                 <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary text-black font-display text-xl">1</span>
-                <h3 className="font-display text-2xl uppercase text-white">Book Your Rental Here!</h3>
+                <h3 className="font-display text-2xl uppercase" style={{ color: isDark ? "#ffffff" : "#111111" }}>Book Your Rental Here!</h3>
               </div>
 
               <div className="space-y-6">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-widest text-primary-glow mb-2">Available Court Types</p>
-                  <ul className="space-y-2 text-white/70 text-sm">
+                  <ul className="space-y-2 text-sm" style={{ color: isDark ? "rgba(255,255,255,0.70)" : "rgba(0,0,0,0.70)" }}>
                     {["Basketball (full court, half court)","Volleyball","Tennis"].map(t => (
                       <li key={t} className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary-glow shrink-0"/> {t}
@@ -71,7 +74,7 @@ const Rentals = () => {
 
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-widest text-primary-glow mb-2">Amenities Offered</p>
-                  <ul className="space-y-2 text-white/70 text-sm">
+                  <ul className="space-y-2 text-sm" style={{ color: isDark ? "rgba(255,255,255,0.70)" : "rgba(0,0,0,0.70)" }}>
                     {["Locker rooms & restrooms","Seating & bleachers","Scoreboard & shot clock","Air-conditioned facility"].map(t => (
                       <li key={t} className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary-glow shrink-0"/> {t}
@@ -82,17 +85,17 @@ const Rentals = () => {
 
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-widest text-primary-glow mb-2">Discounts Available</p>
-                  <p className="text-white/70 text-sm">
+                  <p className="text-sm" style={{ color: isDark ? "rgba(255,255,255,0.70)" : "rgba(0,0,0,0.70)" }}>
                     Special rates for recurring bookings, nonprofits, and school groups.
                     Ask us about bulk hour packages.
                   </p>
                 </div>
 
-                <div className="rounded-xl border border-white/5 bg-background/60 p-4">
-                  <p className="text-white/80 text-sm font-semibold">
+                <div className="rounded-xl p-4" style={{ border: `1px solid ${isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.10)"}`, background: isDark ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.03)" }}>
+                  <p className="text-sm font-semibold" style={{ color: isDark ? "rgba(255,255,255,0.80)" : "rgba(0,0,0,0.80)" }}>
                     You'll receive an instant email confirmation upon booking!
                   </p>
-                  <p className="mt-1 text-white/50 text-xs">Not Finding What You Need?</p>
+                  <p className="mt-1 text-xs" style={{ color: isDark ? "rgba(255,255,255,0.50)" : "rgba(0,0,0,0.50)" }}>Not Finding What You Need?</p>
                   <a href="tel:+13465508150"
                      className="mt-2 flex items-center gap-2 text-primary-glow text-sm font-semibold hover:underline">
                     <Phone className="h-4 w-4"/> (346) 550-8150
@@ -107,9 +110,9 @@ const Rentals = () => {
             <div className="card-elite">
               <div className="flex items-center gap-3 mb-2">
                 <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary text-black font-display text-xl">2</span>
-                <h3 className="font-display text-2xl uppercase text-white">Select a Date & Time</h3>
+                <h3 className="font-display text-2xl uppercase" style={{ color: isDark ? "#ffffff" : "#111111" }}>Select a Date & Time</h3>
               </div>
-              <p className="text-white/50 text-sm mb-6">
+              <p className="text-sm mb-6" style={{ color: isDark ? "rgba(255,255,255,0.50)" : "rgba(0,0,0,0.50)" }}>
                 Pick an available slot below — a confirmation email will be sent instantly after booking.
               </p>
 
@@ -131,13 +134,6 @@ const Rentals = () => {
         </div>
       </section>
 
-      {/* Photo strip */}
-      <section className="relative h-64 overflow-hidden">
-        <img src="/pictures/athlete-feet.jpg" alt="Court rental"
-          className="h-full w-full object-cover object-center"/>
-        <div className="absolute inset-0 bg-black/50"/>
-      </section>
-
       {/* CTA */}
       <section
         className="relative py-24 overflow-hidden"
@@ -146,10 +142,10 @@ const Rentals = () => {
         <div className="absolute inset-0 bg-black/75"/>
         <div className="relative z-10 container-x text-center">
           <Reveal>
-            <h2 className="font-display text-4xl md:text-5xl uppercase text-white leading-tight">
+            <h2 className="font-display text-4xl md:text-5xl uppercase leading-tight" style={{ color: "#ffffff" }}>
               Time to take your athletics and<br/>cognitive skills to the next level
             </h2>
-            <p className="mt-4 text-white/70">Click below to schedule your Evaluation Workout</p>
+            <p className="mt-4" style={{ color: "rgba(255,255,255,0.70)" }}>Click below to schedule your Evaluation Workout</p>
             <Link to="/evaluation-workout" className="btn-red mt-8 inline-flex text-sm font-bold">
               Book Now <ArrowRight className="h-4 w-4"/>
             </Link>

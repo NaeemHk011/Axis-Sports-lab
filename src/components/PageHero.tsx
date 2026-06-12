@@ -18,7 +18,7 @@ const PageHero = ({ eyebrow, title, subtitle, children, bg, bgPosition = "center
     style={bg ? { backgroundImage: `url(${bg})`, backgroundSize: "cover", backgroundPosition: bgPosition } : undefined}
   >
     {bg && <div className="absolute inset-0 bg-black/65" />}
-    {!bg && <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_hsl(0_100%_30%/0.18),_transparent_60%)]" />}
+    {!bg && <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_hsl(77_74%_42%/0.18),_transparent_60%)]" />}
     <div className="absolute inset-x-0 bottom-0 -z-10 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
     <div className="container-x relative z-10 text-center">
       {eyebrow && (
@@ -26,12 +26,12 @@ const PageHero = ({ eyebrow, title, subtitle, children, bg, bgPosition = "center
           <p className="eyebrow justify-center"><span className="h-px w-8 bg-primary-glow" /> {eyebrow}</p>
         </Reveal>
       )}
-      <h1 className="h-display mt-4 text-balance text-white">
+      <h1 className="h-display mt-4 text-balance text-white" style={bg ? { color: "#ffffff" } : undefined}>
         <SplitText text={title} />
       </h1>
       {subtitle && (
         <Reveal delay={0.2}>
-          <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base text-white/70">{subtitle}</p>
+          <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base text-white/70" style={bg ? { color: "rgba(255,255,255,0.70)" } : undefined}>{subtitle}</p>
         </Reveal>
       )}
       {children && <div className="mt-6">{children}</div>}

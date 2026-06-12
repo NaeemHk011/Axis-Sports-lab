@@ -1,9 +1,13 @@
 ﻿import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { useTheme } from "next-themes";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 
-const Camps = () => (
+const Camps = () => {
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme !== "light";
+  return (
   <>
     <PageHero
       title="Camps"
@@ -77,17 +81,18 @@ const Camps = () => (
     </section>
 
     {/* CTA Banner */}
-    <section
-      className="relative py-24 overflow-hidden"
-      style={{ backgroundImage: "url(/pictures/camps-cta.jpg)", backgroundSize: "cover", backgroundPosition: "center top" }}
-    >
-      <div className="absolute inset-0 bg-black/75" />
+    <section className="relative py-24 overflow-hidden">
+      <div className="absolute inset-0 -z-10" style={{
+        background: isDark
+          ? "linear-gradient(135deg, #080808 0%, #0d1a00 25%, #1d3d00 55%, #0d1a00 80%, #080808 100%)"
+          : "linear-gradient(135deg, #0a1800 0%, #193600 25%, #2d6600 55%, #193600 80%, #0a1800 100%)"
+      }} />
       <div className="relative z-10 container-x text-center">
         <Reveal>
-          <h2 className="font-display text-4xl md:text-5xl uppercase text-white leading-tight">
+          <h2 className="font-display text-4xl md:text-5xl uppercase leading-tight" style={{ color: "#ffffff" }}>
             Time to take your athletics and<br />cognitive skills to the next level
           </h2>
-          <p className="mt-4 text-white/70">Click below to schedule your Evaluation Workout</p>
+          <p className="mt-4" style={{ color: "rgba(255,255,255,0.70)" }}>Click below to schedule your Evaluation Workout</p>
           <Link to="/evaluation-workout" className="btn-red mt-8 inline-flex text-sm font-bold">
             Book Now <ArrowRight className="h-4 w-4" />
           </Link>
@@ -95,6 +100,7 @@ const Camps = () => (
       </div>
     </section>
   </>
-);
+  );
+};
 
 export default Camps;

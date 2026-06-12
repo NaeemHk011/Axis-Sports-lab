@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTheme } from "next-themes";
 import { Link } from "react-router-dom";
 import {
   ArrowRight, Instagram, Facebook, Twitter, X,
@@ -160,7 +161,7 @@ const MembershipModal = ({ onClose }: { onClose: () => void }) => (
 /* ─── Membership card — Unlimited ───────────────────────────────── */
 const UnlimitedCard = ({ level, price, img, onAddToCart }: { level: string; price: string; img: string; onAddToCart: () => void }) => (
   <Reveal>
-    <div className="relative overflow-hidden rounded-2xl aspect-[4/3] group cursor-pointer shadow-xl">
+    <div className="card-img-bg relative overflow-hidden rounded-2xl aspect-[4/3] group cursor-pointer shadow-xl">
       <img src={img} alt={level} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"/>
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"/>
       <div className="absolute inset-0 flex flex-col justify-end p-5">
@@ -178,7 +179,7 @@ const UnlimitedCard = ({ level, price, img, onAddToCart }: { level: string; pric
 /* ─── Membership card — 2 Days/Week ─────────────────────────────── */
 const TwoDayCard = ({ level, price, img }: { level: string; price: string; img: string; slug: string }) => (
   <Reveal>
-    <div className="relative overflow-hidden rounded-2xl aspect-[4/3] group cursor-pointer shadow-xl">
+    <div className="card-img-bg relative overflow-hidden rounded-2xl aspect-[4/3] group cursor-pointer shadow-xl">
       <img src={img} alt={level} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"/>
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"/>
       <div className="absolute inset-0 flex flex-col justify-end p-5">
@@ -197,6 +198,8 @@ const TwoDayCard = ({ level, price, img }: { level: string; price: string; img: 
    PAGE COMPONENT
    ═══════════════════════════════════════════════════════════════════ */
 const Membership = () => {
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme !== "light";
   const [modalOpen,    setModalOpen]    = useState(false);
   const [notifyTarget, setNotifyTarget] = useState<string | null>(null);
 
@@ -218,11 +221,11 @@ const Membership = () => {
           <Reveal>
             <div className="text-center mb-14">
               <p className="eyebrow mb-4">— More Than Training</p>
-              <h2 className="font-display text-4xl md:text-5xl uppercase text-white leading-tight mb-6">
+              <h2 className="font-display text-4xl md:text-5xl uppercase leading-tight mb-6" style={{ color: isDark ? "#ffffff" : "#111111" }}>
                 WE DON'T JUST TRAIN.<br/>
                 <span className="text-primary-glow">WE BUILD YOUR DIGITAL INFRASTRUCTURE.</span>
               </h2>
-              <p className="mx-auto max-w-3xl text-white/65 text-base leading-relaxed">
+              <p className="mx-auto max-w-3xl text-base leading-relaxed" style={{ color: isDark ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.65)" }}>
                 Every Axis Sports Lab membership is a complete ecosystem delivering five critical outcomes. Every Axis athlete receives a professional, centralized Athlete Profile designed to showcase your skills, achievements, highlights, growth, and athletic lifestyle to the world. We deliver the definitive blueprint for recruitment and athletic dominance.
               </p>
             </div>
@@ -238,7 +241,7 @@ const Membership = () => {
               ].map((o, i) => (
                 <div key={o.label}
                   className="flex items-center gap-2.5 rounded-full px-5 py-2.5"
-                  style={{ background: "rgba(141,187,28,0.10)", border: "1px solid rgba(141,187,28,0.35)", color: "#d4ff70" }}>
+                  style={{ background: "rgba(141,187,28,0.10)", border: "1px solid rgba(141,187,28,0.35)", color: isDark ? "#d4ff70" : "#111111" }}>
                   <span className="text-[10px] font-bold opacity-50">{String(i + 1).padStart(2, "0")}</span>
                   <o.icon className="h-3.5 w-3.5" style={{ color: "#8dbb1c" }}/>
                   <span className="text-xs font-bold uppercase tracking-widest">{o.label}</span>
@@ -265,7 +268,7 @@ const Membership = () => {
                   <div className="h-16 w-16 shrink-0 rounded-full flex items-center justify-center font-display text-3xl text-white"
                     style={{ background: "linear-gradient(135deg, #465d0e, #8dbb1c)" }}>A</div>
                   <div className="flex-1 text-left">
-                    <h4 className="font-display text-xl text-white uppercase leading-none">Athlete Name</h4>
+                    <h4 className="font-display text-xl uppercase leading-none" style={{ color: "#ffffff" }}>Athlete Name</h4>
                     <p className="text-sm mt-1" style={{ color: "#8dbb1c" }}>Point Guard · Class of 2026</p>
                     <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.35)" }}>Axis Sports Lab · Katy, TX</p>
                   </div>
@@ -278,8 +281,8 @@ const Membership = () => {
                   {[{ label:"Vertical", val:'+6"' },{ label:"40-Yard", val:"4.4s" },{ label:"Skill Level", val:"Elite" }].map(s => (
                     <div key={s.label} className="rounded-xl py-4 text-center"
                       style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}>
-                      <p className="font-display text-2xl text-white">{s.val}</p>
-                      <p className="text-[9px] uppercase tracking-widest mt-1" style={{ color: "rgba(255,255,255,0.38)" }}>{s.label}</p>
+                      <p className="font-display text-2xl" style={{ color: "#ffffff" }}>{s.val}</p>
+                      <p className="text-[9px] uppercase tracking-widest mt-1" style={{ color: "rgba(255,255,255,0.55)" }}>{s.label}</p>
                     </div>
                   ))}
                 </div>
@@ -297,7 +300,7 @@ const Membership = () => {
                 </div>
               </div>
             </div>
-            <p className="mt-4 text-center text-xs" style={{ color: "rgba(255,255,255,0.30)" }}>
+            <p className="mt-4 text-center text-xs" style={{ color: isDark ? "rgba(255,255,255,0.30)" : "#111111" }}>
               — Elite Athlete Profile Dashboard (Mockup) —
             </p>
           </Reveal>
@@ -313,7 +316,7 @@ const Membership = () => {
         <section className="section bg-background">
           <div className="container-x">
             <Reveal>
-              <h2 className="font-display text-3xl uppercase text-white text-center mb-10">
+              <h2 className="font-display text-3xl uppercase text-center mb-10" style={{ color: isDark ? "#ffffff" : "#111111" }}>
                 Unlimited Monthly <span className="text-primary-glow">Skills Training</span> Packages
               </h2>
             </Reveal>
@@ -329,7 +332,7 @@ const Membership = () => {
         <section className="section bg-[hsl(var(--surface))]">
           <div className="container-x">
             <Reveal>
-              <h2 className="font-display text-3xl uppercase text-white text-center mb-10">
+              <h2 className="font-display text-3xl uppercase text-center mb-10" style={{ color: isDark ? "#ffffff" : "#111111" }}>
                 Monthly Skills Training Packages{" "}
                 <span className="text-primary-glow">(2 Days / Week)</span>
               </h2>
@@ -346,17 +349,17 @@ const Membership = () => {
         <section className="section bg-background">
           <div className="container-x">
             <Reveal>
-              <h2 className="font-display text-3xl uppercase text-white text-center mb-10">
+              <h2 className="font-display text-3xl uppercase text-center mb-10" style={{ color: isDark ? "#ffffff" : "#111111" }}>
                 Unlimited Performance Training{" "}
                 <span className="text-primary-glow">Monthly Packages</span>
               </h2>
             </Reveal>
-            <div className="grid gap-6 sm:grid-cols-2 max-w-2xl mx-auto">
+            <div className="grid gap-6 grid-cols-1 max-w-lg mx-auto">
               {performanceMonthly.map(p => (
                 <Reveal key={p.level}>
-                  <div className="relative overflow-hidden rounded-2xl aspect-[4/3] group shadow-xl">
+                  <div className="card-img-bg relative overflow-hidden rounded-2xl aspect-[4/3] group shadow-xl">
                     <img src={p.img} alt={p.level}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"/>
+                      className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"/>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"/>
                     <div className="absolute inset-0 flex flex-col justify-end p-5">
                       {/* Coming Soon badge */}
@@ -412,22 +415,22 @@ const Membership = () => {
         <div className="container-x max-w-3xl">
           <Reveal>
             <p className="eyebrow mb-3 text-center">— Side by Side</p>
-            <h2 className="font-display text-3xl uppercase text-white text-center mb-10">
+            <h2 className="font-display text-3xl uppercase text-center mb-10" style={{ color: isDark ? "#ffffff" : "#111111" }}>
               Compare <span className="text-primary-glow">Plans</span>
             </h2>
           </Reveal>
 
           <Reveal>
             <div className="rounded-2xl overflow-hidden"
-              style={{ border: "1px solid rgba(255,255,255,0.08)" }}>
+              style={{ border: `1px solid ${isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.12)"}` }}>
 
               {/* Table header */}
               <div className="grid grid-cols-3 text-xs font-bold uppercase tracking-widest"
-                style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-                <div className="px-6 py-4 text-left" style={{ color: "rgba(255,255,255,0.40)", background: "rgba(255,255,255,0.02)" }}>
+                style={{ borderBottom: `1px solid ${isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)"}` }}>
+                <div className="px-6 py-4 text-left" style={{ color: isDark ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.45)", background: isDark ? "rgba(255,255,255,0.02)" : "rgba(0,0,0,0.02)" }}>
                   Feature
                 </div>
-                <div className="px-6 py-4 text-center" style={{ color: "rgba(255,255,255,0.70)", background: "rgba(255,255,255,0.03)" }}>
+                <div className="px-6 py-4 text-center" style={{ color: isDark ? "rgba(255,255,255,0.70)" : "rgba(0,0,0,0.70)", background: isDark ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.02)" }}>
                   2 Days / Week
                 </div>
                 <div className="px-6 py-4 text-center"
@@ -446,21 +449,21 @@ const Membership = () => {
               ].map((row, i) => (
                 <div key={row.feature}
                   className="grid grid-cols-3"
-                  style={{ borderBottom: i < 4 ? "1px solid rgba(255,255,255,0.05)" : "none" }}>
+                  style={{ borderBottom: i < 4 ? `1px solid ${isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.06)"}` : "none" }}>
                   <div className="px-6 py-4 text-sm"
-                    style={{ color: "rgba(255,255,255,0.65)", background: i % 2 === 0 ? "rgba(255,255,255,0.01)" : "transparent" }}>
+                    style={{ color: isDark ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.70)", background: i % 2 === 0 ? (isDark ? "rgba(255,255,255,0.01)" : "rgba(0,0,0,0.01)") : "transparent" }}>
                     {row.feature}
                   </div>
                   <div className="px-6 py-4 text-center text-sm font-semibold"
                     style={{
-                      color:      row.two === "✓" ? "#8dbb1c"                : row.two === "—" ? "rgba(255,255,255,0.20)" : "rgba(255,255,255,0.80)",
-                      background: i % 2 === 0 ? "rgba(255,255,255,0.01)" : "transparent",
+                      color:      row.two === "✓" ? "#8dbb1c" : row.two === "—" ? (isDark ? "rgba(255,255,255,0.20)" : "rgba(0,0,0,0.25)") : (isDark ? "rgba(255,255,255,0.80)" : "rgba(0,0,0,0.80)"),
+                      background: i % 2 === 0 ? (isDark ? "rgba(255,255,255,0.01)" : "rgba(0,0,0,0.01)") : "transparent",
                     }}>
                     {row.two}
                   </div>
                   <div className="px-6 py-4 text-center text-sm font-semibold"
                     style={{
-                      color:      row.unlimited === "✓" ? "#8dbb1c" : row.unlimited === "—" ? "rgba(255,255,255,0.20)" : "#d4ff70",
+                      color:      row.unlimited === "✓" ? "#8dbb1c" : row.unlimited === "—" ? (isDark ? "rgba(255,255,255,0.20)" : "rgba(0,0,0,0.25)") : (isDark ? "#d4ff70" : "#5a8a00"),
                       background: `rgba(141,187,28,${i % 2 === 0 ? "0.05" : "0.03"})`,
                       borderLeft: "1px solid rgba(141,187,28,0.10)",
                     }}>
@@ -471,15 +474,15 @@ const Membership = () => {
 
               {/* CTA row */}
               <div className="grid grid-cols-3"
-                style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-                <div className="px-6 py-5 text-xs text-white/30 italic">Starting at</div>
+                style={{ borderTop: `1px solid ${isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)"}` }}>
+                <div className="px-6 py-5 text-xs italic" style={{ color: isDark ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.40)" }}>Starting at</div>
                 <div className="px-6 py-5 text-center">
-                  <p className="font-display text-2xl text-white mb-2">$185<span className="text-sm text-white/50">/mo</span></p>
+                  <p className="font-display text-2xl mb-2" style={{ color: isDark ? "#ffffff" : "#111111" }}>$185<span className="text-sm" style={{ color: isDark ? "rgba(255,255,255,0.50)" : "rgba(0,0,0,0.45)" }}>/mo</span></p>
                   <Link to="/membership-checkout-2days-week" className="btn-red text-xs px-4 py-2">Join Now</Link>
                 </div>
                 <div className="px-6 py-5 text-center"
                   style={{ background: "rgba(141,187,28,0.05)", borderLeft: "1px solid rgba(141,187,28,0.10)" }}>
-                  <p className="font-display text-2xl mb-2" style={{ color: "#d4ff70" }}>$285<span className="text-sm" style={{ color: "rgba(141,187,28,0.60)" }}>/mo</span></p>
+                  <p className="font-display text-2xl mb-2" style={{ color: isDark ? "#d4ff70" : "#3d6b00" }}>$285<span className="text-sm" style={{ color: "rgba(141,187,28,0.70)" }}>/mo</span></p>
                   <button onClick={() => setModalOpen(true)} className="btn-red text-xs px-4 py-2">Add To Cart</button>
                 </div>
               </div>
@@ -492,7 +495,7 @@ const Membership = () => {
       <section className="section bg-[hsl(var(--surface))]">
         <div className="container-x text-center">
           <Reveal>
-            <h2 className="font-display text-3xl uppercase text-white mb-8">Follow Us on Social Media</h2>
+            <h2 className="font-display text-3xl uppercase mb-8" style={{ color: isDark ? "#ffffff" : "#111111" }}>Follow Us on Social Media</h2>
             <div className="flex justify-center flex-wrap gap-8">
               {[
                 { Icon: Instagram, label: "@axissportslab", href: "https://www.instagram.com/axissportslab/"     },
@@ -501,10 +504,11 @@ const Membership = () => {
               ].map(({ Icon, label, href }) => (
                 <a key={label} href={href} target="_blank" rel="noreferrer"
                   className="flex flex-col items-center gap-3 group">
-                  <div className="grid h-14 w-14 place-items-center rounded-full border border-white/15 bg-[hsl(var(--surface-2))] text-white/70 transition-all duration-300 group-hover:border-primary group-hover:text-primary-glow group-hover:bg-primary/10">
+                  <div className="grid h-14 w-14 place-items-center rounded-full bg-[hsl(var(--surface-2))] transition-all duration-300 group-hover:border-primary group-hover:text-primary-glow group-hover:bg-primary/10"
+                    style={{ border: `1px solid ${isDark ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.15)"}`, color: isDark ? "rgba(255,255,255,0.70)" : "rgba(0,0,0,0.60)" }}>
                     <Icon className="h-6 w-6"/>
                   </div>
-                  <span className="text-sm text-white/60 group-hover:text-white transition-colors">{label}</span>
+                  <span className="text-sm transition-colors" style={{ color: isDark ? "rgba(255,255,255,0.60)" : "rgba(0,0,0,0.60)" }}>{label}</span>
                 </a>
               ))}
             </div>
@@ -520,10 +524,10 @@ const Membership = () => {
         <div className="absolute inset-0 bg-black/75"/>
         <div className="relative z-10 container-x text-center">
           <Reveal>
-            <h2 className="font-display text-4xl md:text-5xl uppercase text-white leading-tight">
+            <h2 className="font-display text-4xl md:text-5xl uppercase leading-tight" style={{ color: "#ffffff" }}>
               Time to take your athletics and<br/>cognitive skills to the next level
             </h2>
-            <p className="mt-4 text-white/70">Click below to schedule your Evaluation Workout</p>
+            <p className="mt-4" style={{ color: "rgba(255,255,255,0.70)" }}>Click below to schedule your Evaluation Workout</p>
             <Link to="/evaluation-workout" className="btn-red mt-8 inline-flex text-sm font-bold">
               Book Now <ArrowRight className="h-4 w-4"/>
             </Link>

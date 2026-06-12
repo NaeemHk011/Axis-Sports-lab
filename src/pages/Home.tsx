@@ -1017,7 +1017,7 @@ const Home = () => {
         <div className="absolute inset-0 -z-10" style={{
           background: isDark
             ? "linear-gradient(135deg, #080808 0%, #0d1a00 25%, #1d3d00 55%, #0d1a00 80%, #080808 100%)"
-            : "linear-gradient(135deg, #fff0f1 0%, #ffd8db 35%, #ffbec3 55%, #ffd8db 80%, #fff0f1 100%)"
+            : "linear-gradient(135deg, #fafff5 0%, #edffc4 35%, #d5f09a 55%, #edffc4 80%, #fafff5 100%)"
         }} />
         <div className="absolute inset-0 -z-10 bg-grid-sm opacity-25" />
 

@@ -79,10 +79,10 @@ const Contact = () => {
         <div className="absolute inset-0 bg-black/75" />
         <div className="relative z-10 container-x text-center">
           <Reveal>
-            <h2 className="font-display text-4xl md:text-5xl uppercase text-white leading-tight">
+            <h2 className="font-display text-4xl md:text-5xl uppercase leading-tight" style={{ color: "#ffffff" }}>
               Time to take your athletics and<br />cognitive skills to the next level
             </h2>
-            <p className="mt-4 text-white/70">Click below to schedule your Evaluation Workout</p>
+            <p className="mt-4" style={{ color: "rgba(255,255,255,0.70)" }}>Click below to schedule your Evaluation Workout</p>
             <Link to="/evaluation-workout" className="btn-red mt-8 inline-flex text-sm font-bold">
               Book Now <ArrowRight className="h-4 w-4" />
             </Link>
