@@ -48,8 +48,10 @@ const EvaluationWorkout = () => {
           <div className="absolute inset-0" style={{
             background: "linear-gradient(100deg, rgba(6,6,10,0.95) 0%, rgba(6,6,10,0.80) 40%, rgba(6,6,10,0.50) 65%, rgba(6,6,10,0.15) 85%, transparent 100%)"
           }} />
-          <div className="absolute bottom-0 inset-x-0 h-48 pointer-events-none"
-            style={{ background: `linear-gradient(to top, ${isDark ? "#0A0A0A" : "#f8f8f8"} 0%, transparent 100%)` }} />
+          {isDark && (
+            <div className="absolute bottom-0 inset-x-0 h-48 pointer-events-none"
+              style={{ background: "linear-gradient(to top, #0A0A0A 0%, transparent 100%)" }} />
+          )}
         </div>
 
         {/* Red glow orbs */}
@@ -119,11 +121,11 @@ const EvaluationWorkout = () => {
             <motion.div variants={item} className="mt-7 flex flex-wrap gap-4">
               {stats.map((s) => (
                 <div key={s.label} className="flex items-center gap-2.5 rounded-xl px-4 py-2.5"
-                  style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)" }}>
+                  style={{ background: isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.06)", border: `1px solid ${isDark ? "rgba(255,255,255,0.09)" : "rgba(0,0,0,0.12)"}` }}>
                   <s.icon className="h-4 w-4 text-primary-glow shrink-0" />
                   <div>
-                    <p className="font-display text-lg leading-none text-white">{s.value}</p>
-                    <p className="text-[10px] uppercase tracking-[0.18em] text-white/50 mt-0.5" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{s.label}</p>
+                    <p className="font-display text-lg leading-none" style={{ color: "#ffffff" }}>{s.value}</p>
+                    <p className="text-[10px] uppercase tracking-[0.18em] mt-0.5" style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{s.label}</p>
                   </div>
                 </div>
               ))}
@@ -137,10 +139,11 @@ const EvaluationWorkout = () => {
       <section className="section">
         <div className="container-x grid gap-10 lg:grid-cols-12">
           <Reveal className="lg:col-span-5">
-            <h2 className="font-display text-3xl uppercase text-white">What to Expect</h2>
+            <h2 className="font-display text-3xl uppercase" style={{ color: isDark ? "#ffffff" : "#111111" }}>What to Expect</h2>
             <ul className="mt-6 space-y-3">
               {expect.map((e) => (
-                <li key={e} className="flex items-start gap-3 rounded-xl border border-white/5 bg-[hsl(var(--surface))] p-4 text-sm text-white/80">
+                <li key={e} className="flex items-start gap-3 rounded-xl bg-[hsl(var(--surface))] p-4 text-sm"
+                  style={{ border: `1px solid ${isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.10)"}`, color: isDark ? "rgba(255,255,255,0.80)" : "rgba(0,0,0,0.75)" }}>
                   <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary-glow" /> {e}
                 </li>
               ))}
@@ -150,14 +153,14 @@ const EvaluationWorkout = () => {
           <Reveal delay={0.1} className="lg:col-span-7">
             <div className="card-elite">
               <p className="eyebrow">Book a Time</p>
-              <h3 className="mt-3 font-display text-3xl uppercase text-white">
+              <h3 className="mt-3 font-display text-3xl uppercase" style={{ color: isDark ? "#ffffff" : "#111111" }}>
                 Free Training Assessment
               </h3>
-              <p className="mt-2 text-white/60 text-sm">
+              <p className="mt-2 text-sm" style={{ color: isDark ? "rgba(255,255,255,0.60)" : "rgba(0,0,0,0.60)" }}>
                 Select an available slot below to book your free evaluation workout.
               </p>
 
-              <div className="mt-6 w-full rounded-xl overflow-auto" style={{ background: "#0a0a0a" }}>
+              <div className="mt-6 w-full rounded-xl overflow-auto" style={{ background: isDark ? "#0a0a0a" : "#f5f5f5" }}>
                 <iframe
                   src="https://link.webtechs.dev/widget/group/oitWtIUJqP835Vu2bO97"
                   style={{ width: "100%", border: "none", overflow: "auto", minHeight: "1100px" }}
@@ -167,9 +170,9 @@ const EvaluationWorkout = () => {
                 />
               </div>
 
-              <p className="mt-6 flex items-center justify-center gap-2 text-sm text-white/60">
+              <p className="mt-6 flex items-center justify-center gap-2 text-sm" style={{ color: isDark ? "rgba(255,255,255,0.60)" : "rgba(0,0,0,0.60)" }}>
                 <Phone className="h-4 w-4 text-primary-glow" /> Have questions? Call us at{" "}
-                <a className="font-semibold text-white" href="tel:+13465508150">(346) 550-8150</a>
+                <a className="font-semibold" style={{ color: isDark ? "#ffffff" : "#111111" }} href="tel:+13465508150">(346) 550-8150</a>
               </p>
             </div>
           </Reveal>

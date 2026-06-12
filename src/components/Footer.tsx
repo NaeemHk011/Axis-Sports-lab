@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Twitter, Youtube, Phone, Mail, MapPin } from "lucide-react";
+import { useTheme } from "next-themes";
 import Logo from "./Logo";
 
 const Footer = () => {
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme !== "light";
   return (
     <footer className="relative border-t border-white/5 bg-[hsl(var(--surface))] pt-20">
       <div className="container-x">
@@ -117,8 +120,12 @@ const Footer = () => {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={label}
-                  className="grid h-11 w-11 place-items-center rounded-full border border-white/10 text-white/70 transition-all duration-300"
-                  style={{ transition: "all 0.3s ease" }}
+                  className="grid h-11 w-11 place-items-center rounded-full transition-all duration-300"
+                  style={{
+                    border: `1px solid ${isDark ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.15)"}`,
+                    color: isDark ? "rgba(255,255,255,0.70)" : "rgba(0,0,0,0.60)",
+                    transition: "all 0.3s ease"
+                  }}
                   onMouseEnter={e => {
                     (e.currentTarget as HTMLAnchorElement).style.borderColor = "#8dbb1c";
                     (e.currentTarget as HTMLAnchorElement).style.background = "rgba(141,187,28,0.15)";
@@ -126,9 +133,9 @@ const Footer = () => {
                     (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 0 12px rgba(141,187,28,0.3)";
                   }}
                   onMouseLeave={e => {
-                    (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.1)";
+                    (e.currentTarget as HTMLAnchorElement).style.borderColor = isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.15)";
                     (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
-                    (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.7)";
+                    (e.currentTarget as HTMLAnchorElement).style.color = isDark ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.60)";
                     (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
                   }}
                 >

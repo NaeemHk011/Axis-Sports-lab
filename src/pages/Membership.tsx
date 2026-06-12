@@ -369,18 +369,10 @@ const Membership = () => {
                       </span>
                       <p className="text-xs font-semibold uppercase tracking-widest text-primary-glow mb-1">Monthly Package</p>
                       <h3 className="font-display text-xl uppercase text-white leading-tight">{p.level}</h3>
-                      <div className="mt-3 flex items-center justify-between">
+                      <div className="mt-3">
                         <span className="font-display text-3xl text-white">
                           {p.price}<span className="text-sm text-white/60 ml-1">/mo</span>
                         </span>
-                        <button
-                          onClick={() => setNotifyTarget(p.level)}
-                          className="flex items-center gap-1.5 rounded-lg px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all"
-                          style={{ background: "rgba(141,187,28,0.12)", border: "1px solid rgba(141,187,28,0.35)", color: "#d4ff70" }}
-                          onMouseEnter={e => (e.currentTarget.style.background = "rgba(141,187,28,0.22)")}
-                          onMouseLeave={e => (e.currentTarget.style.background = "rgba(141,187,28,0.12)")}>
-                          <Bell className="h-3 w-3"/> Notify Me
-                        </button>
                       </div>
                     </div>
                   </div>

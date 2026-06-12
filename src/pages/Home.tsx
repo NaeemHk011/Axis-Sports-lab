@@ -727,7 +727,7 @@ const Home = () => {
                         <div className="flex items-center gap-2 rounded-full px-4 py-2"
                           style={{ background: "rgba(10,10,10,0.75)", border: "1px solid rgba(255,255,255,0.1)" }}>
                           <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
-                          <span className="text-[10px] font-semibold text-white uppercase tracking-wider" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Sessions Open</span>
+                          <span className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: "#ffffff", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Sessions Open</span>
                         </div>
                       </div>
                     </div>
@@ -739,10 +739,10 @@ const Home = () => {
                         <React.Fragment key={label}>
                           <div className="flex flex-col items-center gap-1">
                             <div className="h-8 w-8 rounded-lg grid place-items-center"
-                              style={{ background: "rgba(141,187,28,0.12)", border: "1px solid rgba(141,187,28,0.25)" }}>
-                              {i === 0 && <Brain className="h-4 w-4 text-[#d4ff70]" />}
-                              {i === 1 && <Dumbbell className="h-4 w-4 text-[#d4ff70]" />}
-                              {i === 2 && <Sparkles className="h-4 w-4 text-[#d4ff70]" />}
+                              style={{ background: isDark ? "rgba(141,187,28,0.12)" : "rgba(141,187,28,0.15)", border: `1px solid ${isDark ? "rgba(141,187,28,0.25)" : "rgba(141,187,28,0.45)"}` }}>
+                              {i === 0 && <Brain className="h-4 w-4" style={{ color: isDark ? "#d4ff70" : "#5a8a00" }} />}
+                              {i === 1 && <Dumbbell className="h-4 w-4" style={{ color: isDark ? "#d4ff70" : "#5a8a00" }} />}
+                              {i === 2 && <Sparkles className="h-4 w-4" style={{ color: isDark ? "#d4ff70" : "#5a8a00" }} />}
                             </div>
                             <span className="font-display text-xs uppercase tracking-wider" style={{ color: hText }}>{label}</span>
                           </div>
@@ -902,7 +902,7 @@ const Home = () => {
 
                     <div className="mt-6 pt-5 flex items-center gap-3" style={{ borderTop: `1px solid ${hBorder}` }}>
                       <div className="h-11 w-11 shrink-0 rounded-full grid place-items-center font-display text-sm uppercase"
-                        style={{ background: "rgba(141,187,28,0.12)", border: "2px solid rgba(141,187,28,0.5)", color: "#d4ff70", boxShadow: "0 0 14px rgba(141,187,28,0.2)" }}>
+                        style={{ background: isDark ? "rgba(141,187,28,0.12)" : "rgba(141,187,28,0.18)", border: `2px solid ${isDark ? "rgba(141,187,28,0.5)" : "rgba(141,187,28,0.7)"}`, color: isDark ? "#d4ff70" : "#5a8a00", boxShadow: "0 0 14px rgba(141,187,28,0.2)" }}>
                         {t.name.charAt(0)}
                       </div>
                       <div>
@@ -929,26 +929,26 @@ const Home = () => {
 
         {/* Marquee 1   forward */}
         <div className="relative overflow-hidden mb-4">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-28 bg-gradient-to-r from-background to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-28 bg-gradient-to-l from-background to-transparent" />
-          <div className="marquee" style={{ gap: "3rem" }}>
-            {[...partners, ...partners].map((p, i) => (
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background to-transparent" />
+          <div className="marquee" style={{ gap: "2rem" }}>
+            {[...partners, ...partners, ...partners, ...partners].map((p, i) => (
               <motion.div key={i} whileHover={{ scale: 1.06, borderColor: "rgba(141,187,28,0.55)" }}
                 className="flex h-12 shrink-0 items-center justify-center rounded-2xl px-5 transition-all duration-300"
                 style={{ background: "hsl(var(--surface))", border: "1px solid hsl(var(--border))" }}>
-                <span className="font-display text-sm tracking-[0.12em] whitespace-nowrap transition-colors duration-300 hover:text-white"
+                <span className="font-display text-sm tracking-[0.12em] whitespace-nowrap transition-colors duration-300"
                   style={{ color: isDark ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.4)" }}>{p}</span>
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* Marquee 2   reverse, slightly different speed */}
+        {/* Marquee 2   reverse */}
         <div className="relative overflow-hidden">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-28 bg-gradient-to-r from-background to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-28 bg-gradient-to-l from-background to-transparent" />
-          <div className="marquee-reverse" style={{ gap: "3rem" }}>
-            {[...partners.slice().reverse(), ...partners.slice().reverse()].map((p, i) => (
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background to-transparent" />
+          <div className="marquee-reverse" style={{ gap: "2rem" }}>
+            {[...partners.slice().reverse(), ...partners.slice().reverse(), ...partners.slice().reverse(), ...partners.slice().reverse()].map((p, i) => (
               <motion.div key={i} whileHover={{ scale: 1.06 }}
                 className="flex h-14 shrink-0 items-center justify-center rounded-xl px-5 transition-all duration-300"
                 style={{ background: "rgba(141,187,28,0.06)", border: "1px solid rgba(141,187,28,0.15)" }}>

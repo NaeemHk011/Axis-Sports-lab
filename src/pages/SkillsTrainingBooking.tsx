@@ -1,4 +1,5 @@
 ﻿import { Check, Phone } from "lucide-react";
+import { useTheme } from "next-themes";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 
@@ -10,7 +11,10 @@ const whatToExpect = [
   "Progress tracked every session",
 ];
 
-const SkillsTrainingBooking = () => (
+const SkillsTrainingBooking = () => {
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme !== "light";
+  return (
   <>
     <PageHero
       eyebrow="Book A Class"
@@ -43,7 +47,7 @@ const SkillsTrainingBooking = () => (
               Select an available slot below to book your skills training class.
             </p>
 
-            <div className="mt-6 w-full rounded-xl overflow-hidden" style={{ background: "#0a0a0a" }}>
+            <div className="mt-6 w-full rounded-xl overflow-hidden" style={{ background: isDark ? "#0a0a0a" : "#ffffff" }}>
               <iframe
                 src="https://link.webtechs.dev/widget/group/hlhLeM5na422btQnB3B5"
                 style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "800px" }}
@@ -62,6 +66,7 @@ const SkillsTrainingBooking = () => (
       </div>
     </section>
   </>
-);
+  );
+};
 
 export default SkillsTrainingBooking;
