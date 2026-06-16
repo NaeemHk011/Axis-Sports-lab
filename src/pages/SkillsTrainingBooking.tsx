@@ -2,6 +2,7 @@
 import { useTheme } from "next-themes";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
+import BookingIframe from "@/components/BookingIframe";
 
 const whatToExpect = [
   "60-minute skills training session",
@@ -48,10 +49,8 @@ const SkillsTrainingBooking = () => {
             </p>
 
             <div className="mt-6 w-full rounded-xl overflow-hidden" style={{ background: isDark ? "#0a0a0a" : "#ffffff" }}>
-              <iframe
+              <BookingIframe
                 src="https://link.webtechs.dev/widget/group/hlhLeM5na422btQnB3B5"
-                style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "800px" }}
-                scrolling="yes"
                 id="hlhLeM5na422btQnB3B5_1780503100353"
                 title="Basketball Skills Training Class"
               />

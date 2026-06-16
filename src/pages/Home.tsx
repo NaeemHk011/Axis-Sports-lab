@@ -29,7 +29,7 @@ import img01 from "../assets/01.jpg";
 import img02 from "../assets/02.jpg";
 import img03 from "../assets/03.png";
 import img04 from "../assets/04.png";
-import img05 from "../assets/05.jpg";
+import img05 from "../assets/05.png";
 import img06 from "../assets/06.png";
 
 /* ─── DATA ───────────────────────────────────────────────── */

@@ -1,6 +1,7 @@
 ﻿import { Phone } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
+import BookingIframe from "@/components/BookingIframe";
 
 const ClubTryouts = () => (
   <>
@@ -25,10 +26,8 @@ const ClubTryouts = () => (
             </p>
 
             <div className="mt-6 w-full overflow-hidden rounded-xl" style={{ background: "#0a0a0a" }}>
-              <iframe
+              <BookingIframe
                 src="https://link.webtechs.dev/widget/booking/WTuKw0hZOdzmx6k2Md6E"
-                style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "800px" }}
-                scrolling="yes"
                 id="WTuKw0hZOdzmx6k2Md6E_1780506587092"
                 title="Club Team Tryouts"
               />

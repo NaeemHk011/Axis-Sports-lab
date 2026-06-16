@@ -1,6 +1,7 @@
 ﻿import { Phone } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
+import BookingIframe from "@/components/BookingIframe";
 
 const CampScheduler = () => (
   <>
@@ -25,10 +26,8 @@ const CampScheduler = () => (
             </p>
 
             <div className="mt-6 w-full overflow-hidden rounded-xl" style={{ background: "#0a0a0a" }}>
-              <iframe
+              <BookingIframe
                 src="https://link.webtechs.dev/widget/group/eTfFR5PPgbbpj2eKRyUQ"
-                style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "800px" }}
-                scrolling="yes"
                 id="eTfFR5PPgbbpj2eKRyUQ_1780505804743"
                 title="Basketball Skills Camps"
               />

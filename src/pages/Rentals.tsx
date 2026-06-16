@@ -1,31 +1,15 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle, Phone } from "lucide-react";
 import { useTheme } from "next-themes";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
+import BookingIframe from "@/components/BookingIframe";
 
 const BOOKING_ID = "F4895vpjQD9F4S0gQdYi_1781211446123";
 
 const Rentals = () => {
   const { resolvedTheme } = useTheme();
   const isDark = resolvedTheme !== "light";
-  const [iframeHeight, setIframeHeight] = useState(650);
-
-  useEffect(() => {
-    const onMessage = (e: MessageEvent) => {
-      try {
-        const d = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
-        if (d && typeof d.height === "number" && d.height > 200) {
-          setIframeHeight(d.height);
-        }
-      } catch {
-        // ignore non-JSON or unrelated messages
-      }
-    };
-    window.addEventListener("message", onMessage);
-    return () => window.removeEventListener("message", onMessage);
-  }, []);
 
   return (
     <>
@@ -116,18 +100,11 @@ const Rentals = () => {
                 Pick an available slot below — a confirmation email will be sent instantly after booking.
               </p>
 
-              <iframe
+              <BookingIframe
                 src="https://link.webtechs.dev/widget/booking/F4895vpjQD9F4S0gQdYi"
                 id={BOOKING_ID}
                 title="Axis Sports Lab Court Rental Booking"
-                style={{
-                  width: "100%",
-                  border: "none",
-                  display: "block",
-                  borderRadius: "12px",
-                  height: `${iframeHeight}px`,
-                  transition: "height 0.3s ease",
-                }}
+                style={{ borderRadius: "12px" }}
               />
             </div>
           </Reveal>

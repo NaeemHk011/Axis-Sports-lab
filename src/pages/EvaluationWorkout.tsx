@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import Reveal from "@/components/Reveal";
 import Particles from "@/components/Particles";
+import BookingIframe from "@/components/BookingIframe";
 
 const expect = [
   "60-minute session with our coaching staff",
@@ -160,11 +161,9 @@ const EvaluationWorkout = () => {
                 Select an available slot below to book your free evaluation workout.
               </p>
 
-              <div className="mt-6 w-full rounded-xl overflow-auto" style={{ background: isDark ? "#0a0a0a" : "#f5f5f5" }}>
-                <iframe
+              <div className="mt-6 w-full rounded-xl overflow-hidden" style={{ background: isDark ? "#0a0a0a" : "#f5f5f5" }}>
+                <BookingIframe
                   src="https://link.webtechs.dev/widget/group/oitWtIUJqP835Vu2bO97"
-                  style={{ width: "100%", border: "none", overflow: "auto", minHeight: "1100px" }}
-                  scrolling="yes"
                   id="oitWtIUJqP835Vu2bO97_1780503810592"
                   title="Free Training Assessment"
                 />
