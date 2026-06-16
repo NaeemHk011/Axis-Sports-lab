@@ -1,7 +1,7 @@
 ﻿import { Link } from "react-router-dom";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Brain, Dumbbell, Sparkles } from "lucide-react";
+import { ArrowRight, Brain, Dumbbell, Sparkles } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import Particles from "@/components/Particles";
 
@@ -49,112 +49,29 @@ const About = () => {
       {/* ═══════════════════════════════════════════════════════
           HERO
          ═══════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden pb-10 pt-14 sm:pt-20 lg:pt-24" aria-label="About Hero">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_hsl(77_74%_42%/0.18),_transparent_60%)]" />
-        <div className="absolute inset-x-0 bottom-0 -z-10 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      <section className="relative overflow-hidden min-h-[55vh] flex items-center pb-10 pt-14 sm:pt-20 lg:pt-24" aria-label="About Hero"
+        style={{ backgroundImage: "url(/pictures/banner-design.png)", backgroundSize: "cover", backgroundPosition: "center" }}>
+        <div className="absolute inset-x-0 bottom-0 z-10 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
         <Particles count={14} />
 
-        <div className="container-x">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-
-            {/* LEFT: Text */}
-            <Reveal>
-              <p className="eyebrow mb-4"><span className="h-px w-8 bg-primary-glow" /> Our Story</p>
-              <h1 className="page-h1 font-display uppercase"
-                style={{ lineHeight: 0.92, letterSpacing: "-0.01em", color: hText }}>
-                Building <span className="text-gradient-red">Explosive</span><br />
-                <span style={{ color: "transparent", WebkitTextStroke: `2px ${isDark ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.8)"}` }}>Athletes.</span>
-              </h1>
-
-              <motion.div
-                initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}
-                transition={{ delay: 0.5, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                className="origin-left my-5 h-[3px] w-16 rounded-full"
-                style={{ background: "var(--gradient-red)", boxShadow: "0 0 18px rgba(141,187,28,0.75)" }}
-              />
-
-              <p className="text-sm sm:text-base leading-relaxed max-w-lg"
-                style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                Welcome to the premier basketball training program in Katy where passion meets precision, and potential turns
-                into performance. At Axis Sports Lab, we're not just about playing the game; we're about transforming in it.
-              </p>
-
-              <ul className="mt-6 space-y-3">
-                {[
-                  "Hundreds of players trained each year",
-                  "Tailored programs for all skill levels",
-                  "Cutting-edge techniques and coaching methods",
-                  "Focus on mental toughness and strategic play",
-                  "A community of passionate athletes",
-                ].map((item, i) => (
-                  <motion.li key={item}
-                    initial={{ opacity: 0, x: -14 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                    className="flex items-center gap-2.5 text-sm"
-                    style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                    <div className="h-5 w-5 shrink-0 rounded-full grid place-items-center"
-                      style={{ background: "linear-gradient(135deg, hsl(77 74% 32%), hsl(77 74% 42%))", boxShadow: "0 0 10px rgba(141,187,28,0.35)" }}>
-                      <CheckCircle2 className="h-3 w-3 text-white" />
-                    </div>
-                    {item}
-                  </motion.li>
-                ))}
-              </ul>
-
-              {/* <div className="mt-8">
-                <Link to="/evaluation-workout" className="btn-pill btn-pill-primary">
-                  Start Your Journey
-                  <span className="btn-pill-icon"><ArrowRight className="h-4 w-4" /></span>
-                </Link>
-              </div> */}
-            </Reveal>
-
-            {/* RIGHT: Hero image */}
-            <Reveal delay={0.1}>
-              <div className="relative">
-                <div className="absolute -inset-3 rounded-[2.5rem] opacity-30 blur-xl pointer-events-none"
-                  style={{ background: "radial-gradient(ellipse, rgba(141,187,28,0.4), transparent 70%)" }} />
-
-                <div className="card-bezel-outer" style={{ borderColor: "rgba(141,187,28,0.25)" }}>
-                  <div className="card-bezel-inner overflow-hidden" style={{ borderRadius: "calc(2rem - 6px)" }}>
-                    <div className="relative" style={{ aspectRatio: "4/3" }}>
-                      <img
-                        src={sliderImages[5]}
-                        alt="Axis Sports Lab Athletics training"
-                        className="absolute inset-0 w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0"
-                        style={{ background: "linear-gradient(to top, rgba(10,10,10,0.65) 0%, transparent 50%)" }} />
-                      <div className="absolute bottom-4 left-5">
-                        <span className="font-display text-4xl text-gradient-red">360°</span>
-                        <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-white/70 mt-0.5"
-                          style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Athlete Development</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Floating badge */}
-                <motion.div
-                  className="absolute -top-4 -right-4 hidden sm:flex items-center gap-2.5 rounded-2xl px-4 py-3 shadow-xl"
-                  style={{ background: isDark ? "hsl(var(--surface-2))" : "#fff", border: "1px solid rgba(141,187,28,0.3)", boxShadow: "0 20px 40px -15px rgba(0,0,0,0.4)" }}
-                  animate={{ y: [-4, 4, -4] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}>
-                  <div className="h-9 w-9 rounded-xl grid place-items-center"
-                    style={{ background: "linear-gradient(135deg, #465d0e, #8dbb1c)" }}>
-                    <span className="font-display text-white text-sm">ASL</span>
-                  </div>
-                  <div>
-                    <p className="font-display text-lg leading-none" style={{ color: hText }}>Est. 2017</p>
-                    <p className="text-[9px] uppercase tracking-wider mt-0.5"
-                      style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Katy, Texas</p>
-                  </div>
-                </motion.div>
-              </div>
-            </Reveal>
-          </div>
+        <div className="container-x w-full text-center relative z-10">
+          <Reveal>
+            <p className="eyebrow justify-center mb-4"><span className="h-px w-8 bg-primary-glow" /> Our Story</p>
+            <h1 className="font-display text-6xl md:text-7xl xl:text-8xl uppercase font-black text-white leading-tight">
+              Building <span className="text-gradient-red">Explosive</span><br />
+              <span style={{ color: "transparent", WebkitTextStroke: "2px rgba(255,255,255,0.85)" }}>Athletes.</span>
+            </h1>
+            <motion.div
+              initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}
+              transition={{ delay: 0.5, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+              className="origin-center my-5 h-[3px] w-16 rounded-full mx-auto"
+              style={{ background: "var(--gradient-red)", boxShadow: "0 0 18px rgba(141,187,28,0.75)" }}
+            />
+            <p className="text-sm sm:text-base leading-relaxed max-w-lg mx-auto"
+              style={{ color: "rgba(255,255,255,0.70)", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              The premier basketball training program in Katy — where passion meets precision, and potential turns into performance.
+            </p>
+          </Reveal>
         </div>
       </section>
 

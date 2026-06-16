@@ -9,21 +9,20 @@ const Consultation = () => (
     {/* Hero */}
     <section
       className="relative min-h-[55vh] flex items-center overflow-hidden"
-      style={{ backgroundImage: "url(/pictures/athlete-running.jpg)", backgroundSize: "cover", backgroundPosition: "center top" }}
+      style={{ backgroundImage: "url(/pictures/banner-design.png)", backgroundSize: "cover", backgroundPosition: "center" }}
     >
-      <div className="absolute inset-0 bg-black/75" />
       <Particles count={14} />
-      <div className="relative z-10 container-x w-full py-20">
+      <div className="relative z-10 container-x w-full py-20 text-center">
         <Reveal>
-          <p className="eyebrow text-primary-glow mb-4">
+          <p className="eyebrow text-primary-glow mb-4 justify-center">
             <span className="h-px w-8 bg-primary-glow" /> Free Consultation
           </p>
-          <h1 className="font-display text-4xl md:text-6xl uppercase text-white leading-tight max-w-3xl">
+          <h1 className="font-display text-5xl md:text-7xl xl:text-8xl uppercase text-white leading-tight font-black mx-auto">
             Book Your{" "}
             <span className="text-primary-glow">10 Minute</span>{" "}
             Consultation with AXIS SPORTS LAB Staff
           </h1>
-          <p className="mt-4 text-white/70 text-base max-w-xl leading-relaxed" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+          <p className="mt-4 text-white/70 text-base max-w-xl leading-relaxed mx-auto" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
             For Specific Information Regarding Our Program
           </p>
         </Reveal>

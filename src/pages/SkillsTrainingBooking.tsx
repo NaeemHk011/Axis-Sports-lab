@@ -21,8 +21,6 @@ const SkillsTrainingBooking = () => {
       eyebrow="Book A Class"
       title="Basketball Skills Training Class"
       subtitle="Reserve your spot in a single skills training session. Elite coaching, real reps, real results."
-      bg="/pictures/gc-skills.jpg"
-      bgPosition="center"
     />
 
     <section className="section">

@@ -9,8 +9,6 @@ const CampScheduler = () => (
       eyebrow="Camps"
       title="Schedule Your Basketball Skill Camp"
       subtitle="Choose your camp date and reserve your spot today."
-      bg="/pictures/camps-hero.jpg"
-      bgPosition="center top"
     />
 
     <section className="section">

@@ -208,23 +208,15 @@ const Membership = () => {
       {modalOpen    && <MembershipModal onClose={() => setModalOpen(false)}/>}
       {notifyTarget && <NotifyModal plan={notifyTarget} onClose={() => setNotifyTarget(null)}/>}
 
-      <PageHero
-        title="Membership"
-        subtitle="Choose the package that fits your goals."
-        bg="/pictures/camps-hero.jpg"
-        bgPosition="center top"
-      />
+      <section className="w-full overflow-hidden">
+        <img src="/pictures/banner-membership.png" alt="We Don't Just Train. We Build Your Digital Infrastructure." className="w-full object-cover" />
+      </section>
 
       {/* ── Value Proposition ── */}
       <section className="section bg-[hsl(var(--surface))]">
         <div className="container-x">
           <Reveal>
             <div className="text-center mb-14">
-              <p className="eyebrow mb-4">— More Than Training</p>
-              <h2 className="font-display text-4xl md:text-5xl uppercase leading-tight mb-6" style={{ color: isDark ? "#ffffff" : "#111111" }}>
-                WE DON'T JUST TRAIN.<br/>
-                <span className="text-primary-glow">WE BUILD YOUR DIGITAL INFRASTRUCTURE.</span>
-              </h2>
               <p className="mx-auto max-w-3xl text-base leading-relaxed" style={{ color: isDark ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.65)" }}>
                 Every Axis Sports Lab membership is a complete ecosystem delivering five critical outcomes. Every Axis athlete receives a professional, centralized Athlete Profile designed to showcase your skills, achievements, highlights, growth, and athletic lifestyle to the world. We deliver the definitive blueprint for recruitment and athletic dominance.
               </p>

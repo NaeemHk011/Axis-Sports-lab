@@ -63,14 +63,10 @@ const Training = () => {
         {/* Background image */}
         <div className="absolute inset-0">
           <img
-            src="/training.jpg"
+            src="/pictures/banner-design.png"
             alt="Training"
             className="absolute inset-0 h-full w-full object-cover object-center"
           />
-          {/* Cinematic overlay */}
-          <div className="absolute inset-0" style={{
-            background: "linear-gradient(100deg, rgba(6,6,10,0.92) 0%, rgba(6,6,10,0.75) 40%, rgba(6,6,10,0.40) 65%, rgba(6,6,10,0.12) 85%, transparent 100%)"
-          }} />
           {/* Bottom fade to page bg */}
           {isDark && (
             <div className="absolute bottom-0 inset-x-0 h-48 pointer-events-none"
@@ -100,8 +96,8 @@ const Training = () => {
         <Particles count={16} />
 
         {/* Content */}
-        <div className="relative z-10 container-x w-full py-16 sm:py-20 lg:py-28">
-          <motion.div variants={container} initial="hidden" animate="show" className="max-w-[560px]">
+        <div className="relative z-10 container-x w-full py-16 sm:py-20 lg:py-28 text-center">
+          <motion.div variants={container} initial="hidden" animate="show" className="max-w-3xl mx-auto">
 
             {/* Eyebrow */}
             <motion.div variants={item} className="mb-3">
@@ -132,22 +128,22 @@ const Training = () => {
             </motion.div>
 
             {/* Divider */}
-            <motion.div variants={item} className="my-3 sm:my-5">
+            <motion.div variants={item} className="my-3 sm:my-5 flex justify-center">
               <motion.div
                 initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}
                 transition={{ delay: 0.9, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                className="origin-left h-[3px] w-16 rounded-full"
+                className="origin-center h-[3px] w-16 rounded-full"
                 style={{ background: "var(--gradient-red)", boxShadow: "0 0 18px rgba(141,187,28,0.75)" }}
               />
             </motion.div>
 
             <motion.p variants={item}
-              className="text-sm sm:text-base leading-relaxed max-w-[420px]"
+              className="text-sm sm:text-base leading-relaxed max-w-[420px] mx-auto"
               style={{ color: "rgba(255,255,255,0.62)", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
               Choose your path to greatness. Every program is designed to elevate your game to the next level.
             </motion.p>
 
-            <motion.div variants={item} className="mt-6 flex flex-wrap gap-3">
+            <motion.div variants={item} className="mt-6 flex flex-wrap gap-3 justify-center">
               <Link to="/skills-training-booking" className="btn-pill btn-pill-primary" style={{ fontSize: "0.9rem" }}>
                 Book A Single Class
                 <span className="btn-pill-icon"><ArrowRight className="h-4 w-4" /></span>

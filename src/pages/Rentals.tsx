@@ -13,23 +13,8 @@ const Rentals = () => {
 
   return (
     <>
-      <PageHero
-        title="Rental with AXIS SPORTS LAB"
-        subtitle="Book our premium court & facility for your next game, event, or training session."
-        bg="/pictures/facility-equipment.jpg"
-        bgPosition="center"
-      />
-
-      {/* Headline */}
-      <section className="section bg-background">
-        <div className="container-x text-center max-w-3xl mx-auto">
-          <Reveal>
-            <h2 className="font-display text-3xl md:text-4xl uppercase leading-tight" style={{ color: isDark ? "#ffffff" : "#111111" }}>
-              Two Hassle-Free Ways to Book Your{" "}
-              <span className="text-primary-glow">Court / Facility</span> Rental Today!
-            </h2>
-          </Reveal>
-        </div>
+      <section className="w-full overflow-hidden">
+        <img src="/pictures/banner-rentals.png" alt="Two Hassle-Free Ways to Book Your Court / Facility Rental Today!" className="w-full object-cover" />
       </section>
 
       {/* ── Main Two-Column Booking Section ── */}

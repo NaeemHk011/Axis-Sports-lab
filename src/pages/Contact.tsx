@@ -1,12 +1,18 @@
-﻿import { Link } from "react-router-dom";
+﻿import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Phone, Mail } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 
 const Contact = () => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); }, []);
+
   return (
     <>
-      <PageHero title="Contact Us" bg="/pictures/athlete-running.jpg" bgPosition="center top" />
+      <section className="w-full overflow-hidden">
+        <img src="/pictures/banner-contact.png" alt="Have Questions? Call Us" className="w-full object-cover" />
+      </section>
 
       {/* Intro */}
       <section className="section bg-background">
@@ -32,12 +38,12 @@ const Contact = () => {
       <section className="pb-16 bg-background">
         <div className="container-x grid gap-12 lg:grid-cols-12">
           <Reveal className="lg:col-span-7">
-            <div className="card-elite">
-              <h2 className="font-display text-3xl uppercase text-white mb-6">Contact Us Form</h2>
+            <h2 className="font-display text-3xl uppercase text-white mb-6">Contact Us Form</h2>
 
+            {mounted && (
               <iframe
                 src="https://link.webtechs.dev/widget/form/dbPvzrYgiPD3ohCGU3Ic"
-                style={{ width: "100%", height: "905px", border: "none", borderRadius: "3px" }}
+                style={{ width: "100%", height: "905px", border: "none", borderRadius: "3px", background: "transparent" }}
                 id="inline-dbPvzrYgiPD3ohCGU3Ic"
                 data-layout="{'id':'INLINE'}"
                 data-trigger-type="alwaysShow"
@@ -51,8 +57,9 @@ const Contact = () => {
                 data-layout-iframe-id="inline-dbPvzrYgiPD3ohCGU3Ic"
                 data-form-id="dbPvzrYgiPD3ohCGU3Ic"
                 title="Contact Us Form"
+                allowTransparency
               />
-            </div>
+            )}
           </Reveal>
 
           <Reveal delay={0.1} className="lg:col-span-5 space-y-5">

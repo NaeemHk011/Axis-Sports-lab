@@ -11,8 +11,6 @@ const Camps = () => {
   <>
     <PageHero
       title="Camps"
-      bg="/pictures/camps-hero.jpg"
-      bgPosition="center top"
     />
 
     {/* Main Camp Info */}

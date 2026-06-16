@@ -9,8 +9,6 @@ const ClubTryouts = () => (
       eyebrow="Club Teams"
       title="Club Team Tryouts"
       subtitle="Ready to join the team? Book your tryout below for Girls or Boys Club Basketball."
-      bg="/pictures/teams-hero.jpg"
-      bgPosition="center top"
     />
 
     <section className="section">

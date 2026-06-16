@@ -40,15 +40,12 @@ const EvaluationWorkout = () => {
         {/* Background image */}
         <div className="absolute inset-0">
           <img
-            src="/pictures/gc-shooting.jpg"
+            src="/pictures/banner-design.png"
             alt=""
             className="absolute inset-0 h-full w-full object-cover object-center"
             fetchPriority="high"
             decoding="async"
           />
-          <div className="absolute inset-0" style={{
-            background: "linear-gradient(100deg, rgba(6,6,10,0.95) 0%, rgba(6,6,10,0.80) 40%, rgba(6,6,10,0.50) 65%, rgba(6,6,10,0.15) 85%, transparent 100%)"
-          }} />
           {isDark && (
             <div className="absolute bottom-0 inset-x-0 h-48 pointer-events-none"
               style={{ background: "linear-gradient(to top, #0A0A0A 0%, transparent 100%)" }} />
@@ -78,8 +75,8 @@ const EvaluationWorkout = () => {
         <Particles count={14} />
 
         {/* Content */}
-        <div className="relative z-10 container-x w-full py-16 sm:py-20 lg:py-28">
-          <motion.div variants={container} initial="hidden" animate="show" className="max-w-[600px]">
+        <div className="relative z-10 container-x w-full py-16 sm:py-20 lg:py-28 text-center">
+          <motion.div variants={container} initial="hidden" animate="show" className="max-w-3xl mx-auto">
 
             {/* Eyebrow badge */}
             <motion.div variants={item} className="mb-4">
@@ -107,19 +104,19 @@ const EvaluationWorkout = () => {
               <motion.div
                 initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}
                 transition={{ delay: 0.8, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                className="origin-left h-[3px] w-16 rounded-full"
+                className="origin-center h-[3px] w-16 rounded-full mx-auto"
                 style={{ background: "var(--gradient-red)", boxShadow: "0 0 18px rgba(141,187,28,0.75)" }}
               />
             </motion.div>
 
             {/* Subtitle */}
-            <motion.p variants={item} className="text-sm sm:text-base leading-relaxed max-w-[440px]"
+            <motion.p variants={item} className="text-sm sm:text-base leading-relaxed max-w-[440px] mx-auto"
               style={{ color: "rgba(255,255,255,0.62)", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
               Let our coaches assess your current level and build your personalized development plan — at zero cost.
             </motion.p>
 
             {/* Stats row */}
-            <motion.div variants={item} className="mt-7 flex flex-wrap gap-4">
+            <motion.div variants={item} className="mt-7 flex flex-wrap gap-4 justify-center">
               {stats.map((s) => (
                 <div key={s.label} className="flex items-center gap-2.5 rounded-xl px-4 py-2.5"
                   style={{ background: isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.06)", border: `1px solid ${isDark ? "rgba(255,255,255,0.09)" : "rgba(0,0,0,0.12)"}` }}>

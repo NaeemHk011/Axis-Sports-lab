@@ -18,15 +18,14 @@ const Alumni = () => {
       {/* Hero */}
       <section
         className="relative min-h-[70vh] flex items-center overflow-hidden"
-        style={{ backgroundImage: "url(/pictures/athlete-running.jpg)", backgroundSize: "cover", backgroundPosition: "center top" }}
+        style={{ backgroundImage: "url(/pictures/banner-design.png)", backgroundSize: "cover", backgroundPosition: "center" }}
       >
-        <div className="absolute inset-0 bg-black/70" />
         <div className="relative z-10 container-x text-center w-full">
           <Reveal>
             <p className="eyebrow justify-center text-primary-glow">
               <span className="h-px w-8 bg-primary-glow" /> FREE Basketball Workout
             </p>
-            <h1 className="font-display text-5xl md:text-7xl uppercase text-white mt-4 leading-tight">
+            <h1 className="font-display text-6xl md:text-7xl xl:text-8xl uppercase text-white mt-4 leading-tight font-black">
               DEVELOP Your Basketball Game<br />
               <span className="text-primary-glow">With Our 60 Minutes Workout</span>
             </h1>

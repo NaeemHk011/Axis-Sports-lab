@@ -7,12 +7,11 @@ const Teams = () => (
     {/* Hero */}
     <section
       className="relative overflow-hidden pb-16 pt-20 lg:pt-28"
-      style={{ backgroundImage: "url(/pictures/teams-hero.jpg)", backgroundSize: "cover", backgroundPosition: "center top" }}
+      style={{ backgroundImage: "url(/pictures/banner-design.png)", backgroundSize: "cover", backgroundPosition: "center" }}
     >
-      <div className="absolute inset-0 bg-black/70" />
-      <div className="relative z-10 container-x">
+      <div className="relative z-10 container-x text-center w-full">
         <Reveal>
-          <h1 className="font-display text-5xl md:text-6xl uppercase text-white leading-tight">
+          <h1 className="font-display text-6xl md:text-7xl xl:text-8xl uppercase text-white leading-tight font-black">
             Our Club <span className="text-primary-glow">Teams</span>
           </h1>
         </Reveal>

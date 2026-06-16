@@ -112,7 +112,7 @@ const LeagueRegistration = () => {
       <section
         className="relative min-h-[88vh] w-full overflow-hidden flex items-center"
         aria-label="League Hero"
-        style={{ background: isDark ? "#0d0d0d" : "#111111" }}
+        style={{ backgroundImage: "url(/pictures/banner-design.png)", backgroundSize: "cover", backgroundPosition: "center" }}
       >
         <div className="absolute inset-0 pointer-events-none"
           style={{ background: "radial-gradient(ellipse at 60% 40%, rgba(141,187,28,0.12) 0%, transparent 60%), radial-gradient(ellipse at 10% 80%, rgba(141,187,28,0.07) 0%, transparent 50%)" }}

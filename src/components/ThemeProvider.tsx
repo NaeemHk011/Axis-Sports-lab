@@ -8,6 +8,7 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => (
     enableSystem={false}
     storageKey="axis-theme"
     themes={["light", "dark"]}
+    disableTransitionOnChange
   >
     {children}
   </NextThemesProvider>
