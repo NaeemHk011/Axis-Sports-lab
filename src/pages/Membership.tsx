@@ -128,10 +128,10 @@ const MembershipModal = ({ onClose }: { onClose: () => void }) => (
         </button>
       </div>
       <div style={{ position: "relative", border: "1px solid rgba(141,187,28,0.3)", borderTop: "none", borderRadius: "0 0 1rem 1rem", overflow: "hidden" }}>
-        <div className="overflow-y-auto" style={{ background: "#0a0a0a", maxHeight: "calc(90vh - 60px)" }}>
+        <div className="overflow-y-auto" style={{ background: "transparent", maxHeight: "calc(90vh - 60px)" }}>
           <iframe
             src="https://link.webtechs.dev/widget/form/glFK27QcYnexZFOH0nhv"
-            style={{ width: "100%", height: "1565px", border: "none", display: "block" }}
+            style={{ width: "100%", height: "1565px", border: "none", display: "block", background: "transparent" }}
             id="inline-glFK27QcYnexZFOH0nhv"
             data-layout="{'id':'INLINE'}"
             data-trigger-type="alwaysShow"
@@ -146,12 +146,6 @@ const MembershipModal = ({ onClose }: { onClose: () => void }) => (
             data-form-id="glFK27QcYnexZFOH0nhv"
             title="Membership Subscription Form"
           />
-        </div>
-        <div style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 10 }}>
-          <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "10px", background: "#0a0a0a" }}/>
-          <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "10px", background: "#0a0a0a" }}/>
-          <div style={{ position: "absolute", top: 0, bottom: 0, left: 0, width: "20px", background: "#0a0a0a" }}/>
-          <div style={{ position: "absolute", top: 0, bottom: 0, right: 0, width: "20px", background: "#0a0a0a" }}/>
         </div>
       </div>
     </div>

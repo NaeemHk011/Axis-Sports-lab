@@ -319,7 +319,7 @@ const LeagueRegistration = () => {
             <div className="rounded-2xl overflow-hidden w-full">
               <iframe
                 src="https://link.webtechs.dev/widget/form/XWVuLmVRB1BufpiSRKxl"
-                style={{ width:"100%", height:2421, border:"none", borderRadius:10 }}
+                style={{ width:"100%", height:2421, border:"none", borderRadius:10, background:"transparent" }}
                 id="inline-XWVuLmVRB1BufpiSRKxl"
                 data-layout="{'id':'INLINE'}"
                 data-trigger-type="alwaysShow"

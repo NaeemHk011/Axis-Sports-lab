@@ -1,4 +1,4 @@
-﻿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
@@ -35,7 +35,7 @@ const MembershipCheckout2DaysWeek = () => (
             <div className="mt-6 w-full overflow-hidden rounded-xl">
               <iframe
                 src="https://link.webtechs.dev/widget/form/zKpIr1VtgtuYWF0qivHO"
-                style={{ width: "100%", height: "1680px", border: "none", borderRadius: "3px" }}
+                style={{ width: "100%", height: "1680px", border: "none", borderRadius: "3px", background: "transparent" }}
                 id="inline-zKpIr1VtgtuYWF0qivHO"
                 data-layout="{'id':'INLINE'}"
                 data-trigger-type="alwaysShow"

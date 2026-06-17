@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ChevronDown, X } from "lucide-react";
 import Reveal from "@/components/Reveal";
@@ -32,7 +32,7 @@ const Ebook = () => {
             <div
               className="flex items-center justify-between px-5 py-4 shrink-0"
               style={{
-                background: "#0a0a0a",
+                background: "transparent",
                 border: "1px solid rgba(141,187,28,0.35)",
                 borderBottom: "1px solid rgba(255,255,255,0.08)",
                 borderRadius: "1rem 1rem 0 0",
@@ -50,7 +50,7 @@ const Ebook = () => {
             {/* Modal body */}
             <div
               style={{
-                background: "#0a0a0a",
+                background: "transparent",
                 border: "1px solid rgba(141,187,28,0.35)",
                 borderTop: "none",
                 borderRadius: "0 0 1rem 1rem",
@@ -60,7 +60,7 @@ const Ebook = () => {
             >
               <iframe
                 src="https://link.webtechs.dev/widget/form/l7kCZoH6ydgd3P94w9IP"
-                style={{ width: "100%", height: "432px", border: "none", display: "block", borderRadius: "3px" }}
+                style={{ width: "100%", height: "432px", border: "none", display: "block", borderRadius: "3px", background: "transparent" }}
                 id="inline-l7kCZoH6ydgd3P94w9IP"
                 data-layout="{'id':'INLINE'}"
                 data-trigger-type="alwaysShow"
@@ -69,19 +69,12 @@ const Ebook = () => {
                 data-activation-value=""
                 data-deactivation-type="neverDeactivate"
                 data-deactivation-value=""
-                data-form-name="Ebook Form "
+                data-form-name="Ebook Form�"
                 data-height="432"
                 data-layout-iframe-id="inline-l7kCZoH6ydgd3P94w9IP"
                 data-form-id="l7kCZoH6ydgd3P94w9IP"
-                title="Ebook Form "
+                title="Ebook Form�"
               />
-              {/* Black strips covering GHL white padding on all 4 sides */}
-              <div style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 10 }}>
-                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "10px", background: "#0a0a0a" }} />
-                <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "10px", background: "#0a0a0a" }} />
-                <div style={{ position: "absolute", top: 0, bottom: 0, left: 0, width: "20px", background: "#0a0a0a" }} />
-                <div style={{ position: "absolute", top: 0, bottom: 0, right: 0, width: "20px", background: "#0a0a0a" }} />
-              </div>
             </div>
           </div>
         </div>
@@ -227,19 +220,19 @@ const Ebook = () => {
           <div className="grid gap-6 sm:grid-cols-3">
             {[
               {
-                icon: "🔥",
+                icon: "??",
                 title: "Commitment & Confidence",
                 desc: "At Axis Sports Lab, we are committed to developing players in an individualized format so athletes develop the confidence to perform at the highest level.",
                 img: "/pictures/teams-explore.jpg",
               },
               {
-                icon: "⚡",
+                icon: "?",
                 title: "Professionally Crafted Skills",
                 desc: "From coaches who bring professional-level experience   every drill, every session is designed to maximize your performance on the court.",
                 img: "/pictures/gc-skills.jpg",
               },
               {
-                icon: "📈",
+                icon: "??",
                 title: "Level Up Your Growth",
                 desc: "Consistently progressing your fundamentals and athleticism, we give you the tools to reach your maximum and grow as an athlete.",
                 img: "/pictures/athlete-feet.jpg",

@@ -22,7 +22,7 @@ const Newsletter = () => (
 
             <iframe
               src="https://link.webtechs.dev/widget/form/acWncB1xrwrdjERuqG1L"
-              style={{ width: "100%", height: "549px", border: "none", borderRadius: "3px" }}
+              style={{ width: "100%", height: "549px", border: "none", borderRadius: "3px", background: "transparent" }}
               id="inline-acWncB1xrwrdjERuqG1L"
               data-layout="{'id':'INLINE'}"
               data-trigger-type="alwaysShow"
