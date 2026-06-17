@@ -17,6 +17,16 @@ const Rentals = () => {
         <img src="/pictures/banner-rentals.png" alt="Two Hassle-Free Ways to Book Your Court / Facility Rental Today!" className="w-full object-cover" />
       </section>
 
+      {/* ── Section Heading ── */}
+      <section className="pt-16 pb-4 bg-background text-center">
+        <Reveal>
+          <h2 className="font-display text-3xl md:text-4xl uppercase leading-tight">
+            <span style={{ color: isDark ? "#ffffff" : "#111111" }}>Two Hassle-Free Ways to Book Your</span><br />
+            <span style={{ color: "#8dbb1c" }}>Court / Facility Rental Today!</span>
+          </h2>
+        </Reveal>
+      </section>
+
       {/* ── Main Two-Column Booking Section ── */}
       <section className="pb-24 bg-background">
         <div className="container-x grid gap-10 lg:grid-cols-2 lg:items-start">
@@ -82,7 +92,7 @@ const Rentals = () => {
                 <h3 className="font-display text-2xl uppercase" style={{ color: isDark ? "#ffffff" : "#111111" }}>Select a Date & Time</h3>
               </div>
               <p className="text-sm mb-6" style={{ color: isDark ? "rgba(255,255,255,0.50)" : "rgba(0,0,0,0.50)" }}>
-                Pick an available slot below — a confirmation email will be sent instantly after booking.
+                Pick an available slot below    a confirmation email will be sent instantly after booking.
               </p>
 
               <BookingIframe

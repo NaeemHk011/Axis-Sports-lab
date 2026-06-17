@@ -11,15 +11,15 @@ import Reveal from "@/components/Reveal";
 
 /* ─── data ──────────────────────────────────────────────────────── */
 const unlimitedMonthly = [
-  { level: "Beginners Skill Level",    price: "$385", img: "/pictures/gc-shooting.jpg", slug: "beginners-unlimited"    },
-  { level: "Intermediate Skill Level", price: "$375", img: "/pictures/gc-skills.jpg",   slug: "intermediate-unlimited" },
-  { level: "Advanced Skill Level",     price: "$285", img: "/pictures/gc-camps.jpg",    slug: "advanced-unlimited"     },
+  { level: "Beginners Skill Level",    price: "$285", img: "/pictures/gc-shooting.jpg", slug: "beginners-unlimited"    },
+  { level: "Intermediate Skill Level", price: "$275", img: "/pictures/gc-skills.jpg",   slug: "intermediate-unlimited" },
+  { level: "Advanced Skill Level",     price: "$265", img: "/pictures/gc-camps.jpg",    slug: "advanced-unlimited"     },
 ];
 
 const twoDayWeekly = [
   { level: "Beginners Skill Level",    price: "$185", img: "/pictures/teams-girls.jpg", slug: "beginners-2days"    },
-  { level: "Intermediate Skill Level", price: "$185", img: "/pictures/teams-boys.jpg",  slug: "intermediate-2days" },
-  { level: "Advanced Skill Level",     price: "$185", img: "/pictures/camps-main.jpg",  slug: "advanced-2days"     },
+  { level: "Intermediate Skill Level", price: "$175", img: "/pictures/teams-boys.jpg",  slug: "intermediate-2days" },
+  { level: "Advanced Skill Level",     price: "$165", img: "/pictures/camps-main.jpg",  slug: "advanced-2days"     },
 ];
 
 const performanceMonthly = [
@@ -158,10 +158,10 @@ const MembershipModal = ({ onClose }: { onClose: () => void }) => (
   </div>
 );
 
-/* ─── Membership card — Unlimited ───────────────────────────────── */
+/* ─── Membership card    Unlimited ───────────────────────────────── */
 const UnlimitedCard = ({ level, price, img, onAddToCart }: { level: string; price: string; img: string; onAddToCart: () => void }) => (
   <Reveal>
-    <div className="card-img-bg relative overflow-hidden rounded-2xl aspect-[4/3] group cursor-pointer shadow-xl">
+    <div onClick={onAddToCart} className="card-img-bg relative overflow-hidden rounded-2xl aspect-[4/3] group cursor-pointer shadow-xl">
       <img src={img} alt={level} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"/>
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"/>
       <div className="absolute inset-0 flex flex-col justify-end p-5">
@@ -169,28 +169,30 @@ const UnlimitedCard = ({ level, price, img, onAddToCart }: { level: string; pric
         <h3 className="font-display text-xl uppercase text-white leading-tight">{level}</h3>
         <div className="mt-3 flex items-center justify-between">
           <span className="font-display text-3xl text-white">{price}<span className="text-sm text-white/60 ml-1">/mo</span></span>
-          <button onClick={onAddToCart} className="btn-red text-xs px-4 py-2">Add To Cart</button>
+          <button onClick={e => { e.stopPropagation(); onAddToCart(); }} className="btn-red text-xs px-4 py-2">Add To Cart</button>
         </div>
       </div>
     </div>
   </Reveal>
 );
 
-/* ─── Membership card — 2 Days/Week ─────────────────────────────── */
+/* ─── Membership card    2 Days/Week ─────────────────────────────── */
 const TwoDayCard = ({ level, price, img }: { level: string; price: string; img: string; slug: string }) => (
   <Reveal>
-    <div className="card-img-bg relative overflow-hidden rounded-2xl aspect-[4/3] group cursor-pointer shadow-xl">
-      <img src={img} alt={level} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"/>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"/>
-      <div className="absolute inset-0 flex flex-col justify-end p-5">
-        <p className="text-xs font-semibold uppercase tracking-widest text-primary-glow mb-1">2 Days / Week</p>
-        <h3 className="font-display text-xl uppercase text-white leading-tight">{level}</h3>
-        <div className="mt-3 flex items-center justify-between">
-          <span className="font-display text-3xl text-white">{price}<span className="text-sm text-white/60 ml-1">/mo</span></span>
-          <Link to="/membership-checkout-2days-week" className="btn-red text-xs px-4 py-2">Join Now</Link>
+    <Link to="/membership-checkout-2days-week" className="block">
+      <div className="card-img-bg relative overflow-hidden rounded-2xl aspect-[4/3] group cursor-pointer shadow-xl">
+        <img src={img} alt={level} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"/>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"/>
+        <div className="absolute inset-0 flex flex-col justify-end p-5">
+          <p className="text-xs font-semibold uppercase tracking-widest text-primary-glow mb-1">2 Days / Week</p>
+          <h3 className="font-display text-xl uppercase text-white leading-tight">{level}</h3>
+          <div className="mt-3 flex items-center justify-between">
+            <span className="font-display text-3xl text-white">{price}<span className="text-sm text-white/60 ml-1">/mo</span></span>
+            <span className="btn-red text-xs px-4 py-2">Join Now</span>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   </Reveal>
 );
 
@@ -212,95 +214,8 @@ const Membership = () => {
         <img src="/pictures/banner-membership.png" alt="We Don't Just Train. We Build Your Digital Infrastructure." className="w-full object-cover" />
       </section>
 
-      {/* ── Value Proposition ── */}
-      <section className="section bg-[hsl(var(--surface))]">
-        <div className="container-x">
-          <Reveal>
-            <div className="text-center mb-14">
-              <p className="mx-auto max-w-3xl text-base leading-relaxed" style={{ color: isDark ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.65)" }}>
-                Every Axis Sports Lab membership is a complete ecosystem delivering five critical outcomes. Every Axis athlete receives a professional, centralized Athlete Profile designed to showcase your skills, achievements, highlights, growth, and athletic lifestyle to the world. We deliver the definitive blueprint for recruitment and athletic dominance.
-              </p>
-            </div>
-
-            {/* 5 Outcomes */}
-            <div className="flex flex-wrap justify-center gap-3 mb-16">
-              {[
-                { icon: Shield,      label: "Training"                 },
-                { icon: Eye,         label: "Exposure"                 },
-                { icon: Video,       label: "Media"                    },
-                { icon: Fingerprint, label: "Digital Identity"         },
-                { icon: Network,     label: "Recruiting Infrastructure" },
-              ].map((o, i) => (
-                <div key={o.label}
-                  className="flex items-center gap-2.5 rounded-full px-5 py-2.5"
-                  style={{ background: "rgba(141,187,28,0.10)", border: "1px solid rgba(141,187,28,0.35)", color: isDark ? "#d4ff70" : "#111111" }}>
-                  <span className="text-[10px] font-bold opacity-50">{String(i + 1).padStart(2, "0")}</span>
-                  <o.icon className="h-3.5 w-3.5" style={{ color: "#8dbb1c" }}/>
-                  <span className="text-xs font-bold uppercase tracking-widest">{o.label}</span>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-
-          {/* Elite Athlete Profile Dashboard Mockup */}
-          <Reveal>
-            <div className="mx-auto max-w-2xl rounded-2xl overflow-hidden"
-              style={{ border: "1px solid rgba(141,187,28,0.30)", background: "#0d0d0d", boxShadow: "0 40px 80px -20px rgba(0,0,0,0.6), 0 0 40px rgba(141,187,28,0.08)" }}>
-              <div className="flex items-center gap-2 px-5 py-3"
-                style={{ borderBottom: "1px solid rgba(255,255,255,0.06)", background: "#111" }}>
-                <span className="h-3 w-3 rounded-full" style={{ background: "rgba(255,80,80,0.6)"     }}/>
-                <span className="h-3 w-3 rounded-full" style={{ background: "rgba(255,190,0,0.6)"    }}/>
-                <span className="h-3 w-3 rounded-full" style={{ background: "rgba(141,187,28,0.7)"   }}/>
-                <span className="ml-4 text-[10px] font-mono" style={{ color: "rgba(255,255,255,0.25)" }}>
-                  axissportslab.com/athlete/profile
-                </span>
-              </div>
-              <div className="p-7">
-                <div className="flex items-center gap-5 mb-8">
-                  <div className="h-16 w-16 shrink-0 rounded-full flex items-center justify-center font-display text-3xl text-white"
-                    style={{ background: "linear-gradient(135deg, #465d0e, #8dbb1c)" }}>A</div>
-                  <div className="flex-1 text-left">
-                    <h4 className="font-display text-xl uppercase leading-none" style={{ color: "#ffffff" }}>Athlete Name</h4>
-                    <p className="text-sm mt-1" style={{ color: "#8dbb1c" }}>Point Guard · Class of 2026</p>
-                    <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.35)" }}>Axis Sports Lab · Katy, TX</p>
-                  </div>
-                  <span className="shrink-0 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider"
-                    style={{ background: "rgba(141,187,28,0.18)", border: "1px solid rgba(141,187,28,0.4)", color: "#d4ff70" }}>
-                    ELITE MEMBER
-                  </span>
-                </div>
-                <div className="grid grid-cols-3 gap-3 mb-5">
-                  {[{ label:"Vertical", val:'+6"' },{ label:"40-Yard", val:"4.4s" },{ label:"Skill Level", val:"Elite" }].map(s => (
-                    <div key={s.label} className="rounded-xl py-4 text-center"
-                      style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}>
-                      <p className="font-display text-2xl" style={{ color: "#ffffff" }}>{s.val}</p>
-                      <p className="text-[9px] uppercase tracking-widest mt-1" style={{ color: "rgba(255,255,255,0.55)" }}>{s.label}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="flex gap-2 flex-wrap">
-                  {["Highlights","Stats","Media","Recruiting","Timeline"].map((tab, i) => (
-                    <span key={tab} className="rounded-lg px-4 py-1.5 text-[10px] font-semibold uppercase tracking-wider"
-                      style={{
-                        background: i === 0 ? "rgba(141,187,28,0.18)" : "rgba(255,255,255,0.04)",
-                        color:      i === 0 ? "#d4ff70"               : "rgba(255,255,255,0.35)",
-                        border: `1px solid ${i === 0 ? "rgba(141,187,28,0.4)" : "rgba(255,255,255,0.06)"}`,
-                      }}>
-                      {tab}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <p className="mt-4 text-center text-xs" style={{ color: isDark ? "rgba(255,255,255,0.30)" : "#111111" }}>
-              — Elite Athlete Profile Dashboard (Mockup) —
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
       {/* ════════════════════════════════════════════════════════════
-          TIER SECTIONS — wrapped so sticky bar appears at bottom
+          TIER SECTIONS    wrapped so sticky bar appears at bottom
          ════════════════════════════════════════════════════════════ */}
       <div className="relative">
 
@@ -308,7 +223,7 @@ const Membership = () => {
         <section className="section bg-background">
           <div className="container-x">
             <Reveal>
-              <h2 className="font-display text-3xl uppercase text-center mb-10" style={{ color: isDark ? "#ffffff" : "#111111" }}>
+              <h2 className="font-display text-3xl md:text-4xl uppercase text-center mb-10" style={{ color: isDark ? "#ffffff" : "#111111" }}>
                 Unlimited Monthly <span className="text-primary-glow">Skills Training</span> Packages
               </h2>
             </Reveal>
@@ -394,11 +309,98 @@ const Membership = () => {
 
       </div>{/* end tier wrapper */}
 
+      {/* ── Value Proposition ── */}
+      <section className="section bg-[hsl(var(--surface))]">
+        <div className="container-x">
+          <Reveal>
+            <div className="text-center mb-14">
+              <p className="mx-auto max-w-3xl text-base leading-relaxed" style={{ color: isDark ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.65)" }}>
+                Every Axis Sports Lab membership is a complete ecosystem delivering five critical outcomes. Every Axis athlete receives a professional, centralized Athlete Profile designed to showcase your skills, achievements, highlights, growth, and athletic lifestyle to the world. We deliver the definitive blueprint for recruitment and athletic dominance.
+              </p>
+            </div>
+
+            {/* 5 Outcomes */}
+            <div className="flex flex-wrap justify-center gap-3 mb-16">
+              {[
+                { icon: Shield,      label: "Training"                 },
+                { icon: Eye,         label: "Exposure"                 },
+                { icon: Video,       label: "Media"                    },
+                { icon: Fingerprint, label: "Digital Identity"         },
+                { icon: Network,     label: "Recruiting Infrastructure" },
+              ].map((o, i) => (
+                <div key={o.label}
+                  className="flex items-center gap-2.5 rounded-full px-5 py-2.5"
+                  style={{ background: "rgba(141,187,28,0.10)", border: "1px solid rgba(141,187,28,0.35)", color: isDark ? "#d4ff70" : "#111111" }}>
+                  <span className="text-[10px] font-bold opacity-50">{String(i + 1).padStart(2, "0")}</span>
+                  <o.icon className="h-3.5 w-3.5" style={{ color: "#8dbb1c" }}/>
+                  <span className="text-xs font-bold uppercase tracking-widest">{o.label}</span>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+
+          {/* Elite Athlete Profile Dashboard Mockup */}
+          <Reveal>
+            <div className="mx-auto max-w-2xl rounded-2xl overflow-hidden"
+              style={{ border: "1px solid rgba(141,187,28,0.30)", background: "#0d0d0d", boxShadow: "0 40px 80px -20px rgba(0,0,0,0.6), 0 0 40px rgba(141,187,28,0.08)" }}>
+              <div className="flex items-center gap-2 px-5 py-3"
+                style={{ borderBottom: "1px solid rgba(255,255,255,0.06)", background: "#111" }}>
+                <span className="h-3 w-3 rounded-full" style={{ background: "rgba(255,80,80,0.6)"     }}/>
+                <span className="h-3 w-3 rounded-full" style={{ background: "rgba(255,190,0,0.6)"    }}/>
+                <span className="h-3 w-3 rounded-full" style={{ background: "rgba(141,187,28,0.7)"   }}/>
+                <span className="ml-4 text-[10px] font-mono" style={{ color: "rgba(255,255,255,0.25)" }}>
+                  axissportslab.com/athlete/profile
+                </span>
+              </div>
+              <div className="p-7">
+                <div className="flex items-center gap-5 mb-8">
+                  <div className="h-16 w-16 shrink-0 rounded-full flex items-center justify-center font-display text-3xl text-white"
+                    style={{ background: "linear-gradient(135deg, #465d0e, #8dbb1c)" }}>A</div>
+                  <div className="flex-1 text-left">
+                    <h4 className="font-display text-xl uppercase leading-none" style={{ color: "#ffffff" }}>Athlete Name</h4>
+                    <p className="text-sm mt-1" style={{ color: "#8dbb1c" }}>Point Guard · Class of 2026</p>
+                    <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.35)" }}>Axis Sports Lab · Katy, TX</p>
+                  </div>
+                  <span className="shrink-0 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider"
+                    style={{ background: "rgba(141,187,28,0.18)", border: "1px solid rgba(141,187,28,0.4)", color: "#d4ff70" }}>
+                    ELITE MEMBER
+                  </span>
+                </div>
+                <div className="grid grid-cols-3 gap-3 mb-5">
+                  {[{ label:"Vertical", val:'+6"' },{ label:"40-Yard", val:"4.4s" },{ label:"Skill Level", val:"Elite" }].map(s => (
+                    <div key={s.label} className="rounded-xl py-4 text-center"
+                      style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                      <p className="font-display text-2xl" style={{ color: "#ffffff" }}>{s.val}</p>
+                      <p className="text-[9px] uppercase tracking-widest mt-1" style={{ color: "rgba(255,255,255,0.55)" }}>{s.label}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex gap-2 flex-wrap">
+                  {["Highlights","Stats","Media","Recruiting","Timeline"].map((tab, i) => (
+                    <span key={tab} className="rounded-lg px-4 py-1.5 text-[10px] font-semibold uppercase tracking-wider"
+                      style={{
+                        background: i === 0 ? "rgba(141,187,28,0.18)" : "rgba(255,255,255,0.04)",
+                        color:      i === 0 ? "#d4ff70"               : "rgba(255,255,255,0.35)",
+                        border: `1px solid ${i === 0 ? "rgba(141,187,28,0.4)" : "rgba(255,255,255,0.06)"}`,
+                      }}>
+                      {tab}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <p className="mt-4 text-center text-xs" style={{ color: isDark ? "rgba(255,255,255,0.30)" : "#111111" }}>
+                 Elite Athlete Profile Dashboard (Mockup)   
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ── Comparison Table ── */}
       <section id="compare-plans" className="section bg-[hsl(var(--surface))]">
         <div className="container-x max-w-3xl">
           <Reveal>
-            <p className="eyebrow mb-3 text-center">— Side by Side</p>
+            <p className="eyebrow mb-3 text-center">   Side by Side</p>
             <h2 className="font-display text-3xl uppercase text-center mb-10" style={{ color: isDark ? "#ffffff" : "#111111" }}>
               Compare <span className="text-primary-glow">Plans</span>
             </h2>
@@ -427,9 +429,9 @@ const Membership = () => {
               {[
                 { feature: "Sessions per week",  two: "2",  unlimited: "Unlimited" },
                 { feature: "Athlete Profile",    two: "✓",  unlimited: "✓"         },
-                { feature: "Video Highlights",   two: "—",  unlimited: "✓"         },
-                { feature: "Recruiting Support", two: "—",  unlimited: "✓"         },
-                { feature: "Priority Booking",   two: "—",  unlimited: "✓"         },
+                { feature: "Video Highlights",   two: "  ",  unlimited: "✓"         },
+                { feature: "Recruiting Support", two: "  ",  unlimited: "✓"         },
+                { feature: "Priority Booking",   two: "  ",  unlimited: "✓"         },
               ].map((row, i) => (
                 <div key={row.feature}
                   className="grid grid-cols-3"
@@ -440,14 +442,14 @@ const Membership = () => {
                   </div>
                   <div className="px-6 py-4 text-center text-sm font-semibold"
                     style={{
-                      color:      row.two === "✓" ? "#8dbb1c" : row.two === "—" ? (isDark ? "rgba(255,255,255,0.20)" : "rgba(0,0,0,0.25)") : (isDark ? "rgba(255,255,255,0.80)" : "rgba(0,0,0,0.80)"),
+                      color:      row.two === "✓" ? "#8dbb1c" : row.two === "  " ? (isDark ? "rgba(255,255,255,0.20)" : "rgba(0,0,0,0.25)") : (isDark ? "rgba(255,255,255,0.80)" : "rgba(0,0,0,0.80)"),
                       background: i % 2 === 0 ? (isDark ? "rgba(255,255,255,0.01)" : "rgba(0,0,0,0.01)") : "transparent",
                     }}>
                     {row.two}
                   </div>
                   <div className="px-6 py-4 text-center text-sm font-semibold"
                     style={{
-                      color:      row.unlimited === "✓" ? "#8dbb1c" : row.unlimited === "—" ? (isDark ? "rgba(255,255,255,0.20)" : "rgba(0,0,0,0.25)") : (isDark ? "#d4ff70" : "#5a8a00"),
+                      color:      row.unlimited === "✓" ? "#8dbb1c" : row.unlimited === "  " ? (isDark ? "rgba(255,255,255,0.20)" : "rgba(0,0,0,0.25)") : (isDark ? "#d4ff70" : "#5a8a00"),
                       background: `rgba(141,187,28,${i % 2 === 0 ? "0.05" : "0.03"})`,
                       borderLeft: "1px solid rgba(141,187,28,0.10)",
                     }}>

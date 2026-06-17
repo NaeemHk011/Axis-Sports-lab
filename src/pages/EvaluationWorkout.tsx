@@ -10,11 +10,11 @@ const expect = [
   "Full athletic assessment",
   "Personalized feedback session",
   "Custom program recommendation",
-  "Zero pressure — 100% value",
+  "Zero pressure    100% value",
 ];
 
 const stats = [
-  { icon: Star,   value: "100%", label: "Free — No Cost" },
+  { icon: Star,   value: "100%", label: "Free    No Cost" },
   { icon: Zap,    value: "60",   label: "Minute Session" },
   { icon: Target, value: "1-on", label: "1 Coaching" },
 ];
@@ -112,7 +112,7 @@ const EvaluationWorkout = () => {
             {/* Subtitle */}
             <motion.p variants={item} className="text-sm sm:text-base leading-relaxed max-w-[440px] mx-auto"
               style={{ color: "rgba(255,255,255,0.62)", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-              Let our coaches assess your current level and build your personalized development plan — at zero cost.
+              Let our coaches assess your current level and build your personalized development plan    at zero cost.
             </motion.p>
 
             {/* Stats row */}

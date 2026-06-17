@@ -69,7 +69,7 @@ const About = () => {
             />
             <p className="text-sm sm:text-base leading-relaxed max-w-lg mx-auto"
               style={{ color: "rgba(255,255,255,0.70)", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-              The premier basketball training program in Katy — where passion meets precision, and potential turns into performance.
+              The premier basketball training program in Katy    where passion meets precision, and potential turns into performance.
             </p>
           </Reveal>
         </div>

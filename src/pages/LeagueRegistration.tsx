@@ -34,17 +34,17 @@ const benefits = [
   { num: "01", title: "Max Playing Time",    body: "Every player is on the court. No bench-warming, no sitting out."        },
   { num: "02", title: "Pro Development",     body: "Coached by certified trainers who develop real skills every week."      },
   { num: "03", title: "Weekly Games",        body: "High-energy games with stat tracking and video highlights."             },
-  { num: "04", title: "Rapid Improvement",   body: "More reps, more touches — players improve faster, guaranteed."         },
+  { num: "04", title: "Rapid Improvement",   body: "More reps, more touches    players improve faster, guaranteed."         },
   { num: "05", title: "Confidence Building", body: "Perfect for beginners and advanced athletes at every level."           },
 ];
 
 const experiences = [
   { icon: Star,   title: "Player Combine Day",  body: "Athletes evaluated before the season for fair team placement."           },
-  { icon: Users,  title: "Team Draft Night",     body: "A real draft experience — players get selected just like the pros."     },
+  { icon: Users,  title: "Team Draft Night",     body: "A real draft experience    players get selected just like the pros."     },
   { icon: Trophy, title: "Pro Jerseys",          body: "Every player gets a professional-quality jersey with their name."       },
-  { icon: Zap,    title: "Player of the Week",   body: "Top performers recognized weekly — fueling confidence and motivation." },
+  { icon: Zap,    title: "Player of the Week",   body: "Top performers recognized weekly    fueling confidence and motivation." },
   { icon: Target, title: "Highlight Videos",     body: "Games filmed and clipped. Your athlete goes viral in the family group chat." },
-  { icon: Shield, title: "Championship Weekend", body: "Season ends with a full championship event — trophies and all."        },
+  { icon: Shield, title: "Championship Weekend", body: "Season ends with a full championship event    trophies and all."        },
 ];
 
 const item = {
@@ -105,7 +105,7 @@ const LeagueRegistration = () => {
         className="w-full py-2.5 text-center text-xs font-bold uppercase tracking-[0.2em]"
         style={{ background: "linear-gradient(90deg, #8dbb1c, #a8d422)", color: "#0a0a0a" }}
       >
-        🏀 Registration Now Open — Spots Are Limited. Secure Yours Today.
+        🏀 Registration Now Open    Spots Are Limited. Secure Yours Today.
       </div>
 
       {/* ═══ HERO ═══ */}
@@ -138,7 +138,7 @@ const LeagueRegistration = () => {
             className="grid gap-12 lg:grid-cols-[1fr_420px] lg:items-center">
             <div>
               <motion.p variants={item} className="eyebrow mb-4">
-                — Axis Sports Lab · Open Draft Pool
+                   Axis Sports Lab · Open Draft Pool
               </motion.p>
               <motion.h1 variants={item} className="font-display uppercase leading-none"
                 style={{ fontSize:"clamp(3.2rem, 8vw, 7.5rem)", color:"#ffffff", lineHeight:1.0 }}>
@@ -147,7 +147,7 @@ const LeagueRegistration = () => {
                 <span style={{ WebkitTextStroke:"2px rgba(255,255,255,0.25)", color:"transparent", fontSize:"80%" }}>LEAGUE</span>
               </motion.h1>
               <motion.p variants={item} className="mt-6 max-w-md text-lg" style={{ color:"rgba(255,255,255,0.65)" }}>
-                Sign up as an <strong style={{ color:"#ffffff" }}>individual</strong> — no team needed. We handle the draft. You bring the game. Every player gets touches, every player gets better.
+                Sign up as an <strong style={{ color:"#ffffff" }}>individual</strong>    no team needed. We handle the draft. You bring the game. Every player gets touches, every player gets better.
               </motion.p>
               <motion.div variants={item} className="my-8"
                 style={{ height:2, background:"linear-gradient(90deg, #8dbb1c 0%, transparent 80%)", maxWidth:240 }}/>
@@ -196,7 +196,7 @@ const LeagueRegistration = () => {
       <section id="how-it-works" className="section" style={{ background: pageBg }}>
         <div className="container-x">
           <Reveal>
-            <p className="eyebrow mb-3">— The Format</p>
+            <p className="eyebrow mb-3">   The Format</p>
             <h2 className="h-section mb-14" style={{ color: hText }}>
               WHY AXIS LEAGUE <span className="text-gradient-red">IS DIFFERENT</span>
             </h2>
@@ -219,7 +219,7 @@ const LeagueRegistration = () => {
       <section className="section" style={{ background: isDark ? "#111111" : "#f0f0f0" }}>
         <div className="container-x">
           <Reveal>
-            <p className="eyebrow mb-3">— The Experience</p>
+            <p className="eyebrow mb-3">   The Experience</p>
             <h2 className="h-section mb-14" style={{ color: isDark ? "#ffffff" : "#111111" }}>
               PRO-STYLE <span className="text-gradient-red">EVERYTHING</span>
             </h2>
@@ -249,7 +249,7 @@ const LeagueRegistration = () => {
       <section className="section" style={{ background: pageBg }}>
         <div className="container-x">
           <Reveal>
-            <p className="eyebrow mb-3">— Divisions</p>
+            <p className="eyebrow mb-3">   Divisions</p>
             <h2 className="h-section mb-14" style={{ color: hText }}>
               FIND YOUR <span className="text-gradient-red">LEVEL</span>
             </h2>
@@ -276,7 +276,7 @@ const LeagueRegistration = () => {
       <section className="section" style={{ background: isDark ? "#111111" : "#f0f0f0" }}>
         <div className="container-x">
           <Reveal>
-            <p className="eyebrow mb-3">— Season Schedule</p>
+            <p className="eyebrow mb-3">   Season Schedule</p>
             <h2 className="h-section mb-14" style={{ color: isDark ? "#ffffff" : "#111111" }}>
               8 WEEKS. <span className="text-gradient-red">ONE MISSION.</span>
             </h2>
@@ -306,7 +306,7 @@ const LeagueRegistration = () => {
       <section id="register-form" className="section" style={{ background: pageBg }}>
         <div className="container-x max-w-3xl">
           <Reveal>
-            <p className="eyebrow mb-3">— Step 01</p>
+            <p className="eyebrow mb-3">   Step 01</p>
             <h2 className="h-section mb-3" style={{ color: hText }}>
               REGISTER YOUR <span className="text-gradient-red">PLAYER</span>
             </h2>
@@ -339,7 +339,7 @@ const LeagueRegistration = () => {
         </div>
       </section>
 
-      {/* ═══ THANK YOU — only after submit ═══ */}
+      {/* ═══ THANK YOU    only after submit ═══ */}
       <section
         ref={thankYouRef}
         id="thank-you"
@@ -360,7 +360,7 @@ const LeagueRegistration = () => {
               You're In!
             </h2>
             <p className="mt-4 text-xl font-semibold" style={{ color:"rgba(0,0,0,0.75)" }}>
-              Registration Received — We'll Be In Touch.
+              Registration Received    We'll Be In Touch.
             </p>
             <p className="mx-auto mt-3 max-w-lg text-base" style={{ color:"rgba(0,0,0,0.60)" }}>
               Our team will review your registration and reach out within 24–48 hours with your next steps, team placement details, and season schedule.

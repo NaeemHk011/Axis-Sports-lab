@@ -9,9 +9,9 @@ const Camps = () => {
   const isDark = resolvedTheme !== "light";
   return (
   <>
-    <PageHero
-      title="Camps"
-    />
+      <section className="w-full overflow-hidden">
+        <img src="/pictures/banner-camps.png" alt="Train & Play - Basketball Camps" className="w-full object-cover" />
+      </section>
 
     {/* Main Camp Info */}
     <section className="section bg-background">
