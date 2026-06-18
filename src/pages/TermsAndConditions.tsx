@@ -7,7 +7,7 @@ const sections = [
   },
   {
     title: "Waiver of Claims",
-    content: `In the event of injury to said child, I hereby waive all claims against Axis Sports Lab (including its coaches, affiliates, participating agencies, advertisers and, if applicable, the owners or lessors of premises used to conduct the trainings and events). I acknowledge that participation in sports activities (including basketball) inherently carries the risk of injury — which may include, but is not limited to, fractures, paralysis, or death.`,
+    content: `In the event of injury to said child, I hereby waive all claims against Axis Sports Lab (including its coaches, affiliates, participating agencies, advertisers and, if applicable, the owners or lessors of premises used to conduct the trainings and events). I acknowledge that participation in sports activities (including basketball) inherently carries the risk of injury   which may include, but is not limited to, fractures, paralysis, or death.`,
   },
   {
     title: "Medical Release and Authorization",
@@ -76,7 +76,7 @@ const TermsAndConditions = () => {
             Terms &amp; Conditions
           </h1>
           <div className="h-1 w-20 bg-primary mx-auto rounded-full" />
-          <p className="text-muted-foreground mt-4 text-sm">Axis Sports Lab — Please read carefully before enrolling.</p>
+          <p className="text-muted-foreground mt-4 text-sm">Axis Sports Lab   Please read carefully before enrolling.</p>
         </div>
 
         {/* Sections */}

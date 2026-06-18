@@ -439,7 +439,7 @@ const Home = () => {
       <section id="services" className="section" aria-label="Services">
         <div className="container-x">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-2">
-            {/* Left — heading */}
+            {/* Left   heading */}
             <Reveal>
               <p className="eyebrow mb-4"><span className="h-px w-8 bg-primary-glow" /> What We Offer</p>
               <h2 className="h-section" style={{ color: hText }}>
@@ -451,7 +451,7 @@ const Home = () => {
               </p>
             </Reveal>
 
-            {/* Right — Free Evaluation card */}
+            {/* Right   Free Evaluation card */}
             <Reveal delay={0.15}>
               <TiltCard style={{ perspective: "900px" }}>
                 <div
@@ -482,7 +482,7 @@ const Home = () => {
                       Free Evaluation
                     </h3>
                     <p className="mt-3 text-sm leading-relaxed text-white/75 max-w-xs" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                      Get a complete assessment of your skill, athleticism, and basketball IQ. Our coaches build your personalized roadmap — at zero cost.
+                      Get a complete assessment of your skill, athleticism, and basketball IQ. Our coaches build your personalized roadmap   at zero cost.
                     </p>
                     <div className="mt-5 flex items-center justify-between">
                       <Link to="/evaluation-workout"

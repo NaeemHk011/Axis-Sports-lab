@@ -13,9 +13,9 @@ const alumniList = [
     conference: "Big XII",
     commitmentColor: "#512888",
     tag: "D1 Committed",
-    bio: "From foundations to D1 basketball — Aniya Foy's journey is a testament to what elite training and relentless dedication can achieve. Developed through the Axis Sports Lab system from elementary school through high school, Aniya built the extreme athleticism and elite skill set that made her one of the most sought-after prospects in the nation.",
+    bio: "From foundations to D1 basketball   Aniya Foy's journey is a testament to what elite training and relentless dedication can achieve. Developed through the Axis Sports Lab system from elementary school through high school, Aniya built the extreme athleticism and elite skill set that made her one of the most sought-after prospects in the nation.",
     achievements: [
-      "ESPN Nation's Top 50 — High School",
+      "ESPN Nation's Top 50   High School",
       "All-Time Leading Scorer at Cinco Ranch HS",
       "Dozens of Power 5 Scholarship Offers",
       "Arguably the Greatest Women's Basketball Player in School History",
@@ -94,7 +94,7 @@ const Alumni = () => {
                 <div className="group relative overflow-hidden rounded-2xl flex flex-col lg:flex-row"
                   style={{ border: a.featured ? "1px solid rgba(141,187,28,0.40)" : "1px solid rgba(255,255,255,0.08)", background: isDark ? "#0d0d0d" : "#ffffff", boxShadow: a.featured ? "0 0 40px rgba(141,187,28,0.08)" : "none" }}>
 
-                  {/* Left — Image */}
+                  {/* Left   Image */}
                   <div className="relative shrink-0 w-full lg:w-80 h-80 lg:h-auto overflow-hidden">
                     <img src={a.img} alt={a.name}
                       className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
@@ -116,7 +116,7 @@ const Alumni = () => {
                     </div>
                   </div>
 
-                  {/* Right — Details */}
+                  {/* Right   Details */}
                   <div className="flex flex-col justify-center p-7 lg:p-10 flex-1 gap-5">
 
                     {/* Name (desktop) */}

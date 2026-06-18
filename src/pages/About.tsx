@@ -218,7 +218,7 @@ const About = () => {
             </h2>
             <p className="mt-4 mx-auto max-w-xl text-sm leading-relaxed"
               style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-              World-class coaches dedicated to unlocking every athlete's full potential — on and off the court.
+              World-class coaches dedicated to unlocking every athlete's full potential   on and off the court.
             </p>
           </Reveal>
 
