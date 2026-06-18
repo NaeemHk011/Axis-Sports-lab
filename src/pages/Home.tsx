@@ -438,16 +438,66 @@ const Home = () => {
          ═══════════════════════════════════════════════════════ */}
       <section id="services" className="section" aria-label="Services">
         <div className="container-x">
-          <Reveal className="max-w-xl">
-            <p className="eyebrow mb-4"><span className="h-px w-8 bg-primary-glow" /> What We Offer</p>
-            <h2 className="h-section" style={{ color: hText }}>
-              Choose your path<br />
-              <span className="text-gradient-red">to greatness</span>
-            </h2>
-            <p className="mt-5 text-sm leading-relaxed" style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif", maxWidth: "400px" }}>
-              Four elite programs built to develop every dimension of your athletic game.
-            </p>
-          </Reveal>
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-2">
+            {/* Left — heading */}
+            <Reveal>
+              <p className="eyebrow mb-4"><span className="h-px w-8 bg-primary-glow" /> What We Offer</p>
+              <h2 className="h-section" style={{ color: hText }}>
+                Choose your path<br />
+                <span className="text-gradient-red">to greatness</span>
+              </h2>
+              <p className="mt-5 text-sm leading-relaxed" style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif", maxWidth: "400px" }}>
+                Four elite programs built to develop every dimension of your athletic game.
+              </p>
+            </Reveal>
+
+            {/* Right — Free Evaluation card */}
+            <Reveal delay={0.15}>
+              <TiltCard style={{ perspective: "900px" }}>
+                <div
+                  className="card-img-bg group relative overflow-hidden rounded-[1.6rem] min-h-[220px] flex flex-col justify-end cursor-pointer"
+                  style={{ border: "2px solid rgba(141,187,28,0.70)", boxShadow: "0 0 40px rgba(141,187,28,0.18), 0 0 80px rgba(141,187,28,0.08)" }}
+                  onClick={() => navigate("/evaluation-workout")}
+                >
+                  {/* BG */}
+                  <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #0d1a00 0%, #0a0a0a 60%, #0d1a00 100%)" }} />
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{ background: "linear-gradient(to top, rgba(141,187,28,0.25) 0%, transparent 70%)" }} />
+
+                  {/* FREE badge */}
+                  <div className="absolute top-5 right-5">
+                    <span className="inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-[11px] font-black uppercase tracking-[0.25em]"
+                      style={{ background: "#8dbb1c", color: "#0a0a0a", boxShadow: "0 0 20px rgba(141,187,28,0.60)" }}>
+                      ★ 100% FREE
+                    </span>
+                  </div>
+
+                  {/* Ghost number */}
+                  <span className="absolute top-5 right-6 font-display text-9xl leading-none pointer-events-none select-none"
+                    style={{ color: "rgba(141,187,28,0.12)" }}>00</span>
+
+                  {/* Content */}
+                  <div className="relative z-10 p-6">
+                    <h3 className="font-display text-2xl uppercase text-white leading-tight">
+                      Free Evaluation
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-white/75 max-w-xs" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                      Get a complete assessment of your skill, athleticism, and basketball IQ. Our coaches build your personalized roadmap — at zero cost.
+                    </p>
+                    <div className="mt-5 flex items-center justify-between">
+                      <Link to="/evaluation-workout"
+                        className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide group-hover:gap-3 transition-all duration-300"
+                        style={{ color: "#8dbb1c", fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+                        onClick={e => e.stopPropagation()}>
+                        Book Now <ArrowRight className="h-4 w-4" />
+                      </Link>
+                      <span className="font-display text-4xl leading-none" style={{ color: "#8dbb1c" }}>$0</span>
+                    </div>
+                  </div>
+                </div>
+              </TiltCard>
+            </Reveal>
+          </div>
 
           {/* Bento: picture-based cards */}
           <div className="mt-8 sm:mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-5">
@@ -457,7 +507,7 @@ const Home = () => {
               <TiltCard style={{ perspective: "900px" }} className="h-full">
                 <div className="card-img-bg group relative overflow-hidden rounded-[1.6rem] min-h-[260px] sm:min-h-[240px] sm:min-h-[280px] flex flex-col justify-end cursor-pointer"
                   style={{ border: "1px solid rgba(141,187,28,0.25)", backgroundColor: "#0d1a00" }}
-                  onClick={() => navigate("/training")}>
+                  onClick={() => navigate("/skills-training-booking")}>
                   {/* BG image */}
                   <FadeImg
                     src="/pictures/gc-shooting.jpg"
@@ -487,8 +537,8 @@ const Home = () => {
                       Biomechanical Shooting Optimization. Master your shot utilizing progressive micro-drills, catch-and-shoot mechanics, and game-speed release analysis to ensure maximum form retention.
                     </p>
                     <div className="mt-5 flex items-center justify-between">
-                      <Link to="/training" className="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                        Explore Program <ArrowRight className="h-4 w-4" />
+                      <Link to="/skills-training-booking" className="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                        Reserve Your Spot <ArrowRight className="h-4 w-4" />
                       </Link>
                       <div className="text-right">
                         <p className="font-display text-4xl leading-none text-white">98%</p>
@@ -505,7 +555,7 @@ const Home = () => {
               <TiltCard style={{ perspective: "900px" }} className="h-full">
                 <div className="card-img-bg group relative overflow-hidden rounded-[1.6rem] min-h-[260px] sm:min-h-[240px] sm:min-h-[280px] flex flex-col justify-end cursor-pointer"
                   style={{ border: "1px solid rgba(255,160,0,0.25)", backgroundColor: "#1a0c00" }}
-                  onClick={() => navigate("/training")}>
+                  onClick={() => navigate("/skills-training-booking")}>
                   <FadeImg
                     src="/pictures/gc-skills.jpg"
                     alt="Skills Training"
@@ -530,8 +580,8 @@ const Home = () => {
                     <p className="mt-3 text-sm leading-relaxed text-white/75" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                       Neuromuscular Skill Acquisition. Complete guard and forward development. Enhancing processing speed, spatial awareness, footwork efficiency, and decision-making under high environmental pressure.
                     </p>
-                    <Link to="/training" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                      Learn More <ArrowRight className="h-4 w-4" />
+                    <Link to="/skills-training-booking" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                      Reserve Your Spot <ArrowRight className="h-4 w-4" />
                     </Link>
                   </div>
                 </div>
@@ -543,7 +593,7 @@ const Home = () => {
               <TiltCard style={{ perspective: "900px" }} className="h-full">
                 <div className="card-img-bg group relative overflow-hidden rounded-[1.6rem] min-h-[240px] sm:min-h-[280px] flex flex-col justify-end cursor-pointer"
                   style={{ border: "1px solid rgba(0,180,120,0.25)", backgroundColor: "#001a0d" }}
-                  onClick={() => navigate("/training")}>
+                  onClick={() => navigate("/skills-training-booking")}>
                   <FadeImg
                     src="/pictures/gc-athlete.jpg"
                     alt="Athlete Training"
@@ -569,8 +619,8 @@ const Home = () => {
                       Kinetic Performance & Plyometrics. Full-body athletic data optimization focusing on rate of force development (RFD), vertical velocity, deceleration mechanics, and injury-prevention infrastructure.
                     </p>
                     <div className="mt-4 flex items-center justify-between">
-                      <Link to="/training" className="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                        Learn More <ArrowRight className="h-4 w-4" />
+                      <Link to="/skills-training-booking" className="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                        Reserve Your Spot <ArrowRight className="h-4 w-4" />
                       </Link>
                       <span className="font-display text-4xl text-white/90">+6"</span>
                     </div>

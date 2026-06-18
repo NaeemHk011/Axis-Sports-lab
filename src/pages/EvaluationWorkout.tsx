@@ -6,7 +6,7 @@ import Particles from "@/components/Particles";
 import BookingIframe from "@/components/BookingIframe";
 
 const expect = [
-  "60-minute session with our coaching staff",
+  "30-minute session with our coaching staff",
   "Full athletic assessment",
   "Personalized feedback session",
   "Custom program recommendation",
@@ -15,7 +15,7 @@ const expect = [
 
 const stats = [
   { icon: Star,   value: "100%", label: "Free    No Cost" },
-  { icon: Zap,    value: "60",   label: "Minute Session" },
+  { icon: Zap,    value: "30",   label: "Minute Session" },
   { icon: Target, value: "1-on", label: "1 Coaching" },
 ];
 

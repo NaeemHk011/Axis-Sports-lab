@@ -1,183 +1,197 @@
-﻿import { useState } from "react";
-import { Link } from "react-router-dom";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { useTheme } from "next-themes";
+import { Trophy, Star, MapPin, GraduationCap, Medal, ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import Particles from "@/components/Particles";
 
-const faqs = [
-  { q: "How do I access the free basketball workout?", a: "Simply click the 'Find & Download' button above and enter your email to get instant access to the full 60-minute workout guide." },
-  { q: "Is this suitable for beginners?", a: "Absolutely. The workout is structured to meet athletes at all skill levels   from first-time players to advanced competitors." },
-  { q: "How long is the basketball skills workout?", a: "The complete workout runs 60 minutes and covers ball handling, shooting mechanics, footwork, and game IQ drills." },
-  { q: "Can I contact Axis Sports Lab for more info?", a: "Yes! Reach us at (346) 550-8150 or info@axissportslab.com   we're happy to help you find the right program." },
+/* ─── Alumni Data ─────────────────────────────────────────────────── */
+const alumniList = [
+  {
+    name: "Aniya Foy",
+    position: "Guard",
+    school: "Cinco Ranch High School",
+    commitment: "Kansas State University",
+    conference: "Big XII",
+    commitmentColor: "#512888",
+    tag: "D1 Committed",
+    bio: "From foundations to D1 basketball — Aniya Foy's journey is a testament to what elite training and relentless dedication can achieve. Developed through the Axis Sports Lab system from elementary school through high school, Aniya built the extreme athleticism and elite skill set that made her one of the most sought-after prospects in the nation.",
+    achievements: [
+      "ESPN Nation's Top 50 — High School",
+      "All-Time Leading Scorer at Cinco Ranch HS",
+      "Dozens of Power 5 Scholarship Offers",
+      "Arguably the Greatest Women's Basketball Player in School History",
+    ],
+    media: ["ESPN", "KPRC 2", "Vype"],
+    img: "/pictures/aniya-foy.png",
+    profileUrl: "https://eyecanathletics.com/aniyafoy",
+    featured: true,
+  },
 ];
 
+/* ═══════════════════════════════════════════════════════════════════ */
 const Alumni = () => {
-  const [open, setOpen] = useState<number | null>(null);
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme !== "light";
+  const hText  = isDark ? "#ffffff" : "#111111";
+  const hMuted = isDark ? "rgba(255,255,255,0.60)" : "rgba(0,0,0,0.62)";
 
   return (
     <>
-      {/* Hero */}
+      {/* ── Hero ── */}
       <section
-        className="relative min-h-[70vh] flex items-center overflow-hidden"
+        className="relative min-h-[52vh] flex items-center overflow-hidden pb-10 pt-14 sm:pt-20"
         style={{ backgroundImage: "url(/pictures/banner-design.png)", backgroundSize: "cover", backgroundPosition: "center" }}
+        aria-label="Alumni Hero"
       >
-        <div className="relative z-10 container-x text-center w-full">
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent z-10" />
+        <Particles count={14} />
+        <div className="relative z-10 container-x w-full text-center">
           <Reveal>
-            <p className="eyebrow justify-center text-primary-glow">
-              <span className="h-px w-8 bg-primary-glow" /> FREE Basketball Workout
+            <p className="eyebrow justify-center mb-4">
+              <span className="h-px w-8 bg-primary-glow" /> Where They Are Now
             </p>
-            <h1 className="font-display text-6xl md:text-7xl xl:text-8xl uppercase text-white mt-4 leading-tight font-black">
-              DEVELOP Your Basketball Game<br />
-              <span className="text-primary-glow">With Our 60 Minutes Workout</span>
+            <h1 className="font-display text-6xl md:text-7xl xl:text-8xl uppercase text-white font-black leading-tight">
+              Our <span className="text-gradient-red">Alumni</span>
             </h1>
-            <p className="mt-5 text-white/70 max-w-xl mx-auto text-base">
-              Professionally crafted drills, techniques, and routines used by elite athletes to sharpen every facet of
-              their game   available free to you.
+            <p className="mt-5 max-w-xl mx-auto text-sm leading-relaxed"
+              style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              Athletes who trained at Axis Sports Lab and went on to dominate at the highest levels. Their success is our mission.
             </p>
-            <a
-              href="#download"
-              className="btn-red mt-8 inline-flex text-sm font-bold"
-            >
-              Find &amp; Download <ArrowRight className="h-4 w-4" />
-            </a>
           </Reveal>
         </div>
       </section>
 
-      {/* YouTube Video */}
-      <section className="section bg-background">
-        <div className="container-x max-w-4xl mx-auto">
-          <Reveal>
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl aspect-video border border-white/10">
-              <iframe
-                src="https://www.youtube.com/embed/LMSzitbTy6U"
-                title="Axis Sports Lab Basketball Workout"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                className="absolute inset-0 h-full w-full"
-              />
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Transform Section */}
-      <section className="section bg-background">
-        <div className="container-x grid gap-12 lg:grid-cols-2 lg:items-center">
-          <Reveal>
-            <h2 className="font-display text-4xl uppercase text-white leading-tight">
-              Transform Your Game, Unlock Your Potential with{" "}
-              <span className="text-primary-glow">Axis Sports Lab</span>
-            </h2>
-            <p className="mt-5 text-white/70 leading-relaxed">
-              At Axis Sports Lab, we are devoted to deep practices as preparation for competition. We offer programs
-              and develop players in an individualized format   every athlete gets the specific attention they need.
-            </p>
-            <p className="mt-4 text-white/70 leading-relaxed">
-              At Axis Sports Lab, it's not just about playing basketball   it's about developing champion athletes with
-              elite fundamentals. Our coaches give you the game-changing skills to dominate the court and get to the
-              next level.
-            </p>
-            <Link to="/evaluation-workout" className="btn-red mt-8 inline-flex">
-              Find &amp; Download <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Reveal>
-
-          <Reveal delay={0.1}>
-            <div className="relative overflow-hidden rounded-2xl aspect-[4/3] shadow-2xl">
-              <img
-                src="/pictures/camps-main.jpg"
-                alt="Axis Sports Lab team"
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Ebook Showcase */}
-      <section id="download" className="section bg-[hsl(var(--surface))]">
-        <div className="container-x grid gap-12 lg:grid-cols-2 lg:items-center">
-          <Reveal delay={0.1}>
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl aspect-square max-w-sm mx-auto">
-              <img
-                src="/pictures/gc-shooting.jpg"
-                alt="The Basketball Skills Workout"
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col items-center justify-end p-8 text-center">
-                <p className="font-display text-2xl uppercase text-white">THE BASKETBALL</p>
-                <p className="font-display text-4xl uppercase text-primary-glow">SKILLS WORKOUT</p>
-              </div>
-            </div>
-          </Reveal>
-
-          <Reveal>
-            <p className="eyebrow"><span className="h-px w-8 bg-primary-glow" /> Free Resource</p>
-            <h2 className="font-display text-4xl uppercase text-white mt-4 leading-tight">
-              Your Ultimate Guide to Elevate Your{" "}
-              <span className="text-primary-glow">Basketball Skills</span>
-            </h2>
-            <ul className="mt-6 space-y-3">
-              {[
-                "Basketball is a game   it's a discipline. A dedication. A commitment that defines an athlete.",
-                "It all comes down to 60 minutes. Unlock the full potential of your capabilities.",
-                "Train smarter, not just harder   follow the same structure used by our elite coaches.",
-                "Don't miss the workouts: find yours & share it in your community, add a rating.",
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-white/70 text-sm">
-                  <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-primary" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <Link to="/evaluation-workout" className="btn-red mt-8 inline-flex">
-              Find &amp; Download <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Feature Cards */}
-      <section className="section bg-background">
+      {/* ── Stats Bar ── */}
+      <section className="py-8 border-y" style={{ borderColor: "rgba(141,187,28,0.18)", background: isDark ? "rgba(141,187,28,0.05)" : "rgba(141,187,28,0.04)" }}>
         <div className="container-x">
-          <Reveal>
-            <h2 className="font-display text-3xl uppercase text-white text-center mb-10">
-              Master the Fundamentals, <span className="text-primary-glow">Dominate the Court</span>
+          <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto text-center">
+            {[
+              { val: "D1",    label: "College Committed"   },
+              { val: "Big XII", label: "Conference"        },
+              { val: "Top 50", label: "ESPN National Rank" },
+            ].map(s => (
+              <div key={s.label}>
+                <p className="font-display text-3xl md:text-4xl" style={{ color: "#8dbb1c" }}>{s.val}</p>
+                <p className="text-xs uppercase tracking-widest mt-1" style={{ color: hMuted }}>{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Alumni Profiles ── */}
+      <section className="section" aria-label="Alumni Profiles">
+        <div className="container-x">
+          <Reveal className="text-center mb-14">
+            <p className="eyebrow justify-center mb-3"><span className="h-px w-8 bg-primary-glow" /> Featured Athletes</p>
+            <h2 className="h-section" style={{ color: hText }}>
+              Alumni <span className="text-gradient-red">Spotlight</span>
             </h2>
           </Reveal>
-          <div className="grid gap-6 sm:grid-cols-3">
-            {[
-              {
-                icon: "🔥",
-                title: "Commitment & Confidence",
-                desc: "At Axis Sports Lab, we are committed to developing players in an individualized format so athletes develop the confidence to perform at the highest level.",
-                img: "/pictures/teams-explore.jpg",
-              },
-              {
-                icon: "⚡",
-                title: "Professionally Crafted Skills",
-                desc: "From coaches who bring professional-level experience   every drill, every session is designed to maximize your performance on the court.",
-                img: "/pictures/gc-skills.jpg",
-              },
-              {
-                icon: "📈",
-                title: "Level Up Your Growth",
-                desc: "Consistently progressing your fundamentals and athleticism, we give you the tools to reach your maximum and grow as an athlete.",
-                img: "/pictures/athlete-feet.jpg",
-              },
-            ].map((card, i) => (
-              <Reveal key={card.title} delay={i * 0.1}>
-                <div className="relative overflow-hidden rounded-2xl aspect-[3/4] group shadow-xl">
-                  <img src={card.img} alt={card.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10" />
-                  <div className="absolute inset-0 flex flex-col justify-end p-6">
-                    <span className="text-3xl mb-2">{card.icon}</span>
-                    <h3 className="font-display text-xl uppercase text-white leading-tight">{card.title}</h3>
-                    <p className="mt-3 text-sm text-white/65 leading-relaxed">{card.desc}</p>
-                    <Link to="/evaluation-workout" className="btn-red mt-5 text-xs inline-flex self-start">
-                      Find &amp; Download
-                    </Link>
+
+          <div className="space-y-10 max-w-5xl mx-auto">
+            {alumniList.map((a, i) => (
+              <Reveal key={a.name} delay={i * 0.1}>
+                <div className="group relative overflow-hidden rounded-2xl flex flex-col lg:flex-row"
+                  style={{ border: a.featured ? "1px solid rgba(141,187,28,0.40)" : "1px solid rgba(255,255,255,0.08)", background: isDark ? "#0d0d0d" : "#ffffff", boxShadow: a.featured ? "0 0 40px rgba(141,187,28,0.08)" : "none" }}>
+
+                  {/* Left — Image */}
+                  <div className="relative shrink-0 w-full lg:w-80 h-80 lg:h-auto overflow-hidden">
+                    <img src={a.img} alt={a.name}
+                      className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+                    <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 40%, rgba(13,13,13,0.9) 100%)" }} />
+                    <div className="absolute inset-0 hidden lg:block" style={{ background: "linear-gradient(to right, transparent 65%, rgba(13,13,13,0.95) 100%)" }} />
+
+                    {/* Featured badge */}
+                    {a.featured && (
+                      <div className="absolute top-4 left-4 flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest"
+                        style={{ background: "rgba(141,187,28,0.90)", color: "#0a0a0a" }}>
+                        <Star className="h-3 w-3 fill-current" /> Featured
+                      </div>
+                    )}
+
+                    {/* Name overlay on mobile */}
+                    <div className="absolute bottom-0 left-0 right-0 p-5 lg:hidden">
+                      <p className="font-display text-3xl uppercase text-white">{a.name}</p>
+                      <p className="text-xs mt-1" style={{ color: "#8dbb1c" }}>{a.position} · {a.school}</p>
+                    </div>
+                  </div>
+
+                  {/* Right — Details */}
+                  <div className="flex flex-col justify-center p-7 lg:p-10 flex-1 gap-5">
+
+                    {/* Name (desktop) */}
+                    <div className="hidden lg:block">
+                      <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "rgba(141,187,28,0.70)" }}>
+                        {a.position}
+                      </p>
+                      <h3 className="font-display text-4xl xl:text-5xl uppercase" style={{ color: hText }}>{a.name}</h3>
+                    </div>
+
+                    {/* Info pills */}
+                    <div className="flex flex-wrap gap-2">
+                      <span className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold"
+                        style={{ background: isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)", color: hMuted, border: `1px solid ${isDark ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.10)"}` }}>
+                        <MapPin className="h-3 w-3" /> {a.school}
+                      </span>
+                      <span className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold uppercase tracking-wide"
+                        style={{ background: "rgba(81,40,136,0.20)", border: "1px solid rgba(81,40,136,0.50)", color: "#c8a8ff" }}>
+                        <GraduationCap className="h-3 w-3" /> {a.commitment} · {a.conference}
+                      </span>
+                      <span className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold uppercase tracking-wide"
+                        style={{ background: "rgba(141,187,28,0.15)", border: "1px solid rgba(141,187,28,0.40)", color: "#d4ff70" }}>
+                        <Trophy className="h-3 w-3" /> {a.tag}
+                      </span>
+                    </div>
+
+                    {/* Bio */}
+                    <p className="text-sm leading-relaxed" style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                      {a.bio}
+                    </p>
+
+                    {/* Achievements */}
+                    <div>
+                      <p className="text-[10px] font-bold uppercase tracking-widest mb-3" style={{ color: "rgba(141,187,28,0.70)" }}>
+                        Achievements
+                      </p>
+                      <ul className="space-y-2">
+                        {a.achievements.map(ach => (
+                          <li key={ach} className="flex items-start gap-2.5 text-sm" style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                            <Medal className="h-3.5 w-3.5 shrink-0 mt-0.5" style={{ color: "#8dbb1c" }} />
+                            {ach}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Media */}
+                    <div>
+                      <p className="text-[10px] font-bold uppercase tracking-widest mb-3" style={{ color: "rgba(255,255,255,0.25)" }}>
+                        As Seen In
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {a.media.map(m => (
+                          <span key={m} className="rounded-lg px-3 py-1.5 text-xs font-bold uppercase tracking-widest"
+                            style={{ background: isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)", border: `1px solid ${isDark ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}`, color: hMuted }}>
+                            {m}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* View Story Link */}
+                    {a.profileUrl && (
+                      <a
+                        href={a.profileUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 self-start rounded-xl px-5 py-2.5 text-sm font-bold uppercase tracking-wider transition-all duration-200"
+                        style={{ background: "#8dbb1c", color: "#0a0a0a" }}
+                        onMouseEnter={e => (e.currentTarget.style.filter = "brightness(1.1)")}
+                        onMouseLeave={e => (e.currentTarget.style.filter = "brightness(1)")}
+                      >
+                        View Full Story <ArrowRight className="h-4 w-4" />
+                      </a>
+                    )}
                   </div>
                 </div>
               </Reveal>
@@ -186,34 +200,23 @@ const Alumni = () => {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="section bg-[hsl(var(--surface))]">
-        <div className="container-x max-w-2xl mx-auto">
+      {/* ── CTA ── */}
+      <section className="section relative overflow-hidden"
+        style={{ backgroundImage: "url(/pictures/teams-hero.jpg)", backgroundSize: "cover", backgroundPosition: "center top" }}>
+        <div className="absolute inset-0 bg-black/80" />
+        <div className="relative z-10 container-x text-center">
           <Reveal>
-            <h2 className="font-display text-3xl uppercase text-white text-center mb-10">
-              Have Some <span className="text-primary-glow">Questions?</span>
+            <p className="eyebrow justify-center mb-4"><span className="h-px w-8 bg-primary-glow" /> Your Journey Starts Here</p>
+            <h2 className="font-display text-4xl md:text-5xl uppercase text-white leading-tight">
+              The Next <span className="text-gradient-red">Success Story</span><br />Could Be Yours
             </h2>
+            <p className="mt-5 max-w-md mx-auto text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              Join the same program that built Aniya Foy and other elite athletes. Your path to the next level begins at Axis Sports Lab.
+            </p>
+            <a href="/evaluation-workout" className="btn-red mt-8 inline-flex text-sm font-bold">
+              Book Your Free Evaluation
+            </a>
           </Reveal>
-          <div className="space-y-3">
-            {faqs.map((faq, i) => (
-              <Reveal key={i} delay={i * 0.05}>
-                <div className="card-elite overflow-hidden">
-                  <button
-                    onClick={() => setOpen(open === i ? null : i)}
-                    className="flex w-full items-center justify-between gap-4 text-left"
-                  >
-                    <span className="font-semibold text-white text-sm">{faq.q}</span>
-                    <ChevronDown
-                      className={`h-5 w-5 shrink-0 text-primary-glow transition-transform duration-300 ${open === i ? "rotate-180" : ""}`}
-                    />
-                  </button>
-                  {open === i && (
-                    <p className="mt-4 text-sm text-white/65 leading-relaxed border-t border-white/5 pt-4">{faq.a}</p>
-                  )}
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
     </>

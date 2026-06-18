@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Brain, Dumbbell, Sparkles } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import Particles from "@/components/Particles";
+import coachImg from "../assets/04.png";
 
 const sliderImages = [
   "/pictures/camps-main.jpg",
@@ -23,6 +24,16 @@ const sliderImages = [
   "/pictures/teams-cta.jpg",
 ];
 
+const coaches = [
+  {
+    name: "Richard Foy",
+    role: "Master Trainer & Head Coach",
+    img: coachImg,
+    bio: "Richard Foy is the driving force behind Axis Sports Lab's elite development system. With years of experience training athletes from beginner to advanced levels, Coach Foy has built a reputation for transforming raw talent into championship-ready competitors. His hands-on, personalized approach ensures every athlete receives the coaching and attention needed to reach their full potential.",
+    specialties: ["Skills Development", "Basketball IQ", "Athletic Conditioning", "Recruiting Preparation"],
+  },
+];
+
 const values = [
   { n: "01", icon: Brain,     title: "Mission", body: "To develop the complete athlete   mentally, physically, and spiritually." },
   { n: "02", icon: Dumbbell,  title: "Vision",  body: "To be the #1 basketball development program in Texas." },
@@ -35,6 +46,7 @@ const timeline = [
   ["2020", "Expanded to 4 core programs"],
   ["2023", "500+ athletes trained"],
   ["2025", "Growing to serve all of Texas"],
+  ["2026", "Evolved into Axis Sports Lab to create a complete athlete development ecosystem"],
 ];
 
 const About = () => {
@@ -186,6 +198,89 @@ const About = () => {
                     <h3 className="font-display text-2xl uppercase text-gradient-red">{v.title}</h3>
                     <p className="mt-3 text-sm leading-relaxed"
                       style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{v.body}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════
+          OUR COACHES
+         ═══════════════════════════════════════════════════════ */}
+      <section className="section" aria-label="Our Coaches">
+        <div className="container-x">
+          <Reveal className="text-center mb-14">
+            <p className="eyebrow justify-center mb-4"><span className="h-px w-8 bg-primary-glow" /> Meet The Team</p>
+            <h2 className="h-section" style={{ color: hText }}>
+              Our <span className="text-gradient-red">Coaches</span>
+            </h2>
+            <p className="mt-4 mx-auto max-w-xl text-sm leading-relaxed"
+              style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              World-class coaches dedicated to unlocking every athlete's full potential — on and off the court.
+            </p>
+          </Reveal>
+
+          <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-1 max-w-4xl mx-auto">
+            {coaches.map((coach, i) => (
+              <Reveal key={coach.name} delay={i * 0.1}>
+                <div className="group relative overflow-hidden rounded-2xl flex flex-col md:flex-row gap-0"
+                  style={{ border: `1px solid rgba(141,187,28,0.25)`, background: isDark ? "#0d0d0d" : "#ffffff" }}>
+
+                  {/* Image */}
+                  <div className="relative shrink-0 w-full md:w-72 h-72 md:h-auto overflow-hidden">
+                    <img
+                      src={coach.img}
+                      alt={coach.name}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      style={{ objectPosition: "center 20%" }}
+                    />
+                    <div className="absolute inset-0"
+                      style={{ background: "linear-gradient(to right, transparent 60%, rgba(13,13,13,0.95) 100%)" }} />
+                    <div className="absolute inset-x-0 bottom-0 h-28"
+                      style={{ background: "linear-gradient(to top, rgba(13,13,13,1) 0%, rgba(13,13,13,0.85) 50%, transparent 100%)" }} />
+                    {/* Green accent bar */}
+                    <div className="absolute bottom-0 left-0 right-0 h-1"
+                      style={{ background: "linear-gradient(90deg, #8dbb1c, transparent)" }} />
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex flex-col justify-center p-8 flex-1">
+                    {/* Role badge */}
+                    <span className="self-start mb-4 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest"
+                      style={{ background: "rgba(141,187,28,0.15)", border: "1px solid rgba(141,187,28,0.40)", color: "#d4ff70" }}>
+                      {coach.role}
+                    </span>
+
+                    <h3 className="font-display text-3xl md:text-4xl uppercase mb-4" style={{ color: hText }}>
+                      {coach.name}
+                    </h3>
+
+                    <p className="text-sm leading-relaxed mb-6"
+                      style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                      {coach.bio}
+                    </p>
+
+                    {/* Specialties */}
+                    <div>
+                      <p className="text-[10px] font-bold uppercase tracking-widest mb-3"
+                        style={{ color: "rgba(141,187,28,0.70)" }}>
+                        Specialties
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {coach.specialties.map(s => (
+                          <span key={s} className="rounded-lg px-3 py-1.5 text-xs font-semibold"
+                            style={{
+                              background: isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)",
+                              border: `1px solid ${isDark ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.10)"}`,
+                              color: hMuted,
+                            }}>
+                            {s}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </Reveal>

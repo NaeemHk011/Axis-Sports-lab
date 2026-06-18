@@ -6,7 +6,6 @@ import {
   Shield, Eye, Video, Fingerprint, Network,
   Bell, ChevronDown, CheckCircle,
 } from "lucide-react";
-import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 
 /* ─── data ──────────────────────────────────────────────────────── */
@@ -111,51 +110,12 @@ const NotifyModal = ({ plan, onClose }: { plan: string; onClose: () => void }) =
   );
 };
 
-/* ─── Membership Subscription Modal ─────────────────────────────── */
-const MembershipModal = ({ onClose }: { onClose: () => void }) => (
-  <div className="fixed inset-0 z-[200] flex items-center justify-center p-4"
-    style={{ background: "rgba(0,0,0,0.96)" }} onClick={onClose}>
-    <div className="relative w-full max-w-2xl"
-      style={{ maxHeight: "90vh", display: "flex", flexDirection: "column" }}
-      onClick={e => e.stopPropagation()}>
-      <div className="flex items-center justify-between px-5 py-4 shrink-0"
-        style={{ background: "#0a0a0a", border: "1px solid rgba(141,187,28,0.3)", borderBottom: "none", borderRadius: "1rem 1rem 0 0" }}>
-        <h3 className="font-display text-xl uppercase text-white">Membership Subscription</h3>
-        <button onClick={onClose}
-          className="grid h-8 w-8 place-items-center rounded-full text-white/60 hover:text-white transition-colors"
-          style={{ background: "rgba(255,255,255,0.06)" }}>
-          <X className="h-4 w-4"/>
-        </button>
-      </div>
-      <div style={{ position: "relative", border: "1px solid rgba(141,187,28,0.3)", borderTop: "none", borderRadius: "0 0 1rem 1rem", overflow: "hidden" }}>
-        <div className="overflow-y-auto" style={{ background: "transparent", maxHeight: "calc(90vh - 60px)" }}>
-          <iframe
-            src="https://link.webtechs.dev/widget/form/glFK27QcYnexZFOH0nhv"
-            style={{ width: "100%", height: "1565px", border: "none", display: "block", background: "transparent" }}
-            id="inline-glFK27QcYnexZFOH0nhv"
-            data-layout="{'id':'INLINE'}"
-            data-trigger-type="alwaysShow"
-            data-trigger-value=""
-            data-activation-type="alwaysActivated"
-            data-activation-value=""
-            data-deactivation-type="neverDeactivate"
-            data-deactivation-value=""
-            data-form-name="Membership Subscription Form "
-            data-height="1565"
-            data-layout-iframe-id="inline-glFK27QcYnexZFOH0nhv"
-            data-form-id="glFK27QcYnexZFOH0nhv"
-            title="Membership Subscription Form"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-);
+const openPackage = (slug: string) => window.open(`/join/${slug}`, "_blank", "noreferrer");
 
 /* ─── Membership card    Unlimited ───────────────────────────────── */
-const UnlimitedCard = ({ level, price, img, onAddToCart }: { level: string; price: string; img: string; onAddToCart: () => void }) => (
+const UnlimitedCard = ({ level, price, img, slug }: { level: string; price: string; img: string; slug: string }) => (
   <Reveal>
-    <div onClick={onAddToCart} className="card-img-bg relative overflow-hidden rounded-2xl aspect-[4/3] group cursor-pointer shadow-xl">
+    <div onClick={() => openPackage(slug)} className="card-img-bg relative overflow-hidden rounded-2xl aspect-[4/3] group cursor-pointer shadow-xl">
       <img src={img} alt={level} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"/>
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"/>
       <div className="absolute inset-0 flex flex-col justify-end p-5">
@@ -163,7 +123,7 @@ const UnlimitedCard = ({ level, price, img, onAddToCart }: { level: string; pric
         <h3 className="font-display text-xl uppercase text-white leading-tight">{level}</h3>
         <div className="mt-3 flex items-center justify-between">
           <span className="font-display text-3xl text-white">{price}<span className="text-sm text-white/60 ml-1">/mo</span></span>
-          <button onClick={e => { e.stopPropagation(); onAddToCart(); }} className="btn-red text-xs px-4 py-2">Add To Cart</button>
+          <button onClick={e => { e.stopPropagation(); openPackage(slug); }} className="btn-red text-xs px-4 py-2">Join Now</button>
         </div>
       </div>
     </div>
@@ -171,22 +131,20 @@ const UnlimitedCard = ({ level, price, img, onAddToCart }: { level: string; pric
 );
 
 /* ─── Membership card    2 Days/Week ─────────────────────────────── */
-const TwoDayCard = ({ level, price, img }: { level: string; price: string; img: string; slug: string }) => (
+const TwoDayCard = ({ level, price, img, slug }: { level: string; price: string; img: string; slug: string }) => (
   <Reveal>
-    <Link to="/membership-checkout-2days-week" className="block">
-      <div className="card-img-bg relative overflow-hidden rounded-2xl aspect-[4/3] group cursor-pointer shadow-xl">
-        <img src={img} alt={level} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"/>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"/>
-        <div className="absolute inset-0 flex flex-col justify-end p-5">
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary-glow mb-1">2 Days / Week</p>
-          <h3 className="font-display text-xl uppercase text-white leading-tight">{level}</h3>
-          <div className="mt-3 flex items-center justify-between">
-            <span className="font-display text-3xl text-white">{price}<span className="text-sm text-white/60 ml-1">/mo</span></span>
-            <span className="btn-red text-xs px-4 py-2">Join Now</span>
-          </div>
+    <div onClick={() => openPackage(slug)} className="card-img-bg relative overflow-hidden rounded-2xl aspect-[4/3] group cursor-pointer shadow-xl">
+      <img src={img} alt={level} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"/>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"/>
+      <div className="absolute inset-0 flex flex-col justify-end p-5">
+        <p className="text-xs font-semibold uppercase tracking-widest text-primary-glow mb-1">2 Days / Week</p>
+        <h3 className="font-display text-xl uppercase text-white leading-tight">{level}</h3>
+        <div className="mt-3 flex items-center justify-between">
+          <span className="font-display text-3xl text-white">{price}<span className="text-sm text-white/60 ml-1">/mo</span></span>
+          <button onClick={e => { e.stopPropagation(); openPackage(slug); }} className="btn-red text-xs px-4 py-2">Join Now</button>
         </div>
       </div>
-    </Link>
+    </div>
   </Reveal>
 );
 
@@ -196,12 +154,10 @@ const TwoDayCard = ({ level, price, img }: { level: string; price: string; img: 
 const Membership = () => {
   const { resolvedTheme } = useTheme();
   const isDark = resolvedTheme !== "light";
-  const [modalOpen,    setModalOpen]    = useState(false);
   const [notifyTarget, setNotifyTarget] = useState<string | null>(null);
 
   return (
     <>
-      {modalOpen    && <MembershipModal onClose={() => setModalOpen(false)}/>}
       {notifyTarget && <NotifyModal plan={notifyTarget} onClose={() => setNotifyTarget(null)}/>}
 
       <section className="w-full overflow-hidden">
@@ -223,7 +179,7 @@ const Membership = () => {
             </Reveal>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {unlimitedMonthly.map(p => (
-                <UnlimitedCard key={p.level} {...p} onAddToCart={() => setModalOpen(true)}/>
+                <UnlimitedCard key={p.level} {...p}/>
               ))}
             </div>
           </div>
@@ -458,12 +414,12 @@ const Membership = () => {
                 <div className="px-6 py-5 text-xs italic" style={{ color: isDark ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.40)" }}>Starting at</div>
                 <div className="px-6 py-5 text-center">
                   <p className="font-display text-2xl mb-2" style={{ color: isDark ? "#ffffff" : "#111111" }}>$185<span className="text-sm" style={{ color: isDark ? "rgba(255,255,255,0.50)" : "rgba(0,0,0,0.45)" }}>/mo</span></p>
-                  <Link to="/membership-checkout-2days-week" className="btn-red text-xs px-4 py-2">Join Now</Link>
+                  <button onClick={() => openPackage("beginners-2days")} className="btn-red text-xs px-4 py-2">Join Now</button>
                 </div>
                 <div className="px-6 py-5 text-center"
                   style={{ background: "rgba(141,187,28,0.05)", borderLeft: "1px solid rgba(141,187,28,0.10)" }}>
                   <p className="font-display text-2xl mb-2" style={{ color: isDark ? "#d4ff70" : "#3d6b00" }}>$285<span className="text-sm" style={{ color: "rgba(141,187,28,0.70)" }}>/mo</span></p>
-                  <button onClick={() => setModalOpen(true)} className="btn-red text-xs px-4 py-2">Add To Cart</button>
+                  <button onClick={() => openPackage("beginners-unlimited")} className="btn-red text-xs px-4 py-2">Join Now</button>
                 </div>
               </div>
             </div>

@@ -31,6 +31,8 @@ const Ebook = lazy(() => import("./pages/Ebook"));
 const Consultation = lazy(() => import("./pages/Consultation"));
 const SkillsTrainingBooking = lazy(() => import("./pages/SkillsTrainingBooking"));
 const LeagueRegistration = lazy(() => import("./pages/LeagueRegistration"));
+const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
+const MembershipPackage = lazy(() => import("./pages/MembershipPackage"));
 
 const queryClient = new QueryClient();
 
@@ -59,10 +61,25 @@ const AnimatedRoutes = () => {
         <Route path="/consultation" element={<PageTransition><Consultation /></PageTransition>} />
         <Route path="/skills-training-booking" element={<PageTransition><SkillsTrainingBooking /></PageTransition>} />
         <Route path="/youth-league" element={<PageTransition><LeagueRegistration /></PageTransition>} />
+        <Route path="/tc" element={<PageTransition><TermsAndConditions /></PageTransition>} />
+        <Route path="/join/:slug" element={<MembershipPackage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
     </Suspense>
+  );
+};
+
+const Layout = () => {
+  const location = useLocation();
+  const hideChrome = location.pathname === "/tc" || location.pathname.startsWith("/join/");
+  return (
+    <>
+      <ScrollToTop />
+      {!hideChrome && <Navbar />}
+      <AnimatedRoutes />
+      {!hideChrome && <Footer />}
+    </>
   );
 };
 
@@ -73,10 +90,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <ScrollToTop />
-<Navbar />
-          <AnimatedRoutes />
-          <Footer />
+          <Layout />
         </BrowserRouter>
       </TooltipProvider>
     </ThemeProvider>

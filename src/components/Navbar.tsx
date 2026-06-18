@@ -7,11 +7,13 @@ import Logo from "./Logo";
 import ThemeToggle from "./ThemeToggle";
 
 const links = [
+  { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/training", label: "Training" },
   { to: "/youth-league", label: "3V3 League" },
   { to: "/camps", label: "Camps" },
   { to: "/membership", label: "Memberships" },
+  { to: "/alumni", label: "Alumni" },
   { to: "/rentals", label: "Rentals" },
   { to: "/contact", label: "Contact" },
 ];
