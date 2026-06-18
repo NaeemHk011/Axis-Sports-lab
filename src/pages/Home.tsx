@@ -1031,8 +1031,8 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.07, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
-                <img src={src} alt="Axis Sports Lab Athletics" loading="lazy" decoding="async" 
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                <img src={src} alt="Axis Sports Lab Athletics" loading="lazy" decoding="async"
+                  className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105 origin-top"
                 />
                 {/* Gradient overlay always present */}
                 <div className="absolute inset-0"
