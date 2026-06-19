@@ -249,7 +249,7 @@ const AniyaFoy = () => {
           <div className="absolute inset-x-0 bottom-0 h-40" style={{ background: "linear-gradient(to top, #080808, transparent)" }} />
         </div>
 
-        {/* Text — left */}
+        {/* Text    left */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 w-full">
           <div className="max-w-lg">
             <p className="text-[11px] font-bold uppercase tracking-[0.20em] mb-6" style={{ color: "#8dbb1c" }}>
@@ -361,7 +361,7 @@ const AniyaFoy = () => {
               The Training That Built Aniya Foy
             </h2>
             <p className="max-w-2xl mx-auto text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
-              At Axis Sports Lab, every athlete trains through our proven 4-Pillar Development System — a
+              At Axis Sports Lab, every athlete trains through our proven 4-Pillar Development System    a
               holistic approach designed to build not only skilled players, but confident leaders on and off
               the court. This is the very system that guided Aniya Foy from her first dribble all the way
               to a Division I commitment.
