@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Trophy, Menu, X } from "lucide-react";
 import Logo from "@/components/Logo";
@@ -138,6 +138,21 @@ const programs = [
 /* ═══════════════════════════════════════════════════════════════════ */
 const AniyaFoy = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const [dotPct, setDotPct] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (!timelineRef.current) return;
+      const rect = timelineRef.current.getBoundingClientRect();
+      const height = timelineRef.current.offsetHeight;
+      const progress = Math.max(0, Math.min(1, (window.innerHeight / 2 - rect.top) / height));
+      setDotPct(progress * 100);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <div className="min-h-screen text-white" style={{ background: "#080808", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
@@ -274,12 +289,22 @@ const AniyaFoy = () => {
           </div>
 
           {/* Timeline */}
-          <div className="relative">
+          <div className="relative" ref={timelineRef}>
             {/* Vertical line */}
             <div
               className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 hidden md:block"
               style={{ background: "linear-gradient(to bottom, transparent, rgba(141,187,28,0.35) 10%, rgba(141,187,28,0.35) 90%, transparent)" }}
             />
+            {/* Scroll-driven shiny dot */}
+            <div
+              className="absolute left-1/2 hidden md:block z-20 pointer-events-none"
+              style={{ top: `${dotPct}%`, transform: "translate(-50%, -50%)", transition: "top 60ms linear" }}
+            >
+              <div className="h-5 w-5 rounded-full" style={{
+                background: "radial-gradient(circle at 35% 35%, #ffffff 0%, #8dbb1c 55%)",
+                boxShadow: "0 0 10px 3px rgba(141,187,28,0.90), 0 0 28px rgba(141,187,28,0.55)",
+              }} />
+            </div>
 
             <div className="space-y-24">
               {timeline.map((item, i) => (
@@ -302,15 +327,6 @@ const AniyaFoy = () => {
 
                   {/* Image block */}
                   <div className={`relative ${item.imageRight ? "md:order-2" : "md:order-1"}`}>
-                    {/* Timeline dot */}
-                    <div
-                      className={`absolute top-1/2 -translate-y-1/2 h-4 w-4 rounded-full hidden md:block z-10 ${item.imageRight ? "left-[-calc(50%+8px)] -translate-x-1/2" : "right-[-calc(50%+8px)] translate-x-1/2"}`}
-                      style={{
-                        background: "#8dbb1c",
-                        boxShadow: "0 0 16px rgba(141,187,28,0.70)",
-                        [item.imageRight ? "left" : "right"]: "calc(-50% - 8px)",
-                      }}
-                    />
                     <div
                       className="overflow-hidden rounded-2xl aspect-[4/3]"
                       style={{
@@ -490,7 +506,7 @@ const AniyaFoy = () => {
       </section>
 
       {/* ── Video ── */}
-      <section className="py-20 px-6" style={{ background: "#080808" }}>
+      {/* <section className="py-20 px-6" style={{ background: "#080808" }}>
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-8">
             <p className="text-[11px] font-bold uppercase tracking-widest mb-3" style={{ color: "#8dbb1c" }}>
@@ -512,7 +528,7 @@ const AniyaFoy = () => {
             />
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── Your Athlete Can Be Next ── */}
       <section
