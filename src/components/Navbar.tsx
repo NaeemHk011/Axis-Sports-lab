@@ -13,8 +13,8 @@ const links = [
   { to: "/youth-league", label: "3V3 League" },
   { to: "/camps", label: "Camps" },
   { to: "/membership", label: "Memberships" },
-  { to: "/alumni", label: "Alumni" },
   { to: "/rentals", label: "Rentals" },
+  { to: "/alumni", label: "Alumni" },
   { to: "/contact", label: "Contact" },
 ];
 
