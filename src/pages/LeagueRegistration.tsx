@@ -117,7 +117,9 @@ const LeagueRegistration = () => {
         <div className="absolute inset-0 pointer-events-none"
           style={{ background: "radial-gradient(ellipse at 60% 40%, rgba(141,187,28,0.12) 0%, transparent 60%), radial-gradient(ellipse at 10% 80%, rgba(141,187,28,0.07) 0%, transparent 50%)" }}
         />
-        <Particles className="absolute inset-0 z-0"/>
+        <div className="absolute inset-0 z-0">
+          <Particles />
+        </div>
         <div className="pointer-events-none absolute inset-0 overflow-hidden z-0">
           <motion.div
             animate={{ scale:[1,1.18,1], opacity:[0.22,0.38,0.22] }}
