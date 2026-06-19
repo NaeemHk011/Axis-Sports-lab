@@ -16,7 +16,7 @@ const expect = [
 const stats = [
   { icon: Star,   value: "100%", label: "Free    No Cost" },
   { icon: Zap,    value: "30",   label: "Minute Session" },
-  { icon: Target, value: "1-on", label: "1 Coaching" },
+  { icon: Target, value: "1-on-1", label: "Coaching" },
 ];
 
 const container = {
