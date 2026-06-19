@@ -33,6 +33,7 @@ const SkillsTrainingBooking = lazy(() => import("./pages/SkillsTrainingBooking")
 const LeagueRegistration = lazy(() => import("./pages/LeagueRegistration"));
 const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
 const MembershipPackage = lazy(() => import("./pages/MembershipPackage"));
+const AniyaFoy = lazy(() => import("./pages/AniyaFoy"));
 
 const queryClient = new QueryClient();
 
@@ -63,6 +64,7 @@ const AnimatedRoutes = () => {
         <Route path="/youth-league" element={<PageTransition><LeagueRegistration /></PageTransition>} />
         <Route path="/tc" element={<PageTransition><TermsAndConditions /></PageTransition>} />
         <Route path="/join/:slug" element={<MembershipPackage />} />
+        <Route path="/alumni/aniya-foy" element={<AniyaFoy />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
@@ -72,7 +74,7 @@ const AnimatedRoutes = () => {
 
 const Layout = () => {
   const location = useLocation();
-  const hideChrome = location.pathname === "/tc" || location.pathname.startsWith("/join/");
+  const hideChrome = location.pathname === "/tc" || location.pathname.startsWith("/join/") || location.pathname === "/alumni/aniya-foy";
   return (
     <>
       <ScrollToTop />

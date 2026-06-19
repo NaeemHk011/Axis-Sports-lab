@@ -1,5 +1,6 @@
 import { useTheme } from "next-themes";
 import { Trophy, Star, MapPin, GraduationCap, Medal, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import Reveal from "@/components/Reveal";
 import Particles from "@/components/Particles";
 
@@ -22,7 +23,7 @@ const alumniList = [
     ],
     media: ["ESPN", "KPRC 2", "Vype"],
     img: "/pictures/aniya-foy.png",
-    profileUrl: "https://eyecanathletics.com/aniyafoy",
+    profileUrl: "/alumni/aniya-foy",
     featured: true,
   },
 ];
@@ -180,17 +181,15 @@ const Alumni = () => {
 
                     {/* View Story Link */}
                     {a.profileUrl && (
-                      <a
-                        href={a.profileUrl}
-                        target="_blank"
-                        rel="noreferrer"
+                      <Link
+                        to={a.profileUrl}
                         className="inline-flex items-center gap-2 self-start rounded-xl px-5 py-2.5 text-sm font-bold uppercase tracking-wider transition-all duration-200"
                         style={{ background: "#8dbb1c", color: "#0a0a0a" }}
-                        onMouseEnter={e => (e.currentTarget.style.filter = "brightness(1.1)")}
-                        onMouseLeave={e => (e.currentTarget.style.filter = "brightness(1)")}
+                        onMouseEnter={e => ((e.currentTarget as HTMLElement).style.filter = "brightness(1.1)")}
+                        onMouseLeave={e => ((e.currentTarget as HTMLElement).style.filter = "brightness(1)")}
                       >
                         View Full Story <ArrowRight className="h-4 w-4" />
-                      </a>
+                      </Link>
                     )}
                   </div>
                 </div>
