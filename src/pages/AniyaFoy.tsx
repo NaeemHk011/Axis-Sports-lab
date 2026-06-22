@@ -24,7 +24,7 @@ const timeline = [
         <span style={{ color: "#8dbb1c", fontWeight: 700 }}>Axis Sports Lab</span>, is where Aniya Foy built the foundation of her skills,
         discipline, and confidence – setting her up for success and igniting a passion that
         would drive her to become one of the nation's top guards.
-      </>
+      </> 
     ),
     img: "/pictures/alumni/aniya-elementary.jpeg",
     imgFallback: "/pictures/aniya-foy.png",

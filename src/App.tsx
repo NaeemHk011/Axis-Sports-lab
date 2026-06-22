@@ -30,6 +30,8 @@ const MembershipCheckout2DaysWeek = lazy(() => import("./pages/MembershipCheckou
 const Ebook = lazy(() => import("./pages/Ebook"));
 const Consultation = lazy(() => import("./pages/Consultation"));
 const SkillsTrainingBooking = lazy(() => import("./pages/SkillsTrainingBooking"));
+const ShootingClassesBooking = lazy(() => import("./pages/ShootingClassesBooking"));
+const PerformanceTrainingBooking = lazy(() => import("./pages/PerformanceTrainingBooking"));
 const LeagueRegistration = lazy(() => import("./pages/LeagueRegistration"));
 const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
 const MembershipPackage = lazy(() => import("./pages/MembershipPackage"));
@@ -61,6 +63,8 @@ const AnimatedRoutes = () => {
         <Route path="/ebook" element={<PageTransition><Ebook /></PageTransition>} />
         <Route path="/consultation" element={<PageTransition><Consultation /></PageTransition>} />
         <Route path="/skills-training-booking" element={<PageTransition><SkillsTrainingBooking /></PageTransition>} />
+        <Route path="/shooting-classes-booking" element={<PageTransition><ShootingClassesBooking /></PageTransition>} />
+        <Route path="/performance-training-booking" element={<PageTransition><PerformanceTrainingBooking /></PageTransition>} />
         <Route path="/youth-league" element={<PageTransition><LeagueRegistration /></PageTransition>} />
         <Route path="/tc" element={<PageTransition><TermsAndConditions /></PageTransition>} />
         <Route path="/join/:slug" element={<MembershipPackage />} />

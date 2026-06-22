@@ -34,16 +34,43 @@ const Rentals = () => {
           {/* ── LEFT: Info / Amenities ── */}
           <Reveal>
             <div className="card-elite h-full">
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-3 mb-4">
                 <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary text-black font-display text-xl">1</span>
                 <h3 className="font-display text-2xl uppercase" style={{ color: isDark ? "#ffffff" : "#111111" }}>Book Your Rental Here!</h3>
+              </div>
+
+              {/* Callout Badge */}
+              <div className="mb-6 rounded-xl px-4 py-3 text-center font-bold text-sm uppercase tracking-wide"
+                style={{ background: "linear-gradient(90deg, #8dbb1c, #a8d422)", color: "#0a0a0a" }}>
+                Perfect for Elite Training, Event Hosting & Birthday Parties!
               </div>
 
               <div className="space-y-6">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-widest text-primary-glow mb-2">Available Court Types</p>
                   <ul className="space-y-2 text-sm" style={{ color: isDark ? "rgba(255,255,255,0.70)" : "rgba(0,0,0,0.70)" }}>
-                    {["Basketball (full court, half court)","Volleyball","Tennis"].map(t => (
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-primary-glow shrink-0 mt-0.5"/>
+                      <div>
+                        <span className="font-semibold" style={{ color: isDark ? "#ffffff" : "#111111" }}>Basketball Half Court</span>
+                        <p className="text-xs mt-0.5" style={{ color: isDark ? "rgba(255,255,255,0.50)" : "rgba(0,0,0,0.50)" }}>
+                          5 Total Rims — Engineered for maximum training reps
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-primary-glow mb-2">Amenities Offered</p>
+                  <ul className="space-y-2 text-sm" style={{ color: isDark ? "rgba(255,255,255,0.70)" : "rgba(0,0,0,0.70)" }}>
+                    {[
+                      "Air-Conditioned Facility",
+                      "Integrated Camera Recording System (For playback & streaming)",
+                      "Premium Bluetooth Audio Connectivity",
+                      "2-Way Audio Speakers (Perfect for events & conferences)",
+                      "Scoreboard & Shot Clock",
+                    ].map(t => (
                       <li key={t} className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary-glow shrink-0"/> {t}
                       </li>
@@ -52,9 +79,27 @@ const Rentals = () => {
                 </div>
 
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-primary-glow mb-2">Amenities Offered</p>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-primary-glow mb-2">Elite Training Equipment</p>
                   <ul className="space-y-2 text-sm" style={{ color: isDark ? "rgba(255,255,255,0.70)" : "rgba(0,0,0,0.70)" }}>
-                    {["Locker rooms & restrooms","Seating & bleachers","Scoreboard & shot clock","Air-conditioned facility"].map(t => (
+                    {[
+                      { name: "VertiMax Platforms", desc: "Advanced vertical & speed training" },
+                      { name: "VertiMax Raptors",   desc: "Resistance training for explosive movement" },
+                    ].map(eq => (
+                      <li key={eq.name} className="flex items-start gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary-glow shrink-0 mt-0.5"/>
+                        <div>
+                          <span className="font-semibold" style={{ color: isDark ? "#ffffff" : "#111111" }}>{eq.name}</span>
+                          <span style={{ color: isDark ? "rgba(255,255,255,0.50)" : "rgba(0,0,0,0.50)" }}> — {eq.desc}</span>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-primary-glow mb-2">Ideal For</p>
+                  <ul className="space-y-2 text-sm" style={{ color: isDark ? "rgba(255,255,255,0.70)" : "rgba(0,0,0,0.70)" }}>
+                    {["Sports & Skill Training", "Events, Conferences, & Camps", "Birthday Parties & Private Hosting"].map(t => (
                       <li key={t} className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary-glow shrink-0"/> {t}
                       </li>
@@ -65,8 +110,7 @@ const Rentals = () => {
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-widest text-primary-glow mb-2">Discounts Available</p>
                   <p className="text-sm" style={{ color: isDark ? "rgba(255,255,255,0.70)" : "rgba(0,0,0,0.70)" }}>
-                    Special rates for recurring bookings, nonprofits, and school groups.
-                    Ask us about bulk hour packages.
+                    Special rates and discounts available for volume bookings, recurring slots, nonprofits, and school groups. Ask us about bulk hour packages!
                   </p>
                 </div>
 

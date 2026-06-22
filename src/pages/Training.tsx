@@ -12,6 +12,7 @@ const programs = [
     tag: "Mechanics & Form",
     body: "Improve your shooting form, consistency, and game-speed release. Classes cover mechanics, catch-and-shoot, off-dribble, and contested shots. Our coaches break down every aspect of your shot and rebuild it to be automatic under pressure.",
     features: ["Form Mechanics", "Catch & Shoot", "Off-Dribble", "Contested Shots", "Game Speed Reps"],
+    link: "/shooting-classes-booking",
     accentColor: "rgba(141,187,28,0.85)",
     borderColor: "rgba(141,187,28,0.25)",
     hoverGradient: "linear-gradient(to top, rgba(141,187,28,0.75) 0%, rgba(141,187,28,0.25) 40%, transparent 70%)",
@@ -22,16 +23,18 @@ const programs = [
     tag: "Guard & Forward",
     body: "Complete guard and forward development. Ball handling, finishing, passing, and decision-making under pressure. We develop players who can impact the game in every situation   on and off the ball.",
     features: ["Ball Handling", "Finishing", "Passing", "Footwork", "Basketball IQ"],
+    link: "/skills-training-booking",
     accentColor: "rgba(200,100,0,0.85)",
     borderColor: "rgba(255,160,0,0.25)",
     hoverGradient: "linear-gradient(to top, rgba(180,70,0,0.8) 0%, rgba(180,70,0,0.25) 45%, transparent 70%)",
   },
   {
     icon: Dumbbell,
-    title: "Athlete Training",
+    title: "Performance Training",
     tag: "Strength & Speed",
     body: "Sport-specific strength and conditioning. Vertical jump, lateral quickness, core strength, and overall explosiveness. We build elite athletes who dominate physically from tip-off to final buzzer.",
     features: ["Vertical Jump", "Lateral Speed", "Core Strength", "Explosiveness", "Injury Prevention"],
+    link: "/performance-training-booking",
     accentColor: "rgba(0,140,80,0.85)",
     borderColor: "rgba(0,180,120,0.25)",
     hoverGradient: "linear-gradient(to top, rgba(0,120,70,0.75) 0%, rgba(0,120,70,0.2) 45%, transparent 70%)",
@@ -221,7 +224,7 @@ const Training = () => {
                     </ul>
 
                     {/* CTA */}
-                    <Link to="/skills-training-booking"
+                    <Link to={p.link}
                       className="mt-8 inline-flex items-center gap-2 text-sm font-semibold group-hover:gap-3 transition-all duration-300"
                       style={{ color: "#8dbb1c", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                       Reserve Your Spot <ArrowRight className="h-4 w-4" />
