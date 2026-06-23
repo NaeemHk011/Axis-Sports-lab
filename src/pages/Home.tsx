@@ -551,12 +551,12 @@ const Home = () => {
                       Biomechanical Shooting Optimization. Master your shot utilizing progressive micro-drills, catch-and-shoot mechanics, and game-speed release analysis to ensure maximum form retention.
                     </p>
                     <div className="mt-5 flex items-center justify-between">
-                      <Link to="/skills-training-booking" className="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                      <Link to="/shooting-classes-booking" className="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                         Reserve Your Spot <ArrowRight className="h-4 w-4" />
                       </Link>
                       <div className="text-right">
-                        <p className="font-display text-4xl leading-none text-white">98%</p>
-                        <p className="text-[9px] uppercase tracking-wider text-white/55 mt-0.5" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>shot form retention</p>
+                        <p className="font-display text-4xl leading-none" style={{ color: "#8dbb1c" }}>$25</p>
+                        <p className="text-[9px] uppercase tracking-wider text-white/55 mt-0.5" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>starting from</p>
                       </div>
                     </div>
                   </div>
@@ -594,9 +594,15 @@ const Home = () => {
                     <p className="mt-3 text-sm leading-relaxed text-white/75" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                       Neuromuscular Skill Acquisition. Complete guard and forward development. Enhancing processing speed, spatial awareness, footwork efficiency, and decision-making under high environmental pressure.
                     </p>
-                    <Link to="/skills-training-booking" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                      Reserve Your Spot <ArrowRight className="h-4 w-4" />
-                    </Link>
+                    <div className="mt-5 flex items-center justify-between">
+                      <Link to="/skills-training-booking" className="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                        Reserve Your Spot <ArrowRight className="h-4 w-4" />
+                      </Link>
+                      <div className="text-right">
+                        <p className="font-display text-4xl leading-none" style={{ color: "#8dbb1c" }}>$40</p>
+                        <p className="text-[9px] uppercase tracking-wider text-white/55 mt-0.5" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>starting from</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </TiltCard>
@@ -607,7 +613,7 @@ const Home = () => {
               <TiltCard style={{ perspective: "900px" }} className="h-full">
                 <div className="card-img-bg group relative overflow-hidden rounded-[1.6rem] min-h-[240px] sm:min-h-[280px] flex flex-col justify-end cursor-pointer"
                   style={{ border: "1px solid rgba(0,180,120,0.25)", backgroundColor: "#001a0d" }}
-                  onClick={() => navigate("/skills-training-booking")}>
+                  onClick={() => navigate("/performance-training-booking")}>
                   <FadeImg
                     src="/pictures/gc-athlete.jpg"
                     alt="Athlete Training"
@@ -633,10 +639,13 @@ const Home = () => {
                       Kinetic Performance & Plyometrics. Full-body athletic data optimization focusing on rate of force development (RFD), vertical velocity, deceleration mechanics, and injury-prevention infrastructure.
                     </p>
                     <div className="mt-4 flex items-center justify-between">
-                      <Link to="/skills-training-booking" className="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                      <Link to="/performance-training-booking" className="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                         Reserve Your Spot <ArrowRight className="h-4 w-4" />
                       </Link>
-                      <span className="font-display text-4xl text-white/90">+6"</span>
+                      <div className="text-right">
+                        <p className="font-display text-4xl leading-none" style={{ color: "#8dbb1c" }}>$25</p>
+                        <p className="text-[9px] uppercase tracking-wider text-white/55 mt-0.5">starting from</p>
+                      </div>
                     </div>
                   </div>
                 </div>
