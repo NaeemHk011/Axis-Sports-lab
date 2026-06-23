@@ -50,8 +50,8 @@ const Alumni = () => {
             <p className="eyebrow justify-center mb-4">
               <span className="h-px w-8 bg-primary-glow" /> Where They Are Now
             </p>
-            <h1 className="font-display text-6xl md:text-7xl xl:text-8xl uppercase text-white font-black leading-tight">
-              Our <span className="text-gradient-red">Alumni</span>
+            <h1 className="font-display text-6xl md:text-7xl xl:text-8xl uppercase font-black leading-tight">
+              <span style={{ color: "#ffffff" }}>Our </span><span className="text-gradient-red">Alumni</span>
             </h1>
             <p className="mt-5 max-w-xl mx-auto text-sm leading-relaxed"
               style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>

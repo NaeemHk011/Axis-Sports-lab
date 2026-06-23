@@ -69,9 +69,10 @@ const About = () => {
         <div className="container-x w-full text-center relative z-10">
           <Reveal>
             <p className="eyebrow justify-center mb-4"><span className="h-px w-8 bg-primary-glow" /> Our Story</p>
-            <h1 className="font-display text-6xl md:text-7xl xl:text-8xl uppercase font-black text-white leading-tight">
+            <h1 className="font-display text-6xl md:text-7xl xl:text-8xl uppercase font-black leading-tight"
+              style={{ color: isDark ? "#ffffff" : "#ffffff" }}>
               Building <span className="text-gradient-red">Explosive</span><br />
-              <span style={{ color: "transparent", WebkitTextStroke: "2px rgba(255,255,255,0.85)" }}>Athletes.</span>
+              <span style={{ color: "transparent", WebkitTextStroke: `2px ${isDark ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.85)"}` }}>Athletes.</span>
             </h1>
             <motion.div
               initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}

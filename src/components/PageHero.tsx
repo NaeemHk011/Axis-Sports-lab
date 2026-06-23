@@ -33,7 +33,7 @@ const PageHero = ({ eyebrow, title, subtitle, children, bg, bgPosition = "center
       </h1>
       {subtitle && (
         <Reveal delay={0.2}>
-          <p className="mx-auto mt-5 max-w-4xl font-display text-3xl sm:text-4xl lg:text-5xl uppercase font-black text-white leading-tight" style={bg ? { color: "#ffffff" } : undefined}>{subtitle}</p>
+          <p className="mx-auto mt-5 max-w-4xl font-display text-3xl sm:text-4xl lg:text-5xl uppercase font-black leading-tight" style={{ color: "#ffffff" }}>{subtitle}</p>
         </Reveal>
       )}
       {children && <div className="mt-6">{children}</div>}
