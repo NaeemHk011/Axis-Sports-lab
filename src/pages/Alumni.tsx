@@ -166,7 +166,7 @@ const Alumni = () => {
 
                     {/* Media */}
                     <div>
-                      <p className="text-[10px] font-bold uppercase tracking-widest mb-3" style={{ color: "rgba(255,255,255,0.25)" }}>
+                      <p className="text-[10px] font-bold uppercase tracking-widest mb-3" style={{ color: isDark ? "rgba(255,255,255,0.25)" : "rgba(0,0,0,0.35)" }}>
                         As Seen In
                       </p>
                       <div className="flex flex-wrap gap-2">
@@ -206,7 +206,7 @@ const Alumni = () => {
         <div className="relative z-10 container-x text-center">
           <Reveal>
             <p className="eyebrow justify-center mb-4"><span className="h-px w-8 bg-primary-glow" /> Your Journey Starts Here</p>
-            <h2 className="font-display text-4xl md:text-5xl uppercase text-white leading-tight">
+            <h2 className="font-display text-4xl md:text-5xl uppercase leading-tight" style={{ color: "#ffffff" }}>
               The Next <span className="text-gradient-red">Success Story</span><br />Could Be Yours
             </h2>
             <p className="mt-5 max-w-md mx-auto text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>

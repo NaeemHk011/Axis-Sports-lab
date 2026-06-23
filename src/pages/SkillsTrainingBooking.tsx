@@ -17,34 +17,12 @@ const SkillsTrainingBooking = () => {
   return (
   <>
       {/* Banner */}
-      <section className="w-full overflow-hidden" style={{ height: "220px" }}>
+      <section className="w-full overflow-hidden">
         <img
-          src="/pictures/banner-design.png"
+          src="/pictures/banner-skills-training.png"
           alt="Skills Training"
-          className="w-full h-full object-cover object-center"
+          className="w-full object-cover"
         />
-      </section>
-
-      {/* Page Heading */}
-      <section className="pt-12 pb-2 bg-background text-center">
-        <Reveal>
-          <p className="eyebrow justify-center mb-3">
-            <span className="h-px w-8 bg-primary-glow" /> Book A Class
-          </p>
-          <h1
-            className="font-display text-4xl sm:text-5xl lg:text-6xl uppercase leading-none"
-            style={{ color: isDark ? "#ffffff" : "#111111" }}
-          >
-            Skills Training
-          </h1>
-          <div className="mx-auto mt-3 h-[3px] w-14 rounded-full" style={{ background: "var(--gradient-red)" }} />
-          <p
-            className="mx-auto mt-4 max-w-xl text-sm leading-relaxed"
-            style={{ color: isDark ? "rgba(255,255,255,0.62)" : "rgba(0,0,0,0.62)", fontFamily: "'Plus Jakarta Sans', sans-serif" }}
-          >
-            Reserve your spot in a single skills training session. Elite coaching, real reps, real results.
-          </p>
-        </Reveal>
       </section>
 
     <section className="section">
