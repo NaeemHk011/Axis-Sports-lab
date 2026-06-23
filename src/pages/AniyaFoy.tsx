@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Trophy, Menu, X } from "lucide-react";
+import { useTheme } from "next-themes";
 import Logo from "@/components/Logo";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const navLinks = [
   { label: "Journey Story", href: "#journey"  },
@@ -14,85 +16,6 @@ const scrollTo = (id: string) => {
   document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
 };
 
-/* ── Timeline sections ─────────────────────────────────────────────── */
-const timeline = [
-  {
-    phase: "Elementary School",
-    title: "Foundational Skills Training",
-    body: (
-      <>
-        <span style={{ color: "#8dbb1c", fontWeight: 700 }}>Axis Sports Lab</span>, is where Aniya Foy built the foundation of her skills,
-        discipline, and confidence – setting her up for success and igniting a passion that
-        would drive her to become one of the nation's top guards.
-      </> 
-    ),
-    img: "/pictures/alumni/aniya-elementary.jpeg",
-    imgFallback: "/pictures/aniya-foy.png",
-    imgAlt: "Aniya Foy – Elementary school training",
-    imageRight: true,
-  },
-  {
-    phase: "Junior High School",
-    title: "Growth to a Star",
-    body: (
-      <>
-        Aniya took her game to the next level with high level advanced skills training, refining
-        her skills and unleashing her full potential. As her talent flourished, she started to make
-        a name for herself, earning her first{" "}
-        <strong style={{ color: "#fff" }}>Division 1 Scholarship</strong> offer, prestigious
-        recognitions and awards that marked the beginning of her rise to stardom.
-      </>
-    ),
-    img: "/pictures/alumni/aniya-jh.jpeg",
-    imgFallback: "/pictures/aniya-foy.png",
-    imgAlt: "Aniya Foy – Junior high game action",
-    imageRight: false,
-  },
-  {
-    phase: "High School",
-    title: "Dominance to Destiny",
-    body: (
-      <>
-        Aniya Foy's game exploded to new heights with the addition of elite performance training,
-        unlocking unprecedented explosiveness, speed, and mobility. This transformative leap
-        propelled her into the{" "}
-        <strong style={{ color: "#fff" }}>nation's top 50 rankings by ESPN</strong>, igniting a
-        firestorm of national attention and securing dozens of{" "}
-        <strong style={{ color: "#fff" }}>Power 5 scholarship offers</strong> from schools across
-        the country. The culmination of her tireless work ethic, refined skills, and cutting-edge
-        training paid dividends at Cinco Ranch High School, where Aniya etched her name in history
-        as the all-time leading scorer. Breaking records and rewriting the school's basketball
-        legacy, she cemented her status as arguably the greatest women's basketball player in school
-        history.
-      </>
-    ),
-    img: "/pictures/alumni/aniya-hs.jpeg",
-    imgFallback: "/pictures/aniya-foy.png",
-    imgAlt: "Aniya Foy – High school game",
-    imageRight: true,
-  },
-  {
-    phase: "College",
-    title: "Building Legacy",
-    body: (
-      <>
-        Next Stop: Big XII Basketball 🏀🏀
-        <br />
-        Aniya Foy takes her talents to{" "}
-        <strong style={{ color: "#fff" }}>Kansas State University.</strong> With her extreme
-        athleticism and elite skill set, she's poised to make an immediate impact on the court. As
-        she embarks on this exciting new chapter, the possibilities are endless – stay tuned for
-        what's next in Aniya's journey.
-      </>
-    ),
-    img: "/pictures/alumni/aniya-college.jpeg",
-    imgFallback: "/pictures/aniya-foy.png",
-    imgAlt: "Aniya Foy – Kansas State commitment",
-    imageRight: false,
-  },
-];
-
-/* ── 4 Pillars ─────────────────────────────────────────────────────── */
 const pillars = [
   {
     title: "Skills",
@@ -116,7 +39,6 @@ const pillars = [
   },
 ];
 
-/* ── Programs ──────────────────────────────────────────────────────── */
 const programs = [
   {
     name: "Youth Development",
@@ -141,6 +63,105 @@ const AniyaFoy = () => {
   const timelineRef = useRef<HTMLDivElement>(null);
   const [dotPct, setDotPct] = useState(0);
 
+  const { resolvedTheme } = useTheme();
+  const isDark     = resolvedTheme !== "light";
+  const pageBg     = isDark ? "#080808" : "#f5f5f5";
+  const sectionBg  = isDark ? "#0d0d0d" : "#e8e8e8";
+  const footerBg   = isDark ? "#050505" : "#e0e0e0";
+  const hText      = isDark ? "#ffffff" : "#111111";
+  const hMuted     = isDark ? "rgba(255,255,255,0.58)" : "rgba(0,0,0,0.62)";
+  const hMutedLo   = isDark ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.42)";
+  const hBorder    = isDark ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.09)";
+  const navBg      = isDark ? "rgba(8,8,8,0.92)"       : "rgba(245,245,245,0.95)";
+  const navBorder  = isDark ? "rgba(141,187,28,0.18)"   : "rgba(141,187,28,0.30)";
+  const navLink    = isDark ? "rgba(255,255,255,0.60)"  : "rgba(0,0,0,0.55)";
+  const navHover   = isDark ? "#ffffff"                 : "#111111";
+  const logoBg     = isDark ? "rgba(255,255,255,0.04)"  : "rgba(0,0,0,0.04)";
+  const logoBorder = isDark ? "rgba(255,255,255,0.08)"  : "rgba(0,0,0,0.10)";
+  const cardBg     = isDark ? "rgba(141,187,28,0.05)"   : "rgba(141,187,28,0.07)";
+  const badgeBg    = isDark ? "rgba(255,255,255,0.08)"  : "rgba(0,0,0,0.07)";
+  const badgeText  = isDark ? "rgba(255,255,255,0.45)"  : "rgba(0,0,0,0.50)";
+  const mobileBtnBg = isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)";
+  const mobileItemBorder = isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.06)";
+
+  /* timeline moved inside for isDark access on <strong> colors */
+  const timeline = [
+    {
+      phase: "Elementary School",
+      title: "Foundational Skills Training",
+      body: (
+        <>
+          <span style={{ color: "#8dbb1c", fontWeight: 700 }}>Axis Sports Lab</span>, is where Aniya Foy built the foundation of her skills,
+          discipline, and confidence – setting her up for success and igniting a passion that
+          would drive her to become one of the nation's top guards.
+        </>
+      ),
+      img: "/pictures/alumni/aniya-elementary.jpeg",
+      imgFallback: "/pictures/aniya-foy.png",
+      imgAlt: "Aniya Foy – Elementary school training",
+      imageRight: true,
+    },
+    {
+      phase: "Junior High School",
+      title: "Growth to a Star",
+      body: (
+        <>
+          Aniya took her game to the next level with high level advanced skills training, refining
+          her skills and unleashing her full potential. As her talent flourished, she started to make
+          a name for herself, earning her first{" "}
+          <strong style={{ color: hText }}>Division 1 Scholarship</strong> offer, prestigious
+          recognitions and awards that marked the beginning of her rise to stardom.
+        </>
+      ),
+      img: "/pictures/alumni/aniya-jh.jpeg",
+      imgFallback: "/pictures/aniya-foy.png",
+      imgAlt: "Aniya Foy – Junior high game action",
+      imageRight: false,
+    },
+    {
+      phase: "High School",
+      title: "Dominance to Destiny",
+      body: (
+        <>
+          Aniya Foy's game exploded to new heights with the addition of elite performance training,
+          unlocking unprecedented explosiveness, speed, and mobility. This transformative leap
+          propelled her into the{" "}
+          <strong style={{ color: hText }}>nation's top 50 rankings by ESPN</strong>, igniting a
+          firestorm of national attention and securing dozens of{" "}
+          <strong style={{ color: hText }}>Power 5 scholarship offers</strong> from schools across
+          the country. The culmination of her tireless work ethic, refined skills, and cutting-edge
+          training paid dividends at Cinco Ranch High School, where Aniya etched her name in history
+          as the all-time leading scorer. Breaking records and rewriting the school's basketball
+          legacy, she cemented her status as arguably the greatest women's basketball player in school
+          history.
+        </>
+      ),
+      img: "/pictures/alumni/aniya-hs.jpeg",
+      imgFallback: "/pictures/aniya-foy.png",
+      imgAlt: "Aniya Foy – High school game",
+      imageRight: true,
+    },
+    {
+      phase: "College",
+      title: "Building Legacy",
+      body: (
+        <>
+          Next Stop: Big XII Basketball 🏀🏀
+          <br />
+          Aniya Foy takes her talents to{" "}
+          <strong style={{ color: hText }}>Kansas State University.</strong> With her extreme
+          athleticism and elite skill set, she's poised to make an immediate impact on the court. As
+          she embarks on this exciting new chapter, the possibilities are endless – stay tuned for
+          what's next in Aniya's journey.
+        </>
+      ),
+      img: "/pictures/alumni/aniya-college.jpeg",
+      imgFallback: "/pictures/aniya-foy.png",
+      imgAlt: "Aniya Foy – Kansas State commitment",
+      imageRight: false,
+    },
+  ];
+
   useEffect(() => {
     const onScroll = () => {
       if (!timelineRef.current) return;
@@ -155,41 +176,39 @@ const AniyaFoy = () => {
   }, []);
 
   return (
-    <div className="min-h-screen text-white" style={{ background: "#080808", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+    <div className="min-h-screen" style={{ background: pageBg, fontFamily: "'Plus Jakarta Sans', sans-serif", color: hText }}>
 
       {/* ── Sticky Navbar ── */}
       <header
         className="sticky top-0 z-50 px-6 py-3"
         style={{
-          background: "rgba(8,8,8,0.92)",
+          background: navBg,
           backdropFilter: "blur(16px)",
-          borderBottom: "1px solid rgba(141,187,28,0.18)",
+          borderBottom: `1px solid ${navBorder}`,
         }}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
-          {/* Logo */}
           <Link to="/" className="shrink-0">
             <Logo className="h-6 w-auto" />
           </Link>
 
-          {/* Desktop nav links */}
           <nav className="hidden md:flex items-center gap-6">
             {navLinks.map(l => (
               <button
                 key={l.label}
                 onClick={() => scrollTo(l.href)}
                 className="text-[11px] font-semibold uppercase tracking-widest transition-colors duration-200"
-                style={{ color: "rgba(255,255,255,0.60)" }}
-                onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = "#fff")}
-                onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.60)")}
+                style={{ color: navLink }}
+                onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = navHover)}
+                onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = navLink)}
               >
                 {l.label}
               </button>
             ))}
           </nav>
 
-          {/* CTA + mobile toggle */}
           <div className="flex items-center gap-3">
+            <ThemeToggle />
             <Link
               to="/evaluation-workout"
               className="hidden sm:inline-flex items-center gap-1.5 rounded-xl px-4 py-2 text-[11px] font-bold uppercase tracking-widest transition-all duration-200"
@@ -202,7 +221,7 @@ const AniyaFoy = () => {
             <button
               onClick={() => setMobileOpen(s => !s)}
               className="md:hidden p-2 rounded-lg"
-              style={{ color: "#fff", background: "rgba(255,255,255,0.06)" }}
+              style={{ color: hText, background: mobileBtnBg }}
               aria-label="Toggle menu"
             >
               {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -210,15 +229,14 @@ const AniyaFoy = () => {
           </div>
         </div>
 
-        {/* Mobile dropdown */}
         {mobileOpen && (
-          <div className="md:hidden mt-3 pb-3 flex flex-col gap-1" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+          <div className="md:hidden mt-3 pb-3 flex flex-col gap-1" style={{ borderTop: `1px solid ${hBorder}` }}>
             {navLinks.map(l => (
               <button
                 key={l.label}
                 onClick={() => { scrollTo(l.href); setMobileOpen(false); }}
                 className="text-left px-2 py-3 text-sm font-semibold uppercase tracking-widest"
-                style={{ color: "rgba(255,255,255,0.65)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}
+                style={{ color: hMuted, borderBottom: `1px solid ${mobileItemBorder}` }}
               >
                 {l.label}
               </button>
@@ -234,34 +252,30 @@ const AniyaFoy = () => {
         )}
       </header>
 
-      {/* ── Hero ── */}
+      {/* ── Hero ── (always dark — photo with overlay) */}
       <section className="relative min-h-[88vh] flex items-center overflow-hidden">
-        {/* Full-width background photo */}
         <div className="absolute inset-0 pointer-events-none select-none">
           <img
             src="/pictures/alumni/aniya-hero.jpeg"
             alt="Aniya Foy"
             className="h-full w-full object-cover object-center"
           />
-          {/* dark overlay for readability */}
           <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(8,8,8,0.92) 0%, rgba(8,8,8,0.70) 45%, rgba(8,8,8,0.15) 100%)" }} />
-          {/* fade at bottom */}
-          <div className="absolute inset-x-0 bottom-0 h-40" style={{ background: "linear-gradient(to top, #080808, transparent)" }} />
+          <div className="absolute inset-x-0 bottom-0 h-40" style={{ background: `linear-gradient(to top, ${pageBg}, transparent)` }} />
         </div>
 
-        {/* Text    left */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 w-full">
           <div className="max-w-lg">
             <p className="text-[11px] font-bold uppercase tracking-[0.20em] mb-6" style={{ color: "#8dbb1c" }}>
               Aniya Foy · Training &amp; Development
             </p>
             <h1 className="font-display uppercase mb-6" style={{ lineHeight: "0.88" }}>
-              <span className="block text-6xl md:text-7xl xl:text-8xl font-black text-white">UNLEASH</span>
-              <span className="block text-6xl md:text-7xl xl:text-8xl font-black text-white">YOUR</span>
+              <span className="block text-6xl md:text-7xl xl:text-8xl font-black" style={{ color: "#ffffff" }}>UNLEASH</span>
+              <span className="block text-6xl md:text-7xl xl:text-8xl font-black" style={{ color: "#ffffff" }}>YOUR</span>
               <span className="block text-6xl md:text-7xl xl:text-8xl font-black" style={{ color: "#8dbb1c", textShadow: "0 0 40px rgba(141,187,28,0.35)" }}>
                 ATHLETE'S
               </span>
-              <span className="block text-6xl md:text-7xl xl:text-8xl font-black text-white">POTENTIAL</span>
+              <span className="block text-6xl md:text-7xl xl:text-8xl font-black" style={{ color: "#ffffff" }}>POTENTIAL</span>
             </h1>
             <p className="text-sm leading-relaxed mb-8 max-w-sm" style={{ color: "rgba(255,255,255,0.58)" }}>
               See how Axis Sports Lab transformed one of the nation's top guards and discover the winning formula that can take YOUR athlete to the next level.
@@ -280,22 +294,18 @@ const AniyaFoy = () => {
       </section>
 
       {/* ── Path to Success ── */}
-      <section id="journey" className="py-24 px-6">
+      <section id="journey" className="py-24 px-6" style={{ background: pageBg }}>
         <div className="max-w-5xl mx-auto">
-          {/* Header */}
           <div className="text-center mb-20">
-            <h2 className="font-display text-4xl md:text-5xl uppercase">The Path to Success</h2>
-            <p className="text-sm mt-3" style={{ color: "rgba(255,255,255,0.45)" }}>From Foundations to D1 Basketball</p>
+            <h2 className="font-display text-4xl md:text-5xl uppercase" style={{ color: hText }}>The Path to Success</h2>
+            <p className="text-sm mt-3" style={{ color: hMutedLo }}>From Foundations to D1 Basketball</p>
           </div>
 
-          {/* Timeline */}
           <div className="relative" ref={timelineRef}>
-            {/* Vertical line */}
             <div
               className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 hidden md:block"
               style={{ background: "linear-gradient(to bottom, transparent, rgba(141,187,28,0.35) 10%, rgba(141,187,28,0.35) 90%, transparent)" }}
             />
-            {/* Scroll-driven shiny dot */}
             <div
               className="absolute left-1/2 hidden md:block z-20 pointer-events-none"
               style={{ top: `${dotPct}%`, transform: "translate(-50%, -50%)", transition: "top 60ms linear" }}
@@ -308,30 +318,25 @@ const AniyaFoy = () => {
 
             <div className="space-y-24">
               {timeline.map((item, i) => (
-                <div
-                  key={item.phase}
-                  className="grid md:grid-cols-2 gap-10 md:gap-16 items-center"
-                >
-                  {/* Text block */}
+                <div key={item.phase} className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
                   <div className={item.imageRight ? "md:order-1" : "md:order-2"}>
                     <p className="text-[11px] font-bold uppercase tracking-widest mb-3" style={{ color: "#8dbb1c" }}>
                       {item.phase}
                     </p>
-                    <h3 className="font-display text-3xl md:text-4xl uppercase mb-5 leading-tight">
+                    <h3 className="font-display text-3xl md:text-4xl uppercase mb-5 leading-tight" style={{ color: hText }}>
                       {item.title}
                     </h3>
-                    <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.60)" }}>
+                    <p className="text-sm leading-relaxed" style={{ color: hMuted }}>
                       {item.body}
                     </p>
                   </div>
 
-                  {/* Image block */}
                   <div className={`relative ${item.imageRight ? "md:order-2" : "md:order-1"}`}>
                     <div
                       className="overflow-hidden rounded-2xl aspect-[4/3]"
                       style={{
                         border: "1px solid rgba(141,187,28,0.20)",
-                        boxShadow: "0 20px 60px rgba(0,0,0,0.6)",
+                        boxShadow: isDark ? "0 20px 60px rgba(0,0,0,0.6)" : "0 20px 60px rgba(0,0,0,0.15)",
                         transform: i % 2 === 0 ? "rotate(1deg)" : "rotate(-1deg)",
                       }}
                     >
@@ -351,24 +356,24 @@ const AniyaFoy = () => {
       </section>
 
       {/* ── The Training That Built Aniya ── */}
-      <section id="training" className="py-24 px-6" style={{ background: "#0d0d0d" }}>
+      <section id="training" className="py-24 px-6" style={{ background: sectionBg }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-[11px] font-bold uppercase tracking-widest mb-3" style={{ color: "#8dbb1c" }}>
               The Axis Sports Lab System
             </p>
-            <h2 className="font-display text-4xl md:text-5xl uppercase mb-5">
+            <h2 className="font-display text-4xl md:text-5xl uppercase mb-5" style={{ color: hText }}>
               The Training That Built Aniya Foy
             </h2>
-            <p className="max-w-2xl mx-auto text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
-              At Axis Sports Lab, every athlete trains through our proven 4-Pillar Development System    a
+            <p className="max-w-2xl mx-auto text-sm leading-relaxed" style={{ color: hMuted }}>
+              At Axis Sports Lab, every athlete trains through our proven 4-Pillar Development System — a
               holistic approach designed to build not only skilled players, but confident leaders on and off
               the court. This is the very system that guided Aniya Foy from her first dribble all the way
               to a Division I commitment.
             </p>
           </div>
 
-          <p className="text-center text-[11px] font-bold uppercase tracking-widest mb-8" style={{ color: "rgba(255,255,255,0.30)" }}>
+          <p className="text-center text-[11px] font-bold uppercase tracking-widest mb-8" style={{ color: hMutedLo }}>
             The 4 Pillars of Axis Sports Lab
           </p>
 
@@ -394,7 +399,7 @@ const AniyaFoy = () => {
           </div>
 
           <div className="mt-14 text-center max-w-2xl mx-auto">
-            <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.50)" }}>
+            <p className="text-sm leading-relaxed" style={{ color: hMuted }}>
               Through hard work, dedication, and a passion for the game, Aniya developed the skills,
               confidence, and resilience to succeed both on and off the court. The lessons she learned at
               Axis Sports Lab have stayed with her, empowering her to take on new challenges and pursue
@@ -406,23 +411,22 @@ const AniyaFoy = () => {
       </section>
 
       {/* ── Programs ── */}
-      <section id="programs" className="py-24 px-6">
+      <section id="programs" className="py-24 px-6" style={{ background: pageBg }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <p className="text-[11px] font-bold uppercase tracking-widest mb-3" style={{ color: "#8dbb1c" }}>
               Programs for Your Athlete
             </p>
-            <h2 className="font-display text-4xl md:text-5xl uppercase mb-4">
+            <h2 className="font-display text-4xl md:text-5xl uppercase mb-4" style={{ color: hText }}>
               Start Where Your Athlete Is
             </h2>
-            <p className="max-w-lg mx-auto text-sm" style={{ color: "rgba(255,255,255,0.50)" }}>
+            <p className="max-w-lg mx-auto text-sm" style={{ color: hMuted }}>
               Whether your child is just picking up the ball or aiming for a college scholarship, we
               have a program tailored to their journey.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Image */}
             <div className="rounded-2xl overflow-hidden aspect-[4/3]" style={{ border: "1px solid rgba(141,187,28,0.18)" }}>
               <img
                 src="/pictures/alumni/programs.jpeg"
@@ -431,13 +435,12 @@ const AniyaFoy = () => {
               />
             </div>
 
-            {/* Program list */}
             <div className="space-y-4">
               {programs.map(prog => (
                 <div
                   key={prog.name}
                   className="flex items-start gap-4 p-5 rounded-2xl"
-                  style={{ background: "rgba(141,187,28,0.05)", border: "1px solid rgba(141,187,28,0.18)" }}
+                  style={{ background: cardBg, border: "1px solid rgba(141,187,28,0.18)" }}
                 >
                   <div
                     className="h-10 w-10 shrink-0 flex items-center justify-center rounded-full"
@@ -447,22 +450,22 @@ const AniyaFoy = () => {
                   </div>
                   <div>
                     <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-                      <span className="font-bold text-sm text-white">{prog.name}</span>
+                      <span className="font-bold text-sm" style={{ color: hText }}>{prog.name}</span>
                       <span
                         className="text-[10px] rounded-full px-2 py-0.5 font-bold uppercase"
-                        style={{ background: "rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.45)" }}
+                        style={{ background: badgeBg, color: badgeText }}
                       >
                         {prog.grade}
                       </span>
                     </div>
-                    <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
+                    <p className="text-xs leading-relaxed" style={{ color: hMuted }}>
                       {prog.desc}
                     </p>
                   </div>
                 </div>
               ))}
 
-              <p className="text-xs pt-2" style={{ color: "rgba(255,255,255,0.45)" }}>
+              <p className="text-xs pt-2" style={{ color: hMutedLo }}>
                 Each program includes a{" "}
                 <strong style={{ color: "#8dbb1c" }}>Free Athlete Evaluation.</strong>
               </p>
@@ -482,10 +485,10 @@ const AniyaFoy = () => {
       </section>
 
       {/* ── Recognized by the Best ── */}
-      <section id="media" className="py-20 px-6" style={{ background: "#0d0d0d" }}>
+      <section id="media" className="py-20 px-6" style={{ background: sectionBg }}>
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="font-display text-4xl uppercase mb-2">Recognized by the Best</h2>
-          <p className="text-sm mb-12" style={{ color: "rgba(255,255,255,0.40)" }}>
+          <h2 className="font-display text-4xl uppercase mb-2" style={{ color: hText }}>Recognized by the Best</h2>
+          <p className="text-sm mb-12" style={{ color: hMutedLo }}>
             Aniya's story and Axis Sports Lab's impact have been featured in:
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8">
@@ -497,38 +500,14 @@ const AniyaFoy = () => {
               { src: "/pictures/alumni/logo-vype.webp",             alt: "Vype",              h: "h-6"  },
               { src: "/pictures/alumni/logo-localnews.png",         alt: "Local News",        h: "h-10" },
             ].map(logo => (
-              <div key={logo.alt} className="flex items-center justify-center px-4 py-3 rounded-xl" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
+              <div key={logo.alt} className="flex items-center justify-center px-4 py-3 rounded-xl"
+                style={{ background: logoBg, border: `1px solid ${logoBorder}` }}>
                 <img src={logo.src} alt={logo.alt} className={`${logo.h} w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-200`} />
               </div>
             ))}
           </div>
         </div>
       </section>
-
-      {/* ── Video ── */}
-      {/* <section className="py-20 px-6" style={{ background: "#080808" }}>
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-8">
-            <p className="text-[11px] font-bold uppercase tracking-widest mb-3" style={{ color: "#8dbb1c" }}>
-              Watch the Story
-            </p>
-            <h2 className="font-display text-3xl md:text-4xl uppercase">Aniya Foy Highlights</h2>
-          </div>
-          <div
-            className="relative w-full overflow-hidden rounded-2xl"
-            style={{ paddingBottom: "56.25%", border: "1px solid rgba(141,187,28,0.25)", boxShadow: "0 0 60px rgba(141,187,28,0.08)" }}
-          >
-            <iframe
-              src="https://www.youtube.com/embed/EQvoPDRnSoM?start=122"
-              title="Aniya Foy Highlights"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="absolute inset-0 w-full h-full"
-              style={{ border: "none" }}
-            />
-          </div>
-        </div>
-      </section> */}
 
       {/* ── Your Athlete Can Be Next ── */}
       <section
@@ -540,7 +519,7 @@ const AniyaFoy = () => {
           <p className="text-[11px] font-bold uppercase tracking-widest mb-4" style={{ color: "#8dbb1c" }}>
             Aniya's Story Is Proof
           </p>
-          <h2 className="font-display text-5xl md:text-6xl uppercase leading-tight mb-5">
+          <h2 className="font-display text-5xl md:text-6xl uppercase leading-tight mb-5" style={{ color: "#ffffff" }}>
             Your Athlete Can Be Next
           </h2>
           <p className="text-sm leading-relaxed mb-10" style={{ color: "rgba(255,255,255,0.60)" }}>
@@ -559,16 +538,16 @@ const AniyaFoy = () => {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="py-10 px-6" style={{ background: "#050505", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+      <footer className="py-10 px-6" style={{ background: footerBg, borderTop: `1px solid ${hBorder}` }}>
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
             <Logo className="h-8 w-auto" />
             <div className="text-left">
-              <p className="text-xs font-bold" style={{ color: "rgba(255,255,255,0.75)" }}>Shaping athletes.</p>
-              <p className="text-xs" style={{ color: "rgba(255,255,255,0.35)" }}>Building leaders.</p>
+              <p className="text-xs font-bold" style={{ color: hMuted }}>Shaping athletes.</p>
+              <p className="text-xs" style={{ color: hMutedLo }}>Building leaders.</p>
             </div>
           </div>
-          <p className="text-xs text-center" style={{ color: "rgba(255,255,255,0.28)" }}>
+          <p className="text-xs text-center" style={{ color: hMutedLo }}>
             © 2026 Axis Sports Lab • Aniya Foy | ALL RIGHTS RESERVED
           </p>
         </div>
