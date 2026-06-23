@@ -162,6 +162,8 @@ const Footer = () => {
             <span className="opacity-40">·</span>
             <Link to="/refund-policy" className="hover:text-primary-glow transition-colors duration-200">Refund Policy</Link>
             <span className="opacity-40">·</span>
+            <Link to="/terms-and-conditions" className="hover:text-primary-glow transition-colors duration-200">Terms & Conditions</Link>
+            <span className="opacity-40">·</span>
             <span className="font-display tracking-widest uppercase opacity-60">Katy, TX · Est. 2017</span>
           </div>
         </div>
