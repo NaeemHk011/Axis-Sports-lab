@@ -155,9 +155,15 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/5 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/35">
+        <div className="border-t border-border/20 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
           <span>© {new Date().getFullYear()} Axis Sports Lab. All Rights Reserved.</span>
-          <span className="font-display tracking-widest uppercase text-white/20">Katy, TX · Est. 2017</span>
+          <div className="flex items-center gap-4">
+            <Link to="/privacy-policy" className="hover:text-primary-glow transition-colors duration-200">Privacy Policy</Link>
+            <span className="opacity-40">·</span>
+            <Link to="/refund-policy" className="hover:text-primary-glow transition-colors duration-200">Refund Policy</Link>
+            <span className="opacity-40">·</span>
+            <span className="font-display tracking-widest uppercase opacity-60">Katy, TX · Est. 2017</span>
+          </div>
         </div>
       </div>
     </footer>

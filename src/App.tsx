@@ -36,6 +36,10 @@ const LeagueRegistration = lazy(() => import("./pages/LeagueRegistration"));
 const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
 const MembershipPackage = lazy(() => import("./pages/MembershipPackage"));
 const AniyaFoy = lazy(() => import("./pages/AniyaFoy"));
+const TermsAndConditionsPublic = lazy(() => import("./pages/TermsAndConditions"));
+const RentalTerms = lazy(() => import("./pages/RentalTerms"));
+const RefundPolicy = lazy(() => import("./pages/RefundPolicy"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 
 const queryClient = new QueryClient();
 
@@ -69,6 +73,10 @@ const AnimatedRoutes = () => {
         <Route path="/tc" element={<PageTransition><TermsAndConditions /></PageTransition>} />
         <Route path="/join/:slug" element={<MembershipPackage />} />
         <Route path="/alumni/aniya-foy" element={<AniyaFoy />} />
+        <Route path="/terms-and-conditions" element={<PageTransition><TermsAndConditionsPublic /></PageTransition>} />
+        <Route path="/rental-terms" element={<PageTransition><RentalTerms /></PageTransition>} />
+        <Route path="/refund-policy" element={<PageTransition><RefundPolicy /></PageTransition>} />
+        <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
