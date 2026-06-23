@@ -54,7 +54,7 @@ const Rentals = () => {
                       <div>
                         <span className="font-semibold" style={{ color: isDark ? "#ffffff" : "#111111" }}>Basketball Half Court</span>
                         <p className="text-xs mt-0.5" style={{ color: isDark ? "rgba(255,255,255,0.50)" : "rgba(0,0,0,0.50)" }}>
-                          5 Total Rims — Engineered for maximum training reps
+                          5 Total Rims     Engineered for maximum training reps
                         </p>
                       </div>
                     </li>
@@ -89,7 +89,7 @@ const Rentals = () => {
                         <CheckCircle className="h-4 w-4 text-primary-glow shrink-0 mt-0.5"/>
                         <div>
                           <span className="font-semibold" style={{ color: isDark ? "#ffffff" : "#111111" }}>{eq.name}</span>
-                          <span style={{ color: isDark ? "rgba(255,255,255,0.50)" : "rgba(0,0,0,0.50)" }}> — {eq.desc}</span>
+                          <span style={{ color: isDark ? "rgba(255,255,255,0.50)" : "rgba(0,0,0,0.50)" }}>     {eq.desc}</span>
                         </div>
                       </li>
                     ))}

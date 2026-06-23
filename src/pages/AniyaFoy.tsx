@@ -252,7 +252,7 @@ const AniyaFoy = () => {
         )}
       </header>
 
-      {/* ── Hero ── (always dark — photo with overlay) */}
+      {/* ── Hero ── (always dark     photo with overlay) */}
       <section className="relative min-h-[88vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 pointer-events-none select-none">
           <img
@@ -366,7 +366,7 @@ const AniyaFoy = () => {
               The Training That Built Aniya Foy
             </h2>
             <p className="max-w-2xl mx-auto text-sm leading-relaxed" style={{ color: hMuted }}>
-              At Axis Sports Lab, every athlete trains through our proven 4-Pillar Development System — a
+              At Axis Sports Lab, every athlete trains through our proven 4-Pillar Development System     a
               holistic approach designed to build not only skilled players, but confident leaders on and off
               the court. This is the very system that guided Aniya Foy from her first dribble all the way
               to a Division I commitment.

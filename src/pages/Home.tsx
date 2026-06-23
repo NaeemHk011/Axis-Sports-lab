@@ -455,44 +455,58 @@ const Home = () => {
             <Reveal delay={0.15}>
               <TiltCard style={{ perspective: "900px" }}>
                 <div
-                  className="card-img-bg group relative overflow-hidden rounded-[1.6rem] min-h-[220px] flex flex-col justify-end cursor-pointer"
-                  style={{ border: "2px solid rgba(141,187,28,0.70)", boxShadow: "0 0 40px rgba(141,187,28,0.18), 0 0 80px rgba(141,187,28,0.08)" }}
+                  className="card-img-bg group relative overflow-hidden rounded-[1.6rem] min-h-[260px] flex flex-col justify-end cursor-pointer"
+                  style={{ border: "2px solid rgba(141,187,28,0.55)", boxShadow: "0 0 56px rgba(141,187,28,0.20), 0 8px 40px rgba(0,0,0,0.45)" }}
                   onClick={() => navigate("/evaluation-workout")}
                 >
-                  {/* BG */}
-                  <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #0d1a00 0%, #0a0a0a 60%, #0d1a00 100%)" }} />
+                  {/* Background photo */}
+                  <img
+                    src="/pictures/eval-card-bg.jpg"
+                    alt="Free Evaluation"
+                    className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  />
+
+                  {/* Dark base overlay */}
+                  <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.52)" }} />
+
+                  {/* Green gradient from bottom */}
+                  <div className="absolute inset-0"
+                    style={{ background: "linear-gradient(to top, rgba(30,55,0,0.95) 0%, rgba(20,40,0,0.70) 35%, transparent 70%)" }} />
+
+                  {/* Green glow top-right corner */}
+                  <div className="absolute inset-0 pointer-events-none"
+                    style={{ background: "radial-gradient(ellipse at 90% 10%, rgba(141,187,28,0.22) 0%, transparent 50%)" }} />
+
+                  {/* Hover green sweep */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                    style={{ background: "linear-gradient(to top, rgba(141,187,28,0.25) 0%, transparent 70%)" }} />
+                    style={{ background: "linear-gradient(to top, rgba(141,187,28,0.28) 0%, transparent 60%)" }} />
 
                   {/* FREE badge */}
-                  <div className="absolute top-5 right-5">
-                    <span className="inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-[11px] font-black uppercase tracking-[0.25em]"
-                      style={{ background: "#8dbb1c", color: "#0a0a0a", boxShadow: "0 0 20px rgba(141,187,28,0.60)" }}>
+                  <div className="absolute top-5 right-5 z-10">
+                    <span className="inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-[11px] font-black uppercase tracking-[0.22em]"
+                      style={{ background: "#8dbb1c", color: "#0a0a0a", boxShadow: "0 0 20px rgba(141,187,28,0.65)" }}>
                       ★ 100% FREE
                     </span>
                   </div>
 
-                  {/* Ghost number */}
-                  <span className="absolute top-5 right-6 font-display text-9xl leading-none pointer-events-none select-none"
-                    style={{ color: "rgba(141,187,28,0.12)" }}>00</span>
-
                   {/* Content */}
                   <div className="relative z-10 p-6">
-                    <h3 className="font-display text-2xl uppercase text-white leading-tight">
-                      Free Evaluation
+                    {/* Green accent line */}
+                    <div className="mb-3 h-[2px] w-10 rounded-full" style={{ background: "#8dbb1c", boxShadow: "0 0 10px rgba(141,187,28,0.8)" }} />
+                    <h3 className="font-display text-3xl uppercase text-white leading-tight">
+                      Free<br />Evaluation
                     </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-white/75 max-w-xs" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                      Get a complete assessment of your skill, athleticism, and basketball IQ. Our coaches build your personalized roadmap   at zero cost.
+                    <p className="mt-2 text-sm leading-relaxed max-w-xs" style={{ color: "rgba(255,255,255,0.72)", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                      Complete assessment of your skill, athleticism & basketball IQ. Coaches build your personalized roadmap at zero cost.
                     </p>
-                    <div className="mt-5 flex items-center justify-between">
-                      <Link to="/evaluation-workout"
-                        className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide group-hover:gap-3 transition-all duration-300"
-                        style={{ color: "#8dbb1c", fontFamily: "'Plus Jakarta Sans', sans-serif" }}
-                        onClick={e => e.stopPropagation()}>
-                        Book Now <ArrowRight className="h-4 w-4" />
-                      </Link>
-                      <span className="font-display text-4xl leading-none" style={{ color: "#8dbb1c" }}>$0</span>
-                    </div>
+                    <Link
+                      to="/evaluation-workout"
+                      className="mt-5 inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-xs font-black uppercase tracking-widest transition-all duration-300 group-hover:gap-3"
+                      style={{ background: "#8dbb1c", color: "#0a0a0a", boxShadow: "0 0 18px rgba(141,187,28,0.45)" }}
+                      onClick={e => e.stopPropagation()}
+                    >
+                      Book Now <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
                   </div>
                 </div>
               </TiltCard>
