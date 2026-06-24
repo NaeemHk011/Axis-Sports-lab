@@ -36,6 +36,7 @@ const LeagueRegistration = lazy(() => import("./pages/LeagueRegistration"));
 const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
 const MembershipPackage = lazy(() => import("./pages/MembershipPackage"));
 const AniyaFoy = lazy(() => import("./pages/AniyaFoy"));
+const CoachDetail = lazy(() => import("./pages/CoachDetail"));
 const TermsAndConditionsPublic = lazy(() => import("./pages/TermsAndConditions"));
 const RentalTerms = lazy(() => import("./pages/RentalTerms"));
 const RefundPolicy = lazy(() => import("./pages/RefundPolicy"));
@@ -73,6 +74,7 @@ const AnimatedRoutes = () => {
         <Route path="/tc" element={<PageTransition><TermsAndConditions /></PageTransition>} />
         <Route path="/join/:slug" element={<MembershipPackage />} />
         <Route path="/alumni/aniya-foy" element={<AniyaFoy />} />
+        <Route path="/coaches/:slug" element={<PageTransition><CoachDetail /></PageTransition>} />
         <Route path="/terms-and-conditions" element={<PageTransition><TermsAndConditionsPublic /></PageTransition>} />
         <Route path="/rental-terms" element={<PageTransition><RentalTerms /></PageTransition>} />
         <Route path="/refund-policy" element={<PageTransition><RefundPolicy /></PageTransition>} />

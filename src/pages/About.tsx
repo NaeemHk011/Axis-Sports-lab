@@ -1,11 +1,9 @@
 ﻿import { Link } from "react-router-dom";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
-import { ArrowRight, Brain, Dumbbell, Sparkles } from "lucide-react";
+import { Brain, Dumbbell, Sparkles } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import Particles from "@/components/Particles";
-import coachImg from "../assets/04.png";
-
 const sliderImages = [
   "/pictures/camps-main.jpg",
   "/pictures/about-featured.png",
@@ -27,10 +25,19 @@ const sliderImages = [
 const coaches = [
   {
     name: "Richard Foy",
-    role: "Master Trainer & Head Coach",
-    img: coachImg,
-    bio: "Richard Foy is the driving force behind Axis Sports Lab's elite development system. With years of experience training athletes from beginner to advanced levels, Coach Foy has built a reputation for transforming raw talent into championship-ready competitors. His hands-on, personalized approach ensures every athlete receives the coaching and attention needed to reach their full potential.",
-    specialties: ["Skills Development", "Basketball IQ", "Athletic Conditioning", "Recruiting Preparation"],
+    role: "The Architect of Athletic Excellence",
+    img: "/pictures/richard-horizontal.jpg",
+    shortBio: "Visionary leader and community builder behind Axis Sports Lab. With thousands of athletes trained and hundreds placed into college programs, Coach Foy's holistic system builds champions for life.",
+    slug: "richard-foy",
+    specialties: ["Basketball Skills & IQ", "Recruiting Preparation", "Leadership Development"],
+  },
+  {
+    name: "Eddie Robinson",
+    role: "Elite Performance Specialist & NBA Veteran",
+    img: "/pictures/eddie-horizontal.jpg",
+    shortBio: "Former NBA star — Charlotte Hornets, Chicago Bulls ($32M contract), BIG3 legend. Went head-to-head with Jordan, Kobe & Iverson. Now bringing that same elite standard to the next generation.",
+    slug: "eddie-robinson",
+    specialties: ["NBA-Level Skill Development", "Elite Scoring & Athleticism", "Basketball IQ"],
   },
 ];
 
@@ -219,69 +226,77 @@ const About = () => {
             </h2>
             <p className="mt-4 mx-auto max-w-xl text-sm leading-relaxed"
               style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-              World-class coaches dedicated to unlocking every athlete's full potential   on and off the court.
+              World-class coaches dedicated to unlocking every athlete's full potential      on and off the court.
             </p>
           </Reveal>
 
-          <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-1 max-w-4xl mx-auto">
+          <div className="grid gap-6 sm:grid-cols-2 max-w-3xl mx-auto">
             {coaches.map((coach, i) => (
-              <Reveal key={coach.name} delay={i * 0.1}>
-                <div className="group relative overflow-hidden rounded-2xl flex flex-col md:flex-row gap-0"
-                  style={{ border: `1px solid rgba(141,187,28,0.25)`, background: isDark ? "#0d0d0d" : "#ffffff" }}>
-
-                  {/* Image */}
-                  <div className="relative shrink-0 w-full md:w-72 h-72 md:h-auto overflow-hidden">
+              <Reveal key={coach.name} delay={i * 0.12}>
+                <div
+                  className="group relative overflow-hidden rounded-2xl flex flex-col h-full"
+                  style={{ border: "1px solid rgba(141,187,28,0.22)", background: isDark ? "#0d0d0d" : "#ffffff" }}
+                >
+                  {/* Image — full horizontal photo */}
+                  <div className="relative w-full overflow-hidden">
                     <img
                       src={coach.img}
                       alt={coach.name}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      style={{ objectPosition: "center 20%" }}
+                      className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0"
-                      style={{ background: "linear-gradient(to right, transparent 60%, rgba(13,13,13,0.95) 100%)" }} />
-                    <div className="absolute inset-x-0 bottom-0 h-28"
-                      style={{ background: "linear-gradient(to top, rgba(13,13,13,1) 0%, rgba(13,13,13,0.85) 50%, transparent 100%)" }} />
+                    {/* subtle bottom fade into card bg */}
+                    <div className="absolute inset-x-0 bottom-0 h-10"
+                      style={{ background: `linear-gradient(to top, ${isDark ? "#0d0d0d" : "#ffffff"}, transparent)` }} />
                     {/* Green accent bar */}
-                    <div className="absolute bottom-0 left-0 right-0 h-1"
+                    <div className="absolute bottom-0 left-0 right-0 h-[3px]"
                       style={{ background: "linear-gradient(90deg, #8dbb1c, transparent)" }} />
                   </div>
 
                   {/* Content */}
-                  <div className="flex flex-col justify-center p-8 flex-1">
-                    {/* Role badge */}
-                    <span className="self-start mb-4 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest"
+                  <div className="flex flex-col flex-1 p-6">
+                    {/* Role + Name */}
+                    <span className="inline-block self-start mb-2 rounded-full px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-widest"
                       style={{ background: "rgba(141,187,28,0.15)", border: "1px solid rgba(141,187,28,0.40)", color: "#d4ff70" }}>
                       {coach.role}
                     </span>
-
-                    <h3 className="font-display text-3xl md:text-4xl uppercase mb-4" style={{ color: hText }}>
+                    <h3 className="font-display text-2xl uppercase leading-tight mb-4" style={{ color: hText }}>
                       {coach.name}
                     </h3>
-
-                    <p className="text-sm leading-relaxed mb-6"
+                    <p className="text-sm leading-relaxed flex-1 mb-5"
                       style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                      {coach.bio}
+                      {coach.shortBio}
                     </p>
 
                     {/* Specialties */}
-                    <div>
-                      <p className="text-[10px] font-bold uppercase tracking-widest mb-3"
-                        style={{ color: "rgba(141,187,28,0.70)" }}>
-                        Specialties
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {coach.specialties.map(s => (
-                          <span key={s} className="rounded-lg px-3 py-1.5 text-xs font-semibold"
-                            style={{
-                              background: isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)",
-                              border: `1px solid ${isDark ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.10)"}`,
-                              color: hMuted,
-                            }}>
-                            {s}
-                          </span>
-                        ))}
-                      </div>
+                    <div className="flex flex-wrap gap-1.5 mb-5">
+                      {coach.specialties.map(s => (
+                        <span key={s} className="rounded-md px-2.5 py-1 text-[11px] font-semibold"
+                          style={{
+                            background: isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)",
+                            border: `1px solid ${isDark ? "rgba(255,255,255,0.09)" : "rgba(0,0,0,0.09)"}`,
+                            color: hMuted,
+                          }}>
+                          {s}
+                        </span>
+                      ))}
                     </div>
+
+                    {/* See More */}
+                    <Link
+                      to={`/coaches/${coach.slug}`}
+                      className="inline-flex items-center gap-2 self-start text-xs font-bold uppercase tracking-widest transition-colors duration-200 group/link"
+                      style={{ color: "#8dbb1c" }}
+                    >
+                      See More
+                      <span
+                        className="inline-flex h-6 w-6 items-center justify-center rounded-full transition-all duration-300 group-hover/link:translate-x-0.5"
+                        style={{ background: "rgba(141,187,28,0.15)", border: "1px solid rgba(141,187,28,0.35)" }}
+                      >
+                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                          <path d="M1 5h8M5.5 1.5 9 5l-3.5 3.5" stroke="#8dbb1c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </span>
+                    </Link>
                   </div>
                 </div>
               </Reveal>
