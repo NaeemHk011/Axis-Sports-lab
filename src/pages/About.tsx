@@ -35,7 +35,7 @@ const coaches = [
     name: "Eddie Robinson",
     role: "Elite Performance Specialist & NBA Veteran",
     img: "/pictures/eddie-horizontal.jpg",
-    shortBio: "Former NBA star — Charlotte Hornets, Chicago Bulls ($32M contract), BIG3 legend. Went head-to-head with Jordan, Kobe & Iverson. Now bringing that same elite standard to the next generation.",
+    shortBio: "Former NBA star       Charlotte Hornets, Chicago Bulls ($32M contract), BIG3 legend. Went head-to-head with Jordan, Kobe & Iverson. Now bringing that same elite standard to the next generation.",
     slug: "eddie-robinson",
     specialties: ["NBA-Level Skill Development", "Elite Scoring & Athleticism", "Basketball IQ"],
   },
@@ -107,7 +107,7 @@ const About = () => {
             </h2>
             <p className="mt-4 mx-auto max-w-xl text-sm leading-relaxed"
               style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-              World-class coaches dedicated to unlocking every athlete's full potential — on and off the court.
+              World-class coaches dedicated to unlocking every athlete's full potential       on and off the court.
             </p>
           </Reveal>
 

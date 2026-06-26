@@ -95,6 +95,7 @@ const Athletes = () => {
         className="relative overflow-hidden min-h-[42vh] flex items-center pb-10 pt-14 sm:pt-20 lg:pt-24"
         style={{ backgroundImage: "url(/pictures/banner-design.png)", backgroundSize: "cover", backgroundPosition: "center" }}
       >
+        <div className="absolute inset-0 bg-black/55" />
         <div className="absolute inset-x-0 bottom-0 z-10 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
         <Particles count={10} />
         <div className="container-x w-full text-center relative z-10">
@@ -102,7 +103,7 @@ const Athletes = () => {
             <p className="eyebrow justify-center mb-4">
               <span className="h-px w-8 bg-primary-glow" /> Axis Athletes
             </p>
-            <h1 className="font-display text-5xl md:text-7xl uppercase font-black leading-tight text-white">
+            <h1 className="font-display text-5xl md:text-7xl uppercase font-black leading-tight" style={{ color: "#ffffff" }}>
               Athlete <span className="text-gradient-red">Profiles</span>
             </h1>
             <p className="mt-4 text-sm text-white/65 max-w-md mx-auto" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
@@ -195,7 +196,7 @@ const Athletes = () => {
 
                         {/* Info */}
                         <div className="p-5">
-                          <h3 className="font-display text-xl uppercase mb-1" style={{ color: hText }}>
+                          <h3 className="font-display text-xl uppercase mb-1 text-white">
                             {athlete.name}
                           </h3>
                           <p className="text-xs mb-3" style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
@@ -261,7 +262,7 @@ const Athletes = () => {
               Choose Your <span className="text-gradient-red">Plan</span>
             </h2>
             <p className="mt-4 text-sm leading-relaxed" style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-              Every membership includes a free digital athlete profile. Start with a free evaluation — no commitment required.
+              Every membership includes a free digital athlete profile. Start with a free evaluation       no commitment required.
             </p>
           </Reveal>
 

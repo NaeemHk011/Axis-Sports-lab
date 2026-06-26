@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
+import GhlFormEmbed from "@/components/GhlFormEmbed";
 
 const MembershipCheckout2DaysWeek = () => (
   <>
@@ -33,22 +34,11 @@ const MembershipCheckout2DaysWeek = () => (
             </p>
 
             <div className="mt-6 w-full overflow-hidden rounded-xl">
-              <iframe
+              <GhlFormEmbed
                 src="https://link.webtechs.dev/widget/form/zKpIr1VtgtuYWF0qivHO"
-                style={{ width: "100%", height: "1680px", border: "none", borderRadius: "3px", background: "transparent" }}
-                id="inline-zKpIr1VtgtuYWF0qivHO"
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="Membership Subscription Form  - (2 Days / Week)"
-                data-height="1680"
-                data-layout-iframe-id="inline-zKpIr1VtgtuYWF0qivHO"
-                data-form-id="zKpIr1VtgtuYWF0qivHO"
-                title="Membership Subscription Form  - (2 Days / Week)"
+                formId="zKpIr1VtgtuYWF0qivHO"
+                formName="Membership Subscription Form - (2 Days / Week)"
+                height={1680}
               />
             </div>
           </div>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ChevronDown, X } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import GhlFormEmbed from "@/components/GhlFormEmbed";
 
 const faqs = [
   { q: "How do I access the free basketball workout?", a: "Simply click the 'Click to Download' button above and enter your email to get instant access to the full 60-minute workout guide." },
@@ -58,22 +59,11 @@ const Ebook = () => {
                 position: "relative",
               }}
             >
-              <iframe
+              <GhlFormEmbed
                 src="https://link.webtechs.dev/widget/form/l7kCZoH6ydgd3P94w9IP"
-                style={{ width: "100%", height: "432px", border: "none", display: "block", borderRadius: "3px", background: "transparent" }}
-                id="inline-l7kCZoH6ydgd3P94w9IP"
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="Ebook Form "
-                data-height="432"
-                data-layout-iframe-id="inline-l7kCZoH6ydgd3P94w9IP"
-                data-form-id="l7kCZoH6ydgd3P94w9IP"
-                title="Ebook Form "
+                formId="l7kCZoH6ydgd3P94w9IP"
+                formName="Ebook Form"
+                height={432}
               />
             </div>
           </div>

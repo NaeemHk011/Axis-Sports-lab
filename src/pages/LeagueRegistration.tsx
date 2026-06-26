@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { CheckCircle, Trophy, Users, Star, Zap, Shield, Target } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import Particles from "@/components/Particles";
+import GhlFormEmbed from "@/components/GhlFormEmbed";
 
 const stats = [
   { value: "8",         label: "Week Season" },
@@ -319,22 +320,11 @@ const LeagueRegistration = () => {
 
           <Reveal>
             <div className="rounded-2xl overflow-hidden w-full">
-              <iframe
+              <GhlFormEmbed
                 src="https://link.webtechs.dev/widget/form/XWVuLmVRB1BufpiSRKxl"
-                style={{ width:"100%", height:2421, border:"none", borderRadius:10, background:"transparent" }}
-                id="inline-XWVuLmVRB1BufpiSRKxl"
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="Axis Sports Lab 3V3 Open League"
-                data-height="2421"
-                data-layout-iframe-id="inline-XWVuLmVRB1BufpiSRKxl"
-                data-form-id="XWVuLmVRB1BufpiSRKxl"
-                title="Axis Sports Lab 3V3 Open League Registration"
+                formId="XWVuLmVRB1BufpiSRKxl"
+                formName="Axis Sports Lab 3V3 Open League"
+                height={2421}
               />
             </div>
           </Reveal>

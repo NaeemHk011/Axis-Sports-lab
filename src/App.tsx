@@ -43,6 +43,7 @@ const TermsAndConditionsPublic = lazy(() => import("./pages/TermsAndConditions")
 const RentalTerms = lazy(() => import("./pages/RentalTerms"));
 const RefundPolicy = lazy(() => import("./pages/RefundPolicy"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const RentalRequest = lazy(() => import("./pages/RentalRequest"));
 
 const queryClient = new QueryClient();
 
@@ -83,6 +84,7 @@ const AnimatedRoutes = () => {
         <Route path="/rental-terms" element={<PageTransition><RentalTerms /></PageTransition>} />
         <Route path="/refund-policy" element={<PageTransition><RefundPolicy /></PageTransition>} />
         <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
+        <Route path="/rental-request" element={<PageTransition><RentalRequest /></PageTransition>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>

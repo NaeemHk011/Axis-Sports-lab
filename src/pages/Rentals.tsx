@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle, Phone } from "lucide-react";
+import { ArrowRight, CheckCircle, Phone, ClipboardList } from "lucide-react";
 import { useTheme } from "next-themes";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
@@ -138,6 +138,31 @@ const Rentals = () => {
               <p className="text-sm mb-6" style={{ color: isDark ? "rgba(255,255,255,0.50)" : "rgba(0,0,0,0.50)" }}>
                 Pick an available slot below    a confirmation email will be sent instantly after booking.
               </p>
+
+              {/* ── Special Request Banner ── */}
+              <Link
+                to="/rental-request"
+                className="group flex items-center gap-4 rounded-xl px-5 py-4 mb-6 transition-all duration-300"
+                style={{
+                  background: "linear-gradient(90deg, rgba(141,187,28,0.15), rgba(141,187,28,0.08))",
+                  border: "1.5px solid rgba(141,187,28,0.55)",
+                  boxShadow: "0 0 20px rgba(141,187,28,0.12)",
+                }}
+              >
+                <div className="h-10 w-10 shrink-0 rounded-xl grid place-items-center"
+                  style={{ background: "linear-gradient(135deg, #465d0e, #8dbb1c)" }}>
+                  <ClipboardList className="h-5 w-5 text-white" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-sm font-black uppercase tracking-wide" style={{ color: "#8dbb1c", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                    No Slots Available? Need a Special Time?
+                  </p>
+                  <p className="text-xs mt-0.5" style={{ color: isDark ? "rgba(255,255,255,0.55)" : "rgba(0,0,0,0.55)", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                    Submit a rental request       we'll confirm within 24 hrs
+                  </p>
+                </div>
+                <ArrowRight className="h-5 w-5 shrink-0 transition-transform duration-300 group-hover:translate-x-1" style={{ color: "#8dbb1c" }} />
+              </Link>
 
               <BookingIframe
                 src="https://link.webtechs.dev/widget/booking/F4895vpjQD9F4S0gQdYi"

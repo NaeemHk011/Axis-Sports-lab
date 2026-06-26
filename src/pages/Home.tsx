@@ -1066,7 +1066,7 @@ const Home = () => {
 
                       {/* Info */}
                       <div className="p-4">
-                        <h3 className="font-display text-lg uppercase mb-0.5" style={{ color: hText }}>
+                        <h3 className="font-display text-lg uppercase mb-0.5 text-white">
                           {athlete.name}
                         </h3>
                         <p className="text-xs mb-3" style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
@@ -1087,7 +1087,7 @@ const Home = () => {
               ))}
             </div>
 
-            {/* View All — mobile + desktop centered */}
+            {/* View All       mobile + desktop centered */}
             <Reveal className="mt-8 text-center">
               <Link to="/athletes" className="btn-pill btn-pill-ghost">
                 View All Athletes

@@ -1,11 +1,11 @@
-# Athlete Profile System — Client Proposal
+# Athlete Profile System       Client Proposal
 ### Axis Sports Lab · Phase 1 MVP
 
 ---
 
 ## What Is the Athlete Profile System?
 
-Every athlete who joins an Axis Sports Lab membership will receive a **personal digital profile page** — a dedicated web page that showcases their highlights, bio, school information, and photos.
+Every athlete who joins an Axis Sports Lab membership will receive a **personal digital profile page**       a dedicated web page that showcases their highlights, bio, school information, and photos.
 
 Think of it like a **digital sports card** that lives on your website and can be shared with coaches, recruiters, family, and friends.
 
@@ -16,7 +16,7 @@ axissportslab.com/athletes/john-smith
 
 ---
 
-## How It Works — Simple Overview
+## How It Works       Simple Overview
 
 ```
 Athlete buys membership
@@ -47,13 +47,13 @@ No complicated software. No coding required from staff. Just a simple form → r
 
 ### Why Sanity CMS?
 - **Free** on the starter plan (covers Phase 1 entirely)
-- Staff gets a clean, simple dashboard — no coding needed
+- Staff gets a clean, simple dashboard       no coding needed
 - Upload photos, add bio, publish/unpublish with one click
 - Works on any computer or phone
 
 ---
 
-## Staff Admin Dashboard — What Staff Can Do
+## Staff Admin Dashboard       What Staff Can Do
 
 Inside the Sanity dashboard, staff will be able to:
 
@@ -68,7 +68,7 @@ Inside the Sanity dashboard, staff will be able to:
 
 ---
 
-## What the Athlete Profile Page Includes (Basic — Free with Membership)
+## What the Athlete Profile Page Includes (Basic       Free with Membership)
 
 Each public-facing profile page will display:
 
@@ -97,7 +97,7 @@ ACTION: GHL sends athlete intake form via email/SMS
     ↓
 ATHLETE ACTION: Fills out form (name, photo, bio, school, video link, etc.)
     ↓
-ACTION: Staff receives notification — "New athlete profile ready to build"
+ACTION: Staff receives notification       "New athlete profile ready to build"
     ↓
 STAFF ACTION: Opens Sanity dashboard → Creates profile → Publishes
     ↓
@@ -110,7 +110,7 @@ ACTION: GHL automatically sends profile link to athlete & parent
 
 ## Profile Tiers & Upsells
 
-### Basic — FREE with Membership (Value: $99)
+### Basic       FREE with Membership (Value: $99)
 - Athlete profile page
 - 1 highlight video
 - 5 photos
@@ -120,7 +120,7 @@ ACTION: GHL automatically sends profile link to athlete & parent
 
 ---
 
-### Pro Athlete Profile — $99 Setup OR $19/month
+### Pro Athlete Profile       $99 Setup OR $19/month
 Everything in Basic, plus:
 - Up to 5 videos
 - Up to 20 photos
@@ -131,7 +131,7 @@ Everything in Basic, plus:
 
 ---
 
-### Elite Athlete Profile — $299 Setup OR $49/month
+### Elite Athlete Profile       $299 Setup OR $49/month
 Everything in Pro, plus:
 - Unlimited videos & photos
 - Recruiting section
@@ -167,17 +167,17 @@ Everything in Pro, plus:
 
 ---
 
-## Cost Breakdown — Phase 1
+## Cost Breakdown       Phase 1
 
 | Item | Monthly Cost |
 |------|-------------|
 | Sanity CMS (Starter Plan) | **$0** |
 | Go High Level (already active) | Already paying |
-| Website hosting — Vercel (already active) | Already paying |
+| Website hosting       Vercel (already active) | Already paying |
 | **Total new cost** | **$0/month** |
 
 Phase 1 runs entirely on existing infrastructure and Sanity's free tier.
-*(Sanity free tier supports up to 3 users and 10GB storage — more than enough for Phase 1)*
+*(Sanity free tier supports up to 3 users and 10GB storage       more than enough for Phase 1)*
 
 ---
 
@@ -185,10 +185,10 @@ Phase 1 runs entirely on existing infrastructure and Sanity's free tier.
 
 Once demand is validated in Phase 1:
 
-- **Athlete login portal** — athletes log in to view and share their own profile
-- **Recruiting dashboard** — connect directly with college coaches
-- **Performance tracking** — stats, progress over time
-- **Full Athlete Operating System** — the complete vision
+- **Athlete login portal**       athletes log in to view and share their own profile
+- **Recruiting dashboard**       connect directly with college coaches
+- **Performance tracking**       stats, progress over time
+- **Full Athlete Operating System**       the complete vision
 
 Phase 2 would be scoped and priced separately once Phase 1 results are reviewed.
 

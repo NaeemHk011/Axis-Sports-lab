@@ -1,12 +1,10 @@
-﻿import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Phone, Mail } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
+import GhlFormEmbed from "@/components/GhlFormEmbed";
 
 const Contact = () => {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => { setMounted(true); }, []);
 
   return (
     <>
@@ -40,26 +38,12 @@ const Contact = () => {
           <Reveal className="lg:col-span-7">
             <h2 className="font-display text-3xl uppercase text-white mb-6">Contact Us Form</h2>
 
-            {mounted && (
-              <iframe
-                src="https://link.webtechs.dev/widget/form/dbPvzrYgiPD3ohCGU3Ic"
-                style={{ width: "100%", height: "905px", border: "none", borderRadius: "3px", background: "transparent" }}
-                id="inline-dbPvzrYgiPD3ohCGU3Ic"
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="Contact Us Form"
-                data-height="905"
-                data-layout-iframe-id="inline-dbPvzrYgiPD3ohCGU3Ic"
-                data-form-id="dbPvzrYgiPD3ohCGU3Ic"
-                title="Contact Us Form"
-                allowTransparency
-              />
-            )}
+            <GhlFormEmbed
+              src="https://link.webtechs.dev/widget/form/dbPvzrYgiPD3ohCGU3Ic"
+              formId="dbPvzrYgiPD3ohCGU3Ic"
+              formName="Contact Us Form"
+              height={905}
+            />
           </Reveal>
 
           <Reveal delay={0.1} className="lg:col-span-5 space-y-5">

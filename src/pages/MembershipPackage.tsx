@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, Check } from "lucide-react";
 import Logo from "@/components/Logo";
+import GhlFormEmbed from "@/components/GhlFormEmbed";
 
 /* ─── package config ──────────────────────────────────────────────── */
 const PACKAGES: Record<string, {
@@ -279,22 +280,11 @@ const MembershipPackage = () => {
             Fill out the form below to secure your spot.
           </p>
 
-          <iframe
+          <GhlFormEmbed
             src={pkg.formSrc}
-            style={{ width: "100%", height: `${pkg.formHeight}px`, border: "none", display: "block", background: "transparent", borderRadius: "0" }}
-            id={`inline-${pkg.formId}`}
-            data-layout="{'id':'INLINE'}"
-            data-trigger-type="alwaysShow"
-            data-trigger-value=""
-            data-activation-type="alwaysActivated"
-            data-activation-value=""
-            data-deactivation-type="neverDeactivate"
-            data-deactivation-value=""
-            data-form-name={pkg.formName}
-            data-height={pkg.formHeight}
-            data-layout-iframe-id={`inline-${pkg.formId}`}
-            data-form-id={pkg.formId}
-            title={pkg.formName}
+            formId={pkg.formId}
+            formName={pkg.formName}
+            height={pkg.formHeight}
           />
         </div>
       </main>

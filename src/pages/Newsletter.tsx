@@ -1,5 +1,6 @@
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
+import GhlFormEmbed from "@/components/GhlFormEmbed";
 
 const Newsletter = () => (
   <>
@@ -20,22 +21,11 @@ const Newsletter = () => (
               Get the latest news, training tips, camp announcements, and exclusive offers straight to your inbox.
             </p>
 
-            <iframe
+            <GhlFormEmbed
               src="https://link.webtechs.dev/widget/form/acWncB1xrwrdjERuqG1L"
-              style={{ width: "100%", height: "549px", border: "none", borderRadius: "3px", background: "transparent" }}
-              id="inline-acWncB1xrwrdjERuqG1L"
-              data-layout="{'id':'INLINE'}"
-              data-trigger-type="alwaysShow"
-              data-trigger-value=""
-              data-activation-type="alwaysActivated"
-              data-activation-value=""
-              data-deactivation-type="neverDeactivate"
-              data-deactivation-value=""
-              data-form-name="Axis Sports Lab Newsletter Sign Up"
-              data-height="549"
-              data-layout-iframe-id="inline-acWncB1xrwrdjERuqG1L"
-              data-form-id="acWncB1xrwrdjERuqG1L"
-              title="Axis Sports Lab Newsletter Sign Up"
+              formId="acWncB1xrwrdjERuqG1L"
+              formName="Axis Sports Lab Newsletter Sign Up"
+              height={549}
             />
           </div>
         </Reveal>
@@ -45,3 +35,4 @@ const Newsletter = () => (
 );
 
 export default Newsletter;
+

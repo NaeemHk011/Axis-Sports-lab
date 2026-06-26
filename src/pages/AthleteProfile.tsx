@@ -128,7 +128,7 @@ const AthleteProfile = () => {
                 {athlete.tier} profile
               </span>
 
-              <h1 className="font-display text-3xl md:text-4xl uppercase leading-tight mb-2" style={{ color: hText }}>
+              <h1 className="font-display text-3xl md:text-4xl uppercase leading-tight mb-2 text-white">
                 {athlete.name}
               </h1>
               <p className="text-sm font-semibold mb-5" style={{ color: "rgba(141,187,28,0.80)" }}>
