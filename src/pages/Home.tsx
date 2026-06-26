@@ -1,7 +1,10 @@
-﻿import React, { useRef, useEffect } from "react";
+﻿import React, { useRef, useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, useMotionValue, useTransform, AnimatePresence } from "framer-motion";
+import { sanityClient, urlFor } from "@/lib/sanity";
+import { FEATURED_ATHLETES_QUERY } from "@/lib/athleteQueries";
+import type { Athlete } from "@/types/athlete";
 import {
   ArrowRight,
   Target,
@@ -97,6 +100,7 @@ const testimonials = [
 
 const partners = ["NIKE", "SPALDING", "GATORADE", "WILSON", "UNDER ARMOUR", "POWERADE"];
 
+
 const galleryImages = [img01, img02, img03, img04, img05, img06];
 
 /* ─── SPRING CONFIG ────────────────────────────────────── */
@@ -175,6 +179,11 @@ const Home = () => {
   const hText   = isDark ? "#ffffff" : "#111111";
   const hMuted  = isDark ? "rgba(255,255,255,0.58)" : "rgba(0,0,0,0.62)";
   const hBorder = isDark ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.10)";
+
+  const [featuredAthletes, setFeaturedAthletes] = useState<Athlete[]>([]);
+  useEffect(() => {
+    sanityClient.fetch(FEATURED_ATHLETES_QUERY).then(setFeaturedAthletes);
+  }, []);
 
   /* stagger variants */
   const container = {
@@ -990,6 +999,104 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* ═══════════════════════════════════════════════════════
+          FEATURED ATHLETES
+         ═══════════════════════════════════════════════════════ */}
+      {featuredAthletes.length > 0 && (
+        <section className="section" aria-label="Featured Athletes">
+          <div className="container-x">
+
+            {/* Header row */}
+            <Reveal className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+              <div>
+                <p className="eyebrow mb-4"><span className="h-px w-8 bg-primary-glow" /> Axis Athletes</p>
+                <h2 className="h-section" style={{ color: hText }}>
+                  Meet Our <span className="text-gradient-red">Athletes</span>
+                </h2>
+              </div>
+              <Link
+                to="/athletes"
+                className="hidden sm:inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest transition-colors duration-200 shrink-0"
+                style={{ color: "#8dbb1c" }}
+              >
+                View All Athletes
+                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full"
+                  style={{ background: "rgba(141,187,28,0.15)", border: "1px solid rgba(141,187,28,0.35)" }}>
+                  <ArrowRight className="h-3 w-3" />
+                </span>
+              </Link>
+            </Reveal>
+
+            {/* 3 athlete cards */}
+            <div className="grid gap-5 sm:grid-cols-3">
+              {featuredAthletes.map((athlete, i) => (
+                <Reveal key={athlete._id} delay={i * 0.1}>
+                  <Link to={`/athletes/${athlete.slug.current}`} className="group block">
+                    <div
+                      className="relative overflow-hidden rounded-2xl transition-transform duration-300 group-hover:-translate-y-1"
+                      style={{
+                        border: "1px solid rgba(141,187,28,0.18)",
+                        background: isDark ? "#0d0d0d" : "#ffffff",
+                        boxShadow: "0 4px 24px rgba(0,0,0,0.12)",
+                      }}
+                    >
+                      {/* Photo */}
+                      <div className="relative overflow-hidden" style={{ height: "200px" }}>
+                        {athlete.photo ? (
+                          <img
+                            src={urlFor(athlete.photo).width(400).height(200).fit("crop").url()}
+                            alt={athlete.name}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            style={{ objectPosition: "center 15%" }}
+                          />
+                        ) : (
+                          <div className="w-full h-full grid place-items-center"
+                            style={{ background: "linear-gradient(135deg, rgba(141,187,28,0.15), rgba(141,187,28,0.05))" }}>
+                            <span className="font-display text-5xl" style={{ color: "rgba(141,187,28,0.3)" }}>
+                              {athlete.name.charAt(0)}
+                            </span>
+                          </div>
+                        )}
+                        <div className="absolute inset-0"
+                          style={{ background: "linear-gradient(to top, rgba(13,13,13,0.85) 0%, transparent 55%)" }} />
+                        <div className="absolute bottom-0 left-0 right-0 h-[2px]"
+                          style={{ background: "linear-gradient(90deg, #8dbb1c, transparent)" }} />
+                      </div>
+
+                      {/* Info */}
+                      <div className="p-4">
+                        <h3 className="font-display text-lg uppercase mb-0.5" style={{ color: hText }}>
+                          {athlete.name}
+                        </h3>
+                        <p className="text-xs mb-3" style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                          {athlete.sport} · {athlete.position}
+                        </p>
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px]" style={{ color: hMuted }}>
+                            {athlete.school} · {athlete.graduationYear}
+                          </span>
+                          <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: "#8dbb1c" }}>
+                            View →
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </Reveal>
+              ))}
+            </div>
+
+            {/* View All — mobile + desktop centered */}
+            <Reveal className="mt-8 text-center">
+              <Link to="/athletes" className="btn-pill btn-pill-ghost">
+                View All Athletes
+                <span className="btn-pill-icon"><ArrowRight className="h-4 w-4" /></span>
+              </Link>
+            </Reveal>
+          </div>
+        </section>
+      )}
 
       {/* ═══════════════════════════════════════════════════════
           PARTNERS   Dual kinetic marquee

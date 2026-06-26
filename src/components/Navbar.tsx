@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import Logo from "./Logo";
@@ -12,7 +12,14 @@ const links = [
   { to: "/training", label: "Training" },
   { to: "/youth-league", label: "3V3 League" },
   { to: "/camps", label: "Camps" },
-  { to: "/membership", label: "Memberships" },
+  {
+    to: "/membership",
+    label: "Memberships",
+    dropdown: [
+      { to: "/membership", label: "Membership Plans" },
+      { to: "/athletes", label: "Athlete Profiles" },
+    ],
+  },
   { to: "/rentals", label: "Rentals" },
   { to: "/alumni", label: "Alumni" },
   { to: "/contact", label: "Contact" },
@@ -21,16 +28,18 @@ const links = [
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const { resolvedTheme } = useTheme();
   const isDark = resolvedTheme !== "light";
-  const navBg      = isDark ? "#0A0A0A"                  : "#ffffff";
-  const navBorder  = isDark ? "rgba(255,255,255,0.08)"   : "rgba(0,0,0,0.10)";
-  const linkColor  = isDark ? "rgba(255,255,255,0.80)"   : "rgba(0,0,0,0.70)";
-  const linkHover  = isDark ? "#ffffff"                  : "#000000";
-  const menuIcon   = isDark ? "#ffffff"                  : "#111111";
+  const navBg       = isDark ? "#0A0A0A"                 : "#ffffff";
+  const navBorder   = isDark ? "rgba(255,255,255,0.08)"  : "rgba(0,0,0,0.10)";
+  const linkColor   = isDark ? "rgba(255,255,255,0.80)"  : "rgba(0,0,0,0.70)";
+  const linkHover   = isDark ? "#ffffff"                 : "#000000";
+  const menuIcon    = isDark ? "#ffffff"                 : "#111111";
   const mobileBorder = isDark ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.10)";
-  const mobileTx   = isDark ? "#ffffff"                  : "#111111";
+  const mobileTx    = isDark ? "#ffffff"                 : "#111111";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -41,55 +50,121 @@ const Navbar = () => {
 
   useEffect(() => {
     setOpen(false);
+    setDropdownOpen(false);
   }, [location.pathname]);
 
   return (
     <>
       <header
         className="sticky inset-x-0 top-0 z-50 py-3 transition-all duration-300"
-        style={{
-          background: navBg,
-          borderBottom: "1px solid #8dbb1c",
-        }}
+        style={{ background: navBg, borderBottom: "1px solid #8dbb1c" }}
       >
-        {/* Animated red shine sweep on bottom border */}
+        {/* Shine sweep on bottom border */}
         <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-[1px] overflow-hidden">
           <div style={{
-            position: "absolute",
-            top: 0,
-            left: "-40%",
-            width: "40%",
-            height: "100%",
+            position: "absolute", top: 0, left: "-40%", width: "40%", height: "100%",
             background: "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.9) 50%, transparent 100%)",
             animation: "navbar-shine 2.5s ease-in-out infinite",
           }} />
         </div>
+
         <div className="container-x flex items-center justify-between gap-3">
           <Link to="/" className="flex items-center gap-3 transition-transform duration-300 hover:scale-105" aria-label="Axis Sports Lab home">
             <Logo className="h-5 w-auto md:h-6 lg:h-7" />
-
           </Link>
 
           <nav className="hidden items-center gap-3 xl:gap-5 lg:flex" aria-label="Primary">
-            {links.map((l) => (
-              <NavLink
-                key={l.to}
-                to={l.to}
-                style={({ isActive }) => ({
-                  color: isActive ? linkHover : linkColor,
-                })}
-                className={({ isActive }) =>
-                  `link-underline text-[11px] xl:text-xs font-medium uppercase tracking-wide transition-colors duration-200 ${isActive ? "active" : ""}`
-                }
-                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = linkHover; }}
-                onMouseLeave={(e) => {
-                  const el = e.currentTarget as HTMLAnchorElement;
-                  if (!el.classList.contains("active")) el.style.color = linkColor;
-                }}
-              >
-                {l.label}
-              </NavLink>
-            ))}
+            {links.map((l) =>
+              l.dropdown ? (
+                /* ── Dropdown item ── */
+                <div
+                  key={l.to}
+                  ref={dropdownRef}
+                  className="relative"
+                  onMouseEnter={() => setDropdownOpen(true)}
+                  onMouseLeave={() => setDropdownOpen(false)}
+                >
+                  <NavLink
+                    to={l.to}
+                    style={({ isActive }) => ({ color: isActive ? linkHover : linkColor })}
+                    className={({ isActive }) =>
+                      `link-underline text-[11px] xl:text-xs font-medium uppercase tracking-wide transition-colors duration-200 flex items-center gap-1 ${isActive ? "active" : ""}`
+                    }
+                  >
+                    {l.label}
+                    <ChevronDown
+                      className="h-3 w-3 transition-transform duration-200"
+                      style={{ transform: dropdownOpen ? "rotate(180deg)" : "rotate(0deg)" }}
+                    />
+                  </NavLink>
+
+                  <AnimatePresence>
+                    {dropdownOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 6, scale: 0.97 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 6, scale: 0.97 }}
+                        transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
+                        className="absolute left-1/2 top-full pt-3 -translate-x-1/2"
+                        style={{ minWidth: "190px", zIndex: 100 }}
+                      >
+                        <div
+                          className="rounded-xl overflow-hidden"
+                          style={{
+                            background: isDark ? "#111111" : "#ffffff",
+                            border: "1px solid rgba(141,187,28,0.35)",
+                            boxShadow: "0 16px 48px rgba(0,0,0,0.35), 0 0 0 1px rgba(141,187,28,0.1)",
+                          }}
+                        >
+                          {/* Green top accent */}
+                          <div className="h-[2px] w-full" style={{ background: "linear-gradient(90deg, #8dbb1c, rgba(141,187,28,0.3))" }} />
+
+                          {l.dropdown.map((item) => (
+                            <Link
+                              key={item.to}
+                              to={item.to}
+                              className="flex items-center gap-3 px-4 py-3 text-xs font-semibold uppercase tracking-wider transition-all duration-150 group/item"
+                              style={{ color: linkColor, fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+                              onMouseEnter={e => {
+                                (e.currentTarget as HTMLElement).style.background = "rgba(141,187,28,0.08)";
+                                (e.currentTarget as HTMLElement).style.color = "#8dbb1c";
+                              }}
+                              onMouseLeave={e => {
+                                (e.currentTarget as HTMLElement).style.background = "transparent";
+                                (e.currentTarget as HTMLElement).style.color = linkColor;
+                              }}
+                            >
+                              <span
+                                className="h-1.5 w-1.5 rounded-full shrink-0"
+                                style={{ background: "#8dbb1c" }}
+                              />
+                              {item.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : (
+                /* ── Regular item ── */
+                <NavLink
+                  key={l.to}
+                  to={l.to}
+                  style={({ isActive }) => ({ color: isActive ? linkHover : linkColor })}
+                  className={({ isActive }) =>
+                    `link-underline text-[11px] xl:text-xs font-medium uppercase tracking-wide transition-colors duration-200 ${isActive ? "active" : ""}`
+                  }
+                  onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = linkHover; }}
+                  onMouseLeave={e => {
+                    const el = e.currentTarget as HTMLAnchorElement;
+                    if (!el.classList.contains("active")) el.style.color = linkColor;
+                  }}
+                >
+                  {l.label}
+                </NavLink>
+              )
+            )}
           </nav>
 
           <div className="flex items-center gap-2">
@@ -115,6 +190,7 @@ const Navbar = () => {
         </div>
       </header>
 
+      {/* ── Mobile menu ── */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -138,6 +214,21 @@ const Navbar = () => {
                   >
                     {l.label}
                   </Link>
+                  {/* Mobile dropdown sub-items */}
+                  {l.dropdown && (
+                    <div className="pl-4 pb-2">
+                      {l.dropdown.map((item) => (
+                        <Link
+                          key={item.to}
+                          to={item.to}
+                          className="block py-2 font-display text-xl uppercase"
+                          style={{ color: "#8dbb1c" }}
+                        >
+                          → {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </motion.div>
               ))}
               <Link to="/evaluation-workout" className="btn-red mt-8 self-start">

@@ -36,6 +36,8 @@ const LeagueRegistration = lazy(() => import("./pages/LeagueRegistration"));
 const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
 const MembershipPackage = lazy(() => import("./pages/MembershipPackage"));
 const AniyaFoy = lazy(() => import("./pages/AniyaFoy"));
+const Athletes = lazy(() => import("./pages/Athletes"));
+const AthleteProfile = lazy(() => import("./pages/AthleteProfile"));
 const CoachDetail = lazy(() => import("./pages/CoachDetail"));
 const TermsAndConditionsPublic = lazy(() => import("./pages/TermsAndConditions"));
 const RentalTerms = lazy(() => import("./pages/RentalTerms"));
@@ -74,6 +76,8 @@ const AnimatedRoutes = () => {
         <Route path="/tc" element={<PageTransition><TermsAndConditions /></PageTransition>} />
         <Route path="/join/:slug" element={<MembershipPackage />} />
         <Route path="/alumni/aniya-foy" element={<AniyaFoy />} />
+        <Route path="/athletes" element={<PageTransition><Athletes /></PageTransition>} />
+        <Route path="/athletes/:slug" element={<PageTransition><AthleteProfile /></PageTransition>} />
         <Route path="/coaches/:slug" element={<PageTransition><CoachDetail /></PageTransition>} />
         <Route path="/terms-and-conditions" element={<PageTransition><TermsAndConditionsPublic /></PageTransition>} />
         <Route path="/rental-terms" element={<PageTransition><RentalTerms /></PageTransition>} />

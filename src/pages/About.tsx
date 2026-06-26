@@ -96,54 +96,81 @@ const About = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════════════
-          ATHLETES AT WORK   Infinite image marquee
+          OUR COACHES   (moved here, right after hero)
          ═══════════════════════════════════════════════════════ */}
-      <section className="py-10 sm:py-14 overflow-hidden" aria-label="Athletes at work">
-        <Reveal className="container-x text-center mb-8">
-          <p className="eyebrow justify-center mb-3"><span className="h-px w-8 bg-primary-glow" /> Gallery</p>
-          <h2 className="h-section" style={{ color: hText }}>See Our Athletes At Work</h2>
-        </Reveal>
+      <section className="section" aria-label="Our Coaches">
+        <div className="container-x">
+          <Reveal className="text-center mb-14">
+            <p className="eyebrow justify-center mb-4"><span className="h-px w-8 bg-primary-glow" /> Meet The Team</p>
+            <h2 className="h-section" style={{ color: hText }}>
+              Our <span className="text-gradient-red">Coaches</span>
+            </h2>
+            <p className="mt-4 mx-auto max-w-xl text-sm leading-relaxed"
+              style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              World-class coaches dedicated to unlocking every athlete's full potential — on and off the court.
+            </p>
+          </Reveal>
 
-        {/* Row 1   forward */}
-        <div className="relative overflow-hidden mb-4">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-28 bg-gradient-to-r from-background to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-28 bg-gradient-to-l from-background to-transparent" />
-          <div className="marquee" style={{ gap: "1rem" }}>
-            {[...sliderImages, ...sliderImages].map((src, i) => (
-              <motion.div key={i}
-                whileHover={{ scale: 1.04 }}
-                className="relative shrink-0 overflow-hidden rounded-2xl group"
-                style={{ width: "220px", height: "160px", border: "1px solid rgba(141,187,28,0.2)" }}>
-                <img
-                  src={src}
-                  alt="Axis Sports Lab athlete"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400"
-                  style={{ background: "linear-gradient(to top, rgba(141,187,28,0.65) 0%, transparent 70%)" }} />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Row 2   reverse */}
-        <div className="relative overflow-hidden">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-28 bg-gradient-to-r from-background to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-28 bg-gradient-to-l from-background to-transparent" />
-          <div className="marquee-reverse" style={{ gap: "1rem" }}>
-            {[...sliderImages.slice().reverse(), ...sliderImages.slice().reverse()].map((src, i) => (
-              <motion.div key={i}
-                whileHover={{ scale: 1.04 }}
-                className="relative shrink-0 overflow-hidden rounded-2xl group"
-                style={{ width: "190px", height: "140px", border: "1px solid rgba(255,255,255,0.06)" }}>
-                <img
-                  src={src}
-                  alt="Axis Sports Lab athlete"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400"
-                  style={{ background: "linear-gradient(to top, rgba(141,187,28,0.55) 0%, transparent 70%)" }} />
-              </motion.div>
+          <div className="grid gap-6 sm:grid-cols-2 max-w-3xl mx-auto">
+            {coaches.map((coach, i) => (
+              <Reveal key={coach.name} delay={i * 0.12}>
+                <div
+                  className="group relative overflow-hidden rounded-2xl flex flex-col h-full"
+                  style={{ border: "1px solid rgba(141,187,28,0.22)", background: isDark ? "#0d0d0d" : "#ffffff" }}
+                >
+                  <div className="relative w-full overflow-hidden">
+                    <img
+                      src={coach.img}
+                      alt={coach.name}
+                      className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 h-10"
+                      style={{ background: `linear-gradient(to top, ${isDark ? "#0d0d0d" : "#ffffff"}, transparent)` }} />
+                    <div className="absolute bottom-0 left-0 right-0 h-[3px]"
+                      style={{ background: "linear-gradient(90deg, #8dbb1c, transparent)" }} />
+                  </div>
+                  <div className="flex flex-col flex-1 p-6">
+                    <span className="inline-block self-start mb-2 rounded-full px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-widest"
+                      style={{ background: "rgba(141,187,28,0.15)", border: "1px solid rgba(141,187,28,0.40)", color: "#d4ff70" }}>
+                      {coach.role}
+                    </span>
+                    <h3 className="font-display text-2xl uppercase leading-tight mb-4" style={{ color: hText }}>
+                      {coach.name}
+                    </h3>
+                    <p className="text-sm leading-relaxed flex-1 mb-5"
+                      style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                      {coach.shortBio}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 mb-5">
+                      {coach.specialties.map(s => (
+                        <span key={s} className="rounded-md px-2.5 py-1 text-[11px] font-semibold"
+                          style={{
+                            background: isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)",
+                            border: `1px solid ${isDark ? "rgba(255,255,255,0.09)" : "rgba(0,0,0,0.09)"}`,
+                            color: hMuted,
+                          }}>
+                          {s}
+                        </span>
+                      ))}
+                    </div>
+                    <Link
+                      to={`/coaches/${coach.slug}`}
+                      className="inline-flex items-center gap-2 self-start text-xs font-bold uppercase tracking-widest transition-colors duration-200 group/link"
+                      style={{ color: "#8dbb1c" }}
+                    >
+                      See More
+                      <span
+                        className="inline-flex h-6 w-6 items-center justify-center rounded-full transition-all duration-300 group-hover/link:translate-x-0.5"
+                        style={{ background: "rgba(141,187,28,0.15)", border: "1px solid rgba(141,187,28,0.35)" }}
+                      >
+                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                          <path d="M1 5h8M5.5 1.5 9 5l-3.5 3.5" stroke="#8dbb1c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </span>
+                    </Link>
+                  </div>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -215,97 +242,6 @@ const About = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════════════
-          OUR COACHES
-         ═══════════════════════════════════════════════════════ */}
-      <section className="section" aria-label="Our Coaches">
-        <div className="container-x">
-          <Reveal className="text-center mb-14">
-            <p className="eyebrow justify-center mb-4"><span className="h-px w-8 bg-primary-glow" /> Meet The Team</p>
-            <h2 className="h-section" style={{ color: hText }}>
-              Our <span className="text-gradient-red">Coaches</span>
-            </h2>
-            <p className="mt-4 mx-auto max-w-xl text-sm leading-relaxed"
-              style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-              World-class coaches dedicated to unlocking every athlete's full potential      on and off the court.
-            </p>
-          </Reveal>
-
-          <div className="grid gap-6 sm:grid-cols-2 max-w-3xl mx-auto">
-            {coaches.map((coach, i) => (
-              <Reveal key={coach.name} delay={i * 0.12}>
-                <div
-                  className="group relative overflow-hidden rounded-2xl flex flex-col h-full"
-                  style={{ border: "1px solid rgba(141,187,28,0.22)", background: isDark ? "#0d0d0d" : "#ffffff" }}
-                >
-                  {/* Image — full horizontal photo */}
-                  <div className="relative w-full overflow-hidden">
-                    <img
-                      src={coach.img}
-                      alt={coach.name}
-                      className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
-                    />
-                    {/* subtle bottom fade into card bg */}
-                    <div className="absolute inset-x-0 bottom-0 h-10"
-                      style={{ background: `linear-gradient(to top, ${isDark ? "#0d0d0d" : "#ffffff"}, transparent)` }} />
-                    {/* Green accent bar */}
-                    <div className="absolute bottom-0 left-0 right-0 h-[3px]"
-                      style={{ background: "linear-gradient(90deg, #8dbb1c, transparent)" }} />
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex flex-col flex-1 p-6">
-                    {/* Role + Name */}
-                    <span className="inline-block self-start mb-2 rounded-full px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-widest"
-                      style={{ background: "rgba(141,187,28,0.15)", border: "1px solid rgba(141,187,28,0.40)", color: "#d4ff70" }}>
-                      {coach.role}
-                    </span>
-                    <h3 className="font-display text-2xl uppercase leading-tight mb-4" style={{ color: hText }}>
-                      {coach.name}
-                    </h3>
-                    <p className="text-sm leading-relaxed flex-1 mb-5"
-                      style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                      {coach.shortBio}
-                    </p>
-
-                    {/* Specialties */}
-                    <div className="flex flex-wrap gap-1.5 mb-5">
-                      {coach.specialties.map(s => (
-                        <span key={s} className="rounded-md px-2.5 py-1 text-[11px] font-semibold"
-                          style={{
-                            background: isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)",
-                            border: `1px solid ${isDark ? "rgba(255,255,255,0.09)" : "rgba(0,0,0,0.09)"}`,
-                            color: hMuted,
-                          }}>
-                          {s}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* See More */}
-                    <Link
-                      to={`/coaches/${coach.slug}`}
-                      className="inline-flex items-center gap-2 self-start text-xs font-bold uppercase tracking-widest transition-colors duration-200 group/link"
-                      style={{ color: "#8dbb1c" }}
-                    >
-                      See More
-                      <span
-                        className="inline-flex h-6 w-6 items-center justify-center rounded-full transition-all duration-300 group-hover/link:translate-x-0.5"
-                        style={{ background: "rgba(141,187,28,0.15)", border: "1px solid rgba(141,187,28,0.35)" }}
-                      >
-                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                          <path d="M1 5h8M5.5 1.5 9 5l-3.5 3.5" stroke="#8dbb1c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </span>
-                    </Link>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════
           TIMELINE
          ═══════════════════════════════════════════════════════ */}
       <section className="section relative overflow-hidden" aria-label="Timeline">
@@ -347,6 +283,52 @@ const About = () => {
               <span className="btn-pill-icon"><ArrowRight className="h-4 w-4" /></span>
             </Link>
           </Reveal> */}
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════
+          ATHLETES AT WORK   Infinite image marquee  (footer ke upar)
+         ═══════════════════════════════════════════════════════ */}
+      <section className="py-10 sm:py-14 overflow-hidden" aria-label="Athletes at work">
+        <Reveal className="container-x text-center mb-8">
+          <p className="eyebrow justify-center mb-3"><span className="h-px w-8 bg-primary-glow" /> Gallery</p>
+          <h2 className="h-section" style={{ color: hText }}>See Our Athletes At Work</h2>
+        </Reveal>
+
+        <div className="relative overflow-hidden mb-4">
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-28 bg-gradient-to-r from-background to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-28 bg-gradient-to-l from-background to-transparent" />
+          <div className="marquee" style={{ gap: "1rem" }}>
+            {[...sliderImages, ...sliderImages].map((src, i) => (
+              <motion.div key={i}
+                whileHover={{ scale: 1.04 }}
+                className="relative shrink-0 overflow-hidden rounded-2xl group"
+                style={{ width: "220px", height: "160px", border: "1px solid rgba(141,187,28,0.2)" }}>
+                <img src={src} alt="Axis Sports Lab athlete"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400"
+                  style={{ background: "linear-gradient(to top, rgba(141,187,28,0.65) 0%, transparent 70%)" }} />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        <div className="relative overflow-hidden">
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-28 bg-gradient-to-r from-background to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-28 bg-gradient-to-l from-background to-transparent" />
+          <div className="marquee-reverse" style={{ gap: "1rem" }}>
+            {[...sliderImages.slice().reverse(), ...sliderImages.slice().reverse()].map((src, i) => (
+              <motion.div key={i}
+                whileHover={{ scale: 1.04 }}
+                className="relative shrink-0 overflow-hidden rounded-2xl group"
+                style={{ width: "190px", height: "140px", border: "1px solid rgba(255,255,255,0.06)" }}>
+                <img src={src} alt="Axis Sports Lab athlete"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400"
+                  style={{ background: "linear-gradient(to top, rgba(141,187,28,0.55) 0%, transparent 70%)" }} />
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
     </>
