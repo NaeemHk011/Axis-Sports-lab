@@ -44,6 +44,7 @@ const RentalTerms = lazy(() => import("./pages/RentalTerms"));
 const RefundPolicy = lazy(() => import("./pages/RefundPolicy"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const RentalRequest = lazy(() => import("./pages/RentalRequest"));
+const AthletePlan = lazy(() => import("./pages/AthletePlan"));
 
 const queryClient = new QueryClient();
 
@@ -85,6 +86,7 @@ const AnimatedRoutes = () => {
         <Route path="/refund-policy" element={<PageTransition><RefundPolicy /></PageTransition>} />
         <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
         <Route path="/rental-request" element={<PageTransition><RentalRequest /></PageTransition>} />
+        <Route path="/athletes/plan/:slug" element={<AthletePlan />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
@@ -94,7 +96,7 @@ const AnimatedRoutes = () => {
 
 const Layout = () => {
   const location = useLocation();
-  const hideChrome = location.pathname === "/tc" || location.pathname.startsWith("/join/") || location.pathname === "/alumni/aniya-foy";
+  const hideChrome = location.pathname === "/tc" || location.pathname.startsWith("/join/") || location.pathname === "/alumni/aniya-foy" || location.pathname.startsWith("/athletes/plan/");
   return (
     <>
       <ScrollToTop />
