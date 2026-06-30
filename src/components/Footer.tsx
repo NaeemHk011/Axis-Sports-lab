@@ -109,7 +109,7 @@ const Footer = () => {
             </h4>
             <div className="flex gap-3 flex-wrap">
               {[
-                { Icon: Instagram, href: "https://www.instagram.com/axissportslab/", label: "Instagram" },
+                { Icon: Instagram, href: "https://www.instagram.com/axissportslab?utm_source=qr", label: "Instagram" },
                 { Icon: Facebook, href: "https://www.facebook.com/AxisSportsLab", label: "Facebook" },
                 { Icon: Twitter, href: "https://x.com/AxisSportsLab", label: "Twitter" },
                 { Icon: Youtube, href: "https://www.youtube.com/@axissportslab", label: "YouTube" },
@@ -144,7 +144,7 @@ const Footer = () => {
               ))}
             </div>
             <a
-              href="https://www.instagram.com/axissportslab/"
+              href="https://www.instagram.com/axissportslab?utm_source=qr"
               target="_blank"
               rel="noreferrer"
               className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest transition-colors duration-200 text-primary-glow hover:text-white"

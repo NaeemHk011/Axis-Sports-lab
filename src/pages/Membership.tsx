@@ -434,7 +434,7 @@ const Membership = () => {
             <h2 className="font-display text-3xl uppercase mb-8" style={{ color: isDark ? "#ffffff" : "#111111" }}>Follow Us on Social Media</h2>
             <div className="flex justify-center flex-wrap gap-8">
               {[
-                { Icon: Instagram, label: "@axissportslab", href: "https://www.instagram.com/axissportslab/"     },
+                { Icon: Instagram, label: "@axissportslab", href: "https://www.instagram.com/axissportslab?utm_source=qr"     },
                 { Icon: Facebook,  label: "Axis Sports Lab", href: "https://www.facebook.com/AxisSportsLab"      },
                 { Icon: Twitter,   label: "@axissportslab", href: "https://x.com/AxisSportsLab"                  },
               ].map(({ Icon, label, href }) => (

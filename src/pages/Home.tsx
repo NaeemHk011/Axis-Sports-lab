@@ -1153,7 +1153,7 @@ const Home = () => {
           <div className="accordion-gallery">
             {galleryImages.map((src, i) => (
               <motion.a key={i}
-                href="https://www.instagram.com/axissportslab/"
+                href="https://www.instagram.com/axissportslab?utm_source=qr"
                 target="_blank"
                 rel="noreferrer"
                 className="accordion-item group"
@@ -1182,7 +1182,7 @@ const Home = () => {
           </div>
 
           <div className="mt-10 text-center">
-            <a href="https://www.instagram.com/axissportslab/" target="_blank" rel="noreferrer" className="btn-pill btn-pill-ghost">
+            <a href="https://www.instagram.com/axissportslab?utm_source=qr" target="_blank" rel="noreferrer" className="btn-pill btn-pill-ghost">
               <Instagram className="h-4 w-4" /> Follow on Instagram
             </a>
           </div>
