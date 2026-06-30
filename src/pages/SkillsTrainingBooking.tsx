@@ -17,11 +17,11 @@ const SkillsTrainingBooking = () => {
   return (
   <>
       {/* Banner */}
-      <section className="w-full overflow-hidden">
+      <section className="w-full overflow-hidden max-[380px]:h-[160px] h-[180px] sm:h-[320px] md:h-auto">
         <img
           src="/pictures/banner-skills-training.png"
           alt="Skills Training"
-          className="w-full object-cover"
+          className="w-full h-full object-cover object-center"
         />
       </section>
 
