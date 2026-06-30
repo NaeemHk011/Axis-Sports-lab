@@ -322,7 +322,7 @@ const Home = () => {
 
         {/* ── Layer 7: Content ── */}
         <div className="relative flex min-h-[calc(100svh-64px)] items-center" style={{ zIndex: 3 }}>
-          <div className="container-x w-full py-6 sm:py-8 lg:py-10">
+          <div className="container-x w-full pt-44 pb-6 sm:py-8 lg:py-10">
             <motion.div
               variants={container} initial="hidden" animate="show"
               className="max-w-[580px]"
@@ -554,8 +554,8 @@ const Home = () => {
                   </div>
 
                   {/* Content */}
-                  <div className="relative z-10 p-6">
-                    <h3 className="font-display text-4xl uppercase text-white">Shooting Classes</h3>
+                  <div className="relative z-10 p-6 pt-14 sm:pt-14">
+                    <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl uppercase text-white">Shooting Classes</h3>
                     <p className="mt-3 text-sm leading-relaxed text-white/75 max-w-sm" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                       Biomechanical Shooting Optimization. Master your shot utilizing progressive micro-drills, catch-and-shoot mechanics, and game-speed release analysis to ensure maximum form retention.
                     </p>
@@ -598,8 +598,8 @@ const Home = () => {
                     </span>
                   </div>
 
-                  <div className="relative z-10 p-6">
-                    <h3 className="font-display text-4xl uppercase text-white">Skills Training</h3>
+                  <div className="relative z-10 p-6 pt-14 sm:pt-14">
+                    <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl uppercase text-white">Skills Training</h3>
                     <p className="mt-3 text-sm leading-relaxed text-white/75" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                       Neuromuscular Skill Acquisition. Complete guard and forward development. Enhancing processing speed, spatial awareness, footwork efficiency, and decision-making under high environmental pressure.
                     </p>
@@ -642,8 +642,8 @@ const Home = () => {
                     </span>
                   </div>
 
-                  <div className="relative z-10 p-6">
-                    <h3 className="font-display text-4xl uppercase text-white">Athlete Training</h3>
+                  <div className="relative z-10 p-6 pt-14 sm:pt-14">
+                    <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl uppercase text-white">Performance Training</h3>
                     <p className="mt-3 text-sm leading-relaxed text-white/75" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                       Kinetic Performance & Plyometrics. Full-body athletic data optimization focusing on rate of force development (RFD), vertical velocity, deceleration mechanics, and injury-prevention infrastructure.
                     </p>
@@ -686,8 +686,8 @@ const Home = () => {
                     </span>
                   </div>
 
-                  <div className="relative z-10 p-6">
-                    <h3 className="font-display text-4xl uppercase text-white">Elite Camps</h3>
+                  <div className="relative z-10 p-6 pt-14 sm:pt-14">
+                    <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl uppercase text-white">Elite Camps</h3>
                     <p className="mt-3 text-sm leading-relaxed text-white/75 max-w-sm" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                       High-Intensity Lab Diagnostics. Multi-day athletic crucibles combining real-time competitive evaluation, high-velocity repetitions, and comprehensive data feedback metrics.
                     </p>

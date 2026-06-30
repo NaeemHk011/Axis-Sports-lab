@@ -13,14 +13,14 @@ const Rentals = () => {
 
   return (
     <>
-      <section className="w-full overflow-hidden">
-        <img src="/pictures/banner-rentals.png" alt="Two Hassle-Free Ways to Book Your Court / Facility Rental Today!" className="w-full object-cover" />
+      <section className="w-full overflow-hidden max-[380px]:h-[160px] h-[220px] sm:h-[320px] md:h-auto">
+        <img src="/pictures/banner-rentals.png" alt="Two Hassle-Free Ways to Book Your Court / Facility Rental Today!" className="w-full h-full object-cover object-center" />
       </section>
 
       {/* ── Section Heading ── */}
       <section className="pt-16 pb-4 bg-background text-center">
         <Reveal>
-          <h2 className="font-display text-3xl md:text-4xl uppercase leading-tight">
+          <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl uppercase leading-tight">
             <span style={{ color: isDark ? "#ffffff" : "#111111" }}>Two Hassle-Free Ways to Book Your</span><br />
             <span style={{ color: "#8dbb1c" }}>Court / Facility Rental Today!</span>
           </h2>

@@ -9,8 +9,8 @@ const Camps = () => {
   const isDark = resolvedTheme !== "light";
   return (
   <>
-      <section className="w-full overflow-hidden">
-        <img src="/pictures/banner-camps.png" alt="Train & Play - Basketball Camps" className="w-full object-cover" />
+      <section className="w-full overflow-hidden max-[380px]:h-[160px] h-[220px] sm:h-[320px] md:h-auto">
+        <img src="/pictures/banner-camps.png" alt="Train & Play - Basketball Camps" className="w-full h-full object-cover object-center" />
       </section>
 
     {/* Main Camp Info */}

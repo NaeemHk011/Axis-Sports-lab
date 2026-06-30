@@ -199,7 +199,7 @@ const Navbar = () => {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl lg:hidden"
           >
-            <div className="container-x flex h-full flex-col justify-center gap-2 pt-24">
+            <div className="container-x flex h-full flex-col overflow-y-auto gap-2 pt-24 pb-10">
               {links.map((l, i) => (
                 <motion.div
                   key={l.to}

@@ -30,11 +30,11 @@ const ShootingClassesBooking = () => {
   return (
     <>
       {/* Banner */}
-      <section className="w-full overflow-hidden">
+      <section className="w-full overflow-hidden max-[380px]:h-[130px] h-[150px] sm:h-[320px] md:h-auto">
         <img
           src="/pictures/banner-shooting-classes.png"
           alt="Shooting Classes"
-          className="w-full object-cover"
+          className="w-full h-full object-cover object-center"
         />
       </section>
 

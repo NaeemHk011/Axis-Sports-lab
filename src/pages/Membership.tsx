@@ -160,8 +160,8 @@ const Membership = () => {
     <>
       {notifyTarget && <NotifyModal plan={notifyTarget} onClose={() => setNotifyTarget(null)}/>}
 
-      <section className="w-full overflow-hidden">
-        <img src="/pictures/banner-membership.png" alt="We Don't Just Train. We Build Your Digital Infrastructure." className="w-full object-cover" />
+      <section className="w-full overflow-hidden max-[380px]:h-[160px] h-[220px] sm:h-[320px] md:h-auto">
+        <img src="/pictures/banner-membership.png" alt="We Don't Just Train. We Build Your Digital Infrastructure." className="w-full h-full object-cover object-center" />
       </section>
 
       {/* ════════════════════════════════════════════════════════════
