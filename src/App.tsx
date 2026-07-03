@@ -45,6 +45,8 @@ const RefundPolicy = lazy(() => import("./pages/RefundPolicy"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const RentalRequest = lazy(() => import("./pages/RentalRequest"));
 const AthletePlan = lazy(() => import("./pages/AthletePlan"));
+const PrivateOneOnOneTraining = lazy(() => import("./pages/Private-one-on-one-Training"));
+const SemiPrivateTraining = lazy(() => import("./pages/Semi-Private-Training"));
 
 const queryClient = new QueryClient();
 
@@ -87,6 +89,8 @@ const AnimatedRoutes = () => {
         <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
         <Route path="/rental-request" element={<PageTransition><RentalRequest /></PageTransition>} />
         <Route path="/athletes/plan/:slug" element={<AthletePlan />} />
+        <Route path="/private-one-on-one-training" element={<PageTransition><PrivateOneOnOneTraining /></PageTransition>} />
+        <Route path="/semi-private-training" element={<PageTransition><SemiPrivateTraining /></PageTransition>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>

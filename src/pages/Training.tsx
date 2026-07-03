@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
-import { ArrowRight, Check, Target, Zap, Dumbbell } from "lucide-react";
+import { ArrowRight, Check, Target, Zap, Dumbbell, Crown, Users } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import Particles from "@/components/Particles";
 
@@ -38,6 +38,28 @@ const programs = [
     accentColor: "rgba(0,140,80,0.85)",
     borderColor: "rgba(0,180,120,0.25)",
     hoverGradient: "linear-gradient(to top, rgba(0,120,70,0.75) 0%, rgba(0,120,70,0.2) 45%, transparent 70%)",
+  },
+  {
+    icon: Crown,
+    title: "Private 1-on-1 Training",
+    tag: "Elite Development",
+    body: "Fully personalized one-on-one sessions built around your individual weaknesses, strengths, and goals. Maximum attention from our elite coaches  every rep, every drill, every minute is yours.",
+    features: ["Personalized Program", "Full Coach Focus", "Flexible Scheduling", "Rapid Skill Growth", "Custom Drills"],
+    link: "/private-one-on-one-training",
+    accentColor: "rgba(120,60,200,0.85)",
+    borderColor: "rgba(150,80,230,0.25)",
+    hoverGradient: "linear-gradient(to top, rgba(100,40,180,0.75) 0%, rgba(100,40,180,0.2) 45%, transparent 70%)",
+  },
+  {
+    icon: Users,
+    title: "Semi-Private Training",
+    tag: "Small Group",
+    body: "Train alongside 2–4 athletes in a focused small-group environment. Get personalized coaching at a fraction of the cost  push each other, compete, and grow together under expert guidance.",
+    features: ["2–4 Athletes Per Session", "Coach-Led Drills", "Competitive Environment", "Affordable Pricing", "Team Chemistry"],
+    link: "/semi-private-training",
+    accentColor: "rgba(0,120,200,0.85)",
+    borderColor: "rgba(0,160,240,0.25)",
+    hoverGradient: "linear-gradient(to top, rgba(0,100,180,0.75) 0%, rgba(0,100,180,0.2) 45%, transparent 70%)",
   },
 ];
 

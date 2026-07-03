@@ -1,0 +1,80 @@
+import { Check, Phone } from "lucide-react";
+import { useTheme } from "next-themes";
+import Reveal from "@/components/Reveal";
+import BookingIframe from "@/components/BookingIframe";
+
+const whatToExpect = [
+  "Small group of 2–4 athletes per session",
+  "Expert coach-led drills and instruction",
+  "Competitive environment to push your limits",
+  "Personalized feedback within the group setting",
+  "Affordable pricing without sacrificing quality",
+];
+
+const SemiPrivateTraining = () => {
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme !== "light";
+
+  return (
+    <>
+      {/* Banner */}
+      <section className="w-full overflow-hidden max-[380px]:h-[130px] h-[140px] sm:h-[320px] md:h-auto">
+        <img
+          src="/pictures/Semi-Private Training banner-design.png"
+          alt="Semi-Private Training"
+          className="w-full h-full object-cover object-center"
+        />
+      </section>
+
+      <section className="section">
+        <div className="container-x grid gap-10 lg:grid-cols-12">
+          <Reveal className="lg:col-span-5">
+            <h2 className="font-display text-3xl uppercase" style={{ color: isDark ? "#ffffff" : "#111111" }}>
+              What to Expect
+            </h2>
+            <ul className="mt-6 space-y-3">
+              {whatToExpect.map((e) => (
+                <li
+                  key={e}
+                  className="flex items-start gap-3 rounded-xl border border-white/5 bg-[hsl(var(--surface))] p-4 text-sm"
+                  style={{ color: isDark ? "rgba(255,255,255,0.80)" : "rgba(0,0,0,0.75)" }}
+                >
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary-glow" /> {e}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+
+          <Reveal delay={0.1} className="lg:col-span-7">
+            <div className="card-elite">
+              <p className="eyebrow">Book A Session</p>
+              <h3 className="mt-3 font-display text-3xl uppercase" style={{ color: isDark ? "#ffffff" : "#111111" }}>
+                Semi-Private Training
+              </h3>
+              <p className="mt-2 text-sm" style={{ color: isDark ? "rgba(255,255,255,0.60)" : "rgba(0,0,0,0.60)" }}>
+                Select an available slot below to book your semi-private training session.
+              </p>
+
+              <div className="mt-6 w-full rounded-xl overflow-hidden" style={{ background: isDark ? "#0a0a0a" : "#ffffff" }}>
+                <BookingIframe
+                  src="https://link.webtechs.dev/widget/group/mxpsIpcYi1upMpxEIoco"
+                  id="mxpsIpcYi1upMpxEIoco_1783093336095"
+                  title="Semi-Private Training"
+                />
+              </div>
+
+              <p className="mt-6 flex items-center justify-center gap-2 text-sm" style={{ color: isDark ? "rgba(255,255,255,0.60)" : "rgba(0,0,0,0.60)" }}>
+                <Phone className="h-4 w-4 text-primary-glow" /> Have questions? Call us at{" "}
+                <a className="font-semibold" href="tel:+13465508150" style={{ color: isDark ? "#ffffff" : "#111111" }}>
+                  (346) 550-8150
+                </a>
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default SemiPrivateTraining;
