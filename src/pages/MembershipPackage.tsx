@@ -28,7 +28,7 @@ const PACKAGES: Record<string, {
     formHeight:  1487,
     description: [
       "Skills training package for Beginners Skill Level participants.",
-      "Schedule: Monday – Thursday · 7pm – 8pm",
+      "Schedule: Monday – Thursday · 6pm – 7pm",
     ],
     features: [
       "Unlimited training sessions per month",
@@ -52,7 +52,7 @@ const PACKAGES: Record<string, {
     formHeight:  1340,
     description: [
       "Skills training package for Intermediate Skill Level participants.",
-      "Schedule: Monday – Thursday · 8pm – 9pm",
+      "Schedule: Monday – Thursday · 7pm – 8pm",
     ],
     features: [
       "Unlimited training sessions per month",
