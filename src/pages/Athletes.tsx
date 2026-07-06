@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
-import { Search, CheckCircle2 } from "lucide-react";
+import { Search, CheckCircle2, ArrowRight, Video, Star, Trophy } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import Particles from "@/components/Particles";
 import { sanityClient, urlFor } from "@/lib/sanity";
@@ -16,7 +16,7 @@ const membershipPackages = [
     price: "$149",
     per: "/mo",
     desc: "Perfect for athletes just getting started. 2 training sessions per week with professional coaching.",
-    perks: ["2 Sessions / Week", "Free Athlete Profile", "Skills Assessment", "Progress Tracking"],
+    perks: ["2 Sessions / Week", "Basic Athlete Profile (FREE   $99 Value)", "Skills Assessment", "Progress Tracking"],
     href: "/athletes/plan/starter",
     accent: "rgba(141,187,28,0.85)",
     glow: "rgba(141,187,28,0.25)",
@@ -329,6 +329,279 @@ const Athletes = () => {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Upgrade & Services ── */}
+      <section className="section bg-[hsl(var(--surface))]">
+        <div className="container-x">
+
+          <Reveal className="text-center mb-14">
+            <p className="eyebrow justify-center mb-4"><span className="h-px w-8 bg-primary-glow" /> Athlete Services</p>
+            <h2 className="font-display text-4xl md:text-5xl uppercase font-black" style={{ color: hText }}>
+              Upgrade & <span className="text-gradient-red">Add-Ons</span>
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed max-w-xl mx-auto" style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              Already a member? Take your digital presence to the next level with profile upgrades and professional media services.
+            </p>
+          </Reveal>
+
+          {/* ── Profile Upgrades ── */}
+          <Reveal>
+            <p className="text-[10px] font-bold uppercase tracking-widest mb-5" style={{ color: "rgba(255,255,255,0.35)" }}>
+              Profile Upgrades
+            </p>
+          </Reveal>
+          <div className="grid gap-5 md:grid-cols-2 max-w-3xl mx-auto mb-14">
+
+            {/* PRO */}
+            <Reveal delay={0.05}>
+              <div className="relative flex flex-col rounded-2xl overflow-hidden h-full"
+                style={{ border: "1px solid rgba(141,187,28,0.40)", background: isDark ? "#0d0d0d" : "#ffffff" }}>
+                <div className="px-6 pt-6 pb-4" style={{ borderBottom: "1px solid rgba(141,187,28,0.12)" }}>
+                  <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: "#8dbb1c" }}>Profile Upgrade</span>
+                  <h3 className="font-display text-2xl uppercase mt-1" style={{ color: hText }}>Pro Athlete Profile</h3>
+                  <div className="flex items-end gap-3 mt-3 flex-wrap">
+                    <div>
+                      <span className="font-display text-4xl" style={{ color: "#8dbb1c" }}>$19</span>
+                      <span className="text-sm ml-1" style={{ color: hMuted }}>/month</span>
+                    </div>
+                    <span className="text-xs px-2 py-1 rounded-full" style={{ background: "rgba(141,187,28,0.12)", color: "#d4ff70", border: "1px solid rgba(141,187,28,0.30)" }}>
+                      or $99 Setup Fee
+                    </span>
+                  </div>
+                </div>
+                <div className="flex flex-col flex-1 p-6 gap-5">
+                  <ul className="space-y-2.5 flex-1">
+                    {[
+                      "Everything in Basic",
+                      "Up to 5 videos",
+                      "Up to 20 photos",
+                      "Performance metrics",
+                      "Social media links",
+                      "QR code",
+                    ].map(f => (
+                      <li key={f} className="flex items-center gap-2.5 text-sm" style={{ color: hMuted }}>
+                        <CheckCircle2 className="h-4 w-4 shrink-0" style={{ color: "#8dbb1c" }} />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link to="/contact"
+                    className="w-full text-center rounded-xl py-3 text-xs font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2"
+                    style={{ background: "#8dbb1c", color: "#0a0a0a" }}>
+                    Get Started <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* ELITE */}
+            <Reveal delay={0.10}>
+              <div className="relative flex flex-col rounded-2xl overflow-hidden h-full"
+                style={{ border: "1px solid rgba(255,209,102,0.40)", background: isDark ? "#0d0d0d" : "#ffffff" }}>
+                <div className="absolute top-4 right-4">
+                  <span className="rounded-full px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-widest"
+                    style={{ background: "rgba(255,209,102,0.20)", border: "1px solid rgba(255,209,102,0.45)", color: "#ffd166" }}>
+                    Most Advanced
+                  </span>
+                </div>
+                <div className="px-6 pt-6 pb-4" style={{ borderBottom: "1px solid rgba(255,209,102,0.12)" }}>
+                  <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: "#ffd166" }}>Profile Upgrade</span>
+                  <h3 className="font-display text-2xl uppercase mt-1" style={{ color: hText }}>Elite Athlete Profile</h3>
+                  <div className="flex items-end gap-3 mt-3 flex-wrap">
+                    <div>
+                      <span className="font-display text-4xl" style={{ color: "#ffd166" }}>$49</span>
+                      <span className="text-sm ml-1" style={{ color: hMuted }}>/month</span>
+                    </div>
+                    <span className="text-xs px-2 py-1 rounded-full" style={{ background: "rgba(255,209,102,0.10)", color: "#ffd166", border: "1px solid rgba(255,209,102,0.30)" }}>
+                      or $299 Setup Fee
+                    </span>
+                  </div>
+                </div>
+                <div className="flex flex-col flex-1 p-6 gap-5">
+                  <ul className="space-y-2.5 flex-1">
+                    {[
+                      "Everything in Pro",
+                      "Unlimited videos",
+                      "Unlimited photos",
+                      "Recruiting section",
+                      "Downloadable athlete resume",
+                      "Featured athlete badge",
+                      "Priority updates",
+                    ].map(f => (
+                      <li key={f} className="flex items-center gap-2.5 text-sm" style={{ color: hMuted }}>
+                        <CheckCircle2 className="h-4 w-4 shrink-0" style={{ color: "#ffd166" }} />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link to="/contact"
+                    className="w-full text-center rounded-xl py-3 text-xs font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2"
+                    style={{ background: "#ffd166", color: "#0a0a0a" }}>
+                    Get Started <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+
+          </div>
+
+          {/* ── Professional Services ── */}
+          <Reveal>
+            <p className="text-[10px] font-bold uppercase tracking-widest mb-5" style={{ color: "rgba(255,255,255,0.35)" }}>
+              Professional Services
+            </p>
+          </Reveal>
+          <div className="grid gap-5 md:grid-cols-3 max-w-5xl mx-auto">
+
+            {/* Highlight Reel */}
+            <Reveal delay={0.05}>
+              <div className="flex flex-col rounded-2xl overflow-hidden h-full"
+                style={{ border: `1px solid ${isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)"}`, background: isDark ? "#0d0d0d" : "#ffffff" }}>
+                <div className="p-6 flex flex-col flex-1 gap-4">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl"
+                    style={{ background: "rgba(141,187,28,0.12)", border: "1px solid rgba(141,187,28,0.25)" }}>
+                    <Video className="h-5 w-5" style={{ color: "#8dbb1c" }} />
+                  </div>
+                  <div>
+                    <h4 className="font-display text-lg uppercase" style={{ color: hText }}>Highlight Reel Package</h4>
+                    <p className="font-display text-2xl mt-1" style={{ color: "#8dbb1c" }}>$149 – $499</p>
+                  </div>
+                  <ul className="space-y-2 flex-1">
+                    {["Professional highlight reel", "Social media clips", "Recruiting-style video"].map(f => (
+                      <li key={f} className="flex items-center gap-2 text-sm" style={{ color: hMuted }}>
+                        <CheckCircle2 className="h-3.5 w-3.5 shrink-0" style={{ color: "#8dbb1c" }} />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link to="/contact"
+                    className="w-full text-center rounded-xl py-2.5 text-xs font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2"
+                    style={{ border: "1px solid rgba(141,187,28,0.40)", color: "#d4ff70", background: "rgba(141,187,28,0.08)" }}>
+                    Get a Quote <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Player Intro Video */}
+            <Reveal delay={0.10}>
+              <div className="flex flex-col rounded-2xl overflow-hidden h-full"
+                style={{ border: `1px solid ${isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)"}`, background: isDark ? "#0d0d0d" : "#ffffff" }}>
+                <div className="p-6 flex flex-col flex-1 gap-4">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl"
+                    style={{ background: "rgba(141,187,28,0.12)", border: "1px solid rgba(141,187,28,0.25)" }}>
+                    <Star className="h-5 w-5" style={{ color: "#8dbb1c" }} />
+                  </div>
+                  <div>
+                    <h4 className="font-display text-lg uppercase" style={{ color: hText }}>Player Intro Video</h4>
+                    <p className="font-display text-2xl mt-1" style={{ color: "#8dbb1c" }}>$99 – $299</p>
+                  </div>
+                  <ul className="space-y-2 flex-1">
+                    {["Professional player introduction video", "Social-ready content"].map(f => (
+                      <li key={f} className="flex items-center gap-2 text-sm" style={{ color: hMuted }}>
+                        <CheckCircle2 className="h-3.5 w-3.5 shrink-0" style={{ color: "#8dbb1c" }} />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link to="/contact"
+                    className="w-full text-center rounded-xl py-2.5 text-xs font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2"
+                    style={{ border: "1px solid rgba(141,187,28,0.40)", color: "#d4ff70", background: "rgba(141,187,28,0.08)" }}>
+                    Get a Quote <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Recruiting Package */}
+            <Reveal delay={0.15}>
+              <div className="flex flex-col rounded-2xl overflow-hidden h-full"
+                style={{ border: `1px solid ${isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)"}`, background: isDark ? "#0d0d0d" : "#ffffff" }}>
+                <div className="p-6 flex flex-col flex-1 gap-4">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl"
+                    style={{ background: "rgba(141,187,28,0.12)", border: "1px solid rgba(141,187,28,0.25)" }}>
+                    <Trophy className="h-5 w-5" style={{ color: "#8dbb1c" }} />
+                  </div>
+                  <div>
+                    <h4 className="font-display text-lg uppercase" style={{ color: hText }}>Recruiting Package</h4>
+                    <p className="font-display text-2xl mt-1" style={{ color: "#8dbb1c" }}>$499 – $999</p>
+                  </div>
+                  <ul className="space-y-2 flex-1">
+                    {["Recruiting profile buildout", "Highlight reel", "Player resume", "Recruiting page design"].map(f => (
+                      <li key={f} className="flex items-center gap-2 text-sm" style={{ color: hMuted }}>
+                        <CheckCircle2 className="h-3.5 w-3.5 shrink-0" style={{ color: "#8dbb1c" }} />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link to="/contact"
+                    className="w-full text-center rounded-xl py-2.5 text-xs font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2"
+                    style={{ border: "1px solid rgba(141,187,28,0.40)", color: "#d4ff70", background: "rgba(141,187,28,0.08)" }}>
+                    Get a Quote <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Basic Athlete Profile Benefit */}
+      <section className="section bg-background">
+        <div className="container-x max-w-4xl">
+          <Reveal>
+            <div className="rounded-2xl overflow-hidden"
+              style={{ border: "1px solid rgba(141,187,28,0.35)", background: "linear-gradient(135deg, rgba(141,187,28,0.07) 0%, rgba(0,0,0,0) 60%)" }}>
+
+              {/* header */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 px-7 py-5"
+                style={{ borderBottom: "1px solid rgba(141,187,28,0.18)", background: "rgba(141,187,28,0.09)" }}>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: "#8dbb1c" }}>
+                    Included FREE with Every Membership
+                  </p>
+                  <h3 className="font-display text-2xl md:text-3xl uppercase leading-tight" style={{ color: hText }}>
+                    Basic Athlete Profile
+                  </h3>
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  <span className="line-through text-sm" style={{ color: "rgba(255,255,255,0.35)" }}>$99 Value</span>
+                  <span className="rounded-full px-4 py-1.5 font-display text-base uppercase tracking-wider"
+                    style={{ background: "rgba(141,187,28,0.18)", border: "1px solid rgba(141,187,28,0.45)", color: "#d4ff70" }}>
+                    FREE
+                  </span>
+                </div>
+              </div>
+
+              {/* features */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-7">
+                {[
+                  "Athlete profile page",
+                  "1 highlight video",
+                  "Up to 5 photos",
+                  "Athlete bio",
+                  "School & graduation year",
+                  "Shareable profile link",
+                ].map(item => (
+                  <div key={item} className="flex items-center gap-3">
+                    <CheckCircle2 className="h-4 w-4 shrink-0" style={{ color: "#8dbb1c" }} />
+                    <span className="text-sm" style={{ color: "rgba(255,255,255,0.78)" }}>{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* footer */}
+              <div className="px-7 pb-6">
+                <p className="text-xs" style={{ color: "rgba(255,255,255,0.35)" }}>
+                  Every member automatically receives a Basic Athlete Profile upon joining. Upgrade to Pro or Elite for advanced features.
+                </p>
+              </div>
+
+            </div>
+          </Reveal>
         </div>
       </section>
     </>

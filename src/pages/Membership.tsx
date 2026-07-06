@@ -259,6 +259,65 @@ const Membership = () => {
 
       </div>{/* end tier wrapper */}
 
+      {/* ── Basic Athlete Profile Benefit ── */}
+      <section className="section bg-background">
+        <div className="container-x max-w-4xl">
+          <Reveal>
+            <div className="rounded-2xl overflow-hidden"
+              style={{ border: "1px solid rgba(141,187,28,0.35)", background: "linear-gradient(135deg, rgba(141,187,28,0.07) 0%, rgba(0,0,0,0) 60%)" }}>
+
+              {/* header bar */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 px-7 py-5"
+                style={{ borderBottom: "1px solid rgba(141,187,28,0.18)", background: "rgba(141,187,28,0.09)" }}>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: "#8dbb1c" }}>
+                    Included FREE with Every Membership
+                  </p>
+                  <h3 className="font-display text-2xl md:text-3xl uppercase text-white leading-tight">
+                    Basic Athlete Profile
+                  </h3>
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  <span className="line-through text-sm" style={{ color: "rgba(255,255,255,0.35)" }}>$99 Value</span>
+                  <span className="rounded-full px-4 py-1.5 font-display text-base uppercase tracking-wider"
+                    style={{ background: "rgba(141,187,28,0.18)", border: "1px solid rgba(141,187,28,0.45)", color: "#d4ff70" }}>
+                    FREE
+                  </span>
+                </div>
+              </div>
+
+              {/* features grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-7">
+                {[
+                  "Athlete profile page",
+                  "1 highlight video",
+                  "Up to 5 photos",
+                  "Athlete bio",
+                  "School & graduation year",
+                  "Shareable profile link",
+                ].map(item => (
+                  <div key={item} className="flex items-center gap-3">
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
+                      style={{ background: "rgba(141,187,28,0.15)", border: "1px solid rgba(141,187,28,0.40)" }}>
+                      <CheckCircle className="h-3 w-3" style={{ color: "#8dbb1c" }}/>
+                    </span>
+                    <span className="text-sm" style={{ color: "rgba(255,255,255,0.78)" }}>{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* footer note */}
+              <div className="px-7 pb-6">
+                <p className="text-xs" style={{ color: "rgba(255,255,255,0.35)" }}>
+                  Every member automatically receives a Basic Athlete Profile upon joining. Upgrade to Pro or Elite for advanced features.
+                </p>
+              </div>
+
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ── Value Proposition ── */}
       <section className="section bg-[hsl(var(--surface))]">
         <div className="container-x">

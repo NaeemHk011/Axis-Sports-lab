@@ -34,7 +34,7 @@ const PLANS: Record<string, {
     ],
     features: [
       "2 Sessions / Week",
-      "Free Athlete Profile",
+      "Basic Athlete Profile (FREE   $99 Value)",
       "Skills Assessment",
       "Progress Tracking",
       "Foundational drills & footwork",
