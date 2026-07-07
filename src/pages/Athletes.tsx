@@ -12,9 +12,9 @@ import type { Athlete } from "@/types/athlete";
 const membershipPackages = [
   {
     name: "Basic",
-    tag: "Most Popular",
+    tag: "",
     price: "$99",
-    per: "/mo",
+    per: "/month",
     desc: "Perfect for athletes just getting started. 2 training sessions per week with professional coaching.",
     perks: ["Athlete profile page","1 highlight video","Up to 5 photos","Athlete bio","School & graduation year","Shareable profile link","Skills Assessment", "Progress Tracking"],
     href: "https://axissportslab.com/membership",
@@ -24,9 +24,9 @@ const membershipPackages = [
   },
   {
     name: "Pro",
-    tag: "Best Value",
-    price: "$199",
-    per: "/mo",
+    tag: "Most Popular",
+    price: "$19",
+    per: "/month",
     desc: "Accelerate your development with 4 weekly sessions and priority access to elite coaches.",
     perks: ["Everything in Basic","Up to 5 videos","Up to 20 photos","Performance metrics","Social media links","Video Analysis", "Recruiting Prep","QR code"],
     href: "/athletes/plan/pro",
@@ -37,8 +37,8 @@ const membershipPackages = [
   {
     name: "Elite",
     tag: "All-Access",
-    price: "$299",
-    per: "/mo",
+    price: "$49",
+    per: "/month",
     desc: "Unlimited access for the serious competitor. Every program, every session, zero limits.",
     perks: ["Everything in Pro","Unlimited videos","Unlimited photos","1-on-1 Coaching","Recruiting section","Downloadable athlete resume","Featured athlete badge","Priority Scheduling"],
     href: "/athletes/plan/elite",
@@ -334,9 +334,52 @@ const Athletes = () => {
                       {pkg.name}
                     </p>
 
-                    <div className="flex items-end gap-1 mb-4">
-                      <span className="font-display text-5xl leading-none" style={{ color: hText }}>{pkg.price}</span>
-                      <span className="text-sm mb-1" style={{ color: hMuted }}>{pkg.per}</span>
+                    <div className="flex items-center gap-3 mb-4 flex-wrap">
+                      <div className="flex items-end gap-1">
+                        <span
+                          className="font-display text-5xl leading-none"
+                          style={{ color: pkg.name === "Basic" ? hMuted : hText, textDecoration: pkg.name === "Basic" ? "line-through" : "none", opacity: pkg.name === "Basic" ? 0.5 : 1 }}
+                        >
+                          {pkg.price}
+                        </span>
+                        <span className="text-sm mb-1" style={{ color: hMuted }}>{pkg.per}</span>
+                      </div>
+                      {pkg.name === "Basic" && (
+                        <span
+                          className="text-xs px-3 py-1.5 rounded-full"
+                          style={{
+                            background: "rgba(74,222,128,0.10)",
+                            border: "1px solid rgba(74,222,128,0.30)",
+                            color: "#4ade80",
+                          }}
+                        >
+                          FREE with Every Membership
+                        </span>
+                      )}
+                      {pkg.name === "Pro" && (
+                        <span
+                          className="text-xs px-3 py-1.5 rounded-full"
+                          style={{
+                            background: "rgba(255,160,0,0.10)",
+                            border: "1px solid rgba(255,160,0,0.30)",
+                            color: "rgba(255,160,0,0.90)",
+                          }}
+                        >
+                          or $199 Setup Fee
+                        </span>
+                      )}
+                      {pkg.name === "Elite" && (
+                        <span
+                          className="text-xs px-3 py-1.5 rounded-full"
+                          style={{
+                            background: "rgba(200,160,255,0.10)",
+                            border: "1px solid rgba(200,160,255,0.30)",
+                            color: "rgba(200,160,255,0.90)",
+                          }}
+                        >
+                          or $299 Setup Fee
+                        </span>
+                      )}
                     </div>
 
                     <p className="text-sm leading-relaxed mb-6" style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
@@ -385,106 +428,16 @@ const Athletes = () => {
             </p>
           </Reveal>
 
-          {/* ── Profile Upgrades ── */}
+          {/* ── Profile Upgrades ── (commented out)
           <Reveal>
             <p className="text-[10px] font-bold uppercase tracking-widest mb-5" style={{ color: "rgba(255,255,255,0.35)" }}>
               Profile Upgrades
             </p>
           </Reveal>
           <div className="grid gap-5 md:grid-cols-2 max-w-3xl mx-auto mb-14">
-
-            {/* PRO */}
-            <Reveal delay={0.05}>
-              <div className="relative flex flex-col rounded-2xl overflow-hidden h-full"
-                style={{ border: "1px solid rgba(141,187,28,0.40)", background: isDark ? "#0d0d0d" : "#ffffff" }}>
-                <div className="px-6 pt-6 pb-4" style={{ borderBottom: "1px solid rgba(141,187,28,0.12)" }}>
-                  <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: "#8dbb1c" }}>Profile Upgrade</span>
-                  <h3 className="font-display text-2xl uppercase mt-1" style={{ color: hText }}>Pro Athlete Profile</h3>
-                  <div className="flex items-end gap-3 mt-3 flex-wrap">
-                    <div>
-                      <span className="font-display text-4xl" style={{ color: "#8dbb1c" }}>$19</span>
-                      <span className="text-sm ml-1" style={{ color: hMuted }}>/month</span>
-                    </div>
-                    <span className="text-xs px-2 py-1 rounded-full" style={{ background: "rgba(141,187,28,0.12)", color: "#d4ff70", border: "1px solid rgba(141,187,28,0.30)" }}>
-                      or $99 Setup Fee
-                    </span>
-                  </div>
-                </div>
-                <div className="flex flex-col flex-1 p-6 gap-5">
-                  <ul className="space-y-2.5 flex-1">
-                    {[
-                      "Everything in Basic",
-                      "Up to 5 videos",
-                      "Up to 20 photos",
-                      "Performance metrics",
-                      "Social media links",
-                      "QR code",
-                    ].map(f => (
-                      <li key={f} className="flex items-center gap-2.5 text-sm" style={{ color: hMuted }}>
-                        <CheckCircle2 className="h-4 w-4 shrink-0" style={{ color: "#8dbb1c" }} />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link to="/contact"
-                    className="w-full text-center rounded-xl py-3 text-xs font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2"
-                    style={{ background: "#8dbb1c", color: "#0a0a0a" }}>
-                    Get Started <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
-                </div>
-              </div>
-            </Reveal>
-
-            {/* ELITE */}
-            <Reveal delay={0.10}>
-              <div className="relative flex flex-col rounded-2xl overflow-hidden h-full"
-                style={{ border: "1px solid rgba(255,209,102,0.40)", background: isDark ? "#0d0d0d" : "#ffffff" }}>
-                <div className="absolute top-4 right-4">
-                  <span className="rounded-full px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-widest"
-                    style={{ background: "rgba(255,209,102,0.20)", border: "1px solid rgba(255,209,102,0.45)", color: "#ffd166" }}>
-                    Most Advanced
-                  </span>
-                </div>
-                <div className="px-6 pt-6 pb-4" style={{ borderBottom: "1px solid rgba(255,209,102,0.12)" }}>
-                  <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: "#ffd166" }}>Profile Upgrade</span>
-                  <h3 className="font-display text-2xl uppercase mt-1" style={{ color: hText }}>Elite Athlete Profile</h3>
-                  <div className="flex items-end gap-3 mt-3 flex-wrap">
-                    <div>
-                      <span className="font-display text-4xl" style={{ color: "#ffd166" }}>$49</span>
-                      <span className="text-sm ml-1" style={{ color: hMuted }}>/month</span>
-                    </div>
-                    <span className="text-xs px-2 py-1 rounded-full" style={{ background: "rgba(255,209,102,0.10)", color: "#ffd166", border: "1px solid rgba(255,209,102,0.30)" }}>
-                      or $299 Setup Fee
-                    </span>
-                  </div>
-                </div>
-                <div className="flex flex-col flex-1 p-6 gap-5">
-                  <ul className="space-y-2.5 flex-1">
-                    {[
-                      "Everything in Pro",
-                      "Unlimited videos",
-                      "Unlimited photos",
-                      "Recruiting section",
-                      "Downloadable athlete resume",
-                      "Featured athlete badge",
-                      "Priority updates",
-                    ].map(f => (
-                      <li key={f} className="flex items-center gap-2.5 text-sm" style={{ color: hMuted }}>
-                        <CheckCircle2 className="h-4 w-4 shrink-0" style={{ color: "#ffd166" }} />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link to="/contact"
-                    className="w-full text-center rounded-xl py-3 text-xs font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2"
-                    style={{ background: "#ffd166", color: "#0a0a0a" }}>
-                    Get Started <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
-                </div>
-              </div>
-            </Reveal>
-
+            PRO and ELITE upgrade cards hidden
           </div>
+          */}
 
           {/* ── Professional Services ── */}
           <Reveal>
@@ -588,61 +541,13 @@ const Athletes = () => {
         </div>
       </section>
 
-      {/* Basic Athlete Profile Benefit */}
+      {/* Basic Athlete Profile Benefit (commented out)
       <section className="section bg-background">
         <div className="container-x max-w-4xl">
-          <Reveal>
-            <div className="rounded-2xl overflow-hidden"
-              style={{ border: "1px solid rgba(141,187,28,0.35)", background: "linear-gradient(135deg, rgba(141,187,28,0.07) 0%, rgba(0,0,0,0) 60%)" }}>
-
-              {/* header */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 px-7 py-5"
-                style={{ borderBottom: "1px solid rgba(141,187,28,0.18)", background: "rgba(141,187,28,0.09)" }}>
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: "#8dbb1c" }}>
-                    Included FREE with Every Membership
-                  </p>
-                  <h3 className="font-display text-2xl md:text-3xl uppercase leading-tight" style={{ color: hText }}>
-                    Basic Athlete Profile
-                  </h3>
-                </div>
-                <div className="flex items-center gap-2 shrink-0">
-                  <span className="line-through text-sm" style={{ color: "rgba(255,255,255,0.35)" }}>$99 Value</span>
-                  <span className="rounded-full px-4 py-1.5 font-display text-base uppercase tracking-wider"
-                    style={{ background: "rgba(141,187,28,0.18)", border: "1px solid rgba(141,187,28,0.45)", color: "#d4ff70" }}>
-                    FREE
-                  </span>
-                </div>
-              </div>
-
-              {/* features */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-7">
-                {[
-                  "Athlete profile page",
-                  "1 highlight video",
-                  "Up to 5 photos",
-                  "Athlete bio",
-                  "School & graduation year",
-                  "Shareable profile link",
-                ].map(item => (
-                  <div key={item} className="flex items-center gap-3">
-                    <CheckCircle2 className="h-4 w-4 shrink-0" style={{ color: "#8dbb1c" }} />
-                    <span className="text-sm" style={{ color: "rgba(255,255,255,0.78)" }}>{item}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* footer */}
-              <div className="px-7 pb-6">
-                <p className="text-xs" style={{ color: "rgba(255,255,255,0.35)" }}>
-                  Every member automatically receives a Basic Athlete Profile upon joining. Upgrade to Pro or Elite for advanced features.
-                </p>
-              </div>
-
-            </div>
-          </Reveal>
+          Basic Athlete Profile card hidden
         </div>
       </section>
+      */}
     </>
   );
 };
