@@ -12,7 +12,7 @@ import type { Athlete } from "@/types/athlete";
 const membershipPackages = [
   {
     name: "Basic",
-    tag: "Most Popular",
+    tag: "",
     price: "$99",
     per: "/mo",
     desc: "Perfect for athletes just getting started. 2 training sessions per week with professional coaching.",
@@ -317,7 +317,7 @@ const Athletes = () => {
                         color: "#4ade80",
                       }}
                     >
-                      Included FREE with Every Membership
+                      Included <span style={{ fontWeight: 900 }}>FREE</span> with Every Membership
                     </div>
                   )}
                   {pkg.tag && (
