@@ -242,9 +242,36 @@ const Athletes = () => {
 
           {/* Empty state */}
           {!loading && filtered.length === 0 && (
-            <div className="text-center py-20">
-              <p className="font-display text-2xl uppercase mb-2" style={{ color: hText }}>No athletes found</p>
-              <p className="text-sm" style={{ color: hMuted }}>Try a different search term.</p>
+            <div className="text-center py-20 max-w-md mx-auto">
+              {search.length > 0 ? (
+                <>
+                  <p className="font-display text-3xl uppercase mb-3" style={{ color: hText }}>
+                    No Results for <span className="text-gradient-red">"{search}"</span>
+                  </p>
+                  <p className="text-sm leading-relaxed mb-6" style={{ color: hMuted }}>
+                    Try searching by a different name, school, or sport.
+                  </p>
+                  <button
+                    onClick={() => setSearch("")}
+                    className="rounded-full px-5 py-2 text-xs font-bold uppercase tracking-widest transition-all"
+                    style={{ background: "rgba(141,187,28,0.12)", border: "1px solid rgba(141,187,28,0.35)", color: "#d4ff70" }}>
+                    Clear Search
+                  </button>
+                </>
+              ) : (
+                <>
+                  <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full"
+                    style={{ background: "rgba(141,187,28,0.10)", border: "1px solid rgba(141,187,28,0.25)" }}>
+                    <Trophy className="h-7 w-7" style={{ color: "#8dbb1c" }} />
+                  </div>
+                  <p className="font-display text-3xl uppercase mb-3" style={{ color: hText }}>
+                    Profiles Coming Soon
+                  </p>
+                  <p className="text-sm leading-relaxed" style={{ color: hMuted }}>
+                    Athlete profiles are being built out. Check back soon to see our roster.
+                  </p>
+                </>
+              )}
             </div>
           )}
         </div>
