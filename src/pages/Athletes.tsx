@@ -11,13 +11,13 @@ import type { Athlete } from "@/types/athlete";
 
 const membershipPackages = [
   {
-    name: "Starter",
+    name: "Basic",
     tag: "Most Popular",
-    price: "$149",
+    price: "$99",
     per: "/mo",
     desc: "Perfect for athletes just getting started. 2 training sessions per week with professional coaching.",
-    perks: ["2 Sessions / Week", "Basic Athlete Profile (FREE   $99 Value)", "Skills Assessment", "Progress Tracking"],
-    href: "/athletes/plan/starter",
+    perks: ["Athlete profile page","1 highlight video","Up to 5 photos","Athlete bio","School & graduation year","Shareable profile link","Skills Assessment", "Progress Tracking"],
+    href: "https://axissportslab.com/membership",
     accent: "rgba(141,187,28,0.85)",
     glow: "rgba(141,187,28,0.25)",
     featured: true,
@@ -28,7 +28,7 @@ const membershipPackages = [
     price: "$199",
     per: "/mo",
     desc: "Accelerate your development with 4 weekly sessions and priority access to elite coaches.",
-    perks: ["4 Sessions / Week", "Pro Athlete Profile", "Video Analysis", "Recruiting Prep"],
+    perks: ["Everything in Basic","Up to 5 videos","Up to 20 photos","Performance metrics","Social media links","Video Analysis", "Recruiting Prep","QR code"],
     href: "/athletes/plan/pro",
     accent: "rgba(255,160,0,0.85)",
     glow: "rgba(255,160,0,0.20)",
@@ -40,7 +40,7 @@ const membershipPackages = [
     price: "$299",
     per: "/mo",
     desc: "Unlimited access for the serious competitor. Every program, every session, zero limits.",
-    perks: ["Unlimited Sessions", "Elite Athlete Profile", "1-on-1 Coaching", "Priority Scheduling"],
+    perks: ["Everything in Pro","Unlimited videos","Unlimited photos","1-on-1 Coaching","Recruiting section","Downloadable athlete resume","Featured athlete badge","Priority Scheduling"],
     href: "/athletes/plan/elite",
     accent: "rgba(200,160,255,0.85)",
     glow: "rgba(180,100,255,0.18)",
@@ -308,6 +308,18 @@ const Athletes = () => {
                     boxShadow: pkg.featured ? `0 0 40px ${pkg.glow}` : "none",
                   }}
                 >
+                  {pkg.name === "Basic" && (
+                    <div
+                      className="w-full text-center py-2 text-[10px] font-bold uppercase tracking-widest"
+                      style={{
+                        background: "rgba(74,222,128,0.12)",
+                        borderBottom: "1px solid rgba(74,222,128,0.30)",
+                        color: "#4ade80",
+                      }}
+                    >
+                      Included FREE with Every Membership
+                    </div>
+                  )}
                   {pkg.tag && (
                     <div className="absolute top-4 right-4">
                       <span className="rounded-full px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-widest"
