@@ -12,7 +12,7 @@ import type { Athlete } from "@/types/athlete";
 const membershipPackages = [
   {
     name: "Basic",
-    tag: "",
+    tag: "Most Popular",
     price: "$99",
     per: "/mo",
     desc: "Perfect for athletes just getting started. 2 training sessions per week with professional coaching.",
