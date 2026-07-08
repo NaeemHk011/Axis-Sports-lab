@@ -35,7 +35,7 @@ const PLANS: Record<string, {
     ],
     features: [
       "2 Sessions / Week",
-      "Basic Athlete Profile (FREE   $99 Value)",
+      "Basic Athlete Profile (FREE $99 Value)",
       "Skills Assessment",
       "Progress Tracking",
       "Foundational drills & footwork",
@@ -48,7 +48,7 @@ const PLANS: Record<string, {
     name: "Pro Plan",
     tag: "Most Popular",
     price: "$19",
-    per: "/month",
+    per: "/mo",
     setupFee: "$199",
     img: "/pictures/gc-skills.jpg",
     formSrc: "https://link.webtechs.dev/widget/form/WwbYiDDvzX4LFfaVcut7",
@@ -76,7 +76,7 @@ const PLANS: Record<string, {
     name: "Elite Plan",
     tag: "All-Access",
     price: "$49",
-    per: "/month",
+    per: "/mo",
     setupFee: "$299",
     img: "/pictures/gc-camps.jpg",
     formSrc: "https://link.webtechs.dev/widget/form/vm3RqTLzOyNcBCmSjknP",
@@ -179,14 +179,14 @@ const AthletePlan = () => {
               </div>
               {plan.setupFee && (
                 <span
-                  className="text-xs px-3 py-1.5 rounded-full"
+                  className="text-xs px-3 py-1.5 mt-1 rounded-full"
                   style={{
                     background: `${plan.accent.replace("0.85", "0.10")}`,
                     border: `1px solid ${plan.accent.replace("0.85", "0.30")}`,
                     color: plan.accent.replace("0.85", "0.90"),
                   }}
                 >
-                  or {plan.setupFee} Setup Fee
+                  or {plan.setupFee} One-time Fee
                 </span>
               )}
             </div>

@@ -346,38 +346,38 @@ const Athletes = () => {
                       </div>
                       {pkg.name === "Basic" && (
                         <span
-                          className="text-xs px-3 py-1.5 rounded-full"
+                          className="text-xs px-3 py-1.5 mt-1 rounded-full"
                           style={{
                             background: "rgba(74,222,128,0.10)",
                             border: "1px solid rgba(74,222,128,0.30)",
                             color: "#4ade80",
                           }}
                         >
-                          FREE with Every Membership
+                          FREE with Membership
                         </span>
                       )}
                       {pkg.name === "Pro" && (
                         <span
-                          className="text-xs px-3 py-1.5 rounded-full"
+                          className="text-xs px-3 py-1.5 mt-2 rounded-full"
                           style={{
                             background: "rgba(255,160,0,0.10)",
                             border: "1px solid rgba(255,160,0,0.30)",
                             color: "rgba(255,160,0,0.90)",
                           }}
                         >
-                          or $199 OneTime Fee
+                          or $199 One-time Fee
                         </span>
                       )}
                       {pkg.name === "Elite" && (
                         <span
-                          className="text-xs px-3 py-1.5 rounded-full"
+                          className="text-xs px-3 py-1.5 mt-2 rounded-full"
                           style={{
                             background: "rgba(200,160,255,0.10)",
                             border: "1px solid rgba(200,160,255,0.30)",
                             color: "rgba(200,160,255,0.90)",
                           }}
                         >
-                          or $299 OneTime Fee
+                          or $299 One-time Fee
                         </span>
                       )}
                     </div>
