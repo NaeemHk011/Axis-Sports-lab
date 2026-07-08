@@ -14,7 +14,7 @@ const membershipPackages = [
     name: "Basic",
     tag: "",
     price: "$99",
-    per: "/month",
+    per: "/mo",
     desc: "Perfect for athletes just getting started. 2 training sessions per week with professional coaching.",
     perks: ["Athlete profile page","1 highlight video","Up to 5 photos","Athlete bio","School & graduation year","Shareable profile link","Skills Assessment", "Progress Tracking"],
     href: "https://axissportslab.com/membership",
@@ -26,7 +26,7 @@ const membershipPackages = [
     name: "Pro",
     tag: "Most Popular",
     price: "$19",
-    per: "/month",
+    per: "/mo",
     desc: "Accelerate your development with 4 weekly sessions and priority access to elite coaches.",
     perks: ["Everything in Basic","Up to 5 videos","Up to 20 photos","Performance metrics","Social media links","Video Analysis", "Recruiting Prep","QR code"],
     href: "/athletes/plan/pro",
@@ -38,9 +38,9 @@ const membershipPackages = [
     name: "Elite",
     tag: "All-Access",
     price: "$49",
-    per: "/month",
+    per: "/mo",
     desc: "Unlimited access for the serious competitor. Every program, every session, zero limits.",
-    perks: ["Everything in Pro","Unlimited videos","Unlimited photos","1-on-1 Coaching","Recruiting section","Downloadable athlete resume","Featured athlete badge","Priority Scheduling"],
+    perks: ["Everything in Pro","Unlimited videos","Unlimited photos","1-on-1 Coaching","Recruiting section","Featured athlete badge","Priority Scheduling"],
     href: "/athletes/plan/elite",
     accent: "rgba(200,160,255,0.85)",
     glow: "rgba(180,100,255,0.18)",
@@ -365,7 +365,7 @@ const Athletes = () => {
                             color: "rgba(255,160,0,0.90)",
                           }}
                         >
-                          or $199 Setup Fee
+                          or $199 OneTime Fee
                         </span>
                       )}
                       {pkg.name === "Elite" && (
@@ -377,7 +377,7 @@ const Athletes = () => {
                             color: "rgba(200,160,255,0.90)",
                           }}
                         >
-                          or $299 Setup Fee
+                          or $299 OneTime Fee
                         </span>
                       )}
                     </div>

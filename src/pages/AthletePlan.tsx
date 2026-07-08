@@ -8,6 +8,7 @@ const PLANS: Record<string, {
   tag: string;
   price: string;
   per: string;
+  setupFee?: string;
   img: string;
   formSrc: string;
   formId: string;
@@ -45,9 +46,10 @@ const PLANS: Record<string, {
   },
   pro: {
     name: "Pro Plan",
-    tag: "Best Value",
-    price: "$199",
-    per: "/mo",
+    tag: "Most Popular",
+    price: "$19",
+    per: "/month",
+    setupFee: "$199",
     img: "/pictures/gc-skills.jpg",
     formSrc: "https://link.webtechs.dev/widget/form/WwbYiDDvzX4LFfaVcut7",
     formId: "WwbYiDDvzX4LFfaVcut7",
@@ -58,12 +60,14 @@ const PLANS: Record<string, {
       "Includes advanced skill work, video analysis, and recruiting preparation to give you a real edge on and off the court.",
     ],
     features: [
-      "4 Sessions / Week",
-      "Pro Athlete Profile",
+      "Everything in Basic",
+      "Up to 5 videos",
+      "Up to 20 photos",
+      "Performance metrics",
+      "Social media links",
       "Video Analysis",
       "Recruiting Prep",
-      "Position-specific skill work",
-      "Competitive group training",
+      "QR code"
     ],
     accent: "rgba(255,160,0,0.85)",
     glow: "rgba(255,160,0,0.25)",
@@ -71,8 +75,9 @@ const PLANS: Record<string, {
   elite: {
     name: "Elite Plan",
     tag: "All-Access",
-    price: "$299",
-    per: "/mo",
+    price: "$49",
+    per: "/month",
+    setupFee: "$299",
     img: "/pictures/gc-camps.jpg",
     formSrc: "https://link.webtechs.dev/widget/form/vm3RqTLzOyNcBCmSjknP",
     formId: "vm3RqTLzOyNcBCmSjknP",
@@ -83,12 +88,13 @@ const PLANS: Record<string, {
       "Includes 1-on-1 coaching, priority scheduling, elite athlete profile, and full exposure & recruiting infrastructure.",
     ],
     features: [
-      "Unlimited Sessions",
-      "Elite Athlete Profile",
+      "Everything in Pro",
+      "Unlimited videos",
+      "Unlimited photos",
       "1-on-1 Coaching",
-      "Priority Scheduling",
-      "High-performance drills & analytics",
-      "Recruiting & exposure support",
+      "Recruiting section",
+      "Featured athlete badge",
+      "Priority Scheduling"
     ],
     accent: "rgba(200,160,255,0.85)",
     glow: "rgba(180,100,255,0.25)",
@@ -166,9 +172,23 @@ const AthletePlan = () => {
             <p className="font-display text-xs uppercase tracking-widest mb-2" style={{ color: plan.accent }}>
               {plan.name}
             </p>
-            <div className="flex items-end gap-1">
-              <span className="font-display text-5xl" style={{ color: "#8dbb1c" }}>{plan.price}</span>
-              <span className="mb-1.5 text-sm" style={{ color: "rgba(255,255,255,0.45)" }}>{plan.per}</span>
+            <div className="flex items-center gap-3 flex-wrap">
+              <div className="flex items-end gap-1">
+                <span className="font-display text-5xl" style={{ color: "#8dbb1c" }}>{plan.price}</span>
+                <span className="mb-1.5 text-sm" style={{ color: "rgba(255,255,255,0.45)" }}>{plan.per}</span>
+              </div>
+              {plan.setupFee && (
+                <span
+                  className="text-xs px-3 py-1.5 rounded-full"
+                  style={{
+                    background: `${plan.accent.replace("0.85", "0.10")}`,
+                    border: `1px solid ${plan.accent.replace("0.85", "0.30")}`,
+                    color: plan.accent.replace("0.85", "0.90"),
+                  }}
+                >
+                  or {plan.setupFee} Setup Fee
+                </span>
+              )}
             </div>
           </div>
 
