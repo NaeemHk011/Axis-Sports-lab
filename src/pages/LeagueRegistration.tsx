@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
-import { CheckCircle, Trophy, Users, Star, Zap, Shield, Target } from "lucide-react";
+import { CheckCircle, Trophy, Users, Star, Zap, Shield, Target, Calendar, Clock } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import Particles from "@/components/Particles";
 import GhlFormEmbed from "@/components/GhlFormEmbed";
@@ -20,15 +20,39 @@ const divisions = [
   { dot: "#c084fc", name: "Elite Draft",  ages: "Ages 15–18", detail: "3–4 players per team · High-level competition"     },
 ];
 
+const sessions = [
+  {
+    session:    "Session 1",
+    season:     "Late Summer Tip-Off",
+    duration:   "8-Week Season",
+    gamesBegin: "Saturday, August 8th",
+    status:     "Register Now",
+  },
+  {
+    session:    "Session 2",
+    season:     "Fall League",
+    duration:   "8-Week Season",
+    gamesBegin: "Saturday, October 17th",
+    status:     "Register Now",
+  },
+  {
+    session:    "Session 3",
+    season:     "Winter League",
+    duration:   "8-Week Season",
+    gamesBegin: "Saturday, January 9th",
+    status:     "Register Now",
+  },
+];
+
 const schedule = [
   { week: "Week 1", icon: "🏃", title: "Combine Day",  desc: "Athlete evaluation & assessment"  },
-  { week: "Week 2", icon: "🎯", title: "Draft Night",   desc: "Players selected for their teams" },
-  { week: "Week 3", icon: "🏀", title: "Games Begin",   desc: "Season tips off"                  },
-  { week: "Week 4", icon: "🔥", title: "League Games",  desc: "Competitive play continues"       },
-  { week: "Week 5", icon: "⚡", title: "League Games",  desc: "Mid-season push"                  },
-  { week: "Week 6", icon: "📊", title: "League Games",  desc: "Standings tighten"                },
-  { week: "Week 7", icon: "🥊", title: "Semi-Finals",   desc: "Top teams battle it out"          },
-  { week: "Week 8", icon: "🏆", title: "Championship",  desc: "One team takes it all"            },
+  { week: "Week 2", icon: "🏀", title: "Games Begin",  desc: "Season tips off"                  },
+  { week: "Week 3", icon: "🔥", title: "League Games", desc: "Competitive play continues"       },
+  { week: "Week 4", icon: "🔥", title: "League Games", desc: "Competitive play continues"       },
+  { week: "Week 5", icon: "⚡", title: "League Games", desc: "Mid-season push"                  },
+  { week: "Week 6", icon: "📊", title: "League Games", desc: "Standings tighten"                },
+  { week: "Week 7", icon: "🥊", title: "League Games", desc: "Final push before championship"   },
+  { week: "Week 8", icon: "🏆", title: "Championship", desc: "One team takes it all"            },
 ];
 
 const benefits = [
@@ -41,8 +65,7 @@ const benefits = [
 
 const experiences = [
   { icon: Star,   title: "Player Combine Day",  body: "Athletes evaluated before the season for fair team placement."           },
-  { icon: Users,  title: "Team Draft Night",     body: "A real draft experience    players get selected just like the pros."     },
-  { icon: Trophy, title: "Pro Jerseys",          body: "Every player gets a professional-quality jersey with their name."       },
+  { icon: Trophy, title: "Pro Jerseys",          body: "Every player gets a professional-quality jersey."                     },
   { icon: Zap,    title: "Player of the Week",   body: "Top performers recognized weekly    fueling confidence and motivation." },
   { icon: Target, title: "Highlight Videos",     body: "Games filmed and clipped. Your athlete goes viral in the family group chat." },
   { icon: Shield, title: "Championship Weekend", body: "Season ends with a full championship event    trophies and all."        },
@@ -218,12 +241,100 @@ const LeagueRegistration = () => {
         </div>
       </section>
 
-      {/* ═══ EXPERIENCE ═══ */}
+      {/* ═══ SESSION SCHEDULE ═══ */}
       <section className="section" style={{ background: isDark ? "#111111" : "#f0f0f0" }}>
         <div className="container-x">
           <Reveal>
+            <p className="eyebrow mb-3">   Season Schedule</p>
+            <h2 className="h-section mb-4" style={{ color: isDark ? "#ffffff" : "#111111" }}>
+              3 SESSIONS. <span className="text-gradient-red">ONE MISSION.</span>
+            </h2>
+            <p className="mb-14 max-w-lg text-sm" style={{ color: isDark ? "rgba(255,255,255,0.52)" : "rgba(0,0,0,0.52)" }}>
+              Each session is a full 8-week season — Combine Day, Draft Night, League Games, and a Championship Weekend.
+            </p>
+          </Reveal>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {sessions.map((s) => (
+              <Reveal key={s.session}>
+                <div
+                  className="relative flex flex-col rounded-2xl p-7 transition-all duration-300"
+                  style={{
+                    background: hSurface,
+                    border: `1px solid ${hBorder}`,
+                  }}
+                >
+                  {/* Session label + season name */}
+                  <p
+                    className="mb-1 text-[10px] font-bold uppercase tracking-widest"
+                    style={{ color: "#8dbb1c" }}
+                  >
+                    {s.session}
+                  </p>
+                  <h3
+                    className="font-display text-3xl uppercase leading-tight"
+                    style={{ color: isDark ? "#ffffff" : "#111111" }}
+                  >
+                    {s.season}
+                  </h3>
+
+                  {/* Divider */}
+                  <div className="my-5" style={{ height: 1, background: hBorder }} />
+
+                  {/* Info rows */}
+                  <div className="flex flex-col gap-4 flex-1 mb-7">
+                    <div className="flex items-center gap-3">
+                      <div
+                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl"
+                        style={{ background: "rgba(141,187,28,0.12)", border: "1px solid rgba(141,187,28,0.18)" }}
+                      >
+                        <Clock className="h-4 w-4" style={{ color: "#8dbb1c" }} />
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: hMuted }}>Duration</p>
+                        <p className="text-sm font-bold" style={{ color: isDark ? "#ffffff" : "#111111" }}>{s.duration}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      <div
+                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl"
+                        style={{ background: "rgba(141,187,28,0.12)", border: "1px solid rgba(141,187,28,0.18)" }}
+                      >
+                        <Calendar className="h-4 w-4" style={{ color: "#8dbb1c" }} />
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: hMuted }}>Games Begin</p>
+                        <p className="text-sm font-bold" style={{ color: isDark ? "#ffffff" : "#111111" }}>{s.gamesBegin}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Status CTA */}
+                  <button
+                    onClick={scrollToForm}
+                    className="w-full rounded-xl py-3.5 text-xs font-bold uppercase tracking-widest transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
+                    style={{
+                      background: "linear-gradient(90deg, #8dbb1c, #a8d422)",
+                      color: "#0a0a0a",
+                      boxShadow: "0 2px 10px rgba(141,187,28,0.20)",
+                    }}
+                  >
+                    {s.status}
+                  </button>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ EXPERIENCE ═══ */}
+      <section className="section" style={{ background: pageBg }}>
+        <div className="container-x">
+          <Reveal>
             <p className="eyebrow mb-3">   The Experience</p>
-            <h2 className="h-section mb-14" style={{ color: isDark ? "#ffffff" : "#111111" }}>
+            <h2 className="h-section mb-14" style={{ color: hText }}>
               PRO-STYLE <span className="text-gradient-red">EVERYTHING</span>
             </h2>
           </Reveal>
@@ -237,9 +348,9 @@ const LeagueRegistration = () => {
                   </div>
                   <div>
                     <h3 className="mb-1 text-sm font-bold uppercase tracking-widest"
-                      style={{ color: isDark ? "#ffffff" : "#111111" }}>{e.title}</h3>
+                      style={{ color: hText }}>{e.title}</h3>
                     <p className="text-sm leading-relaxed"
-                      style={{ color: isDark ? "rgba(255,255,255,0.56)" : "rgba(0,0,0,0.60)" }}>{e.body}</p>
+                      style={{ color: hMuted }}>{e.body}</p>
                   </div>
                 </div>
               </Reveal>
@@ -249,11 +360,11 @@ const LeagueRegistration = () => {
       </section>
 
       {/* ═══ DIVISIONS ═══ */}
-      <section className="section" style={{ background: pageBg }}>
+      <section className="section" style={{ background: isDark ? "#111111" : "#f0f0f0" }}>
         <div className="container-x">
           <Reveal>
             <p className="eyebrow mb-3">   Divisions</p>
-            <h2 className="h-section mb-14" style={{ color: hText }}>
+            <h2 className="h-section mb-14" style={{ color: isDark ? "#ffffff" : "#111111" }}>
               FIND YOUR <span className="text-gradient-red">LEVEL</span>
             </h2>
           </Reveal>
@@ -264,7 +375,7 @@ const LeagueRegistration = () => {
                   style={{ background: hSurface, border:`1px solid ${hBorder}`, borderTop:`3px solid ${d.dot}` }}>
                   <div className="h-4 w-4 rounded-full" style={{ background: d.dot, boxShadow:`0 0 12px ${d.dot}` }}/>
                   <div>
-                    <h3 className="font-display text-2xl uppercase" style={{ color: hText }}>{d.name}</h3>
+                    <h3 className="font-display text-2xl uppercase" style={{ color: isDark ? "#ffffff" : "#111111" }}>{d.name}</h3>
                     <p className="mt-1 text-xs font-bold uppercase tracking-widest" style={{ color: d.dot }}>{d.ages}</p>
                   </div>
                   <p className="text-sm leading-relaxed" style={{ color: hMuted }}>{d.detail}</p>
@@ -275,12 +386,12 @@ const LeagueRegistration = () => {
         </div>
       </section>
 
-      {/* ═══ SEASON SCHEDULE ═══ */}
-      <section className="section" style={{ background: isDark ? "#111111" : "#f0f0f0" }}>
+      {/* ═══ 8-WEEK BREAKDOWN ═══ */}
+      <section className="section" style={{ background: pageBg }}>
         <div className="container-x">
           <Reveal>
-            <p className="eyebrow mb-3">   Season Schedule</p>
-            <h2 className="h-section mb-14" style={{ color: isDark ? "#ffffff" : "#111111" }}>
+            <p className="eyebrow mb-3">   Weekly Breakdown</p>
+            <h2 className="h-section mb-14" style={{ color: hText }}>
               8 WEEKS. <span className="text-gradient-red">ONE MISSION.</span>
             </h2>
           </Reveal>
@@ -295,7 +406,7 @@ const LeagueRegistration = () => {
                   <span className="text-2xl">{s.icon}</span>
                   <div>
                     <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color:"#8dbb1c" }}>{s.week}</p>
-                    <p className="font-display text-sm uppercase" style={{ color: isDark ? "#ffffff" : "#111111" }}>{s.title}</p>
+                    <p className="font-display text-sm uppercase" style={{ color: hText }}>{s.title}</p>
                     <p className="mt-1 text-[11px] leading-snug" style={{ color: hMuted }}>{s.desc}</p>
                   </div>
                 </div>
