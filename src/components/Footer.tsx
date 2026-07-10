@@ -11,14 +11,14 @@ const Footer = () => {
       <div className="container-x">
 
         {/* Newsletter bar */}
-        <div className="mb-16 flex flex-col items-center gap-6 rounded-2xl border border-white/5 bg-gradient-to-br from-[hsl(var(--surface-2))] to-[hsl(var(--surface))] p-8 text-center md:flex-row md:justify-between md:text-left"
+        {/* <div className="mb-16 flex flex-col items-center gap-6 rounded-2xl border border-white/5 bg-gradient-to-br from-[hsl(var(--surface-2))] to-[hsl(var(--surface))] p-8 text-center md:flex-row md:justify-between md:text-left"
           style={{ borderTop: "2px solid hsl(77 74% 42% / 0.4)" }}>
           <div>
             <h3 className="font-display text-3xl uppercase text-white">Download the Axis Athlete Blueprint</h3>
             <p className="mt-1 text-sm text-muted-foreground">The Tech Guide to Vertical & Skill Optimization. Exclusive training insights for elite athletes.</p>
           </div>
           <Link to="/newsletter" className="btn-red btn-red-glow px-6 py-3 text-sm font-bold">Subscribe</Link>
-        </div>
+        </div> */}
 
         {/* Logo + tagline */}
         <div className="flex flex-col items-center gap-4 pb-12 text-center">

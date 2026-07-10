@@ -212,8 +212,8 @@ const CoachDetail = () => {
           <p className="text-sm mb-6" style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
             Ready to train with {coach.name.split(" ")[0]}?
           </p>
-          <Link to="/evaluation-workout" className="btn-pill btn-pill-primary">
-            Book a Free Evaluation
+          <Link to="/private-one-on-one-training" className="btn-pill btn-pill-primary">
+            Book a Private Session
             <span className="btn-pill-icon"><ArrowLeft className="h-4 w-4 rotate-180" /></span>
           </Link>
         </Reveal>

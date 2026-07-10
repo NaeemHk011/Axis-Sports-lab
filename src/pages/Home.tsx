@@ -711,7 +711,7 @@ const Home = () => {
       {/* ═══════════════════════════════════════════════════════
           THE PROCESS   Timeline with connecting line
          ═══════════════════════════════════════════════════════ */}
-      <section className="section relative overflow-hidden" aria-label="The Process">
+      {/* <section className="section relative overflow-hidden" aria-label="The Process">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_70%_60%_at_50%_50%,_hsl(77_74%_42%/0.1),_transparent_70%)]" />
         <div className="absolute inset-0 -z-10 bg-grid opacity-40" />
 
@@ -727,7 +727,6 @@ const Home = () => {
           </Reveal>
 
           <div className="mt-8 sm:mt-12 relative">
-            {/* Animated connecting line (desktop) */}
             <div className="hidden md:block absolute top-11 left-[calc(16.66%+1.5rem)] right-[calc(16.66%+1.5rem)] h-px z-0"
               style={{ background: "linear-gradient(90deg, transparent, hsl(77 74% 42% / 0.6) 20%, hsl(77 74% 42% / 0.6) 80%, transparent)" }} />
 
@@ -737,22 +736,18 @@ const Home = () => {
                   <TiltCard style={{ perspective: "900px" }} className="h-full">
                     <div className="card-bezel-outer h-full">
                       <div className="card-bezel-inner h-full p-7 relative overflow-hidden">
-                        {/* Ghost step number */}
                         <span className="absolute top-4 right-4 font-display text-7xl leading-none select-none pointer-events-none animate-count-flicker"
                           style={{ color: hText, opacity: isDark ? 0.06 : 0.04 }}>{step.n}</span>
 
-                        {/* Icon with pulse rings */}
                         <div className="relative mb-6 w-fit">
                           <div className="relative z-10 h-14 w-14 rounded-2xl grid place-items-center"
                             style={{ background: "linear-gradient(135deg, hsl(77 74% 32%), hsl(77 74% 42%))", boxShadow: "0 8px 24px -6px rgba(141,187,28,0.55)" }}>
                             <step.icon className="h-7 w-7 text-white" />
                           </div>
-                          {/* Dual pulse rings */}
                           <div className="absolute inset-0 rounded-2xl animate-ping opacity-20"
                             style={{ background: "hsl(77 74% 42%)", animationDuration: `${2.2 + i * 0.4}s` }} />
                         </div>
 
-                        {/* Number label */}
                         <div className="mb-3 flex items-center gap-3">
                           <span className="text-[9px] font-bold uppercase tracking-[0.35em]" style={{ color: "#d4ff70", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{step.n}</span>
                           <div className="flex-1 h-px" style={{ background: isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)" }} />
@@ -775,19 +770,17 @@ const Home = () => {
             </Link>
           </Reveal>
         </div>
-      </section>
+      </section> */}
 
       {/* ═══════════════════════════════════════════════════════
           WE BUILD CHAMPIONS   Editorial Split
          ═══════════════════════════════════════════════════════ */}
-      <section className="section overflow-hidden" aria-label="About">
+      {/* <section className="section overflow-hidden" aria-label="About">
         <div className="container-x">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-            {/* LEFT: Image card with double bezel */}
             <Reveal delay={0.05}>
               <div className="relative">
-                {/* Outer glow ring */}
                 <div className="absolute -inset-3 rounded-[2.5rem] opacity-30 blur-xl pointer-events-none"
                   style={{ background: "radial-gradient(ellipse, rgba(141,187,28,0.4), transparent 70%)" }} />
 
@@ -798,7 +791,6 @@ const Home = () => {
                       <div className="absolute inset-0"
                         style={{ background: "linear-gradient(to top, rgba(10,10,10,0.7) 0%, transparent 50%)" }} />
 
-                      {/* Bottom badge */}
                       <div className="absolute bottom-0 inset-x-0 p-5 flex items-end justify-between">
                         <motion.span
                           className="font-display text-5xl text-gradient-red"
@@ -814,7 +806,6 @@ const Home = () => {
                       </div>
                     </div>
 
-                    {/* Mind · Body · Spirit strip */}
                     <div className="flex items-center justify-between px-6 py-3"
                       style={{ background: isDark ? "hsl(var(--surface))" : "#fff", borderTop: `1px solid ${hBorder}` }}>
                       {(["Mind", "Body", "Spirit"] as const).map((label, i) => (
@@ -835,7 +826,6 @@ const Home = () => {
                   </div>
                 </div>
 
-                {/* Floating achievement badge */}
                 <motion.div
                   className="absolute -top-4 -right-4 hidden sm:flex items-center gap-2.5 rounded-2xl px-4 py-3 shadow-xl"
                   style={{ background: isDark ? "hsl(var(--surface-2))" : "#fff", border: "1px solid rgba(141,187,28,0.3)", boxShadow: "0 20px 40px -15px rgba(0,0,0,0.4)" }}
@@ -853,7 +843,6 @@ const Home = () => {
               </div>
             </Reveal>
 
-            {/* RIGHT: Text content */}
             <Reveal delay={0.12}>
               <p className="eyebrow mb-5"><span className="h-px w-8 bg-primary-glow" /> The Axis Sports Lab Difference</p>
               <h2 className="h-section" style={{ color: hText }}>
@@ -865,7 +854,6 @@ const Home = () => {
                 <span className="font-semibold" style={{ color: hText }}>bigger, stronger, faster, smarter & better</span>   every single day.
               </p>
 
-              {/* Checklist */}
               <ul className="mt-8 space-y-4">
                 {[
                   "Certified elite-level coaching staff",
@@ -900,12 +888,12 @@ const Home = () => {
             </Reveal>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ═══════════════════════════════════════════════════════
           8 REASONS   Masonry grid with staggered waterfall
          ═══════════════════════════════════════════════════════ */}
-      <section className="section relative" aria-label="Why train with us">
+      {/* <section className="section relative" aria-label="Why train with us">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_hsl(77_74%_42%/0.13),_transparent_55%)]" />
         <div className="absolute inset-0 -z-10 bg-grid opacity-50" />
 
@@ -938,7 +926,7 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ═══════════════════════════════════════════════════════
           TESTIMONIALS   Spotlight border cards
@@ -1101,13 +1089,12 @@ const Home = () => {
       {/* ═══════════════════════════════════════════════════════
           PARTNERS   Dual kinetic marquee
          ═══════════════════════════════════════════════════════ */}
-      <section className="py-10 sm:py-14 overflow-hidden" aria-label="Partners">
+      {/* <section className="py-10 sm:py-14 overflow-hidden" aria-label="Partners">
         <Reveal className="container-x text-center mb-8">
           <p className="eyebrow justify-center mb-3"><span className="h-px w-8 bg-primary-glow" /> Proud Partners</p>
           <h2 className="h-section" style={{ color: hText }}>Trusted by elite organizations</h2>
         </Reveal>
 
-        {/* Marquee 1   forward */}
         <div className="relative overflow-hidden mb-4">
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background to-transparent" />
           <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background to-transparent" />
@@ -1123,7 +1110,6 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Marquee 2   reverse */}
         <div className="relative overflow-hidden">
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background to-transparent" />
           <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background to-transparent" />
@@ -1137,7 +1123,7 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ═══════════════════════════════════════════════════════
           INSTAGRAM   Accordion expand gallery
@@ -1192,8 +1178,7 @@ const Home = () => {
       {/* ═══════════════════════════════════════════════════════
           FINAL CTA   Cinematic full-bleed
          ═══════════════════════════════════════════════════════ */}
-      <section className="section relative overflow-hidden" aria-label="CTA">
-        {/* Background */}
+      {/* <section className="section relative overflow-hidden" aria-label="CTA">
         <div className="absolute inset-0 -z-10" style={{
           background: isDark
             ? "linear-gradient(135deg, #080808 0%, #0d1a00 25%, #1d3d00 55%, #0d1a00 80%, #080808 100%)"
@@ -1201,7 +1186,6 @@ const Home = () => {
         }} />
         <div className="absolute inset-0 -z-10 bg-grid-sm opacity-25" />
 
-        {/* Animated glow orbs */}
         <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
           <div className="absolute left-1/4 top-0 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/3 rounded-full animate-glow-beat"
             style={{ background: "radial-gradient(circle, rgba(141,187,28,0.28), transparent 65%)" }} />
@@ -1215,7 +1199,6 @@ const Home = () => {
 
         <div className="container-x relative text-center">
           <Reveal>
-            {/* Badge */}
             <motion.div className="mb-8 inline-flex items-center gap-2.5 rounded-full px-5 py-2 text-xs font-bold uppercase tracking-[0.2em]"
               style={{ background: "rgba(141,187,28,0.15)", border: "1px solid rgba(141,187,28,0.4)", color: isDark ? "#d4ff70" : "#8dbb1c" }}
               animate={{ boxShadow: ["0 0 0 0 rgba(141,187,28,0)", "0 0 0 8px rgba(141,187,28,0)"] }}
@@ -1233,18 +1216,13 @@ const Home = () => {
               Schedule your FREE Evaluation Workout and see what 360° athlete development looks like up close.
             </p>
 
-            {/* CTAs */}
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <Link to="/evaluation-workout" className="btn-pill btn-pill-primary">
                 Book Now   It's Free
                 <span className="btn-pill-icon"><ArrowRight className="h-4 w-4" /></span>
               </Link>
-              {/* <Link to="/contact" className="btn-pill btn-pill-ghost">
-                Talk to a Coach
-              </Link> */}
             </div>
 
-            {/* Trust strip */}
             <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-xs uppercase tracking-widest"
               style={{ color: isDark ? "rgba(255,255,255,0.32)" : "rgba(0,0,0,0.4)", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
               {["No Credit Card Required", "100% Free Session", "500+ Athletes Trained", "Est. 2017 · Katy TX"].map((item) => (
@@ -1256,7 +1234,7 @@ const Home = () => {
             </div>
           </Reveal>
         </div>
-      </section>
+      </section> */}
     </>
   );
 };

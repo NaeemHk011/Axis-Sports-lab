@@ -34,8 +34,8 @@ const Camps = () => {
         <Reveal delay={0.1}>
           <div className="relative overflow-hidden rounded-2xl shadow-2xl aspect-[4/3]">
             <img
-              src="/pictures/camps-main.jpg"
-              alt="Youth basketball camp"
+              src="/pictures/image.png"
+              alt="Axis Sports Lab Basketball Camps"
               className="h-full w-full object-cover object-top"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />

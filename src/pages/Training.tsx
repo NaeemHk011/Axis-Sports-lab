@@ -1,7 +1,8 @@
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "next-themes";
-import { motion } from "framer-motion";
-import { ArrowRight, Check, Target, Zap, Dumbbell, Crown, Users } from "lucide-react";
+import { motion, useMotionValue, useTransform } from "framer-motion";
+import { ArrowRight, Check, Target, Zap, Dumbbell, Crown, Users, Gauge, Activity, HeartPulse, Brain, Sparkles, Trophy } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import Particles from "@/components/Particles";
 
@@ -62,6 +63,41 @@ const programs = [
     hoverGradient: "linear-gradient(to top, rgba(0,100,180,0.75) 0%, rgba(0,100,180,0.2) 45%, transparent 70%)",
   },
 ];
+
+const benefits = [
+  { n: "01", icon: Gauge,      title: "Agility & Speed",    body: "Get faster, quicker, more explosive through Axis Sports Lab drills built for elite athletes." },
+  { n: "02", icon: Dumbbell,   title: "Strength",           body: "Strength training designed to push athletes and build a more injury-resistant body." },
+  { n: "03", icon: Activity,   title: "Coordination",       body: "Coordination improves through mastering new movements. Heavy focus on core and balance." },
+  { n: "04", icon: HeartPulse, title: "Conditioning",       body: "The best-conditioned athletes are the best athletes. Be in better shape than your competition." },
+  { n: "05", icon: Brain,      title: "Basketball IQ",      body: "High IQ makes better players. We develop your game physically and mentally." },
+  { n: "06", icon: Sparkles,   title: "Confidence",         body: "Practice breeds confidence. Plenty of reps, shots, and real game simulations." },
+  { n: "07", icon: Target,     title: "Skill Mastery",      body: "10,000 hours to master a skill. We apply that method to your shot, dribbling, conditioning." },
+  { n: "08", icon: Trophy,     title: "Goal Achievement",   body: "Our goal is to help every athlete become the best player they can be. Achieve ALL of them." },
+];
+
+function TiltCard({ children, className, style }: { children: React.ReactNode; className?: string; style?: React.CSSProperties }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const rotateX = useTransform(y, [-0.5, 0.5], [6, -6]);
+  const rotateY = useTransform(x, [-0.5, 0.5], [-6, 6]);
+  return (
+    <motion.div
+      ref={ref}
+      onMouseMove={(e) => {
+        if (!ref.current) return;
+        const r = ref.current.getBoundingClientRect();
+        x.set((e.clientX - r.left) / r.width - 0.5);
+        y.set((e.clientY - r.top) / r.height - 0.5);
+      }}
+      onMouseLeave={() => { x.set(0); y.set(0); }}
+      style={{ rotateX, rotateY, transformStyle: "preserve-3d", ...style }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 const Training = () => {
   const { resolvedTheme } = useTheme();
@@ -253,6 +289,44 @@ const Training = () => {
                     </Link>
                   </div>
                 </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════
+          WHY TRAIN WITH US   8 reasons
+         ═══════════════════════════════════════════════════════ */}
+      <section className="section relative" aria-label="Why train with us">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_hsl(77_74%_42%/0.13),_transparent_55%)]" />
+        <div className="absolute inset-0 -z-10 bg-grid opacity-50" />
+
+        <div className="container-x">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow justify-center mb-4"><span className="h-px w-8 bg-primary-glow" /> Why Train With Us</p>
+            <h2 className="h-section" style={{ color: hText }}>
+              8 reasons our athletes<br /><span className="text-gradient-red">become elite</span>
+            </h2>
+          </Reveal>
+
+          <div className="mt-8 sm:mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {benefits.map((b, i) => (
+              <Reveal key={b.n} delay={(i % 4) * 0.09}>
+                <TiltCard style={{ perspective: "900px" }} className="h-full">
+                  <div className="benefits-card card-elite h-full relative overflow-hidden p-6"
+                    style={{ borderTop: i % 2 === 0 ? "2px solid rgba(141,187,28,0.4)" : "1px solid hsl(var(--border))" }}>
+                    <div className="flex items-start justify-between mb-5">
+                      <div className="h-11 w-11 rounded-xl grid place-items-center transition-all duration-500 group-hover:scale-110"
+                        style={{ background: "linear-gradient(135deg, hsl(77 74% 32%), hsl(77 74% 42%))", boxShadow: "0 4px 14px -4px rgba(141,187,28,0.5)" }}>
+                        <b.icon className="h-5 w-5 text-white" />
+                      </div>
+                      <span className="font-display text-4xl animate-count-flicker" style={{ color: isDark ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.05)" }}>{b.n}</span>
+                    </div>
+                    <h3 className="font-display text-xl uppercase" style={{ color: hText }}>{b.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed" style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{b.body}</p>
+                  </div>
+                </TiltCard>
               </Reveal>
             ))}
           </div>
