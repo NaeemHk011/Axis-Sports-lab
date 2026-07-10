@@ -65,7 +65,7 @@ const benefits = [
 
 const experiences = [
   { icon: Star,   title: "Player Combine Day",  body: "Athletes evaluated before the season for fair team placement."           },
-  { icon: Trophy, title: "Pro Jerseys",          body: "Every player gets a professional-quality jersey."                     },
+  { icon: Trophy, title: "Jerseys",          body: "Every player gets a professional-quality jersey."                     },
   { icon: Zap,    title: "Player of the Week",   body: "Top performers recognized weekly    fueling confidence and motivation." },
   { icon: Target, title: "Highlight Videos",     body: "Games filmed and clipped. Your athlete goes viral in the family group chat." },
   { icon: Shield, title: "Championship Weekend", body: "Season ends with a full championship event    trophies and all."        },
