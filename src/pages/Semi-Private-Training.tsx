@@ -20,7 +20,7 @@ const SemiPrivateTraining = () => {
       {/* Banner */}
       <section className="w-full overflow-hidden max-[380px]:h-[130px] h-[140px] sm:h-[320px] md:h-auto">
         <img
-          src="/pictures/Semi-Private Training banner-design.png"
+          src="/pictures/semi-private-training-banner-design.png"
           alt="Semi-Private Training"
           className="w-full h-full object-cover object-center"
         />

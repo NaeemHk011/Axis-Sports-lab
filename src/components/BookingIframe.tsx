@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface BookingIframeProps {
   src: string;
@@ -7,6 +7,10 @@ interface BookingIframeProps {
   initialHeight?: number;
   style?: React.CSSProperties;
 }
+
+type IFrameResizerInstance = HTMLIFrameElement & {
+  iFrameResizer?: { close(): void };
+};
 
 const Loader = ({ height }: { height: number }) => (
   <div
@@ -33,30 +37,45 @@ const Loader = ({ height }: { height: number }) => (
 const BookingIframe = ({ src, id, title, initialHeight = 480, style }: BookingIframeProps) => {
   const [height, setHeight] = useState(initialHeight);
   const [loaded, setLoaded] = useState(false);
+  const iframeRef = useRef<IFrameResizerInstance>(null);
 
   useEffect(() => {
-    const onMessage = (e: MessageEvent) => {
-      try {
-        const d = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
-        if (d && typeof d.height === "number" && d.height > 100) {
-          setHeight(d.height);
-        }
-      } catch {
-        // ignore non-JSON or unrelated messages
-      }
+    if (!loaded || !iframeRef.current) return;
+    const el = iframeRef.current;
+
+    // GHL embeds iframeResizer.contentWindow.min.js — this parent script
+    // sends the handshake that triggers GHL to start reporting its height.
+    import("iframe-resizer/js/iframeResizer").then((mod) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const iFrameResize = (mod.default ?? mod) as any;
+      if (typeof iFrameResize !== "function" || !el.isConnected) return;
+
+      iFrameResize(
+        {
+          log: false,
+          checkOrigin: false,
+          onResized({ height: h }: { height: number }) {
+            if (h > 0) setHeight(h);
+          },
+        },
+        el
+      );
+    });
+
+    return () => {
+      el.iFrameResizer?.close();
     };
-    window.addEventListener("message", onMessage);
-    return () => window.removeEventListener("message", onMessage);
-  }, []);
+  }, [loaded]);
 
   return (
     <div className="relative">
       {!loaded && <Loader height={height} />}
       <iframe
+        ref={iframeRef}
         src={src}
         id={id}
         title={title}
-        scrolling="yes"
+        scrolling="no"
         onLoad={() => setLoaded(true)}
         style={{
           width: "100%",

@@ -20,7 +20,7 @@ const PrivateOneOnOneTraining = () => {
       {/* Banner */}
       <section className="w-full overflow-hidden max-[380px]:h-[120px] h-[140px] sm:h-[320px] md:h-auto">
         <img
-          src="/pictures/Private 1-on-1 Training banner-design.png"
+          src="/pictures/private-1-on-1-training-banner-design.png"
           alt="Private 1-on-1 Training"
           className="w-full h-full object-cover object-center"
         />
@@ -55,7 +55,7 @@ const PrivateOneOnOneTraining = () => {
                 Select an available slot below to book your private training session.
               </p>
 
-              <div className="mt-6 w-full rounded-xl overflow-hidden" style={{ background: isDark ? "#0a0a0a" : "#ffffff" }}>
+              <div className="mt-6 w-full rounded-xl overflow-hidden" style={{ background: isDark ? "#0a0a0a" : "#ffffff", minHeight: "200px" }}>
                 <BookingIframe
                   src="https://link.webtechs.dev/widget/group/G61Va2kKWMe7hXf99EaG"
                   id="G61Va2kKWMe7hXf99EaG_1783093286240"
