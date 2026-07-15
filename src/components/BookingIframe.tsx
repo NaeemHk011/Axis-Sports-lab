@@ -39,12 +39,38 @@ const BookingIframe = ({ src, id, title, initialHeight = 480, style }: BookingIf
   const [loaded, setLoaded] = useState(false);
   const iframeRef = useRef<IFrameResizerInstance>(null);
 
+  // Handles form_embed.js postMessage protocol (widget/booking type widgets)
+  useEffect(() => {
+    const handleMessage = (event: MessageEvent) => {
+      if (!iframeRef.current) return;
+      if (event.source !== iframeRef.current.contentWindow) return;
+
+      const data = event.data;
+      let h: number | undefined;
+
+      if (typeof data === "string") {
+        try {
+          const parsed = JSON.parse(data);
+          h = parsed?.height ?? parsed?.frameHeight;
+        } catch {
+          if (data.startsWith("setHeight:")) h = Number(data.split(":")[1]);
+        }
+      } else if (data && typeof data === "object") {
+        h = data.height ?? data.frameHeight;
+      }
+
+      if (h && h > 0) setHeight(h);
+    };
+
+    window.addEventListener("message", handleMessage);
+    return () => window.removeEventListener("message", handleMessage);
+  }, []);
+
+  // Handles GHL group/calendar widgets via iframe-resizer protocol
   useEffect(() => {
     if (!loaded || !iframeRef.current) return;
     const el = iframeRef.current;
 
-    // GHL embeds iframeResizer.contentWindow.min.js — this parent script
-    // sends the handshake that triggers GHL to start reporting its height.
     import("iframe-resizer/js/iframeResizer").then((mod) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const iFrameResize = (mod.default ?? mod) as any;

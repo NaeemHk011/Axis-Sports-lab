@@ -160,8 +160,8 @@ const EvaluationWorkout = () => {
 
               <div className="mt-6 w-full rounded-xl overflow-hidden" style={{ background: isDark ? "#0a0a0a" : "#f5f5f5" }}>
                 <BookingIframe
-                  src="https://link.webtechs.dev/widget/group/oitWtIUJqP835Vu2bO97"
-                  id="oitWtIUJqP835Vu2bO97_1780503810592"
+                  src="https://link.webtechs.dev/widget/booking/dsRBwvUnWkQRQWU3C5F0"
+                  id="oitWtIUJqP835Vu2bO97_1784139246528"
                   title="Free Training Assessment"
                 />
               </div>
