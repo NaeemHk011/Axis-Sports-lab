@@ -21,6 +21,11 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     rollupOptions: {
+      external: [],
+      onwarn(warning, warn) {
+        if (warning.code === "UNRESOLVED_IMPORT" && warning.exporter?.includes("iframe-resizer")) return;
+        warn(warning);
+      },
       output: {
         manualChunks: {
           "vendor-react": ["react", "react-dom", "react-router-dom"],

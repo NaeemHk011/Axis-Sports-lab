@@ -20,7 +20,7 @@ const PrivateOneOnOneTraining = () => {
       {/* Banner */}
       <section className="w-full overflow-hidden max-[380px]:h-[120px] h-[140px] sm:h-[320px] md:h-auto">
         <img
-          src="/pictures/private-1-on-1-training-banner-design.png"
+          src="/pictures/private1.png"
           alt="Private 1-on-1 Training"
           className="w-full h-full object-cover object-center"
         />
