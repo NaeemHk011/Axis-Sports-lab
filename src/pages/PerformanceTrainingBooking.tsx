@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Check, Phone } from "lucide-react";
 import { useTheme } from "next-themes";
 import Reveal from "@/components/Reveal";
@@ -15,17 +14,6 @@ const whatToExpect = [
 const PerformanceTrainingBooking = () => {
   const { resolvedTheme } = useTheme();
   const isDark = resolvedTheme !== "light";
-
-  useEffect(() => {
-    const id = "webtechs-form-embed-script";
-    if (!document.getElementById(id)) {
-      const s = document.createElement("script");
-      s.id = id;
-      s.src = "https://link.webtechs.dev/js/form_embed.js";
-      s.async = true;
-      document.body.appendChild(s);
-    }
-  }, []);
 
   return (
     <>

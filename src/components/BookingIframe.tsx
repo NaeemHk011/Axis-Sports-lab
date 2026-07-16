@@ -34,39 +34,39 @@ const Loader = ({ height }: { height: number }) => (
   </div>
 );
 
-const BookingIframe = ({ src, id, title, initialHeight = 480, style }: BookingIframeProps) => {
+const BookingIframe = ({ src, id, title, initialHeight = 800, style }: BookingIframeProps) => {
   const [height, setHeight] = useState(initialHeight);
   const [loaded, setLoaded] = useState(false);
   const iframeRef = useRef<IFrameResizerInstance>(null);
 
-  // Handles form_embed.js postMessage protocol (widget/booking type widgets)
+  // GHL calendars (both individual /widget/booking/ and group /widget/group/) send height
+  // via postMessage. Group calendars use nested iframes internally, so filtering by
+  // event.source would block valid height messages — we guard by value range instead.
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
-      if (!iframeRef.current) return;
-      if (event.source !== iframeRef.current.contentWindow) return;
-
       const data = event.data;
       let h: number | undefined;
 
       if (typeof data === "string") {
         try {
           const parsed = JSON.parse(data);
-          h = parsed?.height ?? parsed?.frameHeight;
+          h = parsed?.height ?? parsed?.frameHeight ?? parsed?.value ?? parsed?.payload?.height;
         } catch {
           if (data.startsWith("setHeight:")) h = Number(data.split(":")[1]);
         }
       } else if (data && typeof data === "object") {
-        h = data.height ?? data.frameHeight;
+        h = data.height ?? data.frameHeight ?? data.value ?? data.payload?.height;
       }
 
-      if (h && h > 0) setHeight(h);
+      // Accept only plausible calendar heights; ignore noise from unrelated iframes
+      if (h && h > 100 && h < 6000) setHeight(h);
     };
 
     window.addEventListener("message", handleMessage);
     return () => window.removeEventListener("message", handleMessage);
   }, []);
 
-  // Handles GHL group/calendar widgets via iframe-resizer protocol
+  // Apply iframe-resizer to every calendar (works when GHL page includes contentWindow script)
   useEffect(() => {
     if (!loaded || !iframeRef.current) return;
     const el = iframeRef.current;
@@ -80,8 +80,9 @@ const BookingIframe = ({ src, id, title, initialHeight = 480, style }: BookingIf
         {
           log: false,
           checkOrigin: false,
+          heightCalculationMethod: "lowestElement",
           onResized({ height: h }: { height: number }) {
-            if (h > 0) setHeight(h);
+            if (h > 100) setHeight(h);
           },
         },
         el
@@ -94,7 +95,7 @@ const BookingIframe = ({ src, id, title, initialHeight = 480, style }: BookingIf
   }, [loaded]);
 
   return (
-    <div className="relative">
+    <div className="relative" style={{ fontSize: 0, lineHeight: 0 }}>
       {!loaded && <Loader height={height} />}
       <iframe
         ref={iframeRef}
@@ -109,6 +110,7 @@ const BookingIframe = ({ src, id, title, initialHeight = 480, style }: BookingIf
           display: loaded ? "block" : "none",
           height: `${height}px`,
           transition: "height 0.35s ease",
+          verticalAlign: "bottom",
           ...style,
         }}
       />
