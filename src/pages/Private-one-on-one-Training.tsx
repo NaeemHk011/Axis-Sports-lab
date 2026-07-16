@@ -18,13 +18,13 @@ const PrivateOneOnOneTraining = () => {
   return (
     <>
       {/* Banner */}
-      <section className="w-full overflow-hidden max-[380px]:h-[120px] h-[140px] sm:h-[320px] md:h-auto">
+      {/* <section className="w-full overflow-hidden max-[380px]:h-[120px] h-[140px] sm:h-[320px] md:h-auto">
         <img
           src="/pictures/private1.png"
           alt="Private 1-on-1 Training"
           className="w-full h-full object-cover object-center"
         />
-      </section>
+      </section> */}
 
       <section className="section">
         <div className="container-x grid gap-10 lg:grid-cols-12">

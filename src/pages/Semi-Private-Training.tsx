@@ -18,13 +18,13 @@ const SemiPrivateTraining = () => {
   return (
     <>
       {/* Banner */}
-      <section className="w-full overflow-hidden max-[380px]:h-[130px] h-[140px] sm:h-[320px] md:h-auto">
+      {/* <section className="w-full overflow-hidden max-[380px]:h-[130px] h-[140px] sm:h-[320px] md:h-auto">
         <img
           src="/pictures/semi_private1.png"
           alt="Semi-Private Training"
           className="w-full h-full object-cover object-center"
         />
-      </section>
+      </section> */}
 
       <section className="section">
         <div className="container-x grid gap-10 lg:grid-cols-12">
