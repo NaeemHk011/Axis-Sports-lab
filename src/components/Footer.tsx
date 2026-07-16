@@ -104,7 +104,7 @@ const Footer = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2" />
                 </svg>
                 <div>
-                  <p className="text-white/90 font-semibold text-xs uppercase tracking-wider mb-0.5">Hours of Operation</p>
+                  <p>Hours of Operation</p>
                   <p>7 Days a Week</p>
                   <p>9:00 AM – 9:00 PM</p>
                 </div>
