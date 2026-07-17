@@ -1,6 +1,5 @@
 import { Phone } from "lucide-react";
 import { useTheme } from "next-themes";
-import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import BookingIframe from "@/components/BookingIframe";
 
@@ -10,11 +9,14 @@ const CampScheduler = () => {
 
   return (
     <>
-      <PageHero
-        eyebrow="Camps"
-        title="Schedule Your Basketball Skill Camp"
-        subtitle="Choose your camp date and reserve your spot today."
-      />
+      {/* Banner */}
+      <section className="w-full overflow-hidden max-[380px]:h-[130px] h-[150px] sm:h-[320px] md:h-auto">
+        <img
+          src="/pictures/banner-camps.png"
+          alt="Basketball Skill Camps"
+          className="w-full h-full object-cover object-center"
+        />
+      </section>
 
       <section className="section">
         <div className="container-x max-w-4xl mx-auto">
@@ -28,7 +30,7 @@ const CampScheduler = () => {
                 Select an available camp date from the calendar below.
               </p>
 
-              <div className="mt-6 w-full overflow-hidden rounded-xl">
+              <div className="mt-6 w-full overflow-hidden rounded-xl" style={{ background: isDark ? "#0a0a0a" : "#ffffff" }}>
                 <BookingIframe
                   src="https://link.webtechs.dev/widget/group/eTfFR5PPgbbpj2eKRyUQ"
                   id="eTfFR5PPgbbpj2eKRyUQ_1780505804743"

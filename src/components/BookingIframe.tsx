@@ -39,11 +39,32 @@ const BookingIframe = ({ src, id, title, initialHeight = 800, style }: BookingIf
   const [loaded, setLoaded] = useState(false);
   const iframeRef = useRef<IFrameResizerInstance>(null);
 
-  // GHL calendars (both individual /widget/booking/ and group /widget/group/) send height
-  // via postMessage. Group calendars use nested iframes internally, so filtering by
-  // event.source would block valid height messages — we guard by value range instead.
+  // Primary: GHL native postMessage height protocol.
+  // Filtered to GHL's root domain + core GHL domains to block unrelated iframes
+  // (analytics, GTM) that also send { height } messages and would override GHL's value.
+  // 200ms debounce prevents rapid-fire messages from causing layout thrash.
   useEffect(() => {
+    let rootDomain = "";
+    try {
+      const parts = new URL(src).hostname.split(".");
+      rootDomain = parts.slice(-2).join(".");
+    } catch { /* noop */ }
+
+    const GHL_DOMAINS = ["gohighlevel.com", "leadconnectorhq.com", "msgsndr.com"];
+
+    const isAllowed = (origin: string): boolean => {
+      try {
+        const h = new URL(origin).hostname;
+        if (rootDomain && (h === rootDomain || h.endsWith("." + rootDomain))) return true;
+        return GHL_DOMAINS.some(d => h === d || h.endsWith("." + d));
+      } catch { return false; }
+    };
+
+    let debounceTimer: ReturnType<typeof setTimeout>;
+
     const handleMessage = (event: MessageEvent) => {
+      if (!isAllowed(event.origin)) return;
+
       const data = event.data;
       let h: number | undefined;
 
@@ -58,15 +79,23 @@ const BookingIframe = ({ src, id, title, initialHeight = 800, style }: BookingIf
         h = data.height ?? data.frameHeight ?? data.value ?? data.payload?.height;
       }
 
-      // Accept only plausible calendar heights; ignore noise from unrelated iframes
-      if (h && h > 100 && h < 6000) setHeight(h);
+      if (h && h > 100 && h < 6000) {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => setHeight(h!), 200);
+      }
     };
 
     window.addEventListener("message", handleMessage);
-    return () => window.removeEventListener("message", handleMessage);
-  }, []);
+    return () => {
+      window.removeEventListener("message", handleMessage);
+      clearTimeout(debounceTimer);
+    };
+  }, [src]);
 
-  // Apply iframe-resizer to every calendar (works when GHL page includes contentWindow script)
+  // Secondary: iframeResizer — measures actual content height inside the iframe
+  // and shrinks the container when there is white space below the calendar or form.
+  // Works when GHL page includes iframeResizer.contentWindow.js (some GHL setups do).
+  // Safe no-op if the content script is absent.
   useEffect(() => {
     if (!loaded || !iframeRef.current) return;
     const el = iframeRef.current;
@@ -80,9 +109,8 @@ const BookingIframe = ({ src, id, title, initialHeight = 800, style }: BookingIf
         {
           log: false,
           checkOrigin: false,
-          heightCalculationMethod: "lowestElement",
           onResized({ height: h }: { height: number }) {
-            if (h > 100) setHeight(h);
+            if (h > 100 && h < 6000) setHeight(h);
           },
         },
         el
@@ -109,7 +137,6 @@ const BookingIframe = ({ src, id, title, initialHeight = 800, style }: BookingIf
           border: "none",
           display: loaded ? "block" : "none",
           height: `${height}px`,
-          transition: "height 0.35s ease",
           verticalAlign: "bottom",
           ...style,
         }}
