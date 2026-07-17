@@ -8,7 +8,7 @@ const faqs = [
   { q: "How do I access the free basketball workout?", a: "Simply click the 'Click to Download' button above and enter your email to get instant access to the full 60-minute workout guide." },
   { q: "Is this suitable for beginners?", a: "Absolutely. The workout is structured to meet athletes at all skill levels   from first-time players to advanced competitors." },
   { q: "How long is the basketball skills workout?", a: "The complete workout runs 60 minutes and covers ball handling, shooting mechanics, footwork, and game IQ drills." },
-  { q: "Can I contact Axis Sports Lab for more info?", a: "Yes! Reach us at (346) 550-8150 or info@axissportslab.com   we're happy to help you find the right program." },
+  { q: "Can I contact Axis Sports Lab for more info?", a: "Yes! Reach us at (346) 517 8623 or info@axissportslab.com   we're happy to help you find the right program." },
 ];
 
 const Ebook = () => {

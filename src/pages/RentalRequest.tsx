@@ -98,7 +98,7 @@ const RentalRequest = () => {
               <div className="rounded-xl p-4" style={{ border: `1px solid ${isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.10)"}`, background: isDark ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.03)" }}>
                 <p className="text-sm font-semibold" style={{ color: hMuted }}>Prefer to call instead?</p>
                 <a href="tel:+13465508150" className="mt-2 flex items-center gap-2 text-primary-glow text-sm font-semibold hover:underline">
-                  <Phone className="h-4 w-4" /> (346) 550-8150
+                  <Phone className="h-4 w-4" /> (346) 517 8623
                 </a>
                 <p className="mt-1 text-xs" style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Mon – Sat · 9am – 7pm</p>
               </div>

@@ -24,7 +24,7 @@ const Contact = () => {
             <p className="mt-4 text-white/75 leading-relaxed text-base">
               Otherwise, you can call us at{" "}
               <a href="tel:+13465508150" className="text-primary-glow font-semibold hover:underline">
-                (346) 550-8150
+                (346) 517 8623
               </a>{" "}
               or fill out the contact form below and we will get back to you as soon as possible.
             </p>
@@ -47,7 +47,7 @@ const Contact = () => {
           </Reveal>
 
           <Reveal delay={0.1} className="lg:col-span-5 space-y-5">
-            <InfoRow icon={Phone} label="(346) 550-8150" href="tel:+13465508150" />
+            <InfoRow icon={Phone} label="(346) 517 8623" href="tel:+13465508150" />
             <InfoRow icon={Mail} label="info@axissportslab.com" href="mailto:info@axissportslab.com" />
             <InfoRow icon={MapPin} label="510 S Mason Rd Unit 16, Katy, TX 77450" />
             <div className="overflow-hidden rounded-2xl border border-white/10">
