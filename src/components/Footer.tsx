@@ -122,8 +122,8 @@ const Footer = () => {
               {[
                 { Icon: Instagram, href: "https://www.instagram.com/axissportslab?utm_source=qr", label: "Instagram" },
                 { Icon: Facebook, href: "https://www.facebook.com/AxisSportsLab", label: "Facebook" },
-                { Icon: Twitter, href: "https://x.com/AxisSportsLab", label: "Twitter" },
-                { Icon: Youtube, href: "https://www.youtube.com/@axissportslab", label: "YouTube" },
+                { Icon: Twitter, href: "https://x.com/axissportslab?s=11", label: "Twitter" },
+                { Icon: Youtube, href: "https://youtube.com/@axissportslab?si=53SnRs8_SZ7lSFGA", label: "YouTube" },
               ].map(({ Icon, href, label }) => (
                 <a
                   key={label}
