@@ -86,7 +86,7 @@ const Footer = () => {
             <ul className="space-y-4 text-sm text-white/65">
               <li className="flex gap-3 items-start">
                 <MapPin className="h-4 w-4 shrink-0 text-primary-glow mt-0.5" />
-                <span>510 S Mason Rd Unit 16A,<br />Katy, TX 77450</span>
+                <span>510 S Mason Rd Unit 16A <br/>Katy Tx 77450</span>
               </li>
               <li className="flex gap-3 items-center">
                 <Phone className="h-4 w-4 shrink-0 text-primary-glow" />

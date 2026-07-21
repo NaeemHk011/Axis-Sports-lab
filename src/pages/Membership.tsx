@@ -16,6 +16,7 @@ const unlimitedMonthly = [
 ];
 
 const twoDayWeekly = [
+  { level: "Axis Minis Class",    price: "$150", img: "public/pictures/teams-cta.jpg", slug: "axis-minis-class"    },
   { level: "Beginners Skill Level",    price: "$185", img: "/pictures/teams-girls.jpg", slug: "beginners-2days"    },
   { level: "Intermediate Skill Level", price: "$175", img: "/pictures/teams-boys.jpg",  slug: "intermediate-2days" },
   { level: "Advanced Skill Level",     price: "$165", img: "/pictures/camps-main.jpg",  slug: "advanced-2days"     },
@@ -194,7 +195,7 @@ const Membership = () => {
                 <span className="text-primary-glow">(2 Days / Week)</span>
               </h2>
             </Reveal>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {twoDayWeekly.map(p => (
                 <TwoDayCard key={p.level + "2"} {...p}/>
               ))}
@@ -211,7 +212,7 @@ const Membership = () => {
                 <span className="text-primary-glow">Monthly Packages</span>
               </h2>
             </Reveal>
-            <div className="grid gap-6 grid-cols-1 max-w-lg mx-auto">
+            <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-2">
               {performanceMonthly.map(p => (
                 <Reveal key={p.level}>
                   <div className="card-img-bg relative overflow-hidden rounded-2xl aspect-[4/3] group shadow-xl">

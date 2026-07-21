@@ -8,15 +8,15 @@ import Particles from "@/components/Particles";
 
 const programs = [
   {
-    icon: Target,
-    title: "Shooting Classes",
-    tag: "Mechanics & Form",
-    body: "Improve your shooting form, consistency, and game-speed release. Classes cover mechanics, catch-and-shoot, off-dribble, and contested shots. Our coaches break down every aspect of your shot and rebuild it to be automatic under pressure.",
-    features: ["Form Mechanics", "Catch & Shoot", "Off-Dribble", "Contested Shots", "Game Speed Reps"],
-    link: "/shooting-classes-booking",
-    accentColor: "rgba(141,187,28,0.85)",
-    borderColor: "rgba(141,187,28,0.25)",
-    hoverGradient: "linear-gradient(to top, rgba(141,187,28,0.75) 0%, rgba(141,187,28,0.25) 40%, transparent 70%)",
+    icon: Sparkles,
+    title: "Axis Minis",
+    tag: "Beginner athletes ",
+    body: "Basketball development program designed specifically for young beginners. Small-group sessions that focus on learning the fundamentals in a fun, supportive environment. ",
+    features: ["Ball Handling Fundamentals", "Shooting Basics ", "Footwork & Movement ", "Teamwork & Sportsmanship ", "Coordination & Athletic Development ","Confidence Building "],
+    link: "/AxisMinisBooking",
+    accentColor: "rgba(24, 214, 141, 0.85)",
+    borderColor: "rgba(10, 197, 166, 0.25)",
+    hoverGradient: "linear-gradient(to top, rgba(0,120,70,0.75) 0%, rgba(0,120,70,0.2) 45%, transparent 70%)",
   },
   {
     icon: Zap,
@@ -39,6 +39,17 @@ const programs = [
     accentColor: "rgba(0,140,80,0.85)",
     borderColor: "rgba(0,180,120,0.25)",
     hoverGradient: "linear-gradient(to top, rgba(0,120,70,0.75) 0%, rgba(0,120,70,0.2) 45%, transparent 70%)",
+  },
+  {
+    icon: Target,
+    title: "Shooting Classes",
+    tag: "Mechanics & Form",
+    body: "Improve your shooting form, consistency, and game-speed release. Classes cover mechanics, catch-and-shoot, off-dribble, and contested shots. Our coaches break down every aspect of your shot and rebuild it to be automatic under pressure.",
+    features: ["Form Mechanics", "Catch & Shoot", "Off-Dribble", "Contested Shots", "Game Speed Reps"],
+    link: "/shooting-classes-booking",
+    accentColor: "rgba(141,187,28,0.85)",
+    borderColor: "rgba(141,187,28,0.25)",
+    hoverGradient: "linear-gradient(to top, rgba(141,187,28,0.75) 0%, rgba(141,187,28,0.25) 40%, transparent 70%)",
   },
   {
     icon: Crown,

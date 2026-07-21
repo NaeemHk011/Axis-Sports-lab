@@ -47,6 +47,7 @@ const RentalRequest = lazy(() => import("./pages/RentalRequest"));
 const AthletePlan = lazy(() => import("./pages/AthletePlan"));
 const PrivateOneOnOneTraining = lazy(() => import("./pages/Private-one-on-one-Training"));
 const SemiPrivateTraining = lazy(() => import("./pages/Semi-Private-Training"));
+const AxisMinisBooking = lazy(() => import("./pages/AxisMinisBooking"));
 
 const queryClient = new QueryClient();
 
@@ -91,6 +92,7 @@ const AnimatedRoutes = () => {
         <Route path="/athletes/plan/:slug" element={<AthletePlan />} />
         <Route path="/private-one-on-one-training" element={<PageTransition><PrivateOneOnOneTraining /></PageTransition>} />
         <Route path="/semi-private-training" element={<PageTransition><SemiPrivateTraining /></PageTransition>} />
+        <Route path="/AxisMinisBooking" element={<PageTransition><AxisMinisBooking /></PageTransition>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>

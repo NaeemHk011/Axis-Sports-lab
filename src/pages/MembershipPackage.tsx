@@ -89,6 +89,31 @@ const PACKAGES: Record<string, {
     ],
     accent: "#8dbb1c",
   },
+  "axis-minis-class": {
+    title:       "Axis Minis Class",
+    type:        "2 Days / Week",
+    price:       "$150",
+    img:         "/pictures/teams-cta.jpg",
+    formSrc:     "https://link.webtechs.dev/widget/form/NDzAgvByiIf5wB02LkCq",
+    formId:      "NDzAgvByiIf5wB02LkCq",
+    formName:    "$150 Membership Subscription Form  - (2 Days / Week)",
+    formHeight:  1574,
+    description: [
+      "Our AXIS Minis program is designed specifically for young athletes ages 5–8 who are beginning their basketball journey. Through fun, engaging, and age-appropriate activities, players learn the fundamentals of ball handling, shooting, footwork, and movement in a supportive small-group environment.",
+      "Led by experienced coaches, every session focuses on building confidence, coordination, teamwork, and sportsmanship while helping young athletes develop essential basketball skills at a comfortable pace. Small class sizes ensure personalized attention and an enjoyable learning experience.",
+      "AXIS Minis provides the perfect foundation for future development, preparing players with the skills and confidence needed to progress into our Beginner Skills Program as they continue to grow."
+    ],
+    features: [
+      "2 structured sessions per week",
+      "Core basketball fundamentals",
+      "Ball handling & shooting basics",
+      "Footwork & movement patterns",
+      "Teamwork & Sportsmanship",
+      "Coordination & Athletic Development ",
+      "Confidence Building",
+    ],
+    accent: "#8dbb1c",
+  },
   "beginners-2days": {
     title:       "Beginners Skill Training Membership_2026",
     type:        "2 Days / Week",

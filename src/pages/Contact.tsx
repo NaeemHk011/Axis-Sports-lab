@@ -49,12 +49,12 @@ const Contact = () => {
           <Reveal delay={0.1} className="lg:col-span-5 space-y-5">
             <InfoRow icon={Phone} label="(346) 517 8623" href="tel:+13465508150" />
             <InfoRow icon={Mail} label="info@axissportslab.com" href="mailto:info@axissportslab.com" />
-            <InfoRow icon={MapPin} label="510 S Mason Rd Unit 16, Katy, TX 77450" />
+            <InfoRow icon={MapPin} label="510 S Mason Rd Unit 16A Katy Tx 77450" />
             <div className="overflow-hidden rounded-2xl border border-white/10">
               <iframe
                 title="Axis Sports Lab location"
-                src="https://maps.google.com/maps?q=510+S+Mason+Rd+Katy+TX+77450&z=14&output=embed"
-                className="h-72 w-full grayscale"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2737.073453731557!2d-95.75349320000001!3d29.7761451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8641275c1ba7c3b3%3A0xd9812861e97be1bf!2sAxis%20Sports%20Lab!5e1!3m2!1sen!2s!4v1784652483282!5m2!1sen!2s"
+                className="h-72 w-full"
                 loading="lazy"
               />
             </div>
