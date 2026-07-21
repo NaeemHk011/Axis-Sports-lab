@@ -23,7 +23,7 @@ const PerformanceTrainingBooking = () => {
       {/* Banner */}
       <section className="w-full overflow-hidden max-[380px]:h-[120px] h-[130px] sm:h-[320px] md:h-auto">
         <img
-          src="public\pictures\Axis-Minis-Class.png"
+          src="\pictures\Axis-Minis-Class.png"
           alt="Axis Minis Class"
           className="w-full h-full object-cover object-center"
         />

@@ -16,7 +16,7 @@ const unlimitedMonthly = [
 ];
 
 const twoDayWeekly = [
-  { level: "Axis Minis Class",    price: "$150", img: "public/pictures/teams-cta.jpg", slug: "axis-minis-class"    },
+  { level: "Axis Minis Class",    price: "$150", img: "/pictures/teams-cta.jpg", slug: "axis-minis-class"    },
   { level: "Beginners Skill Level",    price: "$185", img: "/pictures/teams-girls.jpg", slug: "beginners-2days"    },
   { level: "Intermediate Skill Level", price: "$175", img: "/pictures/teams-boys.jpg",  slug: "intermediate-2days" },
   { level: "Advanced Skill Level",     price: "$165", img: "/pictures/camps-main.jpg",  slug: "advanced-2days"     },
