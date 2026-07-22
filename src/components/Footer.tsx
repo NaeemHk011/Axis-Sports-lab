@@ -61,13 +61,12 @@ const Footer = () => {
             </h4>
             <ul className="space-y-2 text-sm text-white/65">
               {[
-                ["Axis Minis", "/training"],
-                ["Shooting Classes", "/training"],
-                ["Skills Training", "/training"],
-                ["Athlete Development", "/training"],
-                ["Basketball Camps", "/camps"],
-                ["3V3 Open League", "/youth-league"],
-                ["Membership Plans", "/membership"],
+                ["Axis Minis", "/AxisMinisBooking"],
+                ["Skills Training", "/skills-training-booking"],
+                ["Performance Training", "/performance-training-booking"],
+                ["Shooting Classes", "/shooting-classes-booking"],
+                ["Private 1-on-1 Training", "/private-one-on-one-training"],
+                ["Semi Private Training", "/semi-private-training"],
                 ["Free Evaluation", "/evaluation-workout"],
               ].map(([l, h]) => (
                 <li key={l}>
