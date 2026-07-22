@@ -45,7 +45,6 @@ const Footer = () => {
                 ["Memberships", "/membership"],
                 ["Rentals", "/rentals"],
                 ["Contact", "/contact"],
-                ["Athlete Blueprint", "/ebook"],
               ].map(([l, h]) => (
                 <li key={h}>
                   <Link to={h} className="hover:text-primary-glow transition-colors duration-200">{l}</Link>
@@ -62,6 +61,7 @@ const Footer = () => {
             </h4>
             <ul className="space-y-2 text-sm text-white/65">
               {[
+                ["Axis Minis", "/training"],
                 ["Shooting Classes", "/training"],
                 ["Skills Training", "/training"],
                 ["Athlete Development", "/training"],
