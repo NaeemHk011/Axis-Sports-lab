@@ -69,11 +69,14 @@ const Athletes = () => {
   const displayed = showAll || search.length > 0 ? filtered : filtered.slice(0, 3);
 
   useEffect(() => {
-    sanityClient.fetch(ALL_ATHLETES_QUERY).then((data: Athlete[]) => {
-      setAthletes(data);
-      setFiltered(data);
-      setLoading(false);
-    });
+    sanityClient
+      .fetch(ALL_ATHLETES_QUERY)
+      .then((data: Athlete[]) => {
+        setAthletes(data);
+        setFiltered(data);
+      })
+      .catch(() => {})
+      .finally(() => setLoading(false));
   }, []);
 
   useEffect(() => {

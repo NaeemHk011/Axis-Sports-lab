@@ -27,10 +27,13 @@ const AthleteProfile = () => {
 
   useEffect(() => {
     if (!slug) return;
-    sanityClient.fetch(ATHLETE_BY_SLUG_QUERY, { slug }).then((data: Athlete) => {
-      setAthlete(data);
-      setLoading(false);
-    });
+    sanityClient
+      .fetch(ATHLETE_BY_SLUG_QUERY, { slug })
+      .then((data: Athlete) => {
+        setAthlete(data);
+      })
+      .catch(() => {})
+      .finally(() => setLoading(false));
   }, [slug]);
 
   const handleShare = () => {
