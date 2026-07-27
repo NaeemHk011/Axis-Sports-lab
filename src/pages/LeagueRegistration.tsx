@@ -25,7 +25,7 @@ const sessions = [
     session:    "Session 1",
     season:     "Late Summer Tip-Off",
     duration:   "8-Week Season",
-    gamesBegin: "Saturday, August 8th",
+    gamesBegin: "Saturday, August 15th",
     status:     "Register Now",
   },
   {
