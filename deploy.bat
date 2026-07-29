@@ -6,26 +6,26 @@ set DIST=C:\Users\Administrator\Desktop\TechGenics\Axis-Sports-lab\dist
 set PUBLIC=C:\Users\Administrator\Desktop\TechGenics\Axis-Sports-lab\public
 
 echo.
-echo [1/6] Purana dist aur Vite cache saaf ho raha hai...
+echo [1/6] Clearing old dist and Vite cache...
 if exist "%DIST%" rd /s /q "%DIST%"
 if exist "%~dp0node_modules\.vite" rd /s /q "%~dp0node_modules\.vite"
 
 echo.
-echo [2/6] Naya build ban raha hai (please wait)...
+echo [2/6] Creating new build (please wait)...
 cd /d "%~dp0"
 call npm run build
 
 if errorlevel 1 (
     echo.
-    echo BUILD FAIL HO GAYI! Deploy rok diya gaya.
+    echo BUILD FAILED! Deploy has been stopped.
     pause
     exit /b 1
 )
 
 if not exist "%DIST%\index.html" (
     echo.
-    echo ERROR: Build toh chali lekin dist/index.html bana hi nahi!
-    echo npm run build dobara manually chalao aur error dekho.
+    echo ERROR: Build ran but dist/index.html was not created!
+    echo Run npm run build manually and check the error.
     pause
     exit /b 1
 )
