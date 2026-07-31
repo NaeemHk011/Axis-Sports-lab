@@ -34,28 +34,28 @@ echo.
 echo build completed successfully starting upload...
 
 echo.
-echo [3/6] JS/CSS assets upload ho rahe hain (website abhi bhi live hai)...
+echo [3/6] Uploading JS/CSS assets (website is still live)...
 robocopy "%DIST%\assets" "%SERVER%\assets" /E /XO /NP /R:3 /W:2
 
 echo.
-echo [4/6] Baaki files upload ho rahi hain (index.html ke ilawa)...
+echo [4/6] Uploading remaining files (except index.html)...
 robocopy "%DIST%" "%SERVER%" /E /XO /XF index.html .htaccess /XD assets pictures /NP /R:3 /W:2
 
 echo.
-echo [5/6] Pictures upload ho rahi hain (sirf nayi)...
+echo [5/6] Uploading pictures (new files only)...
 robocopy "%PUBLIC%\pictures" "%SERVER%\pictures" /E /XO /NP /R:3 /W:2
 
 echo.
-echo [6/6] index.html final swap ho raha hai...
+echo [6/6] Swapping index.html (final step)...
 copy /Y "%DIST%\index.html" "%SERVER%\index.html"
 if errorlevel 1 (
-    echo ERROR: index.html upload nahi hua! Server connection check karo.
+    echo ERROR: index.html upload failed! Check server connection.
     pause
     exit /b 1
 )
 
 echo.
 echo ============================================================
-echo  Deploy complete! axissportslab.com check karo.
+echo  Deploy complete! Check axissportslab.com
 echo ============================================================
 pause
