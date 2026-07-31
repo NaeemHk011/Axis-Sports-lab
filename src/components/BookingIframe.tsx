@@ -92,7 +92,7 @@ const BookingIframe = ({ src, id, title, initialHeight = 800, style }: BookingIf
     };
   }, [src]);
 
-  // Secondary: iframeResizer — measures actual content height inside the iframe
+  // Secondary: iframeResizer - measures actual content height inside the iframe
   // and shrinks the container when there is white space below the calendar or form.
   // Works when GHL page includes iframeResizer.contentWindow.js (some GHL setups do).
   // Safe no-op if the content script is absent.

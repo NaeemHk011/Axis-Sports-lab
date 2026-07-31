@@ -1,4 +1,4 @@
-# Axis Sports Lab — Developer Notes
+# Axis Sports Lab - Developer Notes
 
 ## Deploy Slow Kyun Hota Hai?
 
@@ -7,11 +7,11 @@
 2. Scratch se naya build banta hai (`npm run build`)
 3. Sari files WebDAV se server par upload hoti hain
 
-WebDAV slow hai — isliye **10-15 minute** lagte hain sirf ek choti change ke liye bhi.
+WebDAV slow hai - isliye **10-15 minute** lagte hain sirf ek choti change ke liye bhi.
 
 ---
 
-## Fast Config Change — public/config.json Solution
+## Fast Config Change - public/config.json Solution
 
 ### Problem
 Har chhoti change ke liye bhi poora deploy karna padta hai = time waste.
@@ -45,8 +45,8 @@ dist/
 
 | Situation | Pehle | Baad mein |
 |---|---|---|
-| Sirf setting change | Poora deploy.bat — 15 min | Sirf config.json upload — 10 sec |
-| Naya build | deploy.bat — 15 min | deploy.bat — 15 min |
+| Sirf setting change | Poora deploy.bat - 15 min | Sirf config.json upload - 10 sec |
+| Naya build | deploy.bat - 15 min | deploy.bat - 15 min |
 
 ---
 
@@ -58,4 +58,4 @@ dist/
 | Kaise kaam karta hai | Har file ke liye alag HTTP request | Ek connection se sari files |
 | Port | 2078 (SSL) | 21 |
 
-> **Tip:** Developer se FTP credentials maango — same cPanel hosting par hoga, sirf fast hoga.
+> **Tip:** Developer se FTP credentials maango - same cPanel hosting par hoga, sirf fast hoga.

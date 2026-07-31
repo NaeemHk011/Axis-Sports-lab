@@ -456,7 +456,7 @@ const Home = () => {
                 <span className="text-gradient-red">to greatness</span>
               </h2>
               <p className="mt-5 text-sm leading-relaxed" style={{ color: hMuted, fontFamily: "'Plus Jakarta Sans', sans-serif", maxWidth: "400px" }}>
-                Four elite programs built to develop every dimension of your athletic game.
+                Start with a free assessment - we evaluate your skill, athleticism & basketball IQ, then build a personalized roadmap to get you to the next level.
               </p>
             </Reveal>
 
@@ -525,35 +525,28 @@ const Home = () => {
           {/* Bento: picture-based cards */}
           <div className="mt-8 sm:mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-5">
 
+            {false && <>
             {/* CARD 1   SHOOTING CLASSES   Large (col-span-7), net/ball image */}
             <Reveal delay={0} className="lg:col-span-7">
               <TiltCard style={{ perspective: "900px" }} className="h-full">
                 <div className="card-img-bg group relative overflow-hidden rounded-[1.6rem] min-h-[260px] sm:min-h-[240px] sm:min-h-[280px] flex flex-col justify-end cursor-pointer"
                   style={{ border: "1px solid rgba(141,187,28,0.25)", backgroundColor: "#0d1a00" }}
                   onClick={() => navigate("/skills-training-booking")}>
-                  {/* BG image */}
                   <FadeImg
                     src="/pictures/gc-shooting.jpg"
                     alt="Shooting Classes"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  {/* Gradient overlays */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/10" />
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     style={{ background: "linear-gradient(to top, rgba(141,187,28,0.75) 0%, rgba(141,187,28,0.25) 40%, transparent 70%)" }} />
-
-                  {/* Number ghost */}
                   <span className="absolute top-5 right-6 font-display text-9xl leading-none pointer-events-none select-none text-white/10 group-hover:text-white/20 transition-colors duration-500">01</span>
-
-                  {/* Tag pill */}
                   <div className="absolute top-5 left-5">
                     <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.25em]"
                       style={{ background: "rgba(141,187,28,0.85)", color: "#fff" }}>
                       <Target className="h-3 w-3" /> Mechanics & Form
                     </span>
                   </div>
-
-                  {/* Content */}
                   <div className="relative z-10 p-6 pt-14 sm:pt-14">
                     <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl uppercase text-white">Shooting Classes</h3>
                     <p className="mt-3 text-sm leading-relaxed text-white/75 max-w-sm" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
@@ -584,20 +577,16 @@ const Home = () => {
                     alt="Skills Training"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  {/* Warm orange-red overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-[#1a0800]/60 to-transparent" />
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     style={{ background: "linear-gradient(to top, rgba(180,70,0,0.8) 0%, rgba(180,70,0,0.25) 45%, transparent 70%)" }} />
-
                   <span className="absolute top-5 right-5 font-display text-9xl leading-none pointer-events-none select-none text-white/10 group-hover:text-white/20 transition-colors duration-500">02</span>
-
                   <div className="absolute top-5 left-5">
                     <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.25em]"
                       style={{ background: "rgba(200,100,0,0.85)", color: "#fff" }}>
                       <Zap className="h-3 w-3" /> Guard & Forward
                     </span>
                   </div>
-
                   <div className="relative z-10 p-6 pt-14 sm:pt-14">
                     <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl uppercase text-white">Skills Training</h3>
                     <p className="mt-3 text-sm leading-relaxed text-white/75" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
@@ -628,20 +617,16 @@ const Home = () => {
                     alt="Athlete Training"
                     className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
                   />
-                  {/* Deep teal-green cinematic overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-[#001a10]/65 to-transparent" />
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     style={{ background: "linear-gradient(to top, rgba(0,120,70,0.75) 0%, rgba(0,120,70,0.2) 45%, transparent 70%)" }} />
-
                   <span className="absolute top-5 right-5 font-display text-9xl leading-none pointer-events-none select-none text-white/10 group-hover:text-white/20 transition-colors duration-500">03</span>
-
                   <div className="absolute top-5 left-5">
                     <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.25em]"
                       style={{ background: "rgba(0,140,80,0.85)", color: "#fff" }}>
                       <Dumbbell className="h-3 w-3" /> Strength & Speed
                     </span>
                   </div>
-
                   <div className="relative z-10 p-6 pt-14 sm:pt-14">
                     <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl uppercase text-white">Performance Training</h3>
                     <p className="mt-3 text-sm leading-relaxed text-white/75" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
@@ -672,20 +657,16 @@ const Home = () => {
                     alt="Elite Camps"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  {/* Deep purple-blue cinematic overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-[#0a0018]/70 to-transparent" />
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     style={{ background: "linear-gradient(to top, rgba(80,40,200,0.75) 0%, rgba(80,40,200,0.2) 45%, transparent 70%)" }} />
-
                   <span className="absolute top-5 right-6 font-display text-9xl leading-none pointer-events-none select-none text-white/10 group-hover:text-white/20 transition-colors duration-500">04</span>
-
                   <div className="absolute top-5 left-5">
                     <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.25em]"
                       style={{ background: "rgba(90,50,220,0.85)", color: "#fff" }}>
                       <Shield className="h-3 w-3" /> Multi-Day Intensive
                     </span>
                   </div>
-
                   <div className="relative z-10 p-6 pt-14 sm:pt-14">
                     <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl uppercase text-white">Elite Camps</h3>
                     <p className="mt-3 text-sm leading-relaxed text-white/75 max-w-sm" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
@@ -704,7 +685,230 @@ const Home = () => {
                 </div>
               </TiltCard>
             </Reveal>
+            </>}
+
+            {/* ROOKIE ACADEMY   Full Width */}
+            <Reveal delay={0} className="col-span-1 md:col-span-2 lg:col-span-12">
+              <TiltCard style={{ perspective: "1200px" }} className="h-full">
+                <div
+                  className="card-img-bg group relative overflow-hidden rounded-[1.6rem] flex flex-col justify-end cursor-pointer"
+                  style={{
+                    border: "1px solid rgba(141,187,28,0.35)",
+                    backgroundColor: "#050f00",
+                    minHeight: "clamp(480px, 75vh, 620px)",
+                  }}
+                  onClick={() => navigate("/rookie-academy")}
+                >
+                  {/* BG image */}
+                  <FadeImg
+                    src="/pictures/RookieAcademy.png"
+                    alt="Rookie Academy"
+                    className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  />
+
+                  {/* Gradient overlays */}
+                  <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.18)" }} />
+                  {/* Top-down dark fade — hides image's own text on mobile */}
+                  <div className="absolute inset-x-0 top-0 h-28 sm:h-20 pointer-events-none"
+                    style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.40) 60%, transparent 100%)" }} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent" />
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{ background: "linear-gradient(to top, rgba(141,187,28,0.55) 0%, rgba(141,187,28,0.10) 55%, transparent 80%)" }} />
+
+                  {/* Ghost watermark */}
+                  <span
+                    className="absolute bottom-0 right-0 font-display leading-none pointer-events-none select-none hidden sm:block"
+                    style={{ fontSize: "clamp(4rem, 14vw, 16rem)", color: "rgba(255,255,255,0.07)", lineHeight: 0.85 }}
+                  >
+                    ROOKIE
+                  </span>
+
+                  {/* Price badge — sm+ only (mobile gets inline version in content) */}
+                  <div className="absolute top-4 right-4 sm:top-5 sm:right-6 z-10 hidden sm:flex">
+                    <div className="flex flex-col items-center rounded-xl sm:rounded-2xl px-3 sm:px-5 py-2 sm:py-3 text-center"
+                      style={{ background: "rgba(141,187,28,0.95)", color: "#0a0a0a", boxShadow: "0 0 32px rgba(141,187,28,0.6)" }}>
+                      <span className="text-[9px] font-black uppercase tracking-[0.22em]">Only</span>
+                      <span className="font-display text-3xl lg:text-4xl leading-none">$125</span>
+                      <span className="text-[9px] font-black uppercase tracking-[0.15em] mt-0.5">One-Time</span>
+                    </div>
+                  </div>
+
+                  {/* Tag pill — sm+ only (absolute). Mobile gets it inline in content */}
+                  <div className="absolute top-5 left-5 z-10 hidden sm:block">
+                    <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.22em]"
+                      style={{ background: "rgba(141,187,28,0.88)", color: "#fff" }}>
+                      <Trophy className="h-3 w-3 shrink-0" />
+                      30-Day Introductory Program
+                    </span>
+                  </div>
+
+                  {/* Content */}
+                  <div className="relative z-10 p-4 sm:p-7 lg:p-10">
+                    <div className="grid lg:grid-cols-[3fr_2fr] gap-6 lg:gap-14 items-end">
+
+                      {/* Left: title + info + CTA */}
+                      <div>
+                        {/* Tag pill — mobile inline (sm+ is absolute at top of card) */}
+                        <div className="sm:hidden mb-3">
+                          <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.22em]"
+                            style={{ background: "rgba(141,187,28,0.88)", color: "#fff" }}>
+                            <Trophy className="h-3 w-3 shrink-0" />
+                            30-Day Introductory Program
+                          </span>
+                        </div>
+
+                        {/* Title row — heading + inline price badge (mobile) */}
+                        <div className="flex items-end justify-between gap-3">
+                          <div>
+                            <p className="text-[10px] font-bold uppercase tracking-[0.24em] mb-1.5"
+                              style={{ color: "#d4ff70", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                              Basketball · 3rd–9th Grade · Katy, TX
+                            </p>
+                            <h3 className="font-display uppercase text-white leading-[0.88]"
+                              style={{ fontSize: "clamp(2.2rem, 7vw, 5.5rem)" }}>
+                              Rookie<br /><span style={{ color: "#8dbb1c" }}>Academy</span>
+                            </h3>
+                          </div>
+                          {/* Inline price badge — mobile only */}
+                          <div className="sm:hidden shrink-0 flex flex-col items-center rounded-xl px-3 py-2 text-center mb-1"
+                            style={{ background: "rgba(141,187,28,0.95)", color: "#0a0a0a", boxShadow: "0 0 20px rgba(141,187,28,0.5)" }}>
+                            <span className="text-[8px] font-black uppercase tracking-[0.2em]">Only</span>
+                            <span className="font-display text-2xl leading-none">$125</span>
+                            <span className="text-[8px] font-black uppercase tracking-[0.15em] mt-0.5">One-Time</span>
+                          </div>
+                        </div>
+                        <p className="mt-2 sm:mt-3 text-xs font-black uppercase tracking-[0.22em]"
+                          style={{ color: "#ffffff", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                          Train. Improve. Get Placed.
+                        </p>
+                        <p className="mt-3 text-sm leading-relaxed max-w-lg"
+                          style={{ color: "rgba(255,255,255,0.90)", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                          Designed to teach the fundamentals, build confidence, and help athletes earn placement into the right Academy.{" "}
+                          <strong style={{ color: "#fff" }}>Every kid accepted.</strong> Every athlete graduates with a personalized plan and a recommendation for the best Academy level for them.
+                        </p>
+
+                        {/* Schedule box */}
+                        <div className="mt-4 flex flex-wrap items-center gap-3 rounded-2xl px-4 py-3 sm:px-5 sm:py-4"
+                          style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(141,187,28,0.22)" }}>
+                          <div className="flex items-center gap-2 shrink-0">
+                            <Calendar className="h-4 w-4 shrink-0" style={{ color: "#8dbb1c" }} />
+                            <span className="text-xs font-bold uppercase tracking-wider text-white"
+                              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Every Sunday</span>
+                          </div>
+                          <div className="flex flex-wrap gap-4 sm:gap-6">
+                            <div>
+                              <p className="text-[9px] uppercase tracking-wider text-white/70 font-semibold"
+                                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>3rd – 6th Grade</p>
+                              <p className="text-xs sm:text-sm font-semibold text-white/90"
+                                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>1:00 PM – 2:30 PM</p>
+                            </div>
+                            <div>
+                              <p className="text-[9px] uppercase tracking-wider text-white/70 font-semibold"
+                                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>6th – 9th Grade</p>
+                              <p className="text-xs sm:text-sm font-semibold text-white/90"
+                                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>2:30 PM – 4:00 PM</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* What's Included compact — sm to lg only (hidden on xs phones) */}
+                        <div className="mt-4 hidden sm:grid grid-cols-2 gap-2 lg:hidden">
+                          {[
+                            { icon: Trophy,        label: "4 Coach-Led Sessions" },
+                            { icon: ClipboardList, label: "Skills Evaluation" },
+                            { icon: Activity,      label: "Progress Report" },
+                            { icon: Brain,         label: "Dev Plan" },
+                            { icon: Star,          label: "Certificate" },
+                            { icon: Sparkles,      label: "Axis T-Shirt" },
+                          ].map((itm, i) => (
+                            <div key={i} className="flex items-center gap-2">
+                              <div className="h-6 w-6 shrink-0 rounded-md grid place-items-center"
+                                style={{ background: "rgba(141,187,28,0.14)", border: "1px solid rgba(141,187,28,0.3)" }}>
+                                <itm.icon className="h-3 w-3" style={{ color: "#d4ff70" }} />
+                              </div>
+                              <span className="text-[11px] leading-tight text-white/85"
+                                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{itm.label}</span>
+                            </div>
+                          ))}
+                        </div>
+
+                        <div className="mt-5 sm:mt-6">
+                          <Link
+                            to="/rookie-academy"
+                            className="inline-flex items-center gap-2 rounded-xl px-5 sm:px-7 py-3 sm:py-3.5 text-xs font-black uppercase tracking-widest transition-all duration-300 group-hover:gap-3 w-full sm:w-auto justify-center sm:justify-start"
+                            style={{ background: "#8dbb1c", color: "#ffffff", boxShadow: "0 0 24px rgba(141,187,28,0.52)" }}
+                            onClick={e => e.stopPropagation()}
+                          >
+                            Enroll in Rookie Academy <ArrowRight className="h-3.5 w-3.5" />
+                          </Link>
+                        </div>
+                      </div>
+
+                      {/* Right: What's included — desktop only */}
+                      <div className="hidden lg:block">
+                        <p className="text-[10px] font-black uppercase tracking-[0.28em] mb-4"
+                          style={{ color: "rgba(141,187,28,0.85)", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                          What's Included
+                        </p>
+                        <div className="flex flex-col gap-3.5">
+                          {[
+                            { icon: Trophy,        label: "4 Coach-Led Training Sessions" },
+                            { icon: ClipboardList, label: "Professional Skills Evaluation" },
+                            { icon: Activity,      label: "Progress Report" },
+                            { icon: Brain,         label: "Personalized Development Plan" },
+                            { icon: Star,          label: "Graduation Certificate" },
+                            { icon: Sparkles,      label: "Axis T-Shirt" },
+                            { icon: Target,        label: "Academy Placement Recommendation" },
+                          ].map((itm, i) => (
+                            <div key={i} className="flex items-center gap-3">
+                              <div className="h-7 w-7 shrink-0 rounded-lg grid place-items-center"
+                                style={{ background: "rgba(141,187,28,0.14)", border: "1px solid rgba(141,187,28,0.3)" }}>
+                                <itm.icon className="h-3.5 w-3.5" style={{ color: "#d4ff70" }} />
+                              </div>
+                              <span className="text-sm leading-tight text-white"
+                                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{itm.label}</span>
+                            </div>
+                          ))}
+                        </div>
+                        <div className="mt-5 pt-4 flex flex-wrap gap-4"
+                          style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+                          {["Professional Coaching", "Positive Environment", "Real Results"].map((badge) => (
+                            <span key={badge} className="flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-[0.2em]"
+                              style={{ color: "rgba(141,187,28,0.8)", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                              <CheckCircle2 className="h-3 w-3" />
+                              {badge}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </TiltCard>
+            </Reveal>
           </div>
+
+          {/* CTA Buttons below Rookie Academy card */}
+          <Reveal delay={0.15}>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              <Link
+                to="/membership"
+                className="btn-pill btn-pill-primary"
+                style={{ fontSize: "0.9rem", paddingLeft: "1.6rem", paddingRight: "1.1rem" }}
+              >
+                Explore Membership
+                <span className="btn-pill-icon"><ArrowRight className="h-4 w-4" /></span>
+              </Link>
+              <Link
+                to="/training"
+                className="btn-pill btn-pill-ghost"
+                style={{ fontSize: "0.9rem" }}
+              >
+                Explore Single Classes <ChevronRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -1240,3 +1444,4 @@ const Home = () => {
 };
 
 export default Home;
+

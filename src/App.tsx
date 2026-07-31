@@ -48,6 +48,7 @@ const AthletePlan = lazy(() => import("./pages/AthletePlan"));
 const PrivateOneOnOneTraining = lazy(() => import("./pages/Private-one-on-one-Training"));
 const SemiPrivateTraining = lazy(() => import("./pages/Semi-Private-Training"));
 const AxisMinisBooking = lazy(() => import("./pages/AxisMinisBooking"));
+const RookieAcademy = lazy(() => import("./pages/RookieAcademy"));
 
 const queryClient = new QueryClient();
 
@@ -93,6 +94,7 @@ const AnimatedRoutes = () => {
         <Route path="/private-one-on-one-training" element={<PageTransition><PrivateOneOnOneTraining /></PageTransition>} />
         <Route path="/semi-private-training" element={<PageTransition><SemiPrivateTraining /></PageTransition>} />
         <Route path="/AxisMinisBooking" element={<PageTransition><AxisMinisBooking /></PageTransition>} />
+        <Route path="/rookie-academy" element={<RookieAcademy />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
@@ -102,7 +104,7 @@ const AnimatedRoutes = () => {
 
 const Layout = () => {
   const location = useLocation();
-  const hideChrome = location.pathname === "/tc" || location.pathname.startsWith("/join/") || location.pathname === "/alumni/aniya-foy" || location.pathname.startsWith("/athletes/plan/");
+  const hideChrome = location.pathname === "/tc" || location.pathname.startsWith("/join/") || location.pathname === "/alumni/aniya-foy" || location.pathname.startsWith("/athletes/plan/") || location.pathname === "/rookie-academy";
   return (
     <>
       <ScrollToTop />

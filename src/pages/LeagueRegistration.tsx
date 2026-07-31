@@ -250,7 +250,7 @@ const LeagueRegistration = () => {
               3 SESSIONS. <span className="text-gradient-red">ONE MISSION.</span>
             </h2>
             <p className="mb-14 max-w-lg text-sm" style={{ color: isDark ? "rgba(255,255,255,0.52)" : "rgba(0,0,0,0.52)" }}>
-              Each session is a full 8-week season — Combine Day, Draft Night, League Games, and a Championship Weekend.
+              Each session is a full 8-week season - Combine Day, Draft Night, League Games, and a Championship Weekend.
             </p>
           </Reveal>
 
