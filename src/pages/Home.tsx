@@ -407,40 +407,6 @@ const Home = () => {
       {/* ═══════════════════════════════════════════════════════
           STATS BAR   Red gradient with spotlight sweep
          ═══════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden" aria-label="Stats">
-        <div className="relative py-12 overflow-hidden"
-          style={{ background: "linear-gradient(135deg, #465d0e 0%, #8dbb1c 45%, #5a7712 100%)" }}>
-          {/* Spotlight sweep */}
-          <div className="pointer-events-none absolute -inset-y-4 left-0 w-1/2 opacity-15"
-            style={{ background: "linear-gradient(100deg, transparent 30%, rgba(255,255,255,0.7) 50%, transparent 70%)", animation: "spotlight-sweep 7s ease-in-out 1s infinite" }} />
-          <div className="bg-grid-sm absolute inset-0 opacity-20" />
-
-          <div className="container-x relative">
-            <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
-              {[
-                { n: 500, suf: "+",  label: "Athletes Trained",    icon: Trophy },
-                { n: 8,   suf: "+",  label: "Years of Excellence", icon: Calendar },
-                { n: 4,   suf: "",   label: "Core Programs",       icon: Target },
-                { n: 360, suf: "°",  label: "Athlete Development", icon: RotateCw },
-              ].map((s, i) => (
-                <motion.div key={i}
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                  className="flex flex-col items-center py-6 text-center gap-3">
-                  <div className="h-10 w-10 rounded-full grid place-items-center bg-white/10">
-                    <s.icon className="h-5 w-5 text-white/80" />
-                  </div>
-                  <CountUp to={s.n} suffix={s.suf} className="font-display text-4xl sm:text-5xl text-white leading-none" />
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/75"
-                    style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{s.label}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ═══════════════════════════════════════════════════════
           SERVICES   Asymmetric Bento Grid
@@ -851,7 +817,7 @@ const Home = () => {
                             { icon: Brain,         label: "Personalized Development Plan" },
                             { icon: Star,          label: "Graduation Certificate" },
                             { icon: Sparkles,      label: "Axis T-Shirt" },
-                            { icon: Target,        label: "Academy Placement Recommendation" },
+                            { icon: Target,        label: "Membership Placement Recommendation" },
                           ].map((itm, i) => (
                             <div key={i} className="flex items-center gap-3">
                               <div className="h-7 w-7 shrink-0 rounded-lg grid place-items-center"
