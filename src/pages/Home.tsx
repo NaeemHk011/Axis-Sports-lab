@@ -715,13 +715,6 @@ const Home = () => {
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     style={{ background: "linear-gradient(to top, rgba(141,187,28,0.55) 0%, rgba(141,187,28,0.10) 55%, transparent 80%)" }} />
 
-                  {/* Ghost watermark */}
-                  <span
-                    className="absolute bottom-0 right-0 font-display leading-none pointer-events-none select-none hidden sm:block"
-                    style={{ fontSize: "clamp(4rem, 14vw, 16rem)", color: "rgba(255,255,255,0.07)", lineHeight: 0.85 }}
-                  >
-                    ROOKIE
-                  </span>
 
                   {/* Price badge — sm+ only (mobile gets inline version in content) */}
                   <div className="absolute top-4 right-4 sm:top-5 sm:right-6 z-10 hidden sm:flex">
