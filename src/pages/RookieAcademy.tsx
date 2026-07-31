@@ -27,7 +27,7 @@ const RookieAcademy = () => {
         {/* Hero image */}
         <div className="relative h-56 lg:h-72 shrink-0 overflow-hidden">
           <img
-            src="public/pictures/RookieAcademy.png"
+            src="\pictures\RookieAcademy.png"
             alt="Rookie Academy"
             className="h-full w-full object-cover object-top"
           />
