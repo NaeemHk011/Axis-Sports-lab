@@ -119,7 +119,7 @@ const Rentals = () => {
                     You'll receive an instant email confirmation upon booking!
                   </p>
                   <p className="mt-1 text-xs" style={{ color: isDark ? "rgba(255,255,255,0.50)" : "rgba(0,0,0,0.50)" }}>Not Finding What You Need?</p>
-                  <a href="tel:+13465508150"
+                  <a href="tel:+13465178623"
                      className="mt-2 flex items-center gap-2 text-primary-glow text-sm font-semibold hover:underline">
                     <Phone className="h-4 w-4"/> (346) 517 8623
                   </a>

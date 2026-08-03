@@ -33,7 +33,7 @@ const ReserveTraining = () => (
 
             <p className="mt-6 flex items-center justify-center gap-2 text-sm text-white/60">
               <Phone className="h-4 w-4 text-primary-glow" /> Have questions? Call us at{" "}
-              <a className="font-semibold text-white" href="tel:+13465508150">(346) 517 8623</a>
+              <a className="font-semibold text-white" href="tel:+13465178623">(346) 517 8623</a>
             </p>
           </div>
         </Reveal>

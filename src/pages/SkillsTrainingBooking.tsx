@@ -59,7 +59,7 @@ const SkillsTrainingBooking = () => {
 
             <p className="mt-6 flex items-center justify-center gap-2 text-sm" style={{ color: isDark ? "rgba(255,255,255,0.60)" : "rgba(0,0,0,0.60)" }}>
               <Phone className="h-4 w-4 text-primary-glow" /> Have questions? Call us at{" "}
-              <a className="font-semibold" href="tel:+13465508150" style={{ color: isDark ? "#ffffff" : "#111111" }}>(346) 517 8623</a>
+              <a className="font-semibold" href="tel:+13465178623" style={{ color: isDark ? "#ffffff" : "#111111" }}>(346) 517 8623</a>
             </p>
           </div>
         </Reveal>
