@@ -674,7 +674,7 @@ const Home = () => {
 
                   {/* Gradient overlays */}
                   <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.18)" }} />
-                  {/* Top-down dark fade — hides image's own text on mobile */}
+                  {/* Top-down dark fade   hides image's own text on mobile */}
                   <div className="absolute inset-x-0 top-0 h-28 sm:h-20 pointer-events-none"
                     style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.40) 60%, transparent 100%)" }} />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent" />
@@ -682,7 +682,7 @@ const Home = () => {
                     style={{ background: "linear-gradient(to top, rgba(141,187,28,0.55) 0%, rgba(141,187,28,0.10) 55%, transparent 80%)" }} />
 
 
-                  {/* Price badge — sm+ only (mobile gets inline version in content) */}
+                  {/* Price badge   sm+ only (mobile gets inline version in content) */}
                   <div className="absolute top-4 right-4 sm:top-5 sm:right-6 z-10 hidden sm:flex">
                     <div className="flex flex-col items-center rounded-xl sm:rounded-2xl px-3 sm:px-5 py-2 sm:py-3 text-center"
                       style={{ background: "rgba(141,187,28,0.95)", color: "#0a0a0a", boxShadow: "0 0 32px rgba(141,187,28,0.6)" }}>
@@ -692,7 +692,7 @@ const Home = () => {
                     </div>
                   </div>
 
-                  {/* Tag pill — sm+ only (absolute). Mobile gets it inline in content */}
+                  {/* Tag pill   sm+ only (absolute). Mobile gets it inline in content */}
                   <div className="absolute top-5 left-5 z-10 hidden sm:block">
                     <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.22em]"
                       style={{ background: "rgba(141,187,28,0.88)", color: "#fff" }}>
@@ -707,7 +707,7 @@ const Home = () => {
 
                       {/* Left: title + info + CTA */}
                       <div>
-                        {/* Tag pill — mobile inline (sm+ is absolute at top of card) */}
+                        {/* Tag pill   mobile inline (sm+ is absolute at top of card) */}
                         <div className="sm:hidden mb-3">
                           <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.22em]"
                             style={{ background: "rgba(141,187,28,0.88)", color: "#fff" }}>
@@ -716,7 +716,7 @@ const Home = () => {
                           </span>
                         </div>
 
-                        {/* Title row — heading + inline price badge (mobile) */}
+                        {/* Title row   heading + inline price badge (mobile) */}
                         <div className="flex items-end justify-between gap-3">
                           <div>
                             <p className="text-[10px] font-bold uppercase tracking-[0.24em] mb-1.5"
@@ -728,7 +728,7 @@ const Home = () => {
                               Rookie<br /><span style={{ color: "#8dbb1c" }}>Academy</span>
                             </h3>
                           </div>
-                          {/* Inline price badge — mobile only */}
+                          {/* Inline price badge   mobile only */}
                           <div className="sm:hidden shrink-0 flex flex-col items-center rounded-xl px-3 py-2 text-center mb-1"
                             style={{ background: "rgba(141,187,28,0.95)", color: "#0a0a0a", boxShadow: "0 0 20px rgba(141,187,28,0.5)" }}>
                             <span className="text-[8px] font-black uppercase tracking-[0.2em]">Only</span>
@@ -770,7 +770,7 @@ const Home = () => {
                           </div>
                         </div>
 
-                        {/* What's Included compact — sm to lg only (hidden on xs phones) */}
+                        {/* What's Included compact   sm to lg only (hidden on xs phones) */}
                         <div className="mt-4 hidden sm:grid grid-cols-2 gap-2 lg:hidden">
                           {[
                             { icon: Trophy,        label: "4 Coach-Led Sessions" },
@@ -803,7 +803,7 @@ const Home = () => {
                         </div>
                       </div>
 
-                      {/* Right: What's included — desktop only */}
+                      {/* Right: What's included   desktop only */}
                       <div className="hidden lg:block">
                         <p className="text-[10px] font-black uppercase tracking-[0.28em] mb-4"
                           style={{ color: "rgba(141,187,28,0.85)", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>

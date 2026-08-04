@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
-import { CheckCircle, Trophy, Star, Zap, Shield, Target, Calendar, Clock, X, Mail, BookOpen } from "lucide-react";
+import { CheckCircle, Trophy, Star, Zap, Shield, Target, Calendar, Clock, X, BookOpen, Download, FileText } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import Particles from "@/components/Particles";
 import GhlFormEmbed from "@/components/GhlFormEmbed";
@@ -427,9 +427,9 @@ const LeagueRegistration = () => {
             </div>
 
             {/* Form */}
-            <div className="relative">
+            <div className="relative overflow-hidden" style={{ background: "#0a0a0a", height: 385 }}>
               {!ruleLoaded && (
-                <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3" style={{ background: isDark ? "#141414" : "#ffffff", minHeight: 320 }}>
+                <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3" style={{ background: "#0a0a0a", minHeight: 320 }}>
                   <motion.div animate={{ rotate: 360 }} transition={{ duration: 0.9, repeat: Infinity, ease: "linear" }} className="h-8 w-8 rounded-full" style={{ border: `3px solid ${hBorder}`, borderTopColor: "#8dbb1c" }} />
                   <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: hMuted }}>Loading…</p>
                 </div>
@@ -438,7 +438,7 @@ const LeagueRegistration = () => {
                 key={String(ruleOpen)}
                 src="https://link.webtechs.dev/widget/form/sJx015f1QLYskrvjS6q4"
                 onLoad={() => setRuleLoaded(true)}
-                style={{ display: "block", width: "100%", height: 360, border: "none", opacity: ruleLoaded ? 1 : 0, transition: "opacity 0.3s ease" }}
+                style={{ display: "block", width: "calc(100% + 16px)", marginLeft: -8, height: 430, marginTop: -10, border: "none", opacity: ruleLoaded ? 1 : 0, transition: "opacity 0.3s ease" }}
                 title="Athlete Rule Book Form"
               />
             </div>
@@ -446,27 +446,83 @@ const LeagueRegistration = () => {
         </div>
       )}
 
+      {/* ═══ ATHLETE RULE BOOK SECTION ═══ */}
+      <section className="section" style={{ background: isDark ? "#111111" : "#f0f0f0" }}>
+        <div className="container-x">
+          <Reveal>
+            <div
+              className="relative overflow-hidden rounded-3xl p-10 md:p-14"
+              style={{
+                background: isDark
+                  ? "linear-gradient(135deg, rgba(141,187,28,0.10) 0%, rgba(141,187,28,0.04) 100%)"
+                  : "linear-gradient(135deg, rgba(141,187,28,0.14) 0%, rgba(141,187,28,0.06) 100%)",
+                border: "1px solid rgba(141,187,28,0.25)",
+              }}
+            >
+              {/* Background glow */}
+              <div
+                className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full"
+                style={{ background: "radial-gradient(circle, rgba(141,187,28,0.18) 0%, transparent 70%)" }}
+              />
+
+              <div className="relative z-10 flex flex-col items-center gap-8 text-center md:flex-row md:items-center md:text-left md:gap-14">
+                {/* Icon block */}
+                <div
+                  className="flex h-24 w-24 shrink-0 items-center justify-center rounded-2xl"
+                  style={{
+                    background: "linear-gradient(135deg, #8dbb1c, #a8d422)",
+                    boxShadow: "0 8px 32px rgba(141,187,28,0.35)",
+                  }}
+                >
+                  <FileText className="h-12 w-12" style={{ color: "#0a0a0a" }} />
+                </div>
+
+                {/* Text */}
+                <div className="flex-1">
+                  <p className="eyebrow mb-2" style={{ color: "#8dbb1c" }}>   Official Document</p>
+                  <h2
+                    className="font-display text-3xl uppercase leading-tight md:text-4xl"
+                    style={{ color: isDark ? "#ffffff" : "#111111" }}
+                  >
+                    3V3 LEAGUE <span style={{ color: "#8dbb1c" }}>RULE BOOK</span>
+                  </h2>
+                  <p className="mt-3 max-w-lg text-sm leading-relaxed" style={{ color: hMuted }}>
+                    Before you hit the court, know the rules. Our official 3v3 Rule Book covers everything   game format, scoring, fouls, divisions, and championship rules. Every athlete and parent should read this before the season tips off.
+                  </p>
+                  <div className="mt-2 flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-widest" style={{ color: hMuted }}>
+                    <span>✓ Game Format</span>
+                    <span>✓ Scoring Rules</span>
+                    <span>✓ Division Guidelines</span>
+                    <span>✓ Championship Rules</span>
+                  </div>
+                </div>
+
+                {/* Download Button */}
+                <div className="shrink-0">
+                  <button
+                    onClick={openRule}
+                    className="flex items-center gap-3 rounded-2xl px-8 py-4 font-bold uppercase tracking-widest transition-all duration-200 hover:opacity-90 active:scale-[0.97]"
+                    style={{
+                      background: "linear-gradient(90deg, #8dbb1c, #a8d422)",
+                      color: "#0a0a0a",
+                      boxShadow: "0 4px 20px rgba(141,187,28,0.40)",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    <Download className="h-5 w-5" />
+                    Click Here To Download 3v3 Rules
+                  </button>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ═══ FORM SECTION ═══ */}
       <section id="register-form" className="section" style={{ background: pageBg }}>
         <div className="container-x max-w-3xl">
           <Reveal>
-            <button
-              onClick={openRule}
-              className="mb-8 mx-auto flex items-center gap-2.5 rounded-full border px-5 py-2.5 text-xs font-bold uppercase tracking-widest transition-all duration-200 hover:opacity-80 active:scale-[0.97]"
-              style={{
-                borderColor: hBorder,
-                background: hSurface,
-                color: hText,
-              }}
-            >
-              <span
-                className="flex h-6 w-6 items-center justify-center rounded-full"
-                style={{ background: "linear-gradient(90deg, #8dbb1c, #a8d422)" }}
-              >
-                <Mail className="h-3 w-3" style={{ color: "#0a0a0a" }} />
-              </span>
-              Get Athlete Rule Book
-            </button>
             <p className="eyebrow mb-3">   Step 01</p>
             <h2 className="h-section mb-3" style={{ color: hText }}>
               REGISTER YOUR <span className="text-gradient-red">PLAYER</span>
